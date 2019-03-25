@@ -1,0 +1,462 @@
+// Retrieved Results Area: SPA general styles
+.retrieved-results {
+  padding-bottom: $padding-component-base-vertical;
+
+  @include breakpoint($screen-sm) {
+    padding-bottom: $padding-component-large-vertical;
+  }
+}
+
+.retrieved-results-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding-top: $padding-component-base-inner;
+  padding-bottom: $padding-component-base-inner;
+
+  .header-search & {
+    @include breakpoint-max($screen-sm) {
+      padding-bottom: 0;
+      margin-bottom: ($grid-gutter-width / 2);
+      border-bottom: 1px solid $border-color-base;
+    }
+  }
+
+  .retrieved-results-label {
+    padding-right: $grid-gutter-width;
+    margin-right: auto;
+
+    @include breakpoint($screen-xs) {
+      margin-bottom: 0;
+    }
+  }
+
+  .sort-results {
+    display: flex;
+    font-size: $font-size-base;
+    // color: $cool-grey-dark;
+
+    > ul {
+      margin-left: 0;
+      margin-bottom: 0;
+
+      > li {
+        margin-bottom: 0;
+      }
+    }
+
+    // active list-item
+    .is-active {
+      cursor: default;
+    }
+  }
+}
+
+//
+// ----------------------------------------------------------------------
+// New Software Center Results: move to new folder when ready
+// ----------------------------------------------------------------------
+//
+$component-query: $screen-md;
+
+// list of results
+.retrieved-items {
+  // @include list-unstyled;
+  @include nobullets;
+}
+
+// individual item
+.retrieved-item {
+  @include flex-row;
+  padding-top: $padding-component-small-vertical;
+  padding-bottom: $padding-component-small-vertical;
+  margin-bottom: 0;
+  border-top: 1px solid $border-color-base;
+
+  .item {
+    // Image/media displayed to the left (or right I guess)
+    // ----------------------------------------
+    &-media {
+      position: relative;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 100%;
+      max-width: 100%;
+      min-height: 1px;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+      margin-bottom: ($grid-gutter-width / 2);
+
+      // stack image above body on mobile
+      // to undo this: move these styles up above and replace/remove where necessary
+      @include breakpoint($screen-xs) {
+        flex-basis: 0;
+        max-width: 25%;
+        margin-bottom: 0;
+      }
+
+      img {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      // may want to set mobile styles for this component in future
+      // if so, add base style for mobile and put screen-sm in standard media query
+      // instead of using max-width query
+      @include breakpoint-max($screen-sm) {
+        // display: none; // hide images on mobile screens
+      }
+
+      @include breakpoint($screen-xl) {
+        // max-width: percentage(2/12);
+        // cap line length at 800px, image fills available space. set to 250 and padding
+        max-width: (250px + $grid-gutter-width);
+      }
+    }
+
+    // Main content
+    // ----------------------------------------
+    // set flex-grow 1, start at 50% and max with 800px?
+    &-body {
+      // @include flex-col-ready;
+      position: relative;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 0;
+      width: 50%;
+      max-width: (800px + $grid-gutter-width); // set max line lenght in var
+      min-height: 1px;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+
+      @include breakpoint($screen-xl) {
+        // fix overflow issue in IE11 with flex-basis and width declarations
+        flex-basis: auto;
+        // needs width set to remove all available space to allow margin auto to work properly
+        width: 100%;
+        width: calc(100% - 280px); // 280px matches -media width
+      }
+    }
+    &-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      color: $text-color;
+    }
+    &-price {
+      margin-top: 0.5em;
+
+      > :last-child {
+        // zero out margins, add top margin to push down if present
+        margin-bottom: 0;
+      }
+    }
+    &-vendor {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: $font-size-base;
+      font-weight: $font-weight-heavy;
+      color: $cool-grey-dark;
+    }
+    &-description {
+      margin-top: 0.5em;
+      // font-size: $font-size-base;
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+    &-metadata {
+      @include nobullets;
+      @include list-inline;
+      margin-top: 0.5em;
+      margin-bottom: 0;
+      font-size: $font-size-base;
+      color: $cool-grey-dark;
+
+      // reduce vertical space between two rows of metadata
+      & + .item-metadata {
+        margin-top: 0;
+      }
+
+      > li {
+        max-width: 100%;
+        margin-bottom: 0;
+      }
+
+      .meta-key {
+        font-weight: $font-weight-heavy;
+      }
+      .meta-value {
+        // styles for key-value pairs
+      }
+
+      .meta-date {
+        //
+      }
+      .meta-file {
+        text-transform: uppercase;
+
+        abbr {
+          // remove dotted underline from abbr element
+          text-decoration: none;
+        }
+      }
+      .meta-size {
+        text-transform: uppercase;
+      }
+    }
+
+    &-resources {
+      margin-top: 0.5em;
+
+      .resource {
+        &-label {
+          // label styles go here
+          font-size: $font-size-base;
+        }
+
+        &-list {
+          margin-bottom: 0;
+
+          > li {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      @include breakpoint($screen-sm) {
+        .resource {
+          &-label {
+            margin-right: 5px;
+          }
+
+          &-list {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    // Button container
+    // ----------------------------------------
+    &-options {
+      @include flex-col-ready;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      @include breakpoint($component-query) {
+        @include flex-col(3);
+        @include flex-col-offset('auto');
+      }
+
+      @include breakpoint($screen-xl) {
+        @include flex-col(2);
+      }
+
+      // set these inline for mobile, stack for tablet up?
+      .btn {
+        display: block;
+        width: calc(50% - 15px);
+        margin-top: 20px;
+
+        @include breakpoint($component-query) {
+          width: 100%;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .download-link {
+        &:after {
+          display: none;
+        }
+      }
+    }
+    // Additional section, hidden and reveal
+    // ----------------------------------------
+    &-secondary {
+      @include flex-col-ready;
+
+      @include breakpoint($component-query) {
+        @include flex-col(12);
+      }
+    }
+
+    &-sublist {
+      @include nobullets;
+      margin-top: 35px;
+      margin-bottom: 0;
+    }
+
+    &-subheader {
+      margin-bottom: 0;
+      font-weight: $font-weight-heavy;
+    }
+
+    &-subitem {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-right: ($grid-gutter-width / -2);
+      margin-bottom: 0;
+      margin-left: ($grid-gutter-width / -2);
+
+      // + .item-subitem {
+      //
+      // }
+
+      &:nth-of-type(odd) {
+        background: $cool-grey-xxxlight;
+      }
+
+      .result-body {
+        // color: $cool-grey-light;
+      }
+    }
+
+    &-subtitle {
+      font-weight: $font-weight-base;
+      color: $cool-grey-dark;
+    }
+
+    // Well area, name result-message additional?
+    // ----------------------------------------
+    &-details {
+      @include flex-col-ready;
+      margin-top: 20px;
+
+      @include breakpoint($component-query) {
+        @include flex-col(12);
+        // margin-top: 10px;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Special styles for using Results items within Flex Card 1
+  .card1-item & {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: none;
+
+    .item-media {
+      flex-grow: 0;
+      flex-basis: auto;
+    }
+
+    .training-type {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+// link below download button
+.download-details {
+  @extend .btn;
+  @extend .btn-icon-link;
+  // @include button-link;
+  // @include button-link-1($after-icon: $icon-angle-down);
+
+  &:after {
+    display: inline-block;
+    transition-property: transform;
+  }
+
+  &:hover {
+    &:after {
+      left: 0; // remove animation (make mixin?)
+    }
+  }
+
+  &.is-active {
+    &:after {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.btn-download.is-multiple {
+  &:after {
+    content: $icon-angle-down;
+    display: inline-block; //needed for rotate()
+    margin-left: 5px;
+    font-family: $font-family-icons;
+    transition: transform $animation-duration-fast $cubic-bezier-base;
+  }
+
+  &:hover {
+    &:after {
+      left: 0;
+    }
+  }
+
+  &.is-active {
+    &:after {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+// variation exploration
+.is-link-block {
+  .result-image {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .icon-download2 {
+    font-size: 24px;
+    color: #adadad;
+  }
+}
+
+.date-display {
+  display: inline-block;
+  min-width: 60px;
+  font-weight: $font-weight-heavy;
+  text-align: center;
+
+  .month {
+    display: block;
+    padding: 0.5em 0.5em 0.25em;
+    font-size: $font-size-base;
+    color: $white;
+    text-transform: uppercase;
+    background-color: $cool-grey-dark;
+    border-radius: $border-radius-large $border-radius-large 0 0;
+  }
+  .day {
+    display: block;
+    padding: 0.25em 0.5em 0.5em;
+    font-size: $font-size-base-plus;
+    color: $cool-grey-dark;
+    background-color: $nxp-gray-xlight;
+    border-radius: 0 0 $border-radius-large $border-radius-large;
+  }
+
+  // large calendar display modifier
+  &-lg {
+    min-width: 100px;
+
+    .month {
+      padding: 0.5em 1em;
+      font-size: $font-size-large;
+    }
+
+    .day {
+      padding: 0.5em 1em;
+      font-size: $font-size-h1;
+      font-weight: $font-weight-light;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+// =========================
+// Component Name: Recommended Products Table
+// Component Type: Table (Dynamic)
+// =========================
+
+.target-applications-list {
+  @include columns(
+    $count: 2,
+    $gap: (
+      $grid-gutter-width / 2
+    ),
+    $width: 210px,
+    $child: 'li'
+  );
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

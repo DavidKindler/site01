@@ -1,0 +1,398 @@
+//  ---------------------------------------------------------------------------
+//  ::  Nav Wizard
+//  ::  Get Started Container
+//  ::  Jump To/Get Started Nav
+//  ---------------------------------------------------------------------------
+
+//  Get started block on TSP pages
+//  --------------------------------------------------
+.get-started-block.media-flex {
+  // padding-top: ($grid-gutter-width / 2);
+  padding-top: 0;
+}
+
+//  Jump To/Get Started Nav
+//  --------------------------------------------------
+.gs-guides {
+  //padding-top:$padding-component-base-vertical;
+  .tab-content {
+    .tab-pane {
+      padding-top: $padding-component-base-vertical;
+      border-left: 0 !important;
+      padding-left: 0 !important;
+
+      & > div.content-outer h2 {
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      @include breakpoint($screen-md) {
+        border-left: 1px solid rgba(0, 0, 0, 0.15) !important;
+        padding-left: 30px !important;
+      }
+    }
+    padding-top: 0;
+  }
+}
+
+.gs-buy {
+  font-size: $font-size-base;
+
+  img {
+    max-width: 80px;
+  }
+
+  .gs-board {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    a {
+      padding: 5px;
+      color: #000;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.gs-jumpto {
+  ul {
+    li,
+    li.active {
+      padding: 5px 0;
+      margin-bottom: 0;
+      a {
+        padding: 3px 0;
+        padding-left: 0 !important;
+        display: inline;
+      }
+    }
+  }
+  h4 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .nav {
+    li,
+    li.active {
+      a {
+        padding: 3px 0;
+        color: #4a4a4d;
+      }
+      a:hover {
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+
+    li.active {
+      &:before {
+      }
+    }
+
+    li:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.gs-quickref {
+  h4 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  ul {
+    li {
+      padding: 1px;
+      font-size: $font-size-base;
+    }
+  }
+  a {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 210px;
+    white-space: nowrap;
+  }
+}
+
+.gs-banner {
+  background-image: url(/assets/images/en/icons/GS-background-icons.svg) !important;
+  background-color: #00a4a7 !important;
+  background-size: 370px !important;
+  background-position-x: 75% !important;
+
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  min-height: 13vh !important;
+}
+
+#gettingstartednav {
+  .affix {
+    position: relative;
+    margin-top: 0;
+    top: 0;
+    padding: 10px 0;
+    background-color: $white;
+    z-index: 0;
+    @include breakpoint(screen-medium) {
+      position: fixed;
+      width: 212px;
+      z-index: 2;
+      top: 0;
+    }
+    @include breakpoint(screen-large) {
+      width: 262px;
+      position: fixed;
+    }
+  }
+  .affix-bottom {
+    position: absolute;
+    @include breakpoint(screen-medium) {
+      position: fixed;
+      width: 212px;
+      z-index: 2;
+    }
+    @include breakpoint(screen-large) {
+      width: 262px;
+    }
+  }
+}
+
+.gettingstartednav {
+  > ul {
+    @extend .contextnav;
+    &.nav {
+      > ul {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  @include breakpoint(screen-medium) {
+    margin-top: 0px;
+
+    h2 {
+      margin-left: 10px;
+    }
+  }
+}
+
+.get-started-container.gs-guides {
+  #getting-started-nav {
+    padding-top: $padding-component-base-vertical;
+    .getstartednav {
+      > ul {
+        @extend .contextnav;
+      }
+      @include breakpoint(screen-medium) {
+        margin-top: -60px;
+
+        h2 {
+          margin-left: 10px;
+        }
+      }
+    }
+    #gettingstartednav {
+      .gettingstartednav {
+        ul.tab-nav {
+          li {
+            ul {
+              display: none;
+            }
+            &.active {
+              ul {
+                display: block;
+                font-weight: normal;
+                li {
+                  a {
+                    padding: 5px 15px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .tab-content {
+    div.tab-pane {
+      .row {
+        min-height: 0;
+      }
+      border-left: 1px solid rgba(0, 0, 0, 0.15);
+      padding-left: 30px;
+      img.logomin {
+        width: 100px;
+        display: block;
+        padding-bottom: 15px;
+      }
+      div.devPath.row {
+        margin: 0;
+        padding-bottom: $padding-component-base-vertical;
+        display: flex;
+        width: 100%;
+        > div {
+          &.col-* {
+            flex: 1;
+          }
+        }
+        a {
+          color: #4a4a4d;
+          text-decoration: none;
+          &.collapsed {
+            div.devCard {
+              height: 100%;
+              div.devContent {
+                border: 1px solid #b5b2b1;
+                padding: 25px;
+                height: inherit;
+              }
+              div.devCTA {
+                text-align: center;
+                color: #fff;
+                background-color: #b5b2b1;
+                padding: 10px 0 10px 0;
+              }
+            }
+          }
+          div.devCard {
+            height: 100%;
+            div.devContent {
+              border: 1px solid #333333;
+              padding: 25px;
+              height: inherit;
+            }
+            div.devCTA {
+              text-align: center;
+              color: #fff;
+              background-color: #333333;
+              padding: 10px 0 10px 0;
+            }
+          }
+        }
+      }
+      div.choiceContent {
+        margin: 20px 0 20px 0;
+      }
+      div.buttonsChoice {
+        margin: 20px 0 20px 0;
+        div.buttonsSection {
+          button {
+            &.collapsed {
+              background-color: #b5b2b1;
+            }
+          }
+        }
+      }
+      div.GSPagination {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding-top: 5px;
+        border-top: 1px solid #e4e6e8;
+        div {
+          a.tab-prev,
+          a.tab-next {
+            position: absolute;
+            top: 20px;
+            cursor: pointer;
+            display: inline;
+            .center-arrows {
+              -webkit-transition: all 0.25s ease;
+              -moz-transition: all 0.25s ease;
+              -ms-transition: all 0.25s ease;
+              -o-transition: all 0.25s ease;
+              transition: all 0.25s ease;
+              display: block;
+              width: 24px;
+              height: 24px;
+              line-height: 24px;
+              padding-left: 11px;
+              font-size: 1.5em;
+              color: #fff;
+              position: relative;
+              background-color: #949499;
+              border-radius: 30px;
+              box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+            }
+          }
+          a.tab-prev {
+            opacity: 0.7;
+            left: 1em;
+            z-index: 5;
+            &:before {
+              position: absolute;
+              top: 0;
+              left: 8px;
+              font-family: icomoon;
+              content: '\f108';
+              z-index: 4;
+              color: #fff;
+              font-size: 1em;
+              display: block;
+            }
+          }
+          a.tab-next {
+            right: 1em;
+            &:before {
+              position: absolute;
+              top: 0;
+              right: 9px;
+              font-family: icomoon;
+              content: '\f109';
+              z-index: 4;
+              color: #fff;
+              font-size: 1em;
+              display: block;
+            }
+          }
+          div.content-prev,
+          div.content-next {
+            padding-top: 17px;
+            span.title {
+              display: block;
+              font-size: 10px;
+            }
+            span.content {
+              display: block;
+              font-size: 11px;
+              font-weight: bold;
+            }
+          }
+          div.content-prev {
+            opacity: 0.7;
+            padding-left: 45px;
+          }
+          div.content-next {
+            text-align: right;
+            padding-right: 45px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*.gettingstartednav.affix,
+.jumptonav.affix {
+  position: relative;
+  margin-top: 0;
+  top: 0;
+  padding: 10px 0;
+  background-color: $white;
+  z-index: 0;
+  @include breakpoint(screen-medium) {
+    position: fixed;
+    width: 212px;
+    z-index: 2;
+  }
+  @include breakpoint(screen-large) {
+    width: 262px;
+  }
+}*/

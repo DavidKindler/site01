@@ -1,0 +1,54 @@
+/* Start Info Unit Leftnav */
+.iu.iu-left {
+  width: 100%;
+  margin: 0.5em 0;
+  border: none;
+
+  > .iu-left-title {
+    font-weight: 400;
+    color: $cool-grey-dark;
+    cursor: pointer;
+
+    @include breakpoint(screen-small) {
+      cursor: default;
+    }
+
+    > span[class*="icon"] {
+      margin-right: 10px;
+    }
+
+    > a {
+      position: relative;
+      color: inherit;
+      text-decoration: none;
+
+      &.icon-arrow-down2 {
+        top: 4px;
+      }
+
+      @include breakpoint(screen-small) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-md - 1px) {
+    background: none;
+    padding: 0;
+  }
+}
+
+.iu-left-content {
+  padding: 10px;
+  background: #ededf0;
+
+  @include breakpoint(screen-medium) {
+    padding: 0;
+    background: transparent;
+  }
+}
+
+//  Info Unit Leftnav Collapse Mobile styles extended through tablet sizes
+//  Code found in _collapse_mobile.scss
+
+/* End Info Unit Leftnav */

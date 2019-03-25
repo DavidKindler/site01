@@ -1,0 +1,18 @@
+// =========================
+// Component Name: Supported Devices
+// Component Type: List (Dynamic)
+// =========================
+
+#supported-devices + div > ul.treeview{
+//	display: flex;
+//	flex-flow: row wrap;
+	>li{
+		width: 100%;
+//		@include breakpoint(screen-small) {
+//			width: calc(100% / 2);
+//		}
+//		@include breakpoint(screen-large) {
+//			width: calc(100% / 2);
+//		}
+	}
+}

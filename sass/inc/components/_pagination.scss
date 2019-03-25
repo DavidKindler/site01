@@ -1,0 +1,28 @@
+.pagination {
+  @include nobullets();
+  > li > a {
+    @include transition(all 0.25s ease);
+  }
+  > li > a,
+  > li > a:hover {
+    color: $link-color;
+    border-color: $cool-grey-xxlight;
+  }
+  > li.active > a,
+  > li.active > a:hover {
+    background-color: $link-color;
+    border-color: $link-color;
+  }
+  > li > a:focus,
+  > li > span:focus {
+    //z-index: 2;
+    color: $cool-grey-xxdark;
+    background-color: $cool-grey-xxlight;
+    border-color: $cool-grey-xlight;
+  }
+  > li > a[aria-label='Previous'],
+  > li > a[aria-label='Next'] {
+    // line-height: 0;
+    // padding: 9px 12px;
+  }
+}

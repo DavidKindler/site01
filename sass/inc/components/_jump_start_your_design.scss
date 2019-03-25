@@ -1,0 +1,82 @@
+// =========================
+// Component Name: Jump Start Your Design
+// Component Type: Dynamic "bundle"
+// =========================
+.collapse-mobile h2 .jump-start-icon,
+h2 .jump-start-icon {
+  font-size: 0.5em;
+  padding: 0.5em;
+  background-color: $nxp-green;
+  color: #fff;
+  vertical-align: top;
+}
+
+.jumpStartYourDesign {
+  .fileBundle {
+    background-color: $cool-grey-xxxlight;
+    padding: 1em;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 20px;
+    border: 1px solid $warm-grey-xxlight;
+  }
+  .jump-start-icon {
+    font-size: 0.5em;
+    padding: 0.5em;
+    margin-right: 0.75em;
+    background-color: $nxp-green;
+    color: #fff;
+    vertical-align: top;
+  }
+  .jumpStartYourDesign-item {
+    @include nobullets();
+    padding: $typespace 0 $typespace 2em;
+    margin: 0;
+    position: relative;
+    //border-top: 1px solid $warm-grey-xxlight;
+    &.first {
+      //border-top: 3px solid $cool-grey;
+    }
+    .jumpStartYourDesign-title {
+      font-weight: bold;
+      position: relative;
+      [class*='icon-'] {
+        position: absolute;
+        top: 0.15em;
+        left: -2em;
+        color: $cool-grey;
+      }
+      [class*='icon-newtab'] {
+        // fix overlap of icons for open source software links
+        position: relative;
+        left: 0px;
+        color: inherit;
+        top: 0px;
+      }
+      sup {
+        font-weight: normal;
+      }
+    }
+    li:not(.jumpStartYourDesign-title) {
+      font-size: $font-size-small;
+    }
+    li {
+      //margin-left: 2em;
+      //width: 100%;
+      margin-bottom: 0px;
+    }
+    .jumpStartYourDesign-description {
+      //margin-bottom: $typespace;
+      margin-bottom: 0px;
+    }
+    .jumpStartYourDesign-meta {
+      //margin-bottom: $typespace;
+      margin-bottom: 0px;
+      position: relative;
+      color: $cool-grey;
+      span {
+        margin-right: 1em;
+      }
+    }
+  }
+}

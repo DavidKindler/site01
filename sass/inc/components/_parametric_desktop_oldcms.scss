@@ -1,0 +1,34 @@
+// =========================
+// Component Name: Parametric - Desktop
+// These are overrides to fix changes that happened in the new CMS
+// =========================
+$filter-products-close-icon-color: $cool-grey;
+$filter-panel-bg-color: $cool-grey-xxxlight;
+$filter-panel-bg-selected-color: $cool-grey-xlight;
+$filter-panel-arrow-color: $cool-grey-light;
+$header-sort-arrow-color: $cool-grey-xlight;
+$header-sort-arrow-active: $cool-grey;
+//[ng-app='paraSearchApplication'] {
+//  // the table heading
+//  .tableData th {
+////    background-color: $filter-panel-bg-color;
+//  }
+//  // the parts counter
+//  .parts {
+//    text-align: center;
+//  }
+//  // small text used incertain areas of the heading
+//  .vSCheck .name {
+//    line-height: 12px;
+//    padding: 4px;
+//  }
+//  // the small checkboxes in the heading
+//  .vSCheck span.chk {
+//    padding-top: 5px;
+//  }
+//  // the th when selected
+//  th.colSelected1 {
+////    background-color: $filter-panel-bg-selected-color !important;
+//  }
+//}
+//

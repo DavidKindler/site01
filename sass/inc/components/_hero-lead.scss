@@ -1,0 +1,94 @@
+//  ---------------------------------------------------------------------------
+//  Hero Lead Component
+//  :: Container
+//    ::  Level 1 option
+//    ::  Centered Optin
+//  ::  Text Area
+//  ::  Images
+//  ---------------------------------------------------------------------------
+
+.hero-lead {
+  padding: $padding-component-vertical 0;
+
+  // &.level1 {
+  //   position: relative;
+  //   padding: 2em;
+  //   margin-top: -3em;
+  //   background: $white;
+  // }
+
+  &.centered {
+    text-align: center;
+  }
+
+  // Title Area
+  &-title {
+    margin-top: 0;
+    text-align: inherit;
+  }
+
+  // Content Area
+  &-area {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    text-align: inherit;
+  }
+
+  // images
+  &-image {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 1em;
+
+    @include breakpoint($screen-md) {
+      flex-basis: 25%;
+      padding-right: 2em;
+      padding: 0 2em 0 0;
+    }
+
+    svg,
+    img {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 75%;
+      width: 75%;
+      max-width: 100%;
+      height: auto;
+
+      @include breakpoint-min-max($screen-xs, $screen-md) {
+        flex-basis: 50%;
+        width: 50%;
+      }
+    }
+  }
+
+  // text
+  &-text {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+
+    // old markup has p.h2, convert to h2 when possible (css covers both instances)
+    h2,
+    .h2 {
+      margin-top: 0;
+    }
+
+    p:not(.h2) {
+      @include lead;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($screen-md) {
+      flex-basis: calc(75% - 2em);
+    }
+  }
+}

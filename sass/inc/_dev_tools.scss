@@ -1,0 +1,9 @@
+$path-dev-images: '../img';
+
+body {
+    background: white url(#{$path-dev-images}/dev/bp-none.png) fixed top left !important;
+    @include breakpoint(screen-smallest) { background:  url(#{$path-dev-images}/dev/bp-smallest.png) fixed top left !important; }
+    @include breakpoint(screen-small) { background:  url(#{$path-dev-images}/dev/bp-small.png) fixed top left !important; }
+    @include breakpoint(screen-medium) { background:  url(#{$path-dev-images}/dev/bp-medium.png) fixed top left !important; }
+    @include breakpoint(screen-large) { background:  url(#{$path-dev-images}/dev/bp-large.png) fixed top left !important; }
+}

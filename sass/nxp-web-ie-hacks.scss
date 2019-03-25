@@ -1,0 +1,13 @@
+.btn.disabled, .btn:disabled, .btn[disabled], 
+.btn.disabled:hover, .btn:disabled:hover, .btn[disabled]:hover, 
+.btn.disabled:focus, .btn:disabled:focus, .btn[disabled]:focus {
+    background-color: #646464;
+    border-color: rgba(0,0,0,0);
+}
+
+.btn-white.disabled, .btn-white:disabled, .btn-white[disabled], 
+.btn-white.disabled:hover, .btn-white:disabled:hover, .btn-white[disabled]:hover, 
+.btn-white.disabled:focus, .btn-white:disabled:focus, .btn-white[disabled]:focus {
+	background-color: white; 
+	border-color: rgb(151,151,153);
+}

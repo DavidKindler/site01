@@ -1,0 +1,36 @@
+.video-embed {
+  &-container {
+    @extend .video-container;
+
+    .embed-responsive {
+      margin-bottom: 10px;
+
+      img { width: 100%; }
+    }
+  }
+
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25em;
+
+    .video-embed-title {
+      position: relative;
+      line-height: 1.25;
+
+      &:after {
+        content: "\e3b1";
+        position: relative;
+        display: inline-block;
+        margin-left: 5px;
+        font-family: "icomoon";
+        font-size: .625em;
+        font-style: normal;
+        font-variant: normal;
+        text-decoration: none;
+      }
+    }
+
+    .video-embed-runtime { padding-left: 1em; }
+  }
+}

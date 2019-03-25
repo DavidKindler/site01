@@ -1,0 +1,183 @@
+//  ---------------------------------------------------------------------------
+//  ASP Block Diagram - move to own include file after initial dev
+//  ::  Container
+//  ::  Title
+//  ::  Image
+//  ::  Link Hotspots
+//  ::  Popovers
+//  ---------------------------------------------------------------------------
+
+.asp-diagram {
+  &-title {
+    //
+  }
+
+  &-text {
+    //
+  }
+
+  &-image {
+    position: relative;
+  }
+
+  &-hotspots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    > a {
+      position: absolute;
+      display: none;
+      box-shadow: 0 0 5px $deep-blue;
+      transition: all 150ms ease;
+
+      @include breakpoint($screen-md) {
+        display: block;
+      }
+
+      &:hover {
+        background: rgba($white, 0.25);
+        box-shadow: 0 0 8px $deep-blue;
+      }
+    }
+  }
+
+  // Bootstrap Popover Styles
+  .popover {
+    width: 100%;
+    max-width: 315px; // set by Bootstrap, can override here if needed
+
+    // Title Area
+    &-title {
+      //
+    }
+
+    &-close {
+      float: right;
+      margin-left: 0.5em;
+
+      .icon-close {
+        //
+      }
+    }
+
+    //  Content Area
+    &-content {
+      max-height: 24em;
+      overflow-y: auto;
+    }
+
+    &-product-list {
+      // styles here
+    }
+  }
+}
+
+// New Interactive Block Diagram
+.block-diagram {
+  // containers
+  // ---------------------------------------------------------------------------
+  &-outer {
+    padding-top: $padding-component-base-vertical;
+    padding-bottom: $padding-component-base-vertical;
+  }
+
+  &-inner {
+    // inner styles go here
+  }
+
+  // top section: image area
+  // ---------------------------------------------------------------------------
+  &-image {
+    display: flex;
+    padding: ($grid-gutter-width / 2);
+    border: 1px solid $border-color-base;
+
+    @include breakpoint($screen-sm) {
+      padding: $grid-gutter-width ($grid-gutter-width * 2.5);
+      // padding-right: ($grid-gutter-width * 2.5);
+      // padding-left: ($grid-gutter-width * 2.5);
+    }
+  }
+
+  &-image-wrapper {
+    position: relative;
+    margin: auto; // center vertically and horizontally
+  }
+
+  &-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 0 5px $deep-blue;
+    transition: all $animation-duration-fastest $cubic-bezier-base;
+
+    &:hover {
+      background-color: rgba($white, 0.25);
+      box-shadow: 0 0 8px $deep-blue;
+    }
+
+    &.active {
+      background-color: rgba($white, 0.25);
+      box-shadow: 0 0 3px 3px $pale-blue;
+    }
+  }
+
+  // bottom section: slider content
+  // ---------------------------------------------------------------------------
+  &-content {
+    padding: $grid-gutter-width ($grid-gutter-width / 2)
+      ($grid-gutter-width / 2);
+    border: 1px solid $border-color-base;
+    border-top: none;
+  }
+
+  &-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-heading {
+    width: 100%;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+
+    > h3 {
+      position: relative;
+      margin-top: 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: -8px;
+        display: block;
+        width: 3px;
+        height: $font-size-large;
+        background-color: $nxp-blue;
+      }
+    }
+  }
+
+  &-text {
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+
+    @include breakpoint($screen-sm) {
+      width: (200% / 3);
+      flex-grow: 1;
+    }
+  }
+
+  &-resources {
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+
+    @include breakpoint($screen-sm) {
+      width: (100% / 3);
+      flex-shrink: 0;
+    }
+  }
+}

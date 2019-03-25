@@ -1,0 +1,231 @@
+//	----------------------------------------------------------------------------
+//	TABLE OF CONTENTS
+//	::	Canvas Clock
+//	::	Circle Products Container
+//	::	Circle Products
+//	::	Features
+//	::	Toggle - Arrow - Button
+//	::	Typography
+//	----------------------------------------------------------------------------
+//  Canvas Clock
+#canvas {
+  display: none;
+  cursor: pointer;
+  @include breakpoint(screen-small) {
+    display: inline-block;
+  }
+}
+
+//  Circle Products Container
+//  ---------------------------------------------------------------------------
+.product-circle {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.product-circle h3 {
+  // stop the h3 uppercase from happening
+  text-transform: none;
+}
+
+.product-container {
+  border-bottom: 3px solid #e6e6e6;
+  @include breakpoint(screen-small) {
+    border: none;
+  }
+}
+
+//  Circle Products
+//  ---------------------------------------------------------------------------
+.circle-products {
+  padding: 0 0 0.5em 2em;
+  font-size: 14px;
+  //  pointer-events: auto;
+  @include breakpoint(screen-large) {
+    pointer-events: auto !important;
+  }
+  @include breakpoint(screen-small) {
+    width: 177px;
+    padding: 0 0 0.5em;
+    pointer-events: none;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  &.text-right {
+    text-align: left;
+    @include breakpoint(screen-small) {
+      text-align: right;
+    }
+  }
+  &:not(.mousemove) {
+    position: relative;
+  }
+}
+
+//  FEATURES
+//  ---------------------------------------------------------------------------
+[id^='features-'] {
+  position: relative;
+  // Auto height needed because if item opened on screen below
+  // tablet size, it would preset height: 21px;
+  // This caused text overflow and mis-alignment of the item
+  padding: 1em 0 0.5em 2em;
+  @include breakpoint(screen-small) {
+    position: absolute;
+    top: 50%;
+    // use px size since circle is preset size
+    left: 377px;
+    width: 177px;
+    height: auto !important;
+    padding: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  //	Title above list on Tablet up
+  .features-title {
+    display: none;
+    @include breakpoint(screen-small) {
+      display: initial;
+    }
+  }
+  //	View button in Mobile
+  .btn-view-product {
+    margin: 0.5em 0;
+    @include breakpoint(screen-small) {
+      display: none;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+}
+
+#features-0 {
+  height: auto;
+  padding-left: 0;
+  font-size: 14px;
+}
+
+//  Toggle Arrow Styling
+//  ---------------------------------------------------------------------------
+// Allows Bootstrap CSS to over-ride Product Circle JS on mobile
+.product-container {
+  .collapse.in {
+    display: block !important;
+  }
+  .collapsing {
+    -webkit-transition-duration: 250ms;
+    -o-transition-duration: 250ms;
+    transition-duration: 250ms;
+  }
+}
+
+//	Collapse link
+.feature-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  text-align: left;
+  font-size: 1.5em;
+  color: $cool-grey;
+  background: transparent;
+  border: none;
+  // Usability?
+  &:focus {
+    outline: none;
+  }
+  @include breakpoint(screen-small) {
+    display: none;
+  }
+  > span {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+  }
+  .rotate90 {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+  }
+}
+
+//  TYPOGRAPHY
+//  ---------------------------------------------------------------------------
+//	We need to keep the Font-scaling like it was at 990px The product clock
+.maxw-1200 .circle-products {
+  font-size: 14px;
+}
+
+/* 14px */
+
+.maxw-1200 .circle-products h2 {
+  font-size: 18px;
+}
+
+/* 18px */
+
+.maxw-1200 .circle-products h3 {
+  font-size: 16px;
+}
+
+//  Product List
+//  ---------------------------------------------------------------------------
+.product-list {
+  $component-margin: 2em;
+  padding-top: $padding-component-vertical;
+  padding-bottom: ($padding-component-vertical - $component-margin);
+
+  &-item {
+    margin-bottom: $component-margin;
+  }
+
+  &-image {
+    margin-bottom: ($component-margin / 2);
+  }
+
+  &-title {
+    margin-top: 0;
+
+    a {
+      //
+    }
+  }
+
+  &-subtitle {
+    margin-top: 0;
+  }
+
+  &-description {
+    :last-child {
+      margin-bottom: 0;
+    } // removes margin, place on item instead
+  }
+
+  // Modifier: Links only content
+  &.is-links {
+    padding-bottom: ($padding-component-vertical - ($component-margin / 2));
+
+    .product-list-item {
+      margin-bottom: (
+        $component-margin / 2
+      ); // reduces standard margin by half if only links are present
+    }
+  }
+}

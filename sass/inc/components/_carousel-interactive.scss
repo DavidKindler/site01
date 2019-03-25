@@ -1,0 +1,562 @@
+//  ---------------------------------------------------------------------------
+//  Original Styles
+//  New Styles below
+//  ::  Erase old styles if new component is adopted moving forward
+//  ---------------------------------------------------------------------------
+
+// Top Level component area, used for nesting styles within component
+.leadership-slider {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2em;
+
+  .carousel-inner {
+    padding: 2em 0;
+  }
+
+  // Tab Area
+  .carousel-indicators {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto 1em;
+    background: none;
+
+    @include breakpoint(screen-small) {
+      flex-flow: row nowrap;
+    }
+
+    > li {
+      position: relative;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 50%;
+      // flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      padding: .25em;
+      margin: 0;
+      text-align: left;
+      text-indent: initial;
+      border: none; // need tab styling here
+
+      @include breakpoint(screen-small) {
+        flex: 0 1 auto;// media query
+        padding: 0;
+      }
+
+      a {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .5em 1em;
+        font-weight: 700;
+        color: $cool-grey-dark;
+        background: $cool-grey-xxlight;
+        border: 1px solid $cool-grey;
+
+        &:hover {
+          text-decoration: none;
+          background: $white;
+        }
+
+        @include breakpoint(screen-small) {
+          border-right-color: transparent;
+        }
+      }
+
+      // additional li styles with states
+      &.active {
+        width: auto;
+        height: auto;
+
+        @include breakpoint(screen-small) {
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            display: block;
+            width: 10px;
+            height: 10px;
+            background: $white;
+            box-shadow: -1px 1px 0 $cool-grey;
+            transform: translate(-50%) rotate(-45deg);
+          }
+        }
+
+        a {
+          background: $white;
+        }
+      }
+
+      // First/Last -li- items for border-radius on group
+      @include breakpoint(screen-small) {
+        &:first-of-type {
+          a {
+            border-radius: $border-radius-base 0 0 $border-radius-base;
+          }
+        }
+
+        &:last-of-type {
+          a {
+            border-right-color: $cool-grey;
+            border-radius: 0 $border-radius-base $border-radius-base 0;
+          }
+        }
+      }
+    }
+  }
+
+  // Icon links
+  .icon-toggle {
+    $icon-size      : 32px;
+    width: 32px;
+    height: 32px;
+    padding: 13px;
+    background: $cool-grey;
+    border-radius: 50%;
+
+    &:hover {
+      background: $cool-grey-xdark;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      margin: 0 auto;
+      background: $white;
+      border-radius: 50%;
+      box-shadow: -10px 0 0 $white, 10px 0 0 $white;
+    }
+  }
+
+  .carousel-indicators .active .nav-icon .icon-toggle {
+    background: $cool-grey-xdark;
+
+    &:before {
+      background: $white;
+    }
+
+    &:hover {
+      background: $grey-xdark;
+    }
+  }
+
+  // icon positioning
+  .carousel-indicators-icons {
+    display: none;
+
+    @include breakpoint(screen-medium) {
+      position: absolute;
+      top: 0;
+      left: 40px;
+      display: block;
+      width: calc(50% - 40px);
+      height: 100%;
+      z-index: 1;
+
+      > li {
+        position: absolute;
+
+        > .nav-icon {
+          display: block;
+          color: $white;
+          text-align: center;
+          line-height: 40px;
+        }
+
+        &.active {
+          > .nav-icon {
+            color: #000000;
+          }
+        }
+        // probably should set this on the page itself
+        &:nth-of-type(1) {
+          top: calc(50% - 50px);
+          left: calc(50% - 100px);
+        }
+        &:nth-of-type(2) {
+          top: calc(50% + 20px);
+          left: calc(50% + 20px);
+        }
+        &:nth-of-type(3) {
+          top: calc(50% - 100px);
+          left: calc(50% - 10px);
+        }
+        &:nth-of-type(4) {
+          top: calc(50% + 60px);
+          left: calc(50% + 60px);
+        }
+        &:nth-of-type(5) {
+          top: calc(50% - 20px);
+          left: calc(50% + 60px);
+        }
+      }
+    }// end breakpoint
+  }
+
+  // Item Row Area
+  .item {
+    width: calc(100% - 80px);
+    margin: 0 auto;
+
+    .item-image {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      margin-bottom: 1em;
+
+      @include breakpoint(screen-medium) {
+        width: calc(50% - 3px); // wraps to another line at 50%
+        margin-bottom: 0;
+      }
+    }
+
+    .item-content {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      padding: 0 1em;
+
+      @include breakpoint(screen-medium) {
+        width: calc(50% - 3px); // wraps to another line at 50%
+      }
+
+      .carousel-title {
+        font-size: 1.875em;
+        text-transform: uppercase;
+      }
+    }
+
+    // Query container size ???
+    // convert col-sm to col-lg for CMS
+    .col-sm-9 > .iw_component .leadership-slider & {
+      // could be used to hide/show image icons
+    }
+
+    .col-sm-12 > .iw_component .leadership-slider & {
+      // could be used to hide/show image icons
+    }
+  }
+
+  // Content Area
+  .carousel-caption {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    padding: 0;
+    text-align: left;
+    text-shadow: none;
+    color: #000000;
+
+    > * {
+      margin-top: 0;
+    }
+  }
+
+  // Arrow Controls
+  .carousel-control {
+    $button-size      : 32px;
+
+    width: $button-size;
+    height: $button-size;
+    top: 50%;
+    color: #ffffff;
+    border-radius: ($button-size / 2);
+    transform: translateY(-50%);
+
+    // added for specificity
+    &.left, &.right {
+      background: $cool-grey;
+    }
+
+    &:hover {
+      background: $cool-grey-xdark;
+    }
+
+    > span[class^="icon-"] {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin: 0 auto;
+      font-size: .75em;
+      line-height: $button-size;
+    }
+  }
+}// .leadership-slider
+
+
+
+
+
+//  ---------------------------------------------------------------------------
+//  New Styles
+//  ::  Container
+//  ::  Icon/Images
+//  ::  Content/Text
+//  ---------------------------------------------------------------------------
+//  Original Bootstrap Carousel code is in Bootstrap.scss
+
+// Component Container
+//  ---------------------------------------------------------------------------
+.carousel-interactive-container {
+  padding: $padding-component-vertical 0;
+}
+
+.carousel-interactive {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  //  Icona and Images
+  //  -------------------------------------------------------------------------
+  .carousel-images {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+
+    // when images/content goes horizontal, split 7/5 cols and adjust spacing
+    @include breakpoint(screen-large) {
+      flex-basis: 58.3333%; // 7 columns
+      margin-top: 2em; // provide more spacing around images to avoid 'jumps'
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint(screen-extra-large) {
+      flex-basis: 50%;
+    }
+  }
+
+  // Icons
+  .carousel-indicators {
+    // some styles presented to over-ride Bootstrap Carousel presets
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center; // repeated from BS
+    list-style: none;
+    z-index: 1;
+    counter-reset: indicators;
+
+    > li {
+      $icon-size          : 32px;
+      $border-size        : 3px;
+      $color-1            : $cool-grey-xxdark;
+      $color-2            : $white;
+      // some styles presented to over-ride Bootstrap Carousel presets
+      position: absolute;
+      display: list-item;
+      width: $icon-size;
+      height: $icon-size;
+      margin: 0;
+      font-weight: 700;
+      line-height: ($icon-size - ($border-size * 2));
+      color: $color-1;
+      text-indent: 0;
+      cursor: pointer;
+      background-color: $color-2;
+      border: 3px solid $color-1;
+      border-radius: 50%; // make sure width/height === square
+      transform: translate(-50%, -50%);
+      counter-increment: indicators;
+
+      &:before {
+        content: counter(indicators, upper-alpha);
+      }
+
+      &:hover {
+        color: darken($color-1, .5);
+        border-color: darken($color-1, .5);
+      }
+
+      &.active {
+        // some styles presented to over-ride Bootstrap Carousel presets
+        width: $icon-size;
+        height: $icon-size;
+        color: $color-2;
+        background: $color-1;
+
+        &:hover {
+          background: darken($color-1, .5);
+        }
+      }
+      // LI positioning set on the page
+    }
+  }
+
+  // Image Area
+  .item-image {
+    padding: 0 1em;
+
+    > img {
+      display: none;
+      width: 100%; // make sure image scales full width
+
+      &.active { display: block; }
+    }
+  }
+
+  //  Content/Text Container
+  //  -------------------------------------------------------------------------
+  .carousel-inner {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    @include breakpoint(screen-large) {
+      flex-basis: 41.6666%; // 5 columns
+      padding-top: 0; // reduce padding when text is to right of image
+      padding-bottom: 0;
+    }
+
+    @include breakpoint(screen-extra-large) {
+      flex-basis: 50%;
+    }
+  }
+
+  // Inner Item container
+  .item {
+    width: 100%; // necessary since block element ?
+    padding: 0 1em;
+    margin: 0 auto;
+		
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+    .carousel-title {
+      position: relative;
+      padding-left: 1.375em;
+      margin-top: 0;
+      font-size: 1.35em; // size same as h2
+
+      &:before {
+        content: "+";
+        position: absolute;
+        top: .125em;
+        left: 0;
+        width: 2em;
+        height: 2em;
+        font-size: .5em;
+        line-height: 2em;
+        color: $white;
+        text-align: center;
+        text-transform: uppercase;
+        background: $cool-grey-xxdark;
+        border-radius: 1em;
+      }
+    }
+
+    // Adds letter before Carousel Title (up to 8 items)
+    &:nth-of-type(1) {
+      .carousel-title:before { content: "a"; }
+    }
+
+    &:nth-of-type(2) {
+      .carousel-title:before { content: "b"; }
+    }
+
+    &:nth-of-type(3) {
+      .carousel-title:before { content: "c"; }
+    }
+
+    &:nth-of-type(4) {
+      .carousel-title:before { content: "d"; }
+    }
+
+    &:nth-of-type(5) {
+      .carousel-title:before { content: "e"; }
+    }
+
+    &:nth-of-type(6) {
+      .carousel-title:before { content: "f"; }
+    }
+
+    &:nth-of-type(7) {
+      .carousel-title:before { content: "g"; }
+    }
+
+    &:nth-of-type(8) {
+      .carousel-title:before { content: "h"; }
+    }
+
+    // Content Area
+    .carousel-caption {
+      position: relative;
+      display: block;
+      top: 0;
+      left: 0;
+      padding: 0;
+      text-align: left;
+      text-shadow: none;
+      color: $nxp-body-text;
+    }
+  }
+
+  // Component Modifiers
+  &.is-numbered {
+    .carousel-indicators {
+      > li  {
+        &:before {
+          content: counter(indicators, decimal);
+        }
+      }
+    }
+
+    .item {
+      // Adds letter before Carousel Title (up to 8 items)
+      &:nth-of-type(1) {
+        .carousel-title:before { content: "1"; }
+      }
+
+      &:nth-of-type(2) {
+        .carousel-title:before { content: "2"; }
+      }
+
+      &:nth-of-type(3) {
+        .carousel-title:before { content: "3"; }
+      }
+
+      &:nth-of-type(4) {
+        .carousel-title:before { content: "4"; }
+      }
+
+      &:nth-of-type(5) {
+        .carousel-title:before { content: "5"; }
+      }
+
+      &:nth-of-type(6) {
+        .carousel-title:before { content: "6"; }
+      }
+
+      &:nth-of-type(7) {
+        .carousel-title:before { content: "7"; }
+      }
+
+      &:nth-of-type(8) {
+        .carousel-title:before { content: "8"; }
+      }
+    }
+  }
+}// .leadership-slider

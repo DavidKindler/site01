@@ -1,0 +1,337 @@
+/* Old Code revised Dec 2, 2016 by Dan
+
+.iu-container {
+  margin-left: -15px;
+  margin-right: -15px;
+  // Flex Equal Height
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-flow: row wrap;
+}
+
+.iu-container:before,
+.iu-container:after {
+  content: "";
+  display: table;
+}
+
+.iu-container:after {
+  clear: both;
+}
+
+.iu {
+  background-color: #ededf0;
+  border: 15px solid white;
+  padding: 1em;
+  padding-bottom: 1.5em;
+  color: #646464;
+  // Structure
+  width: 100%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  // Flex Equal Height
+  -ms-flex-positive: 0;
+  -ms-flex-negative: 1;
+  -ms-flex-preferred-size: auto;
+  -webkit-flex: 0 1 auto;
+  flex: 0 1 auto;
+  li,
+  .boxes li {
+    padding-left: 0;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.iu-container .iu:not(:first-child) {
+  border-top-width: 0;
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  .iu {
+    width: 49.9%;
+  } // Fix for 50% Safari rounding
+  .iu-container .iu:nth-child(2) {
+    border-top-width: 15px;
+    border-left-width: 0;
+  }
+  .iu-container .iu:nth-child(3) {
+    width: 100%;
+  }
+}
+
+// @media (min-width: 992px) {
+@media (min-width: $screen-md) {
+  .iu {
+    width: 33.25%;
+  } // Fix for 33.33333% Safari rounding
+  .iu-container .iu:nth-child(n+2) {
+    border-top-width: 15px;
+    border-left-width: 0;
+  }
+}
+
+// .iu Unit Contained Elements Styles
+.iu h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: bold;
+}
+
+@media (min-width: $screen-sm) {
+  .iu h2 {
+    font-size: 2rem;
+  }
+}
+
+.iu-container li:before {
+  content: none;
+}
+
+.iu ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.iu-container .iu li,
+.iu-large-video {
+  margin-bottom: 1em;
+  padding-left: 0;
+}
+
+.iu img {
+  max-width: 100%;
+}
+
+.iu img.thumb {
+  float: left;
+  display: inline;
+  position: relative;
+  margin-right: .625em;
+  margin-bottom: .625em;
+}
+
+// .iu Unit Contained Media Styles (new version with 100% width video thumbs)
+.iu {
+  .video-inner-n {
+    position: relative;
+    float: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 44px;
+      height: 44px;
+      left: 50%;
+      top: 50%;
+      transform-origin: center;
+      transform: translate(-50%, -50%);
+      background: $VideoOverlayButton no-repeat center center;
+      // background: url("//branding.nxp.com/img/VideoOverlayButton.png") no-repeat center center;
+      // temp till we go to production then link below
+      // background: url("//www.nxp.com/assets/images/buttons/VideoOverlayButton.png") no-repeat center center;
+      background-size: 44px 44px;
+      z-index: 1;
+      pointer-events:none;
+    }
+  }
+  @media (min-width: $screen-sm) {
+    .video-inner-n + .thumbp {
+      clear: both;
+    }
+    .video-inner-n {
+      margin-right: 0;
+    }
+  }
+  .play-video-n {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .video-inner-n img,
+  .play-video-n a {
+    width: 100%;
+    height: auto;
+  }
+  // fixes the video player icon location in situations where align="left" is in the markup
+  img[align="left"] {
+    float: none;
+  }
+}
+End Old Code revised Dec 2, 2016 by Dan */
+
+//  ---------------------------------------------------------------------------
+//  ::  Container Styles
+//  ::  Content Styles
+//  ::  - Header Styles
+//  ::  - List Styles
+//  ::  - Image Styles
+//  ---------------------------------------------------------------------------
+// Info Units Container Styles
+//  ---------------------------------------------------------------------------
+.iu-container {
+  display: flex;
+  flex-flow: row wrap;
+  // for UI tweaks project - make the container a section rather than individual blocks
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #ededf0;
+  margin-top: 3em;
+}
+
+.OverviewTabContent .iu-container {
+    margin-top: 2em;
+}
+
+//  Moved .iu outside of .iu-container and added width declarations in order
+//    to fix display issues Dec. 12, 2016 - Dan
+//  Some components had bad markup (missing .iu-container),
+//    and needed a temporary solution
+.iu {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%; // width set for backup if Flex doesn't work
+  float: left;
+  min-height: 1px;
+  padding: 1em 1em 1.5em;
+  margin-bottom: 15px;
+  color: #646464;
+  background-color: #ededf0;
+  @include breakpoint(screen-smallest) {
+    flex: 1 0 calc((100% - 15px) / 2);
+    width: calc((100% - 15px) / 2);
+    &:first-of-type {
+      margin-right: 15px;
+    }
+  }
+  @media only screen and (max-width: $screen-md) {
+    &:nth-of-type(3) {
+      width: 100%;
+    }
+  }
+  @include breakpoint(screen-medium) {
+    flex: 0 0 calc((100% - 30px) / 3);
+    width: calc((100% - 30px) / 3);
+    &:nth-of-type(2) {
+      margin-right: 15px;
+    }
+  }
+}
+
+//  Info Units Content Styles
+//  ---------------------------------------------------------------------------
+//  Header Styles
+.iu h2 {
+  //  margin-top: 0;
+  //  font-size: 1.8rem;
+  //  font-weight: bold;
+  /* like h3 */
+  font-size: 1.15em;
+  font-weight: 700;
+  &:first-of-type {
+    margin-top: 0;
+  }
+//  @include breakpoint(screen-small) {
+//    font-size: 2rem;
+//  }
+}
+
+//  List Styles
+.iu {
+  li,
+  .boxes li,
+  {
+    padding-left: 0;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// .iu Unit Contained Elements Styles
+.iu-container li:before {
+  content: none;
+}
+
+.iu ul {
+  list-style: none;
+  padding-left: 0;
+  li {
+    margin-bottom: 1em;
+    padding-left: 0;
+  }
+}
+
+//  Image Styles
+.iu img {
+  max-width: 100%;
+  &.thumb {
+    //    float: left;
+    //    display: inline;
+    //    position: relative;
+    //    margin-right: .625em;
+    //    margin-bottom: .625em;
+  }
+}
+
+// .iu Unit Contained Media Styles (new version with 100% width video thumbs)
+.iu {
+  .iu-large-video {
+    margin-bottom: 1em;
+    padding-left: 0;
+  }
+  .video-inner-n {
+    position: relative;
+    float: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      display: block;
+      width: 44px;
+      height: 44px;
+      pointer-events: none;
+      background: $VideoOverlayButton no-repeat center center;
+      background-size: 44px 44px;
+      transform: translate(-50%, -50%);
+      transform-origin: center;
+    }
+  }
+  @media (min-width: $screen-sm) {
+    .video-inner-n + .thumbp {
+      clear: both;
+    }
+    .video-inner-n {
+      margin-right: 0;
+    }
+  }
+  .play-video-n {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .video-inner-n img,
+  .play-video-n a {
+    width: 100%;
+    height: auto;
+  }
+  // fixes the video player icon location in situations where align="left" is in the markup
+  img[align="left"] {
+    float: none;
+  }
+}
+

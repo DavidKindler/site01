@@ -1,0 +1,204 @@
+// ----------------------------------------------------------------------
+// SP-Buy info component
+// ----------------------------------------------------------------------
+
+.sp-buy {
+	padding-top: $padding-component-base-vertical;
+	padding-bottom: $padding-component-base-vertical;
+	
+	.bg-primary &-header {
+		color: #fff;
+	}
+	
+	&-header {
+		margin-top:0;
+	}
+	
+	&-kit {
+		padding-left:0;
+		margin-bottom:0;
+		&:before {
+			content:none;
+		}
+	}
+	
+	&-board {
+		font-size: 1.35em;
+		font-weight: 700;
+		padding-left:0;
+		margin-bottom:0;
+		&:before {
+			content:none;
+		}
+		
+		h3 {
+			margin:0;
+		}
+		
+	}
+	
+	&-code {
+		padding-left:0;
+		margin-bottom:15px;
+		color:$cool-grey;
+		&:before {
+			content:none;
+		}
+	}
+
+	&-options {
+		padding-left:0;
+		&:before {
+			content:none;
+		}
+	}
+
+	&-content {
+		padding: $grid-gutter-width;
+		background-color:#fff;
+		color:#000;
+		border-radius:3px;
+		font-size: $font-size-base;
+	}
+	
+	&-item {
+		display:flex;
+		flex-direction: column-reverse;
+		
+		@include breakpoint($screen-xs) {
+			display:flex;
+			flex-direction: column-reverse;
+		}
+
+		@include breakpoint($screen-sm) {
+			display:flex;
+			flex-direction: row;
+		}
+
+		& + & {
+		  border-top: 1px solid $border-color-base;
+		  padding-top:$grid-gutter-width;
+		  margin-top:$grid-gutter-width;
+		}
+	}
+	
+	&-details {
+		width:100%;
+		padding-right:15px;
+		
+		@include breakpoint($screen-xs) {
+			width:100%;
+			padding:0;
+		}
+
+		@include breakpoint($screen-sm) {
+			width:50%;
+			padding-right:15px;
+		}
+		
+		ul { margin:0; }
+	}
+	
+	&-image {
+		width:100%;
+		padding-bottom: 15px;
+		padding-left:15px;
+		min-height:125px;
+		
+		@include breakpoint($screen-xs) {
+			width:100%;
+			padding:0;
+			padding-bottom: 15px;
+		}
+
+		@include breakpoint($screen-sm) {
+			width:50%;
+			padding-bottom:0;
+			padding-left:15px;
+		}
+	}
+	
+	&-currency {
+		padding-left:0;
+		margin-bottom:0;
+		font-size:12px;
+		&:before {
+			content:none;
+		}
+	}
+	
+	&-price {
+		padding-left:0;
+		font-size:18px;
+		&:before {
+			content:none;
+		}
+	}
+	
+	&-options {
+		padding-top: 15px;
+		margin:0;
+
+	}
+	
+	&-single-bt {
+		.sp-buy-actions {
+			padding-top:15px;
+		}
+	}
+	
+	&-salesitem {
+		color:$cool-grey;
+		padding-left:0;
+		margin-bottom: 15px;
+		line-height:$font-size-base;
+		font-size:$font-size-base;
+		&:before {
+			content:none;
+		}
+	}
+	
+	&-line {
+		border-top:1px dashed $border-color-base;
+		padding:0;
+		margin:15px 0 0 0;
+		&:before {
+			content:none;
+		}
+	}
+	
+	&-actions {
+		padding-left:0;
+		margin-bottom: 0.5em;
+		&:before {
+			content:none;
+		}
+		
+		.btn {
+			margin-right: .25em;
+		}
+		
+		span[class^="icon"] {
+			margin-right: .25em;
+		}
+		
+		.part-buy-item-buttons_container { padding-left:0; }
+	}
+	
+	&-available {
+		padding-top:3px;
+		text-align:left;
+		padding-left:0;
+		margin:0;
+		font-size:12px;
+		color:$cool-grey;
+		&:before {
+			content:none;
+		}
+		
+		span[class^="icon"] {
+			margin-left: .25em;
+		}
+	}
+
+}

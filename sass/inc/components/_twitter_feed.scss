@@ -1,0 +1,10 @@
+// Twitter Feed component
+// Author: Eduardo B47112
+.twitterFeed {
+  .twt-item {
+    padding: 10px 0px;
+  }
+  .twt-item:hover {
+    background-color: $cool-grey-xxlight;
+  }
+}

@@ -1,0 +1,36 @@
+// =========================
+// Component Name: On-Demand Training
+// Component Type: Table (Dynamic)
+// =========================
+.ondemandTraining {
+  margin-bottom: 0.625em;
+  th {
+    white-space: nowrap;
+  }
+  td:nth-of-type(3) {
+    white-space: nowrap;
+  }
+  td:nth-of-type(2),
+  td:nth-of-type(3) {
+    text-align: center;
+  }
+  .ondemandTraining-items {
+    margin-bottom: 0;
+    // remove default list bullets
+    @include nobullets();
+    li {
+      &:not(.ondemandTraining-title):not(.ondemandTraining-description) {
+        display: inline;
+        margin-right: 1em;
+        color: $cool-grey;
+      }
+    }
+    .ondemandTraining-title {
+      margin-bottom: .5em;
+    }
+    .ondemandTraining-title,
+    .ondemandTraining-description {
+      display: block;
+    }
+  }
+}

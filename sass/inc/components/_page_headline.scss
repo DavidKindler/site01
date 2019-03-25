@@ -1,0 +1,84 @@
+// ------------------------------------------------------------
+// Page Headline & Share Icons
+// :: component updated August 2018 to add Follow button with Share Icons on xSP pages
+// ------------------------------------------------------------
+.page-headline {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1.5em;
+  margin-bottom: 0.625em;
+
+  .title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Share Icons
+// ------------------------------------------------------------------------
+// Prefixing with `ul` since the older version used `nav` element. This is being
+// used with the new Page Headline component, where the older version is using
+// the `.page-title`. This is also being used on the new RDSP pages, so I am
+// removing it from within the `.page-headline` nest.
+
+// ul.share-icons {
+//   @include list-unstyled;
+//   display: flex;
+//   flex-shrink: 0;
+//   padding-left: $grid-gutter-width;
+//   margin-bottom: 0;
+//   margin-left: auto;
+//
+//   li {
+//     padding-right: 0;
+//     margin-bottom: 0;
+//
+//     // follow button li container
+//     &.share-follow {
+//       padding-right: $padding-small-horizontal;
+//     }
+//
+//     // email and share dropdown li containers
+//     &.share-dropdown,
+//     &.share-email {
+//       // hide on phones since mobile OS have share options already
+//       @include breakpoint-max($screen-sm) {
+//         display: none;
+//       }
+//     }
+//
+//     // email and share icon links
+//     .btn-icon-link {
+//       // adjust padding so icon links are same size as follow button
+//       padding: $padding-xs-horizontal;
+//       // increase font size and remove border to make btn links equal to btn
+//       font-size: $font-size-base-plus;
+//       color: $cool-grey-xxdark;
+//       line-height: 1;
+//
+//       &:hover {
+//         color: $nxp-body-text;
+//       }
+//     }
+//   }
+//
+//   // Modifiers
+//   // ------------------------------------
+//   // modified version to display over a image/color/video banner
+//   &.is-inverse {
+//     .share-follow {
+//       .btn {
+//         color: $text-color;
+//         background-color: $white;
+//
+//         &:hover {
+//           background-color: $white;
+//         }
+//       }
+//     }
+//
+//     .btn-icon-link {
+//       color: $white;
+//     }
+//   }
+// }

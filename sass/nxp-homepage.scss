@@ -1,0 +1,263 @@
+/*
+ ***********************************************************************
+ * DO NOT MODIFY DIRECTLY. USE nxp-web-branding GIT REPO FOR ALL CHANGES
+ ***********************************************************************
+ */
+
+// Included files
+@import 'inc/nxp_colors';
+@import 'inc/nxp_variables';
+@import 'inc/mixins_b57029';
+
+// Variables
+// $screen-xs: 480px;
+// $screen-sm: 768px;
+// $screen-md: 992px;
+// $screen-lg: 1200px;
+// $screen-xl: 1440px;
+
+// Animations
+// --------------------------------------------------
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.fadeInRight {
+  animation-name: fadeInRight;
+}
+
+// Slider Styles
+// --------------------------------------------------
+.homepage-slider {
+  .article {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 400px;
+    min-height: 50vh;
+    padding: 2em 0 3em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &-contents {
+      position: relative;
+      padding-left: ($grid-gutter-width / 2);
+      padding-right: ($grid-gutter-width / 2);
+      width: 100%;
+      margin: 0 auto;
+
+      @include breakpoint($screen-sm) {
+        max-width: 750px;
+        padding-left: $grid-gutter-width;
+        padding-right: $grid-gutter-width;
+      }
+
+      @include breakpoint($screen-md) {
+        max-width: 970px;
+      }
+
+      @include breakpoint($screen-lg) {
+        max-width: 1170px;
+      }
+
+      > * {
+        color: $white;
+
+        @include breakpoint($screen-sm) {
+          max-width: 75%;
+        }
+      }
+    }
+  }
+
+  .carousel-control {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    transition: all 0.25s ease;
+
+    @include breakpoint-max(1317px) {
+      display: none;
+    }
+
+    &.left {
+      margin-left: $grid-gutter-width;
+      background-image: none;
+    }
+
+    &.right {
+      margin-right: $grid-gutter-width;
+      background-image: none;
+    }
+
+    .icon-angle-left,
+    .icon-angle-right {
+      font-size: 3em;
+      color: $white;
+    }
+  }
+
+  .carousel-indicators {
+    bottom: 0;
+    width: auto;
+    padding: 0.25em 1em;
+    margin-left: auto;
+    background-color: rgba($absolute-black, 0.15);
+    border-radius: 1em;
+    transform: translateX(-50%);
+  }
+}
+
+// Slider Button Styles
+// --------------------------------------------------
+.btn-white-transparent {
+  color: $white;
+  background-color: rgba($white, 0.15);
+  border-color: $white;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle {
+    color: $white;
+    background-color: rgba(154, 154, 154, 0.1925);
+    border-color: #f2f2f2;
+  }
+
+  &:active,
+  &.active,
+  .open .dropdown-toggle {
+    background-image: none;
+  }
+}
+
+// Footer Styles
+// --------------------------------------------------
+#footer.container {
+  margin-top: 0;
+}
+
+// Qualcomm merger message styles
+// .homepage-slider {
+//   .article-merger {
+//     height: 450px;
+//     background-color: #324de6;
+//
+//     @include breakpoint($screen-xs) {
+//       height: 400px;
+//     }
+//
+//     .article-contents {
+//       /* update logo url to uat source */
+//       background-image: url('/assets/images/en/logos-internal/qualcomm-nxp-day-one-logos.png');
+//       background-position: center top;
+//       background-repeat: no-repeat;
+//       background-size: auto 110px, cover;
+//       /* make room for logos above text */
+//       padding-top: 130px;
+//
+//       @include breakpoint($screen-sm) {
+//         padding-top: 0;
+//         background-position: right top;
+//         background-size: 33.3333% auto;
+//
+//         > * {
+//           max-width: 66.6666%;
+//         }
+//       }
+//
+//       @include breakpoint($screen-lg) {
+//         background-size: auto;
+//
+//         > * {
+//           max-width: 50%;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// AB Test B styles: News slider from footer in page content
+// --------------------------------------------------
+.design-b {
+  // hide slider in footer
+  #footer #newsContainer {
+    display: none;
+  }
+
+  // display footer in Flex Card
+  .card1-item {
+    #newsContainer {
+      position: relative;
+    }
+
+    .newsItem {
+      &.cycle-slide-active {
+        position: relative !important;
+      }
+
+      &:not(.cycle-slide-active) {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+
+      h5 {
+        margin-top: 0;
+      }
+
+      p {
+        min-height: ($line-height-computed * 2);
+      }
+
+      .newsdate {
+        margin-left: 0.5em;
+        font-size: $font-size-base;
+        font-weight: $font-weight-base;
+        color: $cool-grey;
+      }
+
+      .readmore {
+        @include cta();
+      }
+
+      p {
+        min-height: ($line-height-computed * 2);
+      }
+    }
+
+    #newsDirection {
+      position: absolute;
+      top: 0;
+      right: -10px;
+      z-index: 100;
+    }
+
+    #newsLeft,
+    #newsRight {
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      span {
+        &:before {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

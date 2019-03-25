@@ -1,0 +1,74 @@
+// =========================
+// Component Name: Hardware and Software Engineering Services "Table"
+// Component Type: List (Dynamic)
+// =========================
+.engineeringServices {
+  border-bottom: 1px solid $warm-grey-xxlight;
+  margin-bottom: $typespace;
+  .engineeringServices-item {
+    padding: $typespace 0 $typespace 0;
+    margin: 0;
+    // remove default list bullets
+    @include nobullets();
+    position: relative;
+    border-top: 1px solid $warm-grey-xxlight;
+    &.first {
+      border-top: 3px solid $cool-grey;
+    }
+    .engineeringServices-title {
+      font-weight: bold;
+      [class*='icon-'] {
+        margin-left: .5em;
+      }
+      sup {
+        font-weight: normal;
+      }
+    }
+    li:not(.engineeringServices-title) {
+      font-size: $font-size-small;
+    }
+    li {
+      width: 100%;
+
+    }
+    li.engineeringServices-image {
+      font-size: 60px;
+      line-height: 0;
+      [class*='icon-'] {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+      @include breakpoint(screen-small) {
+        display: inherit;
+        width: inherit;
+        position: absolute;
+      }	  
+	  img{
+		max-width: 80px;
+		height: 80px;
+		font-size: 12px;
+		-o-object-fit: cover;
+		object-fit: cover;
+	  }
+    }
+    .engineeringServices-description {
+      margin-bottom: $typespace;
+    }
+    .engineeringServices-meta {
+      margin-bottom: $typespace;
+      position: relative;
+      color: $cool-grey;
+      span {
+        margin-right: 1em;
+      }
+    }
+    li.engineeringServices-title,
+    li.engineeringServices-description,
+    li.engineeringServices-meta,
+    li.engineeringServices-details {
+      @include breakpoint(screen-small) {
+        padding-left: 95px !important;
+      }
+    }
+  }
+}

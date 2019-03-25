@@ -1,0 +1,237 @@
+//  ---------------------------------------------------------------------------
+//  Primary Related Topic
+//  ---------------------------------------------------------------------------
+
+// This component was modifed in the Project Sunshine branch, moving these
+// updates to the UAT branch. The main layout should remain the same, but there
+// will be some differences in type styles and spacing in the PS branch.
+
+.primary-topic {
+  padding-top: $padding-component-vertical;
+  padding-bottom: $padding-component-vertical;
+
+  &-item {
+    margin-right: -$grid-gutter-width-half;
+    margin-left: -$grid-gutter-width-half;
+
+    &.fifty,
+    &.sixty {
+      @include breakpoint($screen-md) {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &.full {
+      @include breakpoint($screen-md) {
+        width: 83.3333%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    // add space between if multiple items are placed next to each other
+    & + & {
+      margin-top: $padding-component-small-vertical;
+    }
+
+    // Component Modifiers
+    // ----------------------------------------
+    // create alternating layout
+    .is-alternating & {
+      @include breakpoint($screen-md) {
+        &:nth-of-type(even) {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+    // reverse a single row
+    &.is-reversed {
+      @include breakpoint($screen-md) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  //  Text Area
+  //  ----------------------------------------
+  //  container
+  &-content {
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+
+    // add margin top if imagery comes first
+    .primary-topic-media + & {
+      margin-top: 1em;
+    }
+
+    .fifty & {
+      @include breakpoint($screen-md) {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        width: 50%;
+      }
+    }
+
+    .sixty & {
+      @include breakpoint($screen-md) {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        width: 40%;
+      }
+    }
+
+    .full & {
+      @include breakpoint($screen-md) {
+        text-align: center;
+      }
+    }
+  }
+  // h3 title
+  &-title {
+    margin-top: 0;
+  }
+
+  //  paragraph container
+  &-text {
+    .fifty &,
+    .sixty & {
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-link {
+    @include nobullets;
+    // columns count|gap|width
+    @include columns($count: 2, $gap: 1em, $width: 180px, $child: 'li');
+    margin-bottom: 0;
+
+    .primary-topic-text + & {
+      margin-top: 1em;
+    }
+
+    a {
+      @include cta;
+    }
+  }
+
+  //  Media Area
+  //  ----------------------------------------
+  //  container
+  &-media {
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+
+    // add margin top if content comes first (defalt layout)
+    .primary-topic-content + & {
+      margin-top: 1em;
+    }
+
+    .fifty & {
+      @include breakpoint($screen-md) {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        width: 50%;
+      }
+    }
+
+    .sixty & {
+      @include breakpoint($screen-md) {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        width: 60%;
+      }
+    }
+
+    .full & {
+      // default styles
+    }
+  }
+
+  //  image
+  &-img {
+    position: relative;
+
+    > a.embed-responsive-item {
+      img {
+        @include vertical-align();
+        width: 100%;
+      }
+    }
+  }
+  //  video
+  &-video {
+    // video styles
+  }
+
+  &-caption {
+    margin-top: 1em;
+
+    .time {
+      position: relative;
+
+      &:before {
+        content: '(';
+      }
+      &:after {
+        content: ')';
+      }
+    }
+
+    .full & {
+      @include breakpoint($screen-md) {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.is-card {
+  .primary-topic {
+    &-item {
+      margin-right: 0;
+      margin-left: 0;
+      background-color: $white;
+      box-shadow: 0 1px 3px rgba($absolute-black, 0.1);
+
+      @include breakpoint($screen-md) {
+        align-items: stretch;
+      }
+    }
+    &-content {
+      padding-top: $grid-gutter-width;
+
+      @include breakpoint($screen-md) {
+        align-self: center;
+        padding: $grid-gutter-width;
+        margin-bottom: 0;
+      }
+    }
+    &-media {
+      padding-right: 0;
+      padding-bottom: 56.25%;
+      padding-left: 0;
+      background: {
+        color: $white;
+        // image: ;
+        position: center top;
+        repeat: no-repeat;
+        size: cover;
+      }
+
+      @include breakpoint($screen-md) {
+        padding-bottom: (56.25% / 2); // img is 50%, so cut aspect ratio in half
+        padding-left: $grid-gutter-width;
+        margin-top: 0;
+      }
+    }
+  }
+}

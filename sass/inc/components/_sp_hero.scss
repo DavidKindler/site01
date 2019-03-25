@@ -1,0 +1,296 @@
+// ---------------------------------------------------------------------------
+// Share Icons
+// This should be declared before any components that may use it so that they
+// can override the styles when necessary
+// ---------------------------------------------------------------------------
+
+ul.share-icons {
+  @include list-unstyled;
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 20px;
+  margin-bottom: 0;
+
+  @include breakpoint($screen-sm) {
+    &:last-child {
+      padding-left: $grid-gutter-width;
+      margin-top: 0;
+      margin-left: auto;
+    }
+  }
+
+  li {
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+
+  // follow button li container
+  .share-follow {
+    padding-right: $padding-small-horizontal;
+  }
+
+  // email and share dropdown li containers
+  .share-dropdown,
+  .share-email {
+    // hide on phones since mobile OS have share options already
+    @include breakpoint-max($screen-sm) {
+      display: none;
+    }
+  }
+
+  // email and share icon links
+  .btn-icon-link {
+    // adjust padding so icon links are same size as follow button
+    padding: 5px; // was $padding-xs-horizontal but value changed
+    // increase font size and remove border to make btn links equal to btn
+    font-size: $font-size-base-plus;
+    color: $text-color;
+    line-height: 1;
+  }
+
+  // styles when Share Icons displayed over images or videos
+  &.is-inverse {
+    .share-follow {
+      .btn {
+        color: $text-color;
+        background-color: $white;
+
+        &:hover {
+          background-color: $white;
+        }
+      }
+    }
+
+    // email and share icon links
+    .btn-icon-link {
+      color: $white;
+    }
+  }
+}
+
+.sp-hero {
+  //  this component uses negative left margins for IE11 compatability
+  //  using positive left positions caused scrollbars in IE11 and older FF/Chrome browsers
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 35vh;
+  overflow: hidden;
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+  margin-left: ($grid-gutter-width / -2);
+  margin-right: ($grid-gutter-width / -2);
+  background: {
+    // setting image here for videos so that inline styles are not needed
+    // Hero banners using background images will need to set gradient inline with image source
+    // image: linear-gradient(
+    //   to right,
+    //   rgba($absolute-black, 0.5),
+    //   rgba($absolute-black, 0) 90%
+    // );
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  // move to video-wrapper if this causes an issue
+  // sometimes pseudo content on items with display flex have troubles in IE
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+  }
+
+  //  Left Nav Dependent Styles
+  //  ----------------------------------------------------------------------
+  //  No Left Nav
+  @include breakpoint($screen-sm) {
+    width: 100vw;
+    min-height: 35vh;
+    height: auto;
+    margin-left: calc((100vw - 720px) / -2);
+  }
+
+  @include breakpoint($screen-md) {
+    margin-left: calc((100vw - 940px) / -2);
+  }
+
+  @include breakpoint($screen-lg) {
+    margin-left: calc((100vw - 1140px) / -2);
+  }
+
+  // Left Nav
+  .col-lg-12 .col-lg-9 & {
+    @include breakpoint($screen-sm) {
+      width: calc(100% + (#{$grid-gutter-width} * 2));
+      margin-left: -#{$grid-gutter-width};
+    }
+
+    @include breakpoint($screen-md) {
+      width: calc(100vw - #{$left-column-medium});
+      margin-left: calc((100vw - #{$both-columns-medium}) / -2);
+    }
+
+    @include breakpoint($screen-lg) {
+      width: calc(100vw - #{$left-column-large});
+      margin-left: calc((100vw - #{$both-columns-large}) / -2);
+    }
+
+    @include breakpoint($screen-xl) {
+      margin-left: calc((100vw - #{$both-columns-xlarge}) / -2);
+    }
+  }
+
+  //  Video Area
+  //  ------------------------------------------------------------
+  &-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+
+    video {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 100%;
+      // min-width: 680px; // sets min with so lowest screen = 320x320 video, can edit
+      height: auto;
+      margin-right: auto;
+      margin-left: auto;
+      transform: translate(-50%, -50%);
+
+      @include breakpoint-max($screen-xs) {
+        width: auto;
+        height: 100%;
+      }
+
+      .portrait & {
+        height: 100%;
+        width: auto;
+        min-width: 0;
+      }
+    }
+  }
+
+  //  Content Area
+  //  ------------------------------------------------------------
+  &-content {
+    width: 100%;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 1;
+
+    //  No Left Nav Template Media Queries
+    //  ------------------------------------
+    @include breakpoint($screen-sm) {
+      max-width: $container-tablet;
+    }
+
+    @include breakpoint($screen-md) {
+      max-width: $container-desktop;
+    }
+
+    @include breakpoint($screen-lg) {
+      max-width: $container-large-desktop;
+    }
+
+    //  Left Nav Template Media Queries
+    //  ------------------------------------
+    .col-lg-12 .col-lg-9 & {
+      @include breakpoint($screen-sm) {
+        padding-right: $grid-gutter-width;
+        padding-left: $grid-gutter-width;
+      }
+
+      @include breakpoint($screen-md) {
+        max-width: 742px;
+      }
+
+      @include breakpoint($screen-lg) {
+        max-width: 900px;
+      }
+
+      @include breakpoint($screen-xl) {
+        max-width: 1140px;
+      }
+    }
+  }
+
+  //  Title Container
+  //  ------------------------------------------------------------
+  &-title-container {
+    @include breakpoint($screen-md) {
+      max-width: ((7 / 12) * 100%);
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  &-title {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.6705em;
+    color: $white;
+    // text-transform: uppercase;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  //  Subtitle
+  //  ----------------------------------------
+  &-subtitle {
+    position: relative;
+    margin-top: ($grid-gutter-width / 2);
+    margin-bottom: 0;
+    font: {
+      family: $headings-font-family;
+      size: 26px; // was $font-size-h1
+      // weight: $font-weight-base;
+    }
+    color: $white;
+  }
+
+  // flex example, aligns icons with top of title
+  .sp-hero-content {
+    display: flex;
+  }
+
+  // place position rules on Share Icons
+  .share-icons {
+    flex-shrink: 0;
+    margin-top: 0;
+    margin-left: auto;
+
+    // if icons are in uppermost container
+    @include breakpoint($screen-sm) {
+      position: absolute;
+      top: 2em;
+      right: calc(50% - 360px);
+      z-index: $zindex-dropdown;
+    }
+
+    @include breakpoint($screen-md) {
+      right: calc(50% - 470px);
+    }
+
+    @include breakpoint($screen-lg) {
+      right: calc(50% - 570px);
+    }
+  }
+}

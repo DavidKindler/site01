@@ -1,0 +1,45 @@
+// =========================
+// Component Name: Additional Links
+// Component Type: List (Static)
+// =========================
+.additionalLinks {
+  border-bottom: 1px solid $warm-grey-xxlight;
+  margin-bottom: $typespace;
+  .additionalLinks-item {
+    padding: $typespace 0 $typespace 0;
+    margin: 0;
+    @include nobullets();
+    position: relative;
+    border-top: 1px solid $warm-grey-xxlight;
+    &.first {
+      border-top: 3px solid $cool-grey;
+    }
+    .additionalLinks-title {
+      font-weight: bold;
+      [class*='icon-'] {
+        margin-left: .5em;
+      }
+      sup {
+        font-weight: normal;
+      }
+    }
+    li:not(.additionalLinks-title) {
+      font-size: $font-size-small;
+    }
+    li {
+      width: 100%;
+
+    }
+    .additionalLinks-description {
+      margin-bottom: $typespace;
+    }
+    .additionalLinks-meta {
+      margin-bottom: $typespace;
+      position: relative;
+      color: $cool-grey;
+      span {
+        margin-right: 1em;
+      }
+    }
+  }
+}

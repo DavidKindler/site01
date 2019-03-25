@@ -1,0 +1,79 @@
+// -----------------------------------------------------------------------------
+// Training specific styles
+// Place SPA specific styles here. If too many styles are added here, do the following:
+// 1. create new folder named for SPA (should follow name for file, ie. training/)
+// 2. create file structure that mirrors /single-page-apps folder (ie. _filters, _layout, etc.)
+// 3. place styles in correct component file
+// -----------------------------------------------------------------------------
+
+// landing page container
+.training-landing-data {
+  //
+}
+
+// results main container, contains search, filters, etc.
+.training-results {
+  //
+}
+
+// results list container, is a ul
+.training-items {
+  .item-media {
+    max-width: (80px + $grid-gutter-width);
+  }
+}
+.training-type {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 50px;
+  color: $cool-grey-dark;
+  text-align: center;
+
+  &.is-on-demand {
+    // specific icon styles here
+  }
+  &.is-course {
+    font-size: 60px;
+  }
+  &.is-webinar {
+    //
+  }
+  &.is-classroom {
+    //
+  }
+
+  > span[class*='icon-'] {
+    //
+  }
+}
+
+// Mixed results specific styles, remove when list is consolidated into one list
+.classroom-training-items {
+  //
+}
+
+.online-training-items {
+  //
+}
+
+// styles to override Media Flex in Short Events list on landing page
+.classroom-results-short {
+  .media-flex-media {
+    @include breakpoint($screen-sm) {
+      padding-right: 10px;
+    }
+  }
+  .media-flex-body {
+    @include breakpoint($screen-sm) {
+      padding-left: 10px;
+    }
+  }
+
+  .media-flex-heading {
+    margin-bottom: 0; // 1px difference from SPA title spacing, could be 7px
+  }
+
+  .media-flex-text {
+    margin-top: 0.5em;
+  }
+}

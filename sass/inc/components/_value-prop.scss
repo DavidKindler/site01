@@ -1,0 +1,247 @@
+.valprop {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased; // make global?
+  -moz-osx-font-smoothing: grayscale; // make global?
+
+  &.is-single {
+    @include breakpoint($screen-sm) {
+      display: flex;
+    }
+  }
+
+  &.is-centered {
+    text-align: center;
+  }
+
+  &-header {
+    .is-single & {
+      @include breakpoint($screen-sm) {
+        max-width: 75%;
+        padding-right: ($grid-gutter-width / 2);
+      }
+    }
+  }
+
+  &-label {
+    @include section-label();
+  }
+
+  &-title {
+    margin-top: 0;
+    font-size: $font-size-h1;
+  }
+
+  &-text {
+    font-size: $font-size-large;
+  }
+
+  &-list {
+    @include list-inline(($grid-gutter-width / -2), ($grid-gutter-width / 2));
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+
+    .is-centered & {
+      justify-content: center;
+    }
+
+    .is-single & {
+      @include breakpoint($screen-sm) {
+        width: 25%;
+        justify-content: center;
+      }
+    }
+
+    &.is-qualitative {
+      text-align: center;
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+
+    .is-single & {
+      flex-grow: 0;
+    }
+
+    @include breakpoint($screen-sm) {
+      width: (100% / 3);
+    }
+
+    @include breakpoint($screen-lg) {
+      flex-grow: 1;
+      width: 20%;
+      max-width: 25%; // let items grow from 5-6 items in row
+    }
+  }
+
+  &-feature {
+    .is-quantatative & {
+      font-family: $headings-font-family;
+      font-size: 3em;
+      font-weight: $font-weight-light;
+    }
+
+    .is-qualitative & {
+      text-align: center;
+
+      span[class*='icon-'] {
+        font-size: 50px;
+        line-height: 1;
+      }
+
+      img {
+        max-width: 100%;
+        width: auto;
+        max-height: 50px;
+      }
+
+      svg {
+        display: block;
+        max-height: 50px;
+      }
+    }
+
+    .is-single & {
+      color: $petrol-blue !important;
+    }
+  }
+
+  &-description {
+    margin-top: 5px;
+  }
+}
+
+// ---------------------------------------
+// Testimonial
+// ----------------------------------------
+.testimonial {
+  padding: ($grid-gutter-width * 1.5);
+
+  &-quote {
+    position: relative;
+    padding: 0 0 0 60px;
+    margin-bottom: 1em;
+    font-size: $font-size-h2;
+    border-left: none;
+
+    &:before {
+      @include icon('\e27a');
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      font-size: 40px;
+    }
+
+    p {
+      //
+    }
+  }
+
+  &-cite {
+    padding-left: 60px;
+    font-style: normal;
+  }
+}
+
+// ---------------------------------------
+// Market card
+// ---------------------------------------
+.market-card {
+  box-shadow: 1px 3px 5px rgba($absolute-black, 0.1);
+
+  &.band-top {
+    // margin-bottom: $padding-component-base-vertical;
+  }
+
+  &.band-bottom {
+    // margin-top: $padding-component-base-vertical;
+  }
+
+  // approved component styles
+  // ----------------------------------------
+  .valprop {
+    padding: $padding-component-base-vertical;
+  }
+
+  .primary-topic {
+    &.is-card {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .media-flex {
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
+
+    @include breakpoint($screen-sm) {
+      padding-right: ($grid-gutter-width * 1.5);
+      padding-left: ($grid-gutter-width * 1.5);
+    }
+
+    &-body {
+      font-size: $font-size-large;
+    }
+
+    &-heading {
+      font-size: $font-size-h2;
+    }
+
+    // calendar displayed in media section
+    .date-display-lg {
+      .month {
+        color: $white !important;
+        background-color: $petrol-blue;
+      }
+
+      .day {
+        color: $petrol-blue;
+      }
+    }
+  }
+}
+
+@mixin band-half($direction: $top, $color: $bg-accent-primary) {
+  background-image: linear-gradient();
+}
+
+.band.band-top {
+  background-size: 100% 50%;
+
+  &:before {
+    height: 50%; // styles are in containers css file, overide there
+  }
+}
+
+.band.band-bottom {
+  &:before {
+    top: 50%;
+    height: 50%; // styles are in containers css file, overide there
+  }
+}
+
+// =IF(AND(G$8>=$C9,G$8<=$D9),"  ","")
+//
+// =IFS(AND(G$8>=$C9,G$8<=$D9,$B9="Dan"),"D",AND(G$8>=$C9,G$8<=$D9,$B9="Andrea"),"A",AND(G$8>=$C9,G$8<=$D9,$B9="Juan"),"J",AND(G$8>=$C9,G$8<=$D9,$B9=""),"  ",TRUE,"")
+//
+//
+// =IFS(
+// AND(H$5>=$D6,H$5<=$E6,$C6="Andrea"),"   ", // three spaces for Andrea
+//   AND(H$5>=$D6,H$5<=$E6,$C6="Dan"),"    ", // four spaces for Dan
+//   AND(H$5>=$D6,H$5<=$E6,$C6="IT"),"     ", // five spaces for IT
+//   AND(H$5>=$D6,H$5<=$E6,$C6="Juan"),"      ", // six spaces for Juan
+//   AND(H$5>=$D6,H$5<=$E6,$C6="Karla"),"       ", // seven spaces for Karla
+//   AND(H$5>=$D6,H$5<=$E6,$C6="None"),"  ", // two spaces for none
+//   AND(H$5>=$D6,H$5<=$E6,$C6=""),"  ", // two spaces for anonymous
+//   TRUE, ""
+// )
+// =IFS(AND(H$5>=$D6,H$5<=$E6,$C6="Andrea"),"   ",AND(H$5>=$D6,H$5<=$E6,$C6="Dan"),"    ",AND(H$5>=$D6,H$5<=$E6,$C6="IT"),"     ",AND(H$5>=$D6,H$5<=$E6,$C6="Juan"),"      ",AND(H$5>=$D6,H$5<=$E6,$C6="Karla"),"       ",AND(H$5>=$D6,H$5<=$E6,$C6="None"),"  ",AND(H$5>=$D6,H$5<=$E6,$C6=""),"  ",TRUE, "")
+//
+// =IF(AND(H$5>=$D6,H$5<=$E6),"  ","")

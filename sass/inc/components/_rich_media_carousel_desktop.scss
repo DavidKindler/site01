@@ -1,0 +1,609 @@
+// Rich Media Desktop Component Styles
+// USE THIS AT 1220 PX and larger
+.richMediaCarouselDesktop {
+  padding-top: 2em;
+
+  .-slides {
+    margin-bottom: 0.5em;
+
+    .cycle-slideshow {
+      max-width: 1600px !important;
+      width: 100% !important;
+      overflow: hidden !important;
+      border: 2px solid $table-border-color;
+
+      h2 {
+        max-width: 640px;
+        margin: 1em auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        @include noOutline();
+      }
+
+      img {
+        max-width: 640px;
+        max-height: 400px !important;
+        width: auto;
+        margin: 0 auto 1em;
+        opacity: 1 !important; //fix weird opacity shift on image when button hovered\
+        @include noOutline();
+      }
+
+      div,
+      img {
+        height: auto !important;
+      }
+
+      video {
+        max-width: 640px;
+        width: 100%;
+      }
+    }
+
+    .-thumbVideoWrapper {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 4em;
+        height: 4em;
+        left: 50%;
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        background: $VideoOverlayButton no-repeat center center;
+        background-size: 4em 4em;
+        z-index: 1;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .no-template-pager1 {
+    display: table;
+    margin: 0 auto;
+  }
+
+  .no-template-pager1 li {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    float: left;
+    max-width: 130px;
+  }
+
+  .center-arrows {
+    font-size: 25px;
+    opacity: 1;
+    color: #4c4c4d;
+    position: relative;
+    top: 48%;
+    background-color: #fff;
+    border-radius: 25px;
+  }
+
+  .cycle-next,
+  .cycle-prev {
+    position: absolute;
+    top: 48%;
+    cursor: pointer;
+  }
+
+  &:hover .cycle-next,
+  &:hover .cycle-prev {
+    z-index: 200;
+  }
+
+  .cycle-prev {
+    left: 1em;
+  }
+
+  .cycle-next {
+    right: 1em;
+  }
+
+  .cycle-prev,
+  .cycle-next {
+    .center-arrows {
+      @include transition(all 0.25s ease);
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      padding-left: 11px;
+      font-size: 1.5em;
+      color: #fff;
+      position: relative;
+      background-color: $pager-btn-color;
+      border-radius: 30px;
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .center-arrows:hover {
+      background-color: $pager-btn-color-hover;
+      box-shadow: $btn-shadow-hover;
+    }
+  }
+
+  .cycle-prev {
+    .center-arrows {
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        font-family: $font-family-icons;
+        content: '\f108';
+        z-index: 4;
+        color: white;
+        font-size: 1em;
+        display: block;
+      }
+    }
+  }
+
+  .cycle-next {
+    .center-arrows {
+      &:before {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-family: $font-family-icons;
+        content: '\f109';
+        z-index: 4;
+        color: white;
+        font-size: 1em;
+        display: block;
+      }
+    }
+  }
+
+  // Thumbnail Carousel Strip Cycle
+  .cycle-next-1,
+  .cycle-prev-1 {
+    z-index: 3;
+    position: absolute;
+    top: 40px;
+  }
+
+  .cycle-prev-1 {
+    left: 0;
+  }
+
+  .cycle-next-1 {
+    right: 0;
+  }
+
+  .strip-cycle {
+    span {
+      position: relative;
+      display: block;
+      width: 25px;
+      height: 25px;
+      font-size: 20px;
+      z-index: 3;
+      border-radius: 25px;
+      color: white;
+      background-color: $pager-btn-color;
+      box-shadow: $btn-shadow;
+      @include transition(all 0.25s ease);
+
+      &:before {
+        position: absolute;
+        margin-left: 0;
+        font-weight: 700;
+      }
+      &:hover {
+        background-color: $pager-btn-color-hover;
+        box-shadow: $btn-shadow-hover;
+      }
+    }
+  }
+
+  .strip-cycle.cycle-next-1 span:before {
+    top: 1px;
+    left: 10px;
+  }
+
+  .strip-cycle.cycle-prev-1 span:before {
+    top: 1px;
+    left: 8px;
+  }
+
+  .strip-cycle .disabled span {
+    opacity: 0.5;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .cycle-sentinel {
+    visibility: hidden;
+  }
+  .rich-media-overlay {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
+
+  .rich-media-overlay-bottom {
+    position: absolute;
+    right: 3em;
+    bottom: 0;
+    padding: 0.5em;
+    color: white;
+  }
+
+  .-zoom-indicator {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .-zoom-indicator:after {
+    position: absolute;
+    display: block;
+    background-color: rgba($cool-grey-xxxdark, 0.5);
+    color: white;
+    bottom: 1em;
+    right: 0;
+    font-family: $font-family-icons;
+    content: '\e1b8';
+    line-height: 1;
+    padding: 0.5em;
+    border-radius: 1px;
+  }
+
+  .-zoom-indicator.-interactive-elements:after {
+    border-radius: 0;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    font-size: 85%;
+  }
+
+  @media screen and (min-width: 769px) {
+    // don't display on iPad -sheeesh
+    .-zoom-indicator.-interactive-elements:before {
+      position: absolute;
+      display: block;
+      background-color: rgba($cool-grey-xxxdark, 0.5);
+      color: white;
+      bottom: 1em;
+      right: 27px;
+      content: 'View Interactive Elements ';
+      line-height: 1;
+      padding: 0.5em;
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+      font-size: 85%;
+    }
+  }
+
+  .rich-media-overlay-bottom h5 {
+    color: #008ecb;
+  }
+
+  .cycle-pager {
+    bottom: 10px !important;
+    top: auto !important;
+  }
+
+  .-carousel {
+    position: relative;
+
+    ul.cycle-slideshow {
+      width: 92%;
+      margin: 0 auto;
+    }
+
+    .cycle-slide {
+      @include transition(all 0.25s ease);
+      padding: 10px;
+      cursor: pointer;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+
+    .cycle-carousel-wrap {
+      li {
+        position: relative;
+        vertical-align: top;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+      }
+
+      li .rich-media-caption {
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        margin-top: $typespace;
+        font-size: 12px;
+      }
+    }
+
+    .cycle-sentinel {
+      .rich-media-caption {
+        width: 100%;
+        white-space: normal;
+        overflow: visible;
+        margin-top: $typespace;
+        font-size: 12px;
+      }
+    }
+
+    .cycle-slide-active {
+      background-color: $cool-grey-xxdark;
+
+      .rich-media-caption {
+        color: white;
+      }
+
+      div {
+        color: $black;
+      }
+    }
+
+    ul {
+      overflow: visible;
+    }
+
+    .cycle-slide {
+      max-width: 130px;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+
+    .cycle-slide a img {
+      @include transition(all 0.25s ease);
+    }
+
+    ul {
+      overflow: visible;
+    }
+
+    .videoThumbnail {
+      position: relative;
+
+      &:before {
+        content: '' !important;
+        position: absolute !important;
+        display: block !important;
+        width: 2em !important;
+        height: 2em !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform-origin: center !important;
+        transform: translate(-50%, -50%) !important;
+        background: $VideoOverlayButton no-repeat center center;
+        background-size: 2em 2em !important;
+        z-index: 1 !important;
+        opacity: 0.75 !important;
+        pointer-events: none;
+      }
+    }
+  }
+
+  #rollovers area {
+    cursor: pointer;
+  }
+
+  // slideshow images (for most of the demos, these are the actual "slides")
+  // some of these styles will be set by the plugin (by default) but setting them here
+  // helps avoid flash-of-unstyled-content
+  .cycle-slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    display: block;
+    max-height: 80px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  // in case script does not load
+  .cycle-slideshow img:first-child {
+    position: static;
+    z-index: 2;
+  }
+
+  .rm-thumbnail {
+    width: 100%;
+    height: 84px;
+  }
+
+  .rich-media-dialog {
+    width: 90%;
+    max-width: 80em;
+    margin: 3em auto;
+  }
+
+  .modal-header {
+    padding-bottom: 1.5em;
+    padding-left: 130px;
+    background: $nxpLogo 15px 15px no-repeat;
+    background-size: 80px auto;
+  }
+
+  .rich-media-modal {
+    img {
+      max-height: 70vh;
+    }
+  }
+
+  .modal-body img {
+    max-height: 70vh;
+  }
+}
+
+// Adjustments targeting the tablets
+@media screen and (min-width: 760px) and (max-width: 992px) {
+  .richMediaCarouselDesktop .-slides .cycle-slideshow h2 {
+    max-width: 400px;
+  }
+  .richMediaCarouselDesktop .-slides .cycle-slideshow img {
+    max-width: 400px;
+  }
+}
+
+// hide slides until slideshow is finished initializing
+.-slides .cycle-slideshow div {
+  display: none;
+}
+
+.-carousel .cycle-slideshow li {
+  display: none;
+}
+
+.cycle-slideshow.richMediaCarouselMobile a {
+  display: none;
+}
+
+.richMediaCarouselMobile-pager {
+  display: none;
+}
+
+.richMediaCarouselMobile-prevNext {
+  display: none;
+}
+
+//hide arrow icons till initialized.  Need to use event api to show after initialization
+.richMediaCarouselDesktop [class^='cycle-prev'] {
+  display: none;
+}
+
+.richMediaCarouselDesktop [class^='cycle-next'] {
+  display: none;
+}
+
+.richMediaCarouselDesktop .-carousel {
+  display: none;
+}
+
+.-slides .cycle-slideshow div:first-child,
+.-slides .cycle-slideshow div.-zoom-indicator,
+.-slides .cycle-slideshow div.-zoom-indicator.-interactive-elements {
+  display: block;
+}
+
+// Show
+.loading-slideshow {
+  display: block;
+  text-align: center;
+  font-size: 2em;
+}
+
+// -----------------------------------------------------------------------------
+// Rich Media update on RDSP
+// -----------------------------------------------------------------------------
+.slider-for {
+  &.slider-richMedia-for {
+    .for-slide-media {
+      display: flex;
+      justify-content: center;
+
+      &-inner {
+        position: relative;
+      }
+    }
+  }
+
+  &.slider-specs-for {
+    // background-color: $white;
+    .asp-diagram {
+      background-color: $white;
+    }
+  }
+  // for slider styles go here
+
+  .for-slide {
+    $max-height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: $padding-large-vertical;
+
+    .for-slide-media {
+      position: relative;
+
+      a {
+        display: inline-block;
+      }
+    }
+
+    img {
+      display: block;
+      max-height: $max-height;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .video-embed-container {
+      max-width: ($max-height / 9 * 16);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.slider-nav {
+  // margin-top: $padding-component-base-vertical;
+  margin-top: $padding-large-vertical;
+
+  &.slider-richMedia-nav {
+    // Rich Media carousel specific styles RDSP
+  }
+
+  &.slider-specs-nav {
+    // Block diagram specific styles RDSP
+  }
+
+  @include breakpoint-max($screen-sm) {
+    display: none;
+  }
+
+  .slick-list {
+    margin-right: ($padding-small-horizontal - ($grid-gutter-width / 2));
+    margin-left: ($padding-small-horizontal - ($grid-gutter-width / 2));
+  }
+
+  // generic slide class for nav slider
+  .nav-slide {
+    padding: $padding-small-horizontal;
+    margin-right: -#{$padding-small-horizontal};
+    margin-left: -#{$padding-small-horizontal};
+  }
+  // current slide has 'slick-current' and 'slick-active' classes
+  .slick-current {
+    .nav-slide {
+      color: $white;
+      background-color: $cool-grey-xxdark;
+    }
+  }
+
+  .nav-slide-img {
+    // image styles here
+    max-width: 100%;
+    margin-bottom: $padding-large-vertical;
+  }
+
+  .nav-slide-caption {
+    font-size: $font-size-base;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+//  Primary Nav Structure
+//  ---------------------------------------------------------------------------
+//  nav.nabvar.navbar-default.global-nav
+//  > div.navbar-header - [holds brand & mobile toggle]
+//  > div.collapse.navbar-collapse #global-nav
+//    > ul.nav.navbar-nav.primary-nav
+//      > li.dropdown(.open)
+//        > a.dropdown-toggle
+//        > div.dropdown-menu.dropdown-products.clearfix
+//  ---------------------------------------------------------------------------
+
+html {
+  // main containers
+  .global-nav {
+    border: none;
+  }
+  #global_nav {
+    min-height: auto;
+    margin: .5em 0; /* for testing */
+    background: #ffa700;
+    border: none;
+    border-radius: 0;
+  }
+  // main list styles
+  ul.primary-nav {
+    > li {
+      margin-right: .25em;
+      margin-bottom: 0;
+
+      > a {
+        padding: .375em 1em;
+        font-family: 'Lato', Arial, sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        text-transform: uppercase;
+        line-height: 1.5em;
+
+        &:hover {
+          color: #ffffff;
+          background: rgba(255, 255, 255, 0.15);
+        }
+      }
+
+      // list item states
+      &.open {
+        > a {
+          color: #4c4c4c;
+          background: #ffffff;
+
+          &:focus {
+            background: #ffffff;
+          }
+        }
+      }
+      // last list item
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,557 @@
+//  ---------------------------------------------------------------------------
+//  Table of Contents: Mixins
+//  ::  No Bullets
+//  ::  Inline List
+//  ::  No Outline
+//  ::  Word Break
+//  ::  Call to Action Links
+//  ::  Headings Select
+//  ::  Horizontal Scrollbars
+//  ::  CSS Columns
+//  ::  Breakpoints
+//  ::  Vertical Centering
+//  ::  Animations
+//  ::  Transitions
+//  ::  Inner Content Container
+//  ::  Constrain Image Size (needed any more?)
+//  ::  Bootstrap Mixins (copy BS mixins for customization)
+//  ::  - Alerts
+//  ::  - Tables
+//  ---------------------------------------------------------------------------
+
+// NO BULLETS
+// ----------------------------------------------------------
+// Removes the default bullets in a list
+@mixin nobullets() {
+  padding-left: 0;
+  list-style: none;
+
+  > li {
+    padding-left: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// USAGE
+//ul {
+//  @include nobullets;
+//}
+
+// LIST INLINE
+// ----------------------------------------------------------
+@mixin list-inline($margin: -5px, $padding: 5px) {
+  padding-left: 0;
+  margin-left: $margin;
+  margin-right: $margin;
+  list-style: none;
+
+  > li {
+    display: inline-block;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+// USAGE
+// ul {
+//   @include list-inline; // defaults -OR-
+//  @include list-inline($margin: 0, $padding: 0);
+// }
+
+// NO OUTLINE
+// ----------------------------------------------------------
+// Removes the active/focus outline after a click or press
+@mixin noOutline() {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+// USAGE
+//element {
+//  @include noOutline;
+//}
+
+// WORD BREAK
+// ---------------------------------------------------------------------------
+// sets element to allow text content to break words and introduce hyphens
+@mixin word-break() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  // -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word; // duplicate call here?
+  // -webkit-hyphens: auto;
+  // -moz-hyphens: auto;
+  // -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+//  USAGE
+//  element {
+//    @include word-break;
+//  }
+
+// Lead class: increase font size and change family
+// ---------------------------------------------------------------------------
+@mixin lead() {
+  font-family: $headings-font-family;
+  font-size: $font-size-large;
+  font-weight: 400; // Bootstrap declares weight of 300, adjusting here
+  color: $nxp-subheads;
+}
+
+// Icon base styles
+// Provide common styles for icon font family, and create individual variables for actual icon
+// ---------------------------------------------------------------------------
+@mixin icon($icon: null) {
+  content: $icon;
+  display: inline-block;
+  font: {
+    family: $font-family-icons;
+    style: normal;
+    variant: normal;
+    weight: normal;
+  }
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -mox-osx-font-smoothing: grayscale;
+  speak: none;
+}
+
+// Link treatments: EXT, CTA, etc.
+// ---------------------------------------------------------------------------
+@mixin link-treatment($icon: null, $animation: false) {
+  @if $animation == true {
+    position: relative;
+  }
+
+  &:after {
+    content: $icon;
+    position: relative;
+    @if $animation == true {
+      left: -0.25em;
+    }
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 0.5em;
+    font: {
+      family: $font-family-icons;
+      size: 85%;
+      style: normal;
+      variant: normal;
+      weight: inherit;
+    }
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -mox-osx-font-smoothing: grayscale;
+    text-transform: none;
+    @if $animation == true {
+      transition: all $animation-duration-fastest $cubic-bezier-base;
+    }
+  }
+
+  @if $animation == true {
+    &:hover {
+      text-decoration: none;
+
+      &:after {
+        left: 0;
+      }
+    }
+  }
+
+  &[href*='//']:not([href*='nxp.com']):not([href*='uat.freescale.com']),
+  &[href*='community.nxp.com'],
+  &[href*='blog.nxp.com'] {
+    &:after {
+      content: $icon-newtab; // new tab arrow icon
+      font-weight: 300; // reduce font-weight to match other icons/text
+    }
+  }
+
+  // Document links come last to override other options
+  &[href$='.pdf']:after {
+    content: $icon-pdf;
+  }
+}
+
+@mixin ext {
+  @include link-treatment();
+}
+
+@mixin cta() {
+  @include link-treatment($icon: $icon-angle-right, $animation: true);
+}
+
+// SELECT ALL HEADINGS EXTENSION
+// ----------------------------------------------------------
+@mixin headings {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %headings !optional;
+  }
+}
+
+// USAGE
+//.element > %headings {
+//    color: red;
+//}
+
+// Horizontal Scrollbars
+// ----------------------------------------------------------
+// Adds horizontal scrollbars for all devices if horizontal overflow exists
+@mixin horizScrollbars() {
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-scrollbar:vertical {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+}
+
+// USAGE
+//.className {
+//  @include horizScrollbars;
+//}
+
+// Columns
+// ---------------------------------------------------------------------------
+// Use this mixin on the parent of an item you want to display using CSS columns,
+// usually a ul/ol list. You can specify the child to avoid that item from
+// being split between two columns.
+// Using 'default' will provide default values for that option
+// - this allows you to skip over one value and update the next.
+// Using 'null' on child will not place 'break-inside' on any child element
+
+@mixin columns($count: auto, $gap: 1em, $width: 220px, $child: '*') {
+  column-count: $count;
+  column-gap: $gap;
+  column-width: $width;
+
+  > #{$child} {
+    break-inside: avoid;
+  }
+}
+
+// USAGE
+// ul.element {
+//   @include columns; // use defaults - or -
+//   @include columns(3, 1.5em, 240px, 'li'); // count|gap|width|child - or -
+//   @include columns($count: 3, $child: 'li'); // set specific options
+// }
+
+// MEDIA QUERY BREAKPOINTS
+// ----------------------------------------------------------
+// Using the breakpoint width variables defined by bootstrap and located
+// at _nxp_variables.scss
+// Some extra variables if we need them
+// Smallest Screen
+$screen-xs: 480px;
+// Landscape oriented
+$landscape: landscape;
+// Portrait oriented
+$portrait: portrait;
+// https://css-tricks.com/media-queries-sass-3-2-and-codekit/
+// Add your media queries in your code in multiple areas
+// and have SASS build them all out in one place neatly
+@mixin breakpoint($point) {
+  @if $point==screen-smallest {
+    @media screen and (min-width: $screen-xs) {
+      @content;
+    }
+  } @else if $point==screen-small {
+    @media screen and (min-width: $screen-sm) {
+      @content;
+    }
+  } @else if $point==screen-medium {
+    @media screen and (min-width: $screen-md) {
+      @content;
+    }
+  } @else if $point==screen-large {
+    @media screen and (min-width: $screen-lg) {
+      @content;
+    }
+  } @else if $point==screen-extra-large {
+    @media screen and (min-width: $screen-xl) {
+      @content;
+    }
+  } @else if $point==screen-smallest-and-less {
+    @media screen and (max-width: $screen-xs) {
+      @content;
+    }
+  } @else if $point==screen-small-and-less {
+    @media screen and (max-width: $screen-sm - 1px) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $point) {
+      @content;
+    }
+  }
+}
+
+//  Add a Max Media Query
+//  ---------------------------------------------------------------------------
+//  Provide variables or px/em value for flexibility
+@mixin breakpoint-max($max) {
+  @media only screen and (max-width: $max - 1px) {
+    @content;
+  }
+}
+// USAGE
+//.className {
+//  @include breakpoint-max($screen-sm);
+//  OR
+//  @include breakpoint-max(480px);
+//}
+
+//  Add a Min/Max Media Query
+//  ---------------------------------------------------------------------------
+//  Provide variables or px/em value for flexibility
+@mixin breakpoint-min-max($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max - 1px) {
+    @content;
+  }
+}
+// USAGE
+//.className {
+//  @include breakpoint-min-max($screen-sm, $screen-md);
+//  OR
+//  @include breakpoint-min-max(480px, 767px);
+//}
+
+//  Orientation Media Query
+//  ---------------------------------------------------------------------------
+@mixin orientation($oriented) {
+  @if $oriented==screen-landscape {
+    @media screen and (orientation: $landscape) {
+      @content;
+    }
+  } @else if $oriented==screen-portrait {
+    @media screen and (orientation: $portrait) {
+      @content;
+    }
+  }
+}
+
+// USAGE
+//.container {
+//  @include breakpoint(screen-small) { background-color: yellow; }
+//  @include breakpoint(screen-medium) { background-color: tan; }
+//  @include breakpoint(screen-large) { background-color: aqua; }
+//}
+
+// VERTICAL CENTERING
+// ----------------------------------------------------------
+// Centers if parent element is position: relative;
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+// Vertical Centering
+@mixin vertical-align($position: absolute) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// USAGE
+// .element p {
+//   @include vertical-align();
+// }
+
+// ANIMATIONS AND KEYFRAMES
+// ----------------------------------------------------------
+// Animations are always a pain to create with all the vendor prefixes and what not. But with the help of this mixin it will boil down to just a few lines of code.
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// USAGE
+// @include keyframes(slide-down) {
+//    0% { opacity: 1; }
+//    90% { opacity: 0; }
+// }
+// .element {
+//    width: 100px;
+//    height: 100px;
+//    background: black;
+//    @include animation('slide-down 5s 3');
+// }
+
+// TRANSITIONS
+// ----------------------------------------------------------
+// As with animations, transitions also make your code quite bloated which can hurt the readability. But this is also solved by using a mixin for it.
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// USAGE
+// a {
+//  color: gray;
+//  @include transition(color .3s ease);
+//  &:hover {
+//    color: black;
+//  }
+// }
+
+//  Constrain Image Size
+//  ----------------------------------------------------------
+//  place this mixin on the image container
+//  use % to set image ration ie. 16X9 = 56.25%
+//  use px/em to set fixed height (reset padding-bottom in media queries if needed).
+@mixin responsive-image(
+  $height: 35%,
+  $height-sm: null,
+  $height-md: null,
+  $height-lg: null
+) {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: $height;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @if $height-sm != null {
+    @include breakpoint(screen-small) {
+      padding-bottom: $height-sm;
+    }
+  }
+
+  @if $height-md != null {
+    @include breakpoint(screen-medium) {
+      padding-bottom: $height-md;
+    }
+  }
+
+  @if $height-lg != null {
+    @include breakpoint(screen-large) {
+      padding-bottom: $height-lg;
+    }
+  }
+}
+
+// USAGE
+//.element  {
+//    @include responsive-image(screen-xs (default set) | screen-sm (optional) | screen-md (optional) | screen-lg (optional) );
+//    @include responsive-image(); sets to default of 35%
+//    @include responsive-image(56.25%); sets to percentage (16X9 ratio)
+//    @include responsive-image(35%, 25%, 180px, 10em); sets heights for media queries (optional)
+//}
+
+// ----------------------------------------------------------------------
+// Bootstrap mixins
+// - Alerts
+// ----------------------------------------------------------------------
+//
+
+// Alerts
+@mixin alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+
+  *,
+  *:after,
+  *:before {
+    color: $text-color;
+  }
+
+  // hr styles seem unnecessary, was in standard Bootstrap mixin but removing
+  // hr {
+  //   margin-top: 0.75em;
+  //   margin-bottom: 0.75em;
+  //   border-top-color: $border-color-divider; // was darken($border, 5%)
+  // }
+
+  .alert-link {
+    color: $text-color; // was darken($text-color, 10%)
+  }
+
+  svg {
+    fill: $text-color;
+  }
+}
+
+// Tables: table bordered
+@mixin table-bordered($border-color: $table-border-color, $border-width: 2px) {
+  border: 1px solid $border-color;
+
+  > tfoot,
+  > thead,
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $border-color;
+      }
+    }
+  }
+
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: $border-width;
+    }
+  }
+}

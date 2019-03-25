@@ -1,0 +1,76 @@
+.app-container {
+  // general container styles go here
+  .nxp-gray-text-2{color:#747474;}
+}
+
+.app-row {
+  // width: 100%;
+
+  // move negative margins to row to better mirror Bootstrap styles
+  .col-lg-12 & {
+    // make span fullwidth, handle padding inside containers
+    margin-right: -#{$grid-gutter-width-half};
+    margin-left: -#{$grid-gutter-width-half};
+  }
+
+  @include breakpoint($screen-sm) {
+    display: flex; // flex for enhanced display
+  }
+}
+
+.app-column {
+  // not being used currently, leaving placeholder for future usage
+  // &-full {
+  //   display: block;
+  //   width: 100%;
+  // }
+
+  &-left {
+    width: 100%;
+    min-height: 100%;
+
+    @include breakpoint($screen-sm) {
+      flex-shrink: 1;
+      width: $left-column-small;
+    }
+
+    @include breakpoint($screen-lg) {
+      width: $left-column-large;
+    }
+  }
+
+  &-right {
+    flex-shrink: 0;
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include breakpoint($screen-sm) {
+      width: calc(100vw - #{$left-column-small});
+      padding-right: $grid-gutter-width;
+      padding-left: $grid-gutter-width;
+      // setting hard margins to force columns to resize so 'band' class does not cause scrollbars
+      // margin-left: calc((100vw - #{$screen-sm}) / 2);
+      // margin-right: calc((100vw - #{$screen-sm}) / 2);
+    }
+
+    @include breakpoint($screen-md) {
+      max-width: ($screen-md - $left-column-medium);
+      margin-left: calc((100vw - #{$screen-md}) / 2);
+      margin-right: calc((100vw - #{$screen-md}) / 2);
+    }
+
+    @include breakpoint($screen-lg) {
+      max-width: ($screen-lg - $left-column-large);
+      margin-left: calc((100vw - #{$screen-lg}) / 2);
+      margin-right: calc((100vw - #{$screen-lg}) / 2);
+    }
+
+    @include breakpoint($screen-xl) {
+      max-width: ($screen-xl - $left-column-large);
+      margin-left: calc((100vw - #{$screen-xl}) / 2);
+      margin-right: calc((100vw - #{$screen-xl}) / 2);
+    }
+  }
+}

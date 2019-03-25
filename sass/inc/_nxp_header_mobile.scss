@@ -1,0 +1,41 @@
+// TODO: find a way to prefix these styles for current header sticky positioning
+
+@media screen and (max-width: $screen-tablet - 1px) {
+  // For mobile platforms hide the header when you scroll down.  Then show it when you scroll up.
+  // Works with hide-header javascript.  Check pattern-mobile-navigation-hide.html
+  $header_height: 110px;
+
+  body {
+    padding-top: (
+      $header_height - 3px
+    ); // offset padding by 3px for min-height of empty divs (parents of header)
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: white;
+    transition: top 0.2s ease-in-out;
+  }
+
+  #header {
+    margin-bottom: 0px;
+  }
+
+  .nav-up {
+    top: (-$header_height);
+  }
+
+  #header ul#top-nav {
+    margin-right: 0; // move to area with similar code ?
+  }
+
+  #header #search-block {
+    margin-right: 15px;
+  }
+}

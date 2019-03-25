@@ -1,0 +1,99 @@
+.rate-widget .icon-star.icon-star3 {
+  color: $nxp-orange;
+}
+
+.rating-stars {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  line-height: 0px;
+  vertical-align: super;
+  display: inline-block;
+}
+
+.rating-stars > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-family: 'icomoon';
+}
+
+.rating-stars > span:before {
+  content: "\e2fc";
+  position: absolute;
+  left: 0;
+}
+
+.rating-stars > span:hover,
+.rating-stars > span:hover ~ span {
+  color: transparent;
+}
+
+.rating-stars > span:hover:before,
+.rating-stars > span:hover ~ span:before {
+  content: "\e2fe";
+  position: absolute;
+  left: 0;
+  color: $nxp-orange;
+  // color: orange;
+}
+
+.video-views {
+  display: inline-block;
+}
+
+.affix.video-container {
+  position: initial;
+}
+
+.video-container {
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width:769px) {
+  .affix.video-container {
+    top: 0;
+    left: 0;
+    padding: 0px 0px 10px 0px;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+  }
+  .videoThumbnail .video {
+    width: auto;
+  }
+}
+
+.videoThumbnail {
+  &.row {
+    padding-bottom: 10px;
+  }
+  .video {
+    padding-right: 0px;
+  }
+  .videoThumbnail-content {
+    font-size: 1.2rem;
+    .title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+    .views {
+      float: left;
+    }
+    .time {
+      float: right;
+    }
+  }
+}
+
+// B57029 make the posted date and views sit flush left w other content
+@media screen and (max-width: $screen-md) {
+  .video-container + .row > .col-sm-6 {
+    padding-left: 15px !important;
+    //border: 2px solid red;
+  }
+}

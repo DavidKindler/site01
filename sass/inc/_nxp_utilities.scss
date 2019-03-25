@@ -1,0 +1,1686 @@
+// -----------------------------------------------------------------------------
+// Colors
+// : background accent colors
+// : border colors, used for highlights with inherit CSS
+// : NXP brand colors (background and text colors grouped)
+// : NXP legacy colors
+// -----------------------------------------------------------------------------
+
+// Background accent colors
+// create custom background color(s) for highlighting sections
+// if this needs to be repeated, create a mixin to handle this consistently
+// ----------------------------------------------
+
+@mixin bg-variant-nxp($background, $text, $link, $hover) {
+  background-color: $background !important;
+
+  * {
+    color: $text !important;
+  }
+
+  // don't apply to buttons, they should declare their own color/decoration
+  a:not(.btn) {
+    color: $link !important;
+
+    @if ($link == $hover) {
+      @if ($hover == $link-hover-color) {
+        text-decoration: none;
+      } @else {
+        text-decoration: underline;
+      }
+    }
+
+    &:hover {
+      color: $hover !important;
+
+      @if ($link == $link-color and $hover == $link-hover-color) {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.bg-accent-primary {
+  @include bg-variant-nxp(#226ab3, $white, $white, $white);
+  border-color: transparent; // not sure why this is here, keeping for now
+}
+
+// Use this to reset background and font colors when color background is used.
+.bg-white {
+  @include bg-variant-nxp($white, $text-color, $link-color, $link-hover-color);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: $nxp-subheads !important;
+  }
+}
+
+.bg-petrol-blue {
+  @include bg-variant-nxp($petrol-blue, $white, $white, $white);
+}
+
+// Border colors
+// ----------------------------------------------
+.border-nxp-orange {
+  border-color: $nxp-orange !important;
+}
+
+.border-petrol-blue {
+  border-color: $petrol-blue !important;
+}
+
+.border-olive-green {
+  border-color: $olive-green-light !important;
+}
+
+.border-aqua {
+  border-color: $aqua !important;
+}
+
+.border-pale-blue {
+  border-color: $pale-blue-dark !important;
+}
+
+// NXP brand colors
+// ----------------------------------------------
+// Grey
+.grey {
+  background-color: $grey !important;
+}
+
+.grey-xxxlight {
+  background-color: $grey-xxxlight !important;
+}
+
+.grey-xxlight {
+  background-color: $grey-xxlight !important;
+}
+
+.grey-xlight {
+  background-color: $grey-xlight !important;
+}
+
+.grey-light {
+  background-color: $grey-light !important;
+}
+
+.grey-dark {
+  background-color: $grey-dark !important;
+}
+
+.grey-xdark {
+  background-color: $grey-xdark !important;
+}
+
+.grey-xxdark {
+  background-color: $grey-xxdark !important;
+}
+
+.grey-xxxdark {
+  background-color: $grey-xxxdark !important;
+}
+
+.txt-grey {
+  color: $grey !important;
+}
+
+.txt-grey-xxxlight {
+  color: $grey-xxxlight !important;
+}
+
+.txt-grey-xxlight {
+  color: $grey-xxlight !important;
+}
+
+.txt-grey-xlight {
+  color: $grey-xlight !important;
+}
+
+.txt-grey-light {
+  color: $grey-light !important;
+}
+
+.txt-grey-dark {
+  color: $grey-dark !important;
+}
+
+.txt-grey-xdark {
+  color: $grey-xdark !important;
+}
+
+.txt-grey-xxdark {
+  color: $grey-xxdark !important;
+}
+
+.txt-grey-xxxdark {
+  color: $grey-xxxdark !important;
+}
+
+// Warm Grey
+// ----------------------------------------------
+.warm-grey {
+  background-color: $warm-grey !important;
+}
+
+.warm-grey-xxxlight {
+  background-color: $warm-grey-xxxlight !important;
+}
+
+.warm-grey-xxlight {
+  background-color: $warm-grey-xxlight !important;
+}
+
+.warm-grey-xlight {
+  background-color: $warm-grey-xlight !important;
+}
+
+.warm-grey-light {
+  background-color: $warm-grey-light !important;
+}
+
+.warm-grey-dark {
+  background-color: $warm-grey-dark !important;
+}
+
+.warm-grey-xdark {
+  background-color: $warm-grey-xdark !important;
+}
+
+.warm-grey-xxdark {
+  background-color: $warm-grey-xxdark !important;
+}
+
+.warm-grey-xxxdark {
+  background-color: $warm-grey-xxxdark !important;
+}
+
+.txt-warm-grey {
+  color: $warm-grey !important;
+}
+
+.txt-warm-grey-xxxlight {
+  color: $warm-grey-xxxlight !important;
+}
+
+.txt-warm-grey-xxlight {
+  color: $warm-grey-xxlight !important;
+}
+
+.txt-warm-grey-xlight {
+  color: $warm-grey-xlight !important;
+}
+
+.txt-warm-grey-light {
+  color: $warm-grey-light !important;
+}
+
+.txt-warm-grey-dark {
+  color: $warm-grey-dark !important;
+}
+
+.txt-warm-grey-xdark {
+  color: $warm-grey-xdark !important;
+}
+
+.txt-warm-grey-xxdark {
+  color: $warm-grey-xxdark !important;
+}
+
+.txt-warm-grey-xxxdark {
+  color: $warm-grey-xxxdark !important;
+}
+
+// Cool grey
+// ----------------------------------------------
+.cool-grey {
+  background-color: $cool-grey !important;
+}
+
+.cool-grey-xxxlight {
+  background-color: $cool-grey-xxxlight !important;
+}
+
+.cool-grey-xxlight {
+  background-color: $cool-grey-xxlight !important;
+}
+
+.cool-grey-xlight {
+  background-color: $cool-grey-xlight !important;
+}
+
+.cool-grey-light {
+  background-color: $cool-grey-light !important;
+}
+
+.cool-grey-dark {
+  background-color: $cool-grey-dark !important;
+}
+
+.cool-grey-xdark {
+  background-color: $cool-grey-xdark !important;
+}
+
+.cool-grey-xxdark {
+  background-color: $cool-grey-xxdark !important;
+}
+
+.cool-grey-xxxdark {
+  background-color: $cool-grey-xxxdark !important;
+}
+
+.txt-cool-grey {
+  color: $cool-grey !important;
+}
+
+.txt-cool-grey-xxxlight {
+  color: $cool-grey-xxxlight !important;
+}
+
+.txt-cool-grey-xxlight {
+  color: $cool-grey-xxlight !important;
+}
+
+.txt-cool-grey-xlight {
+  color: $cool-grey-xlight !important;
+}
+
+.txt-cool-grey-light {
+  color: $cool-grey-light !important;
+}
+
+.txt-cool-grey-dark {
+  color: $cool-grey-dark !important;
+}
+
+.txt-cool-grey-xdark {
+  color: $cool-grey-xdark !important;
+}
+
+.txt-cool-grey-xxdark {
+  color: $cool-grey-xxdark !important;
+}
+
+.txt-cool-grey-xxxdark {
+  color: $cool-grey-xxxdark !important;
+}
+
+// Blue
+// ----------------------------------------------
+.nxp-blue {
+  background-color: $nxp-blue !important;
+}
+
+.nxp-blue-xxxlight {
+  background-color: $nxp-blue-xxxlight !important;
+}
+
+.nxp-blue-xxlight {
+  background-color: $nxp-blue-xxlight !important;
+}
+
+.nxp-blue-xlight {
+  background-color: $nxp-blue-xlight !important;
+}
+
+.nxp-blue-light {
+  background-color: $nxp-blue-light !important;
+}
+
+.nxp-blue-dark {
+  background-color: $nxp-blue-dark !important;
+}
+
+.nxp-blue-xdark {
+  background-color: $nxp-blue-xdark !important;
+}
+
+.nxp-blue-xxdark {
+  background-color: $nxp-blue-xxdark !important;
+}
+
+.nxp-blue-xxxdark {
+  background-color: $nxp-blue-xxxdark !important;
+}
+
+.txt-nxp-blue {
+  color: $nxp-blue !important;
+}
+
+.txt-nxp-blue-xxxlight {
+  color: $nxp-blue-xxxlight !important;
+}
+
+.txt-nxp-blue-xxlight {
+  color: $nxp-blue-xxlight !important;
+}
+
+.txt-nxp-blue-xlight {
+  color: $nxp-blue-xlight !important;
+}
+
+.txt-nxp-blue-light {
+  color: $nxp-blue-light !important;
+}
+
+.txt-nxp-blue-dark {
+  color: $nxp-blue-dark !important;
+}
+
+.txt-nxp-blue-xdark {
+  color: $nxp-blue-xdark !important;
+}
+
+.txt-nxp-blue-xxdark {
+  color: $nxp-blue-xxdark !important;
+}
+
+.txt-nxp-blue-xxxdark {
+  color: $nxp-blue-xxxdark !important;
+}
+
+// Orange
+// ----------------------------------------------
+.nxp-orange {
+  background-color: $nxp-orange !important;
+}
+
+.nxp-orange-xxxlight {
+  background-color: $nxp-orange-xxxlight !important;
+}
+
+.nxp-orange-xxlight {
+  background-color: $nxp-orange-xxlight !important;
+}
+
+.nxp-orange-xlight {
+  background-color: $nxp-orange-xlight !important;
+}
+
+.nxp-orange-light {
+  background-color: $nxp-orange-light !important;
+}
+
+.nxp-orange-dark {
+  background-color: $nxp-orange-dark !important;
+}
+
+.nxp-orange-xdark {
+  background-color: $nxp-orange-xdark !important;
+}
+
+.nxp-orange-xxdark {
+  background-color: $nxp-orange-xxdark !important;
+}
+
+.nxp-orange-xxxdark {
+  background-color: $nxp-orange-xxxdark !important;
+}
+
+.txt-nxp-orange {
+  color: $nxp-orange !important;
+}
+
+.txt-nxp-orange-xxxlight {
+  color: $nxp-orange-xxxlight !important;
+}
+
+.txt-nxp-orange-xxlight {
+  color: $nxp-orange-xxlight !important;
+}
+
+.txt-nxp-orange-xlight {
+  color: $nxp-orange-xlight !important;
+}
+
+.txt-nxp-orange-light {
+  color: $nxp-orange-light !important;
+}
+
+.txt-nxp-orange-dark {
+  color: $nxp-orange-dark !important;
+}
+
+.txt-nxp-orange-xdark {
+  color: $nxp-orange-xdark !important;
+}
+
+.txt-nxp-orange-xxdark {
+  color: $nxp-orange-xxdark !important;
+}
+
+.txt-nxp-orange-xxxdark {
+  color: $nxp-orange-xxxdark !important;
+}
+
+// Green
+// ----------------------------------------------
+.nxp-green {
+  background-color: $nxp-green !important;
+}
+
+.nxp-green-xxxlight {
+  background-color: $nxp-green-xxxlight !important;
+}
+
+.nxp-green-xxlight {
+  background-color: $nxp-green-xxlight !important;
+}
+
+.nxp-green-xlight {
+  background-color: $nxp-green-xlight !important;
+}
+
+.nxp-green-light {
+  background-color: $nxp-green-light !important;
+}
+
+.nxp-green-dark {
+  background-color: $nxp-green-dark !important;
+}
+
+.nxp-green-xdark {
+  background-color: $nxp-green-xdark !important;
+}
+
+.nxp-green-xxdark {
+  background-color: $nxp-green-xxdark !important;
+}
+
+.nxp-green-xxxdark {
+  background-color: $nxp-green-xxxdark !important;
+}
+
+.txt-nxp-green {
+  color: $nxp-green !important;
+}
+
+.txt-nxp-green-xxxlight {
+  color: $nxp-green-xxxlight !important;
+}
+
+.txt-nxp-green-xxlight {
+  color: $nxp-green-xxlight !important;
+}
+
+.txt-nxp-green-xlight {
+  color: $nxp-green-xlight !important;
+}
+
+.txt-nxp-green-light {
+  color: $nxp-green-light !important;
+}
+
+.txt-nxp-green-dark {
+  color: $nxp-green-dark !important;
+}
+
+.txt-nxp-green-xdark {
+  color: $nxp-green-xdark !important;
+}
+
+.txt-nxp-green-xxdark {
+  color: $nxp-green-xxdark !important;
+}
+
+.txt-nxp-green-xxxdark {
+  color: $nxp-green-xxxdark !important;
+}
+
+// Pale aqua
+// ----------------------------------------------
+.pale-aqua {
+  background-color: $pale-aqua !important;
+}
+
+.pale-aqua-xxxlight {
+  background-color: $pale-aqua-xxxlight !important;
+}
+
+.pale-aqua-xxlight {
+  background-color: $pale-aqua-xxlight !important;
+}
+
+.pale-aqua-xlight {
+  background-color: $pale-aqua-xlight !important;
+}
+
+.pale-aqua-light {
+  background-color: $pale-aqua-light !important;
+}
+
+.pale-aqua-dark {
+  background-color: $pale-aqua-dark !important;
+}
+
+.pale-aqua-xdark {
+  background-color: $pale-aqua-xdark !important;
+}
+
+.pale-aqua-xxdark {
+  background-color: $pale-aqua-xxdark !important;
+}
+
+.pale-aqua-xxxdark {
+  background-color: $pale-aqua-xxxdark !important;
+}
+
+.txt-pale-aqua {
+  color: $pale-aqua !important;
+}
+
+.txt-pale-aqua-xxxlight {
+  color: $pale-aqua-xxxlight !important;
+}
+
+.txt-pale-aqua-xxlight {
+  color: $pale-aqua-xxlight !important;
+}
+
+.txt-pale-aqua-xlight {
+  color: $pale-aqua-xlight !important;
+}
+
+.txt-pale-aqua-light {
+  color: $pale-aqua-light !important;
+}
+
+.txt-pale-aqua-dark {
+  color: $pale-aqua-dark !important;
+}
+
+.txt-pale-aqua-xdark {
+  color: $pale-aqua-xdark !important;
+}
+
+.txt-pale-aqua-xxdark {
+  color: $pale-aqua-xxdark !important;
+}
+
+.txt-pale-aqua-xxxdark {
+  color: $pale-aqua-xxxdark !important;
+}
+
+// Deep green
+// ----------------------------------------------
+.deep-green {
+  background-color: $deep-green !important;
+}
+
+.deep-green-xxxlight {
+  background-color: $deep-green-xxxlight !important;
+}
+
+.deep-green-xxlight {
+  background-color: $deep-green-xxlight !important;
+}
+
+.deep-green-xlight {
+  background-color: $deep-green-xlight !important;
+}
+
+.deep-green-light {
+  background-color: $deep-green-light !important;
+}
+
+.deep-green-dark {
+  background-color: $deep-green-dark !important;
+}
+
+.deep-green-xdark {
+  background-color: $deep-green-xdark !important;
+}
+
+.deep-green-xxdark {
+  background-color: $deep-green-xxdark !important;
+}
+
+.deep-green-xxxdark {
+  background-color: $deep-green-xxxdark !important;
+}
+
+.txt-deep-green {
+  color: $deep-green !important;
+}
+
+.txt-deep-green-xxxlight {
+  color: $deep-green-xxxlight !important;
+}
+
+.txt-deep-green-xxlight {
+  color: $deep-green-xxlight !important;
+}
+
+.txt-deep-green-xlight {
+  color: $deep-green-xlight !important;
+}
+
+.txt-deep-green-light {
+  color: $deep-green-light !important;
+}
+
+.txt-deep-green-dark {
+  color: $deep-green-dark !important;
+}
+
+.txt-deep-green-xdark {
+  color: $deep-green-xdark !important;
+}
+
+.txt-deep-green-xxdark {
+  color: $deep-green-xxdark !important;
+}
+
+.txt-deep-green-xxxdark {
+  color: $deep-green-xxxdark !important;
+}
+
+// Petrol blue
+// ----------------------------------------------
+.petrol-blue {
+  background-color: $petrol-blue !important;
+}
+
+.petrol-blue-xxxlight {
+  background-color: $petrol-blue-xxxlight !important;
+}
+
+.petrol-blue-xxlight {
+  background-color: $petrol-blue-xxlight !important;
+}
+
+.petrol-blue-xlight {
+  background-color: $petrol-blue-xlight !important;
+}
+
+.petrol-blue-light {
+  background-color: $petrol-blue-light !important;
+}
+
+.petrol-blue-dark {
+  background-color: $petrol-blue-dark !important;
+}
+
+.petrol-blue-xdark {
+  background-color: $petrol-blue-xdark !important;
+}
+
+.petrol-blue-xxdark {
+  background-color: $petrol-blue-xxdark !important;
+}
+
+.petrol-blue-xxxdark {
+  background-color: $petrol-blue-xxxdark !important;
+}
+
+.txt-petrol-blue {
+  color: $petrol-blue !important;
+}
+
+.txt-petrol-blue-xxxlight {
+  color: $petrol-blue-xxxlight !important;
+}
+
+.txt-petrol-blue-xxlight {
+  color: $petrol-blue-xxlight !important;
+}
+
+.txt-petrol-blue-xlight {
+  color: $petrol-blue-xlight !important;
+}
+
+.txt-petrol-blue-light {
+  color: $petrol-blue-light !important;
+}
+
+.txt-petrol-blue-dark {
+  color: $petrol-blue-dark !important;
+}
+
+.txt-petrol-blue-xdark {
+  color: $petrol-blue-xdark !important;
+}
+
+.txt-petrol-blue-xxdark {
+  color: $petrol-blue-xxdark !important;
+}
+
+.txt-petrol-blue-xxxdark {
+  color: $petrol-blue-xxxdark !important;
+}
+
+// Olive green
+// ----------------------------------------------
+.olive-green {
+  background-color: $olive-green !important;
+}
+
+.olive-green-xxxlight {
+  background-color: $olive-green-xxxlight !important;
+}
+
+.olive-green-xxlight {
+  background-color: $olive-green-xxlight !important;
+}
+
+.olive-green-xlight {
+  background-color: $olive-green-xlight !important;
+}
+
+.olive-green-light {
+  background-color: $olive-green-light !important;
+}
+
+.olive-green-dark {
+  background-color: $olive-green-dark !important;
+}
+
+.olive-green-xdark {
+  background-color: $olive-green-xdark !important;
+}
+
+.olive-green-xxdark {
+  background-color: $olive-green-xxdark !important;
+}
+
+.olive-green-xxxdark {
+  background-color: $olive-green-xxxdark !important;
+}
+
+.txt-olive-green {
+  color: $olive-green !important;
+}
+
+.txt-olive-green-xxxlight {
+  color: $olive-green-xxxlight !important;
+}
+
+.txt-olive-green-xxlight {
+  color: $olive-green-xxlight !important;
+}
+
+.txt-olive-green-xlight {
+  color: $olive-green-xlight !important;
+}
+
+.txt-olive-green-light {
+  color: $olive-green-light !important;
+}
+
+.txt-olive-green-dark {
+  color: $olive-green-dark !important;
+}
+
+.txt-olive-green-xdark {
+  color: $olive-green-xdark !important;
+}
+
+.txt-olive-green-xxdark {
+  color: $olive-green-xxdark !important;
+}
+
+.txt-olive-green-xxxdark {
+  color: $olive-green-xxxdark !important;
+}
+
+// Pale blue
+// ----------------------------------------------
+.pale-blue {
+  background-color: $pale-blue !important;
+}
+
+.pale-blue-xxxlight {
+  background-color: $pale-blue-xxxlight !important;
+}
+
+.pale-blue-xxlight {
+  background-color: $pale-blue-xxlight !important;
+}
+
+.pale-blue-xlight {
+  background-color: $pale-blue-xlight !important;
+}
+
+.pale-blue-light {
+  background-color: $pale-blue-light !important;
+}
+
+.pale-blue-dark {
+  background-color: $pale-blue-dark !important;
+}
+
+.pale-blue-xdark {
+  background-color: $pale-blue-xdark !important;
+}
+
+.pale-blue-xxdark {
+  background-color: $pale-blue-xxdark !important;
+}
+
+.pale-blue-xxxdark {
+  background-color: $pale-blue-xxxdark !important;
+}
+
+.txt-pale-blue {
+  color: $pale-blue !important;
+}
+
+.txt-pale-blue-xxxlight {
+  color: $pale-blue-xxxlight !important;
+}
+
+.txt-pale-blue-xxlight {
+  color: $pale-blue-xxlight !important;
+}
+
+.txt-pale-blue-xlight {
+  color: $pale-blue-xlight !important;
+}
+
+.txt-pale-blue-light {
+  color: $pale-blue-light !important;
+}
+
+.txt-pale-blue-dark {
+  color: $pale-blue-dark !important;
+}
+
+.txt-pale-blue-xdark {
+  color: $pale-blue-xdark !important;
+}
+
+.txt-pale-blue-xxdark {
+  color: $pale-blue-xxdark !important;
+}
+
+.txt-pale-blue-xxxdark {
+  color: $pale-blue-xxxdark !important;
+}
+
+// Deep blue
+// ----------------------------------------------
+.deep-blue {
+  background-color: $deep-blue !important;
+}
+
+.deep-blue-xxxlight {
+  background-color: $deep-blue-xxxlight !important;
+}
+
+.deep-blue-xxlight {
+  background-color: $deep-blue-xxlight !important;
+}
+
+.deep-blue-xlight {
+  background-color: $deep-blue-xlight !important;
+}
+
+.deep-blue-light {
+  background-color: $deep-blue-light !important;
+}
+
+.deep-blue-dark {
+  background-color: $deep-blue-dark !important;
+}
+
+.deep-blue-xdark {
+  background-color: $deep-blue-xdark !important;
+}
+
+.deep-blue-xxdark {
+  background-color: $deep-blue-xxdark !important;
+}
+
+.deep-blue-xxxdark {
+  background-color: $deep-blue-xxxdark !important;
+}
+
+.txt-deep-blue {
+  color: $deep-blue !important;
+}
+
+.txt-deep-blue-xxxlight {
+  color: $deep-blue-xxxlight !important;
+}
+
+.txt-deep-blue-xxlight {
+  color: $deep-blue-xxlight !important;
+}
+
+.txt-deep-blue-xlight {
+  color: $deep-blue-xlight !important;
+}
+
+.txt-deep-blue-light {
+  color: $deep-blue-light !important;
+}
+
+.txt-deep-blue-dark {
+  color: $deep-blue-dark !important;
+}
+
+.txt-deep-blue-xdark {
+  color: $deep-blue-xdark !important;
+}
+
+.txt-deep-blue-xxdark {
+  color: $deep-blue-xxdark !important;
+}
+
+.txt-deep-blue-xxxdark {
+  color: $deep-blue-xxxdark !important;
+}
+
+// Purple
+// ----------------------------------------------
+.purple {
+  background-color: $purple !important;
+}
+
+.purple-xxxlight {
+  background-color: $purple-xxxlight !important;
+}
+
+.purple-xxlight {
+  background-color: $purple-xxlight !important;
+}
+
+.purple-xlight {
+  background-color: $purple-xlight !important;
+}
+
+.purple-light {
+  background-color: $purple-light !important;
+}
+
+.purple-dark {
+  background-color: $purple-dark !important;
+}
+
+.purple-xdark {
+  background-color: $purple-xdark !important;
+}
+
+.purple-xxdark {
+  background-color: $purple-xxdark !important;
+}
+
+.purple-xxxdark {
+  background-color: $purple-xxxdark !important;
+}
+
+.txt-purple {
+  color: $purple !important;
+}
+
+.txt-purple-xxxlight {
+  color: $purple-xxxlight !important;
+}
+
+.txt-purple-xxlight {
+  color: $purple-xxlight !important;
+}
+
+.txt-purple-xlight {
+  color: $purple-xlight !important;
+}
+
+.txt-purple-light {
+  color: $purple-light !important;
+}
+
+.txt-purple-dark {
+  color: $purple-dark !important;
+}
+
+.txt-purple-xdark {
+  color: $purple-xdark !important;
+}
+
+.txt-purple-xxdark {
+  color: $purple-xxdark !important;
+}
+
+.txt-purple-xxxdark {
+  color: $purple-xxxdark !important;
+}
+
+// Magenta
+// ----------------------------------------------
+.magenta {
+  background-color: $magenta !important;
+}
+
+.magenta-xxxlight {
+  background-color: $magenta-xxxlight !important;
+}
+
+.magenta-xxlight {
+  background-color: $magenta-xxlight !important;
+}
+
+.magenta-xlight {
+  background-color: $magenta-xlight !important;
+}
+
+.magenta-light {
+  background-color: $magenta-light !important;
+}
+
+.magenta-dark {
+  background-color: $magenta-dark !important;
+}
+
+.magenta-xdark {
+  background-color: $magenta-xdark !important;
+}
+
+.magenta-xxdark {
+  background-color: $magenta-xxdark !important;
+}
+
+.magenta-xxxdark {
+  background-color: $magenta-xxxdark !important;
+}
+
+.txt-magenta {
+  color: $magenta !important;
+}
+
+.txt-magenta-xxxlight {
+  color: $magenta-xxxlight !important;
+}
+
+.txt-magenta-xxlight {
+  color: $magenta-xxlight !important;
+}
+
+.txt-magenta-xlight {
+  color: $magenta-xlight !important;
+}
+
+.txt-magenta-light {
+  color: $magenta-light !important;
+}
+
+.txt-magenta-dark {
+  color: $magenta-dark !important;
+}
+
+.txt-magenta-xdark {
+  color: $magenta-xdark !important;
+}
+
+.txt-magenta-xxdark {
+  color: $magenta-xxdark !important;
+}
+
+.txt-magenta-xxxdark {
+  color: $magenta-xxxdark !important;
+}
+
+// Red
+// ----------------------------------------------
+.red {
+  background-color: $red !important;
+}
+
+.red-xxxlight {
+  background-color: $red-xxxlight !important;
+}
+
+.red-xxlight {
+  background-color: $red-xxlight !important;
+}
+
+.red-xlight {
+  background-color: $red-xlight !important;
+}
+
+.red-light {
+  background-color: $red-light !important;
+}
+
+.red-dark {
+  background-color: $red-dark !important;
+}
+
+.red-xdark {
+  background-color: $red-xdark !important;
+}
+
+.red-xxdark {
+  background-color: $red-xxdark !important;
+}
+
+.red-xxxdark {
+  background-color: $red-xxxdark !important;
+}
+
+.txt-red {
+  color: $red !important;
+}
+
+.txt-red-xxxlight {
+  color: $red-xxxlight !important;
+}
+
+.txt-red-xxlight {
+  color: $red-xxlight !important;
+}
+
+.txt-red-xlight {
+  color: $red-xlight !important;
+}
+
+.txt-red-light {
+  color: $red-light !important;
+}
+
+.txt-red-dark {
+  color: $red-dark !important;
+}
+
+.txt-red-xdark {
+  color: $red-xdark !important;
+}
+
+.txt-red-xxdark {
+  color: $red-xxdark !important;
+}
+
+.txt-red-xxxdark {
+  color: $red-xxxdark !important;
+}
+
+// Deep red
+// ----------------------------------------------
+.deep-red {
+  background-color: $deep-red !important;
+}
+
+.deep-red-xxxlight {
+  background-color: $deep-red-xxxlight !important;
+}
+
+.deep-red-xxlight {
+  background-color: $deep-red-xxlight !important;
+}
+
+.deep-red-xlight {
+  background-color: $deep-red-xlight !important;
+}
+
+.deep-red-light {
+  background-color: $deep-red-light !important;
+}
+
+.deep-red-dark {
+  background-color: $deep-red-dark !important;
+}
+
+.deep-red-xdark {
+  background-color: $deep-red-xdark !important;
+}
+
+.deep-red-xxdark {
+  background-color: $deep-red-xxdark !important;
+}
+
+.deep-red-xxxdark {
+  background-color: $deep-red-xxxdark !important;
+}
+
+.txt-deep-red {
+  color: $deep-red !important;
+}
+
+.txt-deep-red-xxxlight {
+  color: $deep-red-xxxlight !important;
+}
+
+.txt-deep-red-xxlight {
+  color: $deep-red-xxlight !important;
+}
+
+.txt-deep-red-xlight {
+  color: $deep-red-xlight !important;
+}
+
+.txt-deep-red-light {
+  color: $deep-red-light !important;
+}
+
+.txt-deep-red-dark {
+  color: $deep-red-dark !important;
+}
+
+.txt-deep-red-xdark {
+  color: $deep-red-xdark !important;
+}
+
+.txt-deep-red-xxdark {
+  color: $deep-red-xxdark !important;
+}
+
+.txt-deep-red-xxxdark {
+  color: $deep-red-xxxdark !important;
+}
+
+// Deep orange
+// ----------------------------------------------
+.deep-orange {
+  background-color: $deep-orange !important;
+}
+
+.deep-orange-xxxlight {
+  background-color: $deep-orange-xxxlight !important;
+}
+
+.deep-orange-xxlight {
+  background-color: $deep-orange-xxlight !important;
+}
+
+.deep-orange-xlight {
+  background-color: $deep-orange-xlight !important;
+}
+
+.deep-orange-light {
+  background-color: $deep-orange-light !important;
+}
+
+.deep-orange-dark {
+  background-color: $deep-orange-dark !important;
+}
+
+.deep-orange-xdark {
+  background-color: $deep-orange-xdark !important;
+}
+
+.deep-orange-xxdark {
+  background-color: $deep-orange-xxdark !important;
+}
+
+.deep-orange-xxxdark {
+  background-color: $deep-orange-xxxdark !important;
+}
+
+.txt-deep-orange {
+  color: $deep-orange !important;
+}
+
+.txt-deep-orange-xxxlight {
+  color: $deep-orange-xxxlight !important;
+}
+
+.txt-deep-orange-xxlight {
+  color: $deep-orange-xxlight !important;
+}
+
+.txt-deep-orange-xlight {
+  color: $deep-orange-xlight !important;
+}
+
+.txt-deep-orange-light {
+  color: $deep-orange-light !important;
+}
+
+.txt-deep-orange-dark {
+  color: $deep-orange-dark !important;
+}
+
+.txt-deep-orange-xdark {
+  color: $deep-orange-xdark !important;
+}
+
+.txt-deep-orange-xxdark {
+  color: $deep-orange-xxdark !important;
+}
+
+.txt-deep-orange-xxxdark {
+  color: $deep-orange-xxxdark !important;
+}
+
+// Yellow
+// ----------------------------------------------
+.yellow {
+  background-color: $yellow !important;
+}
+
+.yellow-xxxlight {
+  background-color: $yellow-xxxlight !important;
+}
+
+.yellow-xxlight {
+  background-color: $yellow-xxlight !important;
+}
+
+.yellow-xlight {
+  background-color: $yellow-xlight !important;
+}
+
+.yellow-light {
+  background-color: $yellow-light !important;
+}
+
+.yellow-dark {
+  background-color: $yellow-dark !important;
+}
+
+.yellow-xdark {
+  background-color: $yellow-xdark !important;
+}
+
+.yellow-xxdark {
+  background-color: $yellow-xxdark !important;
+}
+
+.yellow-xxxdark {
+  background-color: $yellow-xxxdark !important;
+}
+
+.txt-yellow {
+  color: $yellow !important;
+}
+
+.txt-yellow-xxxlight {
+  color: $yellow-xxxlight !important;
+}
+
+.txt-yellow-xxlight {
+  color: $yellow-xxlight !important;
+}
+
+.txt-yellow-xlight {
+  color: $yellow-xlight !important;
+}
+
+.txt-yellow-light {
+  color: $yellow-light !important;
+}
+
+.txt-yellow-dark {
+  color: $yellow-dark !important;
+}
+
+.txt-yellow-xdark {
+  color: $yellow-xdark !important;
+}
+
+.txt-yellow-xxdark {
+  color: $yellow-xxdark !important;
+}
+
+.txt-yellow-xxxdark {
+  color: $yellow-xxxdark !important;
+}
+
+// Aqua
+// ----------------------------------------------
+.aqua {
+  background-color: $aqua !important;
+}
+
+.aqua-xxxlight {
+  background-color: $aqua-xxxlight !important;
+}
+
+.aqua-xxlight {
+  background-color: $aqua-xxlight !important;
+}
+
+.aqua-xlight {
+  background-color: $aqua-xlight !important;
+}
+
+.aqua-light {
+  background-color: $aqua-light !important;
+}
+
+.aqua-dark {
+  background-color: $aqua-dark !important;
+}
+
+.aqua-xdark {
+  background-color: $aqua-xdark !important;
+}
+
+.aqua-xxdark {
+  background-color: $aqua-xxdark !important;
+}
+
+.aqua-xxxdark {
+  background-color: $aqua-xxxdark !important;
+}
+
+.txt-aqua {
+  color: $aqua !important;
+}
+
+.txt-aqua-xxxlight {
+  color: $aqua-xxxlight !important;
+}
+
+.txt-aqua-xxlight {
+  color: $aqua-xxlight !important;
+}
+
+.txt-aqua-xlight {
+  color: $aqua-xlight !important;
+}
+
+.txt-aqua-light {
+  color: $aqua-light !important;
+}
+
+.txt-aqua-dark {
+  color: $aqua-dark !important;
+}
+
+.txt-aqua-xdark {
+  color: $aqua-xdark !important;
+}
+
+.txt-aqua-xxdark {
+  color: $aqua-xxdark !important;
+}
+
+.txt-aqua-xxxdark {
+  color: $aqua-xxxdark !important;
+}
+
+// Green
+// ----------------------------------------------
+.green {
+  background-color: $green !important;
+}
+.green-xxxlight {
+  background-color: $green-xxxlight !important;
+}
+.green-xxlight {
+  background-color: $green-xxlight !important;
+}
+.green-xlight {
+  background-color: $green-xlight !important;
+}
+.green-light {
+  background-color: $green-light !important;
+}
+.green-dark {
+  background-color: $green-dark !important;
+}
+.green-xdark {
+  background-color: $green-xdark !important;
+}
+.green-xxdark {
+  background-color: $green-xxdark !important;
+}
+.green-xxxdark {
+  background-color: $green-xxxdark !important;
+}
+.txt-green {
+  color: $green !important;
+}
+.txt-green-xxxlight {
+  color: $green-xxxlight !important;
+}
+.txt-green-xxlight {
+  color: $green-xxlight !important;
+}
+.txt-green-xlight {
+  color: $green-xlight !important;
+}
+.txt-green-light {
+  color: $green-light !important;
+}
+.txt-green-dark {
+  color: $green-dark !important;
+}
+.txt-green-xdark {
+  color: $green-xdark !important;
+}
+.txt-green-xxdark {
+  color: $green-xxdark !important;
+}
+.txt-green-xxxdark {
+  color: $green-xxxdark !important;
+}
+
+// NXP Legacy color classes
+.white {
+  background-color: $white !important;
+}
+.txt-white {
+  color: $white !important;
+}
+.nxp-black,
+.black {
+  background-color: $black !important;
+}
+.nxp-absolute-black,
+.absolute-black {
+  background-color: $absolute-black !important;
+}
+.nxp-orange {
+  background-color: $nxp-orange !important;
+}
+.nxp-deep-orange {
+  background-color: $nxp-deep-orange !important;
+}
+
+.nxp-blue {
+  background-color: $nxp-blue !important;
+}
+.nxp-green {
+  background-color: $nxp-green !important;
+}
+
+.nxp-pale-blue {
+  background-color: $nxp-pale-blue !important;
+}
+.nxp-petrol-blue {
+  background-color: $nxp-petrol-blue !important;
+}
+.nxp-aqua {
+  background-color: $nxp-aqua !important;
+}
+.nxp-olive-green {
+  background-color: $nxp-olive-green !important;
+}
+.nxp-apple-red {
+  background-color: $nxp-apple-red !important;
+}
+
+.nxp-charcoal {
+  background-color: $grey-xdark !important;
+}
+.nxp-gray-xdark {
+  background-color: $cool-grey-xdark !important;
+}
+.nxp-gray-dark {
+  background-color: $cool-grey-dark !important;
+}
+.nxp-gray {
+  background-color: $cool-grey !important;
+}
+.nxp-gray-medium {
+  background-color: $warm-grey-light !important;
+}
+.nxp-gray-light {
+  background-color: $warm-grey-xxlight !important;
+}
+.nxp-gray-cool-light {
+  background-color: $cool-grey-xxxlight !important;
+}
+.nxp-gray-xlight {
+  background-color: $grey-xxlight !important;
+}
+.nxp-gray-xxlight {
+  background-color: $cool-grey-xxxlight !important;
+}
+
+.nxp-footer-gray {
+  background-color: $nxp-footer-gray !important;
+}
+.nxp-footer-bottom {
+  background-color: $nxp-footer-bottom !important;
+}
+
+.nxp-orange-66 {
+  background-color: $nxp-orange-66 !important;
+}
+.nxp-orange-33 {
+  background-color: $nxp-orange-33 !important;
+}
+.nxp-deep-orange-66 {
+  background-color: $nxp-deep-orange-66 !important;
+}
+.nxp-deep-orange-33 {
+  background-color: $nxp-deep-orange-33 !important;
+}
+.nxp-pale-blue-66 {
+  background-color: $nxp-pale-blue-66 !important;
+}
+.nxp-pale-blue-33 {
+  background-color: $nxp-pale-blue-33 !important;
+}
+
+// NXP Text Color Classes
+.nxp-black-text,
+.txt-nxp-black,
+.txt-black {
+  color: $black !important;
+}
+.nxp-white-text,
+.txt-nxp-white,
+.txt-white {
+  color: $white !important;
+}
+.nxp-gray-text,
+.txt-gray {
+  color: $nxp-body-text !important;
+}
+.nxp-orange-text {
+  color: $nxp-orange !important;
+}
+.nxp-blue-text {
+  color: $nxp-blue !important;
+}
+.nxp-petrol-blue-text {
+  color: $nxp-petrol-blue !important;
+}
+.nxp-green-text {
+  color: $nxp-green !important;
+}
+.nxp-gray-light-text {
+  color: $warm-grey-light !important;
+}

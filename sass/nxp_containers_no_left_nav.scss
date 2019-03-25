@@ -1,0 +1,206 @@
+//  ---------------------------------------------------------------------------
+//  Container Styles
+//  ::  Variables
+//  ::  Main Container
+//  ::  Inner Column styles
+//  Band Class  ::  to be moved
+//  Hero Styles ::  to be moved
+//  Tabs Styles ::  to be moved
+//  ---------------------------------------------------------------------------
+
+//  Variables
+//  -----------------------------------
+$vp-smallest: 480px;
+$vp-small: 768px;
+$vp-medium: 992px;
+$vp-large: 1200px;
+$vp-xlarge: 1440px;
+
+$left-column-small: 250px;
+$left-column-large: 300px;
+
+//  Main Container
+//  -----------------------------------
+.iw_viewport-wrapper > .container-fluid:first-of-type,
+.iw_viewport-wrapper > .container-fluid:last-of-type,
+.iw_viewport-wrapper > .container-fluid:nth-child(2) {
+  width: 100% !important;
+}
+
+@media (min-width: $vp-small) {
+  .container,
+  .iw_viewport-wrapper > .container-fluid {
+    width: 750px !important;
+  }
+}
+
+@media (min-width: $vp-medium) {
+  .container,
+  .iw_viewport-wrapper > .container-fluid {
+    width: 970px !important;
+  }
+}
+
+@media (min-width: $vp-large) {
+  .container,
+  .iw_viewport-wrapper > .container-fluid {
+    width: 1170px !important;
+  }
+}
+
+//  Inner Column
+//  -----------------------------------
+//  Column styles bring Bootstrap styles to earlier breakpoint (large => small)
+// .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+//   display: none;
+//   width: 25%;
+// }
+//
+// @media screen and (min-width: $vp-small) {
+//   //  Left Column Inner page
+//   .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+//     display: block;
+//     float: left;
+//   }
+//   //  Right Column Inner page
+//   .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-9 {
+//     float: left;
+//     width: 75%;
+//   }
+// }
+
+.iw_viewport-wrapper > .container-fluid > .iw_row {
+  > .col-lg-3 {
+    display: none;
+
+    @media screen and (min-width: $vp-small) {
+      display: block;
+      float: left;
+      width: 250px;
+    }
+
+    @media screen and (min-width: $vp-medium) {
+      width: 300px;
+    }
+  }
+
+  > .col-lg-9 {
+    @media screen and (min-width: $vp-small) {
+      float: left;
+      width: calc(100% - 250px);
+    }
+
+    @media screen and (min-width: $vp-medium) {
+      width: calc(100% - 300px);
+    }
+  }
+}
+
+// Product Selector Styles
+//  ---------------------------------------------------------------------------
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-12
+    .buyselector
+    #product-selector-component {
+    width: 96vw;
+    margin-left: calc((100vw - 735px) / 2 * -1);
+  }
+}
+@media screen and (min-width: 992px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-12
+    .buyselector
+    #product-selector-component {
+    width: 96vw;
+    margin-left: calc((100vw - 955px) / 2 * -1);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-12
+    .buyselector
+    #product-selector-component {
+    width: 97vw;
+    margin-left: calc((100vw - 1155px) / 2 * -1);
+  }
+}
+
+//  Color Band Styles
+//  ---------------------------------------------------------------------------
+.band {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    display: block;
+    width: 100vw;
+    height: 100%;
+    background-color: inherit;
+    transform: translateX(50%);
+    z-index: -1;
+  }
+
+  // .col-lg-9 & {
+  //   &:before {
+  //     @media screen and (min-width: 768px) {
+  //       right: calc(50% + 94px);
+  //     }
+  //
+  //     @media screen and (min-width: 992px) {
+  //       right: calc(50% + 121px);
+  //     }
+  //
+  //     @media screen and (min-width: 1200px) {
+  //       right: calc(50% + 146px);
+  //     }
+  //   }
+  // }
+
+  .col-lg-9 & {
+    &:before {
+      @media screen and (min-width: 768px) {
+        right: calc(50% + 125px);
+      }
+
+      @media screen and (min-width: 992px) {
+        right: calc(50% + 150px);
+      }
+
+      @media screen and (min-width: 1200px) {
+        // right: calc(50% + 150px);
+      }
+    }
+  }
+}
+
+//  Hero Styles
+//  ---------------------------------------------------------------------------
+// For fullwidth Hero banners such as:
+// http://nww.preview.nxp.com/applications/solutions:IFINDSTRYFCS
+@media (min-width: $vp-small) {
+  .hero {
+    // padding-left: 0;
+
+    &:before {
+      // width: 100vw;
+    }
+  }
+}
+
+//  for testing purposes
+// .hero-example {
+//   > div {
+//     padding: 3em 1em; // for testing purposes
+//
+//     > * {
+//       color: #ffffff !important; // for testing purposes
+//     }
+//   }
+// }

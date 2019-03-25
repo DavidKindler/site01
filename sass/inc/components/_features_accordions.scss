@@ -1,0 +1,346 @@
+// =========================
+// Component Name: Features
+// Component Type: Accordian (Collapse)
+// =========================
+h2#features .collapsed{
+	margin-bottom: 1em;
+}
+
+#featuresAccordion,
+#featuresAccordionB,
+.accordion {
+  // background-color: #b8bfbf;
+  // background-color: $warm-grey-xxlight;
+  //  border-top: 1px solid $cool-grey;
+  //  border-bottom: 1px solid $cool-grey;
+  border-top: 1px solid rgba(0, 0, 0, .15);
+  border-bottom: none;
+  &.ui-accordion {
+    .ui-accordion-content-active {
+      background: $white!important;
+    }
+    .ui-accordion-header a {
+      display: block !important;
+//      font-size: 1em !important;
+      padding: .5em .5em .5em 1.45em !important;
+      color: $nxp-subheads!important;
+      line-height: 22px;
+    }
+    .ui-accordion-header a:hover {
+      background: $cool-grey-xxxlight !important;
+      text-decoration: none;
+      // fix the outline in Firefox and IE11
+      outline: none;
+    }
+    // fix the outline in Firefox and IE11 - this is not good for accessability
+    .ui-accordion-header a:active {
+      outline: none;
+    }
+  }
+  .panel {
+    border-radius: 0;
+    margin-top: 1px;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .15) !important;
+    &:first-child {
+      margin-top: 0;
+    }
+    // fixes the flush left bullets and aligns them nicely under the accordion title
+    ul {
+      margin-left: 2em;
+    }
+  }
+  .panel-default {
+    border-color: transparent;
+  }
+  &.panel-group .panel+.panel {
+    margin-top: 1px;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1em;
+    font-weight:normal;
+  }
+  a[role="button"] {
+    background-color: #fff;
+    position: relative;
+    @include transition(background-color .15s ease);
+    &:before {
+      font-family: "icomoon";
+      speak: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      position: absolute;
+      // top: calc(50% - .5em - 1px);
+      // we should align the rotating arrows to the middle of the first line of characters
+      top: .5em;
+      left: .25em;
+      content: "\e3b5";
+      //      color: $cool-grey-xdark;
+      color: $grey-xdark;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      transition: all .25s ease-in;
+    }
+    &.collapsed {
+      //      background-color: $cool-grey-xxxlight;
+      background-color: transparent;
+      &:before {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+        transition: all .25s ease-in;
+        color: $cool-grey;
+      }
+    }
+  } // end #featuresAccordian a
+} // end #featuresAccordian
+.panel.unstyled {
+  margin-bottom: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.panel-collapse > ul {
+  //  margin: 0 ($line-height-computed / 2);
+  > li:last-child {
+    margin-bottom: 0;
+    padding-bottom: ($line-height-computed / 2);
+  }
+}
+
+.panel-collapse > p {
+  margin-left: ($line-height-computed / 2);
+  margin-right: ($line-height-computed / 2);
+}
+
+// Mobile Styles
+#mobileOnly {
+  #featuresAccordion .panel:last-child,
+  #featuresAccordionB .panel:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .mobile-accordion-head {
+    margin-bottom: 0;
+    a {
+      display: block;
+      text-align: left;
+      border: 1px solid #979799;
+      border-radius: 5px;
+      padding: .625em;
+      padding-right: 35px;
+      background-color: #ededf0;
+      color: #646464;
+      font-weight: normal;
+      position: relative;
+      &:before {
+        content: none !important;
+      }
+      &:after {
+        font-family: "icomoon";
+        content: "\e3b2";
+        speak: none;
+        line-height: 1;
+        font-size: 2rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        padding-right: 14px;
+        padding-top: 2px;
+        padding-bottom: 4px;
+        transition: all .35s ease-in;
+        // Original version style overrides
+        background: none;
+        height: auto;
+        width: auto;
+        left: initial;
+        bottom: initial;
+      }
+      &.no-arrow:after {
+        content: none;
+      }
+      &:hover,
+      &:not(.collapsed) {
+        text-decoration: none;
+        background-color: #fff;
+      }
+      &:focus {
+        text-decoration: none;
+      }
+      &:not(.collapsed) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        &:after {
+          //          -webkit-transform: rotate(-180deg);
+          //             -moz-transform: rotateX(180deg);
+          //              -ms-transform: rotateX(180deg);
+          //                  transform:rotateX(180deg);
+          transform: rotate3d(1, 0, 0, 180deg);
+          color: #646464;
+          position: absolute;
+        }
+      }
+    }
+  }
+  .mobile-accordion {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #979799;
+    border-top: none;
+    .panel:last-child,
+    .panel:last-child a,
+    .panel:last-child .panel-collapse {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    &.table-accordion {
+      border-radius: 0;
+    }
+  }
+  .expand-list //  .expand-list ul
+  {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.mobile-accordion table {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#communityDiscussion.accordion {
+  padding: 1em;
+  ul {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+// ##############################
+// Features as List Custom Styles
+// ##############################
+.expand-list {
+  + .ui-accordion-header {
+    span.more {
+      display: none;
+    }
+    span.less {
+      display: inline-block;
+      @include breakpoint(screen-smallest-and-less) {
+        font-size: 115%;
+      }
+    }
+  }
+  &.collapse:not(.in) {
+    display: list-item;//inline-block;
+    // height: 500px !important;
+    height: 300px !important; //gforge 29048
+    overflow: hidden;
+    position: relative;
+    @media screen and (max-width: $screen-sm) {
+      height: 200px !important;
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(rgba(255, 255, 255, 0), #fff); // Safari keyword 'transparent' fix
+    }
+    + .ui-accordion-header {
+      span.more {
+        display: inline-block;
+        @include breakpoint(screen-smallest-and-less) {
+          font-size: 115%;
+        }
+      }
+      span.less {
+        display: none;
+      }
+    }
+  }
+}
+
+// Global collapse styling
+a.show-hide {
+  padding: 15px;
+  padding-right: 35px;
+  padding-top: 5px;
+  margin: 0 -15px;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none !important;
+  }
+}
+
+// Add Caret to any collapse you need
+.expand-list + .ui-accordion-header a:after,
+a.show-hide:after {
+  font-family: "icomoon";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 1em;
+  position: absolute;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  content: "\e3b6";
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  @include transition(all .25s ease);
+}
+
+a.show-hide:after {
+  position: relative;
+  vertical-align: bottom;
+}
+
+.expand-list.collapse:not(.in) + .ui-accordion-header a:after,
+a.show-hide.collapsed:after {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  @include transition(all .25s ease);
+}
+
+.expand-list + .ui-accordion-header a:after {
+  top: initial;
+  right: initial;
+}
+
+.expand-list + .ui-accordion-header a.show-hide:after {
+  top: 6px;
+  right: 20px;
+}
+
+// Separated to assist with delay issue
+.expand-list.collapsing {
+  min-height: 300px !important;
+  @media screen and (max-width: $screen-sm) {
+    min-height: 200px !important;
+  }
+}

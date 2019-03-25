@@ -1,0 +1,383 @@
+// =========================
+// Component Name:  Video Filmstrip
+// Description:     A filmstrip (carousel) component using jQuery Cycle 2 (http://jquery.malsup.com/cycle2/).  
+//                  Adaptive component with an experience for mobile to tablet and a desktop experience.
+// =========================
+// MOBILE VERSION
+.videoFilmStrip-mobile {
+  .cycle-carousel-wrap {
+    background-color: rgba(0, 0, 0, .25);
+    text-align: center;
+    .-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .-slide {
+      border: 1px solid $cool-grey-xlight;
+      max-width: 100%;
+      height: auto;
+    }
+    .-thumbVideoWrapper {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 4em;
+        height: 4em;
+        left: 50%;
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        background: $VideoOverlayButton no-repeat center center; 
+        // background: url("//branding.nxp.com/VideoOverlayButton.png") no-repeat center center;
+        // temp till we go to production, then use link below
+        // background: url("//www.nxp.com/assets/images/buttons/VideoOverlayButton.png") no-repeat center center;
+        background-size: 4em 4em;
+        z-index: 1;
+        opacity: .75;
+         pointer-events:none;
+      }
+    }
+  }
+  .-prevNext {
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      width: 40%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+  .borders {
+    border: 1px solid purple;
+  }
+  .-overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: -1.75em;
+  }
+  .-meta-viewCount {
+    font-size: $font-size-small;
+    opacity: .8;
+    flex-grow: 1;
+    align-self: center;
+    text-align: left;
+    color: white;
+    width: 50%;
+    margin-left: .5em;
+    span {
+      padding: .5em;
+      color: white;
+      background-color: rgba(0, 0, 0, .75);
+    }
+  }
+  .-meta-title {
+    font-weight: bold;
+    font-size: $font-size-large;
+    width: 100%;
+  }
+  .-meta-date {
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    opacity: .8;
+    align-self: center;
+    width: 50%;
+    flex-grow: 1;
+    margin-top: 2em;
+  }
+  .-meta-count {
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    opacity: .8;
+    align-self: center;
+    width: 50%;
+    text-align: right;
+    flex-grow: 1;
+    margin-top: 2em;
+  }
+  .-meta-duration {
+    text-transform: uppercase;
+    font-size: $font-size-small;
+    opacity: .8;
+    align-self: center;
+    text-align: right;
+    flex-grow: 1;
+    span {
+      padding: .5em;
+      margin-right: .5em;
+      color: white;
+      background-color: rgba(0, 0, 0, .75);
+    }
+  }
+  .-meta-description {
+    flex-grow: 0;
+    width: 100%;
+  }
+  .-meta-link {}
+  .-meta-overlay {
+    background: rgba(0, 0, 0, .25);
+    color: white;
+  }
+}
+
+// DESKTOP VERSION
+.videoFilmStrip-desktop {
+  position: relative;
+  .cycle-slideshow {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+  .cycle-slideshow a {
+    display: none;
+  }
+  .cycle-slideshow a:first-child {
+    display: inline-block;
+  }
+  .-thumbVideoWrapper {
+    position: relative;
+
+    img {
+      height:90px;
+      width: 160px;
+      object-fit: cover;
+    }
+  }
+  .-thumbVideoWrapper:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 2em;
+    height: 2em;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    background: $VideoOverlayButton no-repeat center center; 
+    // background: url('//image.nxp.com/v1.32/files/graphic/buttons/VideoOverlayButton.png') no-repeat center center;
+    background-size: 2em 2em;
+    z-index: 1;
+    opacity: .5;
+     pointer-events:none;
+  }
+  .-overlay {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: .25em .5em;
+    background: rgba(0, 0, 0, .25);
+    color: white;
+  }
+  .-link {
+    margin-right: .5em;
+  }
+  .-meta-title {
+    display: block;
+    width: 100%;
+    font-size: 85%;
+    max-width: 187px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .-meta-date {
+    text-transform: uppercase;
+    font-size: 85%;
+    opacity: .8;
+    align-self: center;
+  }
+  .-meta-viewCount {
+    font-size: 85%;
+    opacity: .8;
+    display: block;
+    width: 50%;
+    float: left;
+  }
+  .-meta-duration {
+    text-transform: uppercase;
+    font-size: 85%;
+    opacity: .8;
+    display: block;
+    width: 50%;
+    float: right;
+    text-align: right;
+  }
+  .-prevNextButtons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    pointer-events: none;
+    z-index: 3;
+    .btn {
+      display: inline-block;
+      padding: 0;
+      pointer-events: all;
+      border-radius: 32px;
+      background-color: $pager-btn-color;
+      &:hover {
+        background-color: $pager-btn-color-hover;
+      }
+    }
+    .icon-angle-left,
+    .icon-angle-right {
+      font-weight: 700 !important;
+      font-size: 20px;
+      width: 32px;
+      height: 32px;
+      line-height: 30px;
+    }
+    .icon-angle-left:before {
+      margin-right: 1px;
+    }
+    .icon-angle-right:before {
+      margin-left: 3px;
+    }
+    .btn:last-of-type {
+      float: right;
+    }
+  }
+}
+
+
+// OLD DESKTOP VERSION
+//.videoFilmStrip-desktop {
+//  .-caroWrapper {
+//    position: relative;
+//  }
+//  .cycle-slideshow {
+//    margin: 0 1em;
+//    border: 2px solid #ddd;
+//    height: 71px;
+//    @include breakpoint(screen-medium) {
+//      height: 94px;
+//    }
+//    @include breakpoint(screen-large) {
+//      height: 115px;
+//    }
+//  }
+//  .cycle-carousel-wrap {
+//    background-color: rgba(255, 255, 255, 1);
+//    position: relative;
+//    .-link {
+//      display: block;
+//      width: 100%;
+//      height: 100%;
+//    }
+//    .-slide {
+//      max-width: 100%;
+//      height: auto;
+//    }
+//    .-thumbVideoWrapper {
+//      position: relative;
+//      &:before {
+//        content: "";
+//        position: absolute;
+//        display: block;
+//        width: 2em;
+//        height: 2em;
+//        left: 50%;
+//        top: 50%;
+//        transform-origin: center;
+//        transform: translate(-50%, -50%);
+//        background: url("//branding.nxp.com/VideoOverlayButton.png") no-repeat center center;
+//        // temp till we go to production, then use link below
+//        // background: url("//www.nxp.com/assets/images/buttons/VideoOverlayButton.png") no-repeat center center;
+//        background-size: 2em 2em;
+//        z-index: 1;
+//        opacity: .75;
+//      }
+//      .-overlay {
+//        position: absolute;
+//        z-index: 1;
+//        display: block;
+//        width: 100%;
+//        left: 0;
+//        bottom: 0;
+//        padding: .25em .5em;
+//        background: rgba(0, 0, 0, .25);
+//        color: white;
+//      }
+//    }
+//  }
+//  .-prevNext {
+//    position: absolute;
+//    top: 50%;
+//    transform: translateY(-50%);
+//    width: 100%;
+//    pointer-events: none;
+//    z-index: 3;
+//    .btn {
+//      display: inline-block;
+//      padding: 0;
+//      pointer-events: all;
+//      border-radius: 32px;
+//      background-color: $pager-btn-color;
+//      &:hover {
+//        background-color: $pager-btn-color-hover;
+//      }
+//      .icon-angle-left,
+//      .icon-angle-right {
+//        font-weight: 700 !important;
+//        font-size: 20px;
+//        width: 32px;
+//        height: 32px;
+//        line-height: 32px;
+//      }
+//      .icon-angle-left:before {
+//        margin-right: 1px;
+//      }
+//      .icon-angle-right:before {
+//        margin-left: 3px;
+//      }
+//    }
+//    .btn:last-of-type {
+//      float: right;
+//    }
+//  }
+//  .borders {
+//    border: 1px solid purple;
+//  }
+//  .-meta-viewCount {
+//    font-size: $font-size-small;
+//    opacity: .8;
+//    display: block;
+//    width: 50%;
+//    float: left;
+//  }
+//  .-meta-title {
+//    display: block;
+//    width: 100%;
+//    font-size: $font-size-small;
+//    max-width: 187px;
+//    white-space: nowrap;
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+//  }
+//  .-meta-date {
+//    text-transform: uppercase;
+//    font-size: $font-size-small;
+//    opacity: .8;
+//    align-self: center;
+//  }
+//  .-meta-duration {
+//    text-transform: uppercase;
+//    font-size: $font-size-small;
+//    opacity: .8;
+//    display: block;
+//    width: 50%;
+//    float: right;
+//    text-align: right;
+//  }
+//  .-meta-description {}
+//  .-meta-link {}
+//  .-meta-overlay {}
+//}

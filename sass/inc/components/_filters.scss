@@ -1,0 +1,303 @@
+/* begin _filters.scss */
+//  ---------------------------------------------------------------------------
+//  TABLE OF CONTENTS
+//  ::  Filter Area
+//  ::  Context Navigation
+//  ::  Inner Context Navigation
+//  ::  Search Results
+//  ::  Animations
+//  ---------------------------------------------------------------------------
+//  Filter Area
+//  ---------------------------------------------------------------------------
+.filter-container {
+  position: relative;
+  max-width: 100%;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $warm-grey-xxlight;
+  }
+}
+
+// Filter By / Show All text
+.filter-options {
+  display: none;
+  margin: 0 0 .5em;
+  font-size: 14px;
+
+  @include breakpoint(screen-small) {
+    display: block;
+  }
+}
+
+.filter-button-container {
+  padding-left: 0;
+
+  @include breakpoint(screen-small) {
+    display: none;
+  }
+}
+
+//  Search Bar
+.filter-container {
+  .input-group {
+    input {
+      height: 34px;
+    }
+
+    .btn {
+      height: 34px;
+      padding: 0 1.5rem;
+      color: $grey-xdark;
+      background: $warm-grey-xxlight;
+      box-shadow: none;
+
+      .icon-search2 { font-size: 16px; }
+    }
+  }
+}
+
+//  Context Nav
+//  ---------------------------------------------------------------------------
+.filternav {
+  height: 0;
+  max-height: 0;
+  overflow: scroll;
+  box-shadow: 4px 4px 7px rgba(0,0,0, .175);
+  transition: all 650ms;
+
+  @include breakpoint(screen-small) {
+    display: block;
+    height: auto;
+    max-height: none;
+    overflow: hidden;
+    margin-top: .75em;
+    box-shadow: none;
+  }
+
+  > li {
+    $top-bottom-padding: .75em;
+    margin-bottom: 0;
+    background: $cool-grey-xxxlight;
+
+    @include breakpoint(screen-small) {
+      background: transparent;
+    }
+
+    a {
+      display: block;
+      padding: $top-bottom-padding 2.25em $top-bottom-padding 2.5em;
+      font-size: 1em;
+      color: $nxp-body-text;
+
+      &:hover, &.selected {
+        color: $black;
+        text-decoration: none;
+        background-color: $cool-grey-xxxlight;
+      }
+
+      &.sub-category {
+        .icon-minus {
+          border-color: transparent;
+        }
+      }
+
+      @include breakpoint(screen-small) {
+        padding: 5px 10px;
+        font-size: .75em;
+      }
+
+      .icon {
+        position: absolute;
+        top: 1.25em;
+        left: 0.75em;
+        padding: 3px;
+        font-size: 0.75em;
+        border: 1px solid $cool-grey;
+        border-radius: 3px;
+
+        @include breakpoint(screen-small) {
+          display: none;
+        }
+      }
+
+      .icon-right {
+        position: absolute;
+        top: .75em;
+        right: 9px;
+
+        @include breakpoint(screen-small) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//  Inner Context Nav
+//  ---------------------------------------------------------------------------
+.innerfilternav {
+  // height: 0;
+  // max-height: 0;
+  display:none;
+  overflow: hidden;
+  transition: all 650ms;
+
+  @include breakpoint(screen-small) {
+    display: block;
+    // height: auto;
+    // max-height: none;
+  }
+
+  > li {
+    $top-bottom-padding: .75em;
+    margin: 0;
+
+    @include breakpoint(screen-small) {
+      padding-left: 10px;
+      background: transparent;
+    }
+
+    a {
+      padding: $top-bottom-padding 2.25em $top-bottom-padding 4em;
+
+      .icon {
+        top: 1.1em;
+        left: 2.75em;
+      }
+
+      .icon-minus {
+        border: none;
+      }
+
+      @include breakpoint(screen-small) {
+        padding: 3px 0 3px 20px;
+      }
+    }
+  }
+}
+
+// Sub Category All Results on mobile
+.filternav > li a.sub-category-all {
+  @include breakpoint(screen-small) {
+    display: none;
+  }
+}
+
+//  Search Results
+//  ---------------------------------------------------------------------------
+.search-results {
+  height: auto;
+  max-height: none;
+  overflow: hidden;
+}
+
+#search_results_item {
+  margin-top: .25em;
+
+  @include breakpoint(screen-small) {
+    display: none;
+  }
+
+  .content-pre {
+    display: block; 
+  }
+
+  .category {
+    position: relative;
+
+    &:before {
+      content: "Filtered By:";
+      position: relative;
+      display: block;
+      font-style: italic;
+    }
+  }
+  .remove-result {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 29px;
+    height: 29px;
+    padding: 8px 25px 8px 8px;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 1;
+  }
+}
+
+.filternav .clear-filter-button {
+  padding: 15px;
+
+  @include breakpoint(screen-small) {
+    display: none;
+  }
+}
+
+//  ---------------------------------------------------------------------------
+//  Filters Update
+//  ---------------------------------------------------------------------------
+#filternav {
+  transition: height 650ms;
+  .reveal {
+      @media screen and (max-width: $screen-sm) {
+      // height:100%;
+      // max-height:1200px;
+      display:block;
+      }
+  }
+  &.reveal {
+  @media screen and (max-width: $screen-sm) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      max-height: none;
+      background: #EDEDF0;
+      z-index: 99;
+    }
+  }
+
+  .menu-close {
+    @include breakpoint(screen-small) {
+      display: none;
+    }
+  }
+
+  .clear-filter-button .btn {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  // body-filters breakpoint
+  @include breakpoint(screen-small) {
+    .selected a {
+      color: $black;
+      text-decoration: none;
+      background-color: $cool-grey-xxxlight;
+    }
+  }
+
+  .icon-right.icon-checkmark {
+    display: none;
+  }
+
+  .selected .icon-right.icon-checkmark {
+    display: block;
+
+    @include breakpoint(screen-small) {
+      display: none;
+    }
+  }
+}
+/* end _filters.scss */

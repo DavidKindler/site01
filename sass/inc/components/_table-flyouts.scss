@@ -1,0 +1,288 @@
+/* start table-flyouts.scss */
+
+//  Styles from parametric-search-desktop.css
+//  ---------------------------------------------------------------------------
+
+.table-flyout .product-content-si {
+  max-height: 300px;
+  overflow:auto;
+}
+
+.table-flyout .product-content-si {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.table-flyout-content .close-container .close {
+  right: inherit;
+  top: inherit;
+}
+
+
+//  ---------------------------------------------------------------------------
+//  Table of Contents: Table Flyouts
+//  ::  Common Styles
+//  ::    Outter / Inner Containers
+//  ::    Table Flyout Content
+//  ::    Close Icon
+//  ::  Buy/Parametrics Table Flyout
+//  ::  Product Selector Table Flyouts
+//  ---------------------------------------------------------------------------
+
+
+//  Outter / Inner containers
+//  ---------------------------------------------------------------------------
+//  adding html/tr/td for specificity reasons due to param-desktop css file
+html {
+  tr.table-flyout-outter {
+    td.table-flyout-inner {
+      display: table-cell;
+      padding: 1em 0;
+      border: none;
+
+      .table-flyout {
+        .table-flyout-content {
+          position: relative;
+          display: flex;
+          flex-flow: row wrap;
+          width: calc(100vw - 30px);
+          min-width: 0; // used to combat min-width 800 set in .css file above
+          min-height: 200px;
+          padding: 2em 1em 1em;
+          font-size: 1.4rem;  // 14px
+          border: 3px solid $nxp-gray-xlight;
+
+          @include breakpoint(screen-small) {
+            width: 100%;
+            min-width: 860px;
+            flex-wrap: nowrap;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: -13px;
+            left: 90px;
+            width: 20px;
+            height: 20px;
+            background: $white;
+            border-radius: 0 20px 0 0;//not necessary, but maybe helpful for overlay??
+            box-shadow: -3px 3px 0 0 $nxp-gray-xlight;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+          }
+
+          .close-container {
+            display: block;
+            width: 100%;
+
+            .close {
+              float: left;
+              margin-bottom: 1em;
+
+              span { }
+            }
+
+            @include breakpoint(screen-small) {
+              display: inline-block;
+              vertical-align: top;
+              width: 80px;
+              text-align: center;
+
+              .close {
+                float: none;
+                margin-bottom: 0;
+              }
+            }
+          } // close container
+          // buy-flyout | selector-flyout
+        }
+      }
+    }
+  }
+}
+
+//  Buy/Parametrics Table Flyout
+//  ---------------------------------------------------------------------------
+
+//  prefixed with table-flyout for css specificity to override other styles
+.table-flyout {
+  .buy-flyout {
+    @include breakpoint(screen-small) {
+      width: calc(100vw - 330px);
+    }
+
+    @include breakpoint(screen-medium) {
+      min-width: 634px;
+    }
+
+    @include breakpoint(screen-large) {
+      max-width: 900px;
+    }
+
+    .product-content {
+      min-width: 87%;
+
+      @include breakpoint(screen-small) {
+        display: inline-block;
+        width: calc(100% - 80px); // pushes close icon to left
+        min-width: 0; // offsets the min-width: 87% from desktop.css file
+      }
+
+      .row [class*='col-'] {
+        max-width: none;
+      }
+
+      .row {
+        .col-sm-12 {
+          .product-info.list-inline {
+            margin-left: 0;
+
+            li {
+              .product-title {
+                margin-top: 0;
+                font-size: 14px;
+              }
+
+              a {
+                span.icon { }
+              }
+            }
+          }
+        }
+      }
+
+      .product-item {
+        border-bottom: 1px solid $cool-grey-xxlight;
+        margin-bottom: 1.5em;
+
+        &:last-of-type {
+          border: none;
+          margin-bottom: 0;
+        }
+      }
+
+      .row {
+        // Left Column
+        .col-md-6 {
+          .row {
+            .col-xs-8 {
+              .product-info {
+                padding-right: 1em;
+                margin-bottom: .5em;
+                line-height: 1.65;
+
+                .product-number {
+                  margin-top: 0;
+                  margin-bottom: 0;
+                  font-size: 1.6rem; // set to 16px
+                }
+                .product-sku { }
+              }
+            }
+
+            .col-xs-4 {
+              .status {
+                font-size: 1.4rem;
+              }
+            }
+          }
+
+          .mpq-container {
+            margin-bottom: 1em;
+            font-size: 1.4rem;
+
+            .mpq-description {
+              margin-bottom: 0;
+            }
+
+            .mpq {
+              margin-bottom: 0;
+
+              &-count { }
+            }
+          }
+        }
+        // Right Column
+        .col-md-6 {
+          .product-details {
+            margin-bottom: 1em;
+
+            .button-container {
+              display: flex;
+              flex-flow: row wrap;
+
+              > li {
+                margin-right: .5em;
+                text-align: center;
+
+                &:last-of-type {
+                  margin-right: 0;
+                }
+
+                > .btn { margin-bottom: .5em; }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Selector Guide Table Flyout
+//  ---------------------------------------------------------------------------
+
+//  prefixed with table-flyout for css specificity to override other styles
+.table-flyout {
+  .selector-flyout {
+
+    .product-item {
+      margin-right: 2em;
+
+      @include breakpoint(screen-small) {
+        max-width: 16em;
+      }
+
+      .product-title {
+        padding-bottom: 1em;
+        margin-bottom: 0;
+
+        a {
+          font-weight: 700;
+          font-size: 1.6rem;
+        }
+      }
+      .product-description {
+        margin-bottom: 2em;
+      }
+    }
+
+    .product-links {
+      margin-right: 2em;
+      margin-bottom: 2em;
+
+      ul.list-unstlyed {
+        li {
+          a {
+            span { }
+          }
+        }
+      }
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 350px;
+
+      img {
+        &[onclick] {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* end table-flyouts.scss */

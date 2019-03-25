@@ -1,0 +1,380 @@
+// ---------------------------------------------------------------------------
+// Card Components
+// :: Card 1
+// :: Card 2
+// ---------------------------------------------------------------------------
+.card1 {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+
+  &-list {
+    margin-right: -#{$grid-gutter-width-half};
+    margin-left: -#{$grid-gutter-width-half};
+
+    // add additional space if using multiple rows (card1-list), or headings between lists
+    &:not(:last-child) {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    @include breakpoint($screen-md) {
+      display: flex;
+      flex-flow: row wrap;
+      flex-grow: 1;
+
+      .has-one & {
+        // single card styles go here
+      }
+    }
+  }
+
+  &-column {
+    $four-bp-2: $screen-md;
+    $four-bp-3: $screen-xl;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+    margin-top: $padding-component-small-vertical;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    @include breakpoint($screen-md) {
+      .has-one > & {
+        // single specific styles go here
+      }
+
+      // use '>' to allow inner rows to work
+      // if 'has-three' is on outer container, find first list child for styles
+      // include > .container for homepage styles, move there?
+      .has-two > .container > .card1-list > &,
+      .has-two > .card1-list > &,
+      .has-two > & {
+        width: 50%;
+        // default styles
+        &:nth-of-type(-n + 2) {
+          margin-top: 0;
+        }
+      }
+
+      // use '>' to allow inner rows to work
+      // if 'has-three' is on outer container, find first list child for styles
+      .has-three > .container > .card1-list > &,
+      .has-three > .card1-list > &,
+      .has-three > & {
+        width: (100% / 3);
+
+        &:nth-of-type(-n + 3) {
+          margin-top: 0;
+        }
+
+        // special modifier for inner rows
+        &.is-two {
+          width: (200% / 3);
+        }
+      }
+    }
+
+    @include breakpoint($four-bp-2) {
+      .has-four > .container > .card1-list > &,
+      .has-four > .card1-list > &,
+      .has-four > & {
+        width: 50%;
+
+        // default styles
+        &:nth-of-type(-n + 2) {
+          margin-top: 0;
+        }
+
+        // special modifier for inner rows
+        &.is-one {
+          width: 100%;
+        }
+
+        &.is-two {
+          width: 100%;
+        }
+
+        &.is-three {
+          width: 50%;
+        }
+
+        > .has-two .card1-column {
+          @if $four-bp-2 == $screen-md {
+            width: 50%;
+
+            &:nth-of-type(-n + 2) {
+              margin-top: 0;
+            }
+          } @else {
+            width: 100%;
+
+            + .card1-column {
+              margin-top: 2em;
+            }
+          }
+        }
+
+        > .has-three .card1-column {
+          width: 100%;
+
+          + .card1-column {
+            margin-top: 2em;
+          }
+        }
+      }
+    }
+
+    @include breakpoint($four-bp-3) {
+      .has-four > .container > .card1-list > &,
+      .has-four > .card1-list > &,
+      .has-four > & {
+        width: 25%;
+        // default styles
+        &:nth-of-type(-n + 4) {
+          margin-top: 0;
+        }
+
+        &.is-one {
+          width: 25%;
+        }
+
+        &.is-two {
+          width: 50%;
+        }
+
+        &.is-three {
+          width: 75%;
+        }
+
+        @if $four-bp-3 == $screen-xl {
+          > .has-two .card1-column {
+            width: 50%;
+
+            + .card1-column {
+              margin-top: 0;
+            }
+          }
+        }
+
+        > .has-three .card1-column {
+          width: (100% / 3);
+
+          + .card1-column {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    background: {
+      // image: ;
+      position: center center;
+      repeat: no-repeat;
+      size: cover;
+      color: $body-bg;
+    }
+    border: 1px solid $border-color-base;
+
+    & + & {
+      margin-top: $padding-component-small-vertical;
+    }
+
+    @include breakpoint($screen-md) {
+      padding: 40px;
+
+      .is-tertiary & {
+        padding: 20px; // decrease padding since the cards aren't as wide
+      }
+    }
+  }
+
+  &-icon {
+    display: flex;
+    margin-bottom: 20px;
+    color: $cool-grey-dark;
+
+    [class*='icon-'] {
+      font-size: 50px;
+    }
+
+    img {
+      max-height: 50px;
+    }
+
+    svg {
+      display: block;
+      height: 50px;
+      fill: currentColor;
+    }
+  }
+
+  &-image {
+    margin: -20px -20px 20px;
+
+    > * {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @include breakpoint($screen-md) {
+      // &:not(.is-tertiary) {
+      //   // neg margins are a little 'hacky', but easier than adding another wrapper div for content to change padding values. TO DO: re-assess this?
+      //   margin-top: -20px;
+      //   margin-right: -20px;
+      //   margin-left: -20px;
+      // }
+    }
+  }
+
+  &-header {
+    // header styles
+  }
+
+  &-title {
+    margin-top: 0;
+    // mirror h1 style
+    font-size: $font-size-h1;
+    font-weight: $font-weight-heavy;
+
+    .is-primary & {
+      // default styles
+    }
+
+    .is-secondary & {
+      font-size: $font-size-h2;
+      font-weight: $font-weight-heavy;
+    }
+
+    .is-tertiary & {
+      font-size: $font-size-h3;
+      font-weight: $font-weight-heavy;
+    }
+
+    a {
+      // color: inherit;
+    }
+  }
+
+  &-subtitle {
+    margin-top: 0;
+  }
+
+  &-body {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-links {
+    @include list-unstyled;
+    margin-top: 1em;
+    margin-bottom: 0;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-link {
+    @include cta;
+  }
+
+  &-footer {
+    padding-top: $padding-component-small-vertical;
+    margin-top: $padding-component-small-vertical;
+    // border-top: 1px solid $border-color-base; // comment out, but leaving in place. I think it's a good idea but not done in past
+  }
+}
+
+// IE11 hack: IE wasn't respecting the max-width set on .media-flex-media
+// This media query targets IE browser only, and limits the image sizing.
+// http://browserhacks.com/#hack-a1cb5e7ad258ad5ed8bbaac04b701415
+// Not ideal, TO DO: find a better solution
+@media screen and (min-width: 0\0) {
+  .card1-item .media-flex-media img,
+  .card2-item .media-flex-media img {
+    max-width: 140px;
+  }
+}
+
+// another IE11 hack option
+// https://paper-leaf.com/blog/2014/09/targeting-ie-10-11-browsers-css/
+// @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+//   /* IE10+ specific styles go here */
+// }
+
+// Card 2
+// ---------------------------------------------------------------------------
+//
+
+.card2 {
+  padding: $padding-component-base-vertical $grid-gutter-width-half;
+
+  // remove bottom padding if used with Card 1
+  .card1 & {
+    padding-bottom: 0;
+  }
+
+  &-list {
+    margin-left: -#{$grid-gutter-width-half};
+    margin-right: -#{$grid-gutter-width-half};
+    background-color: $white;
+    border: 1px solid $border-color-base;
+
+    // add space between if stacking multiple items
+    & + & {
+      margin-top: $padding-component-small-vertical;
+    }
+
+    @include breakpoint($screen-md) {
+      display: flex;
+      flex-flow: row wrap;
+    }
+  }
+
+  &-column {
+    flex-grow: 1;
+    padding: 20px;
+
+    @include breakpoint($screen-md) {
+      width: 50%;
+    }
+
+    &.is-full {
+      @include breakpoint($screen-md) {
+        order: -1; // move item above all others (default is 0)
+        width: 100%; // make span full-width
+      }
+    }
+
+    // modifier isn't documented, need to keep? check with UX/Branding
+    .has-divider & {
+      border-right: 1px solid $border-color-base;
+    }
+  }
+
+  &-item {
+    min-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include breakpoint($screen-md) {
+      padding: 40px 30px 30px;
+    }
+
+    // modifier isn't documented, need to keep? check with UX/Branding
+    .has-borders & {
+      border: 1px solid $border-color-base;
+    }
+  }
+}

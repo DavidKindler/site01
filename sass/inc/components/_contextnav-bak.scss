@@ -1,0 +1,82 @@
+#contextnav {
+  & h2 {
+//    color: $nxp-deep-orange;
+//    font-weight: 400;
+    margin-left: 10px;
+//    font-size: 2rem;
+    font-size: 100%;
+    font-weight: 700;
+    font-family: $font-family-sans-serif;
+    text-transform: capitalize;
+    color: #646464;
+    display: inline-block;
+    border-bottom: 1px solid #979799;
+  }
+  & input {
+    margin-left: 10px;
+    width: 95%;
+    height: 30px;
+    box-shadow: none;
+    border-radius: 2px;
+    border: 1px solid $warm-grey-light;
+    padding-left: 8px;
+  }
+  & label {
+    margin-bottom: 0px;
+  }
+}
+
+.contextnav {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  & > li > a {
+    color: $nxp-body-text;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    @include transition(background-color .25s ease);
+    &:hover {
+      background-color: $cool-grey-xxxlight;
+      text-decoration: none;
+      color: $nxp-black;
+    }
+  }
+  & li.selected,
+  & li.active {
+    background-color: $cool-grey-xxxlight;
+    text-decoration: none;
+    color: $nxp-black;
+    font-weight: 600;
+    & a {
+      color: $nxp-black;
+    }
+  }
+  & ul li {
+    & a {
+      font-size: 1.2rem;
+      color: $cool-grey-dark;
+      text-decoration: none;
+      display: block;
+      padding: 3px 0px 3px 20px;
+      &:hover {
+        background-color: $cool-grey-xxxlight;
+        text-decoration: none;
+        color: $nxp-black;
+      }
+    }
+    &.selected {
+      background-color: $cool-grey-xxxlight;
+      text-decoration: none;
+      color: $nxp-black;
+      font-weight: 600;
+      & a {
+        color: $nxp-black;
+      }
+    }
+  }
+  &.affix {
+    top: 10px;
+    padding-right: 30px;
+    width: 225px;
+  }
+}

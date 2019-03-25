@@ -1,0 +1,226 @@
+/* Code Revised Dec 2, 2016 by Dan
+
+// Tabs
+// ===================================
+
+// Give the tabs something to sit on
+.nav-tabs {
+  border-bottom: 1px solid $cool-grey;
+  padding-left: 4px;
+  margin: 0 auto 1em;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    // Actual tabs (as links)
+    > a {
+      @include transition(all .25s ease) {}
+      //box-shadow: inset 0px -3px 0px 0px rgba(0,0,0,0.05);
+      font-weight: bold;
+      color: $cool-grey-dark;
+      margin-right: 4px;
+      line-height: $line-height-base;
+      //border: 1px solid $warm-grey-light;
+      border: 1px solid $cool-grey;
+      //border-bottom-color: transparent;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+      background-color: $cool-grey-xxlight;
+      padding: .5em 1em;
+      &:hover {
+        background-color: $white;
+        border: 1px solid $cool-grey;
+      }
+    }
+    // Active state, and its :hover and :focus to override bootstrap's
+    &.active > a,
+    &.active > a:hover,
+    &.active > a:focus {
+      //box-shadow: none;
+      color: $grey-xdark;
+      border-left: 1px solid $cool-grey;
+      border-right: 1px solid $cool-grey;
+      border-top: 1px solid $cool-grey;
+      cursor: pointer;
+    }
+  }
+}
+
+//.nav-tabs>li.active>a,
+//.nav-tabs>li.active>a:hover {
+//  border-top: 1px solid #B5B2B1;
+//  border-right: 1px solid #B5B2B1;
+//  border-left: 1px solid #B5B2B1;
+//  border-bottom-color: transparent;
+//}
+
+// Give the mobile users the following:
+// ------------------------------------
+@media screen and (max-width: $screen-md) {
+  .nav-tabs {
+    // display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 48px;
+    background-color: $cool-grey-xxlight;
+    width: 100%;
+    white-space: nowrap;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    padding-left: 0;
+    border-bottom: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+//      Commented below is the stuff that was in place when we had problems with iOS8 packing the tabs in to one row.  Below the commented is what it has been changed to to fix the problem. keeping this for now in the event we need to revert.  Robin Rowell - 2016/9/12
+//      -webkit-box-flex: 1;
+//      -webkit-flex-grow: 1;
+//      -ms-flex-positive: 1;
+//      //flex-grow: 1;
+//      -webkit-flex-shrink: 0;
+//      flex-shrink: 0;
+//      -webkit-flex-grow: 1;
+//      -moz-flex-grow: 1;
+//      -ms-flex-grow: 1;
+//      -o-flex-grow: 1;
+//      flex-grow: 1;
+      -webkit-flex-shrink: 0;
+      -moz-flex-shrink: 0;
+      -ms-flex-shrink: 0;
+      -o-flex-shrink: 0;
+      flex-shrink: 0;
+      border-right: 1px solid $warm-grey-xxlight;
+      a {
+        border: none;
+        margin-right: 0;
+        line-height: 32px;
+        text-align: center;
+        padding-bottom: 1em;
+        font-size: inherit;
+      }
+      &> .active a {
+        border: none;
+      }
+      &.active {
+        border-bottom: 5px solid $nxp-orange;
+      }
+    }
+  }
+  .nav-tabs > li.active a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:active,
+  .nav-tabs > li.active > a:focus,
+  .nav-tabs > li > a:hover,
+  .nav-tabs > li > a:active,
+  .nav-tabs > li > a:focus
+   {
+    border: none;
+    background-color: inherit;
+  }
+}
+End Code Revised Dec 2, 2016 by Dan */
+
+//  ---------------------------------------------------------------------------
+//  Tabs
+//  ---------------------------------------------------------------------------
+.nav-tabs {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 48px;
+  padding-left: 0;
+  margin: 0 auto 1em;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  background-color: $cool-grey-xxlight;
+  border-bottom: none;
+  box-shadow: 0 0 0 0 rgba($nxp-absolute-black, 0.16), 0 2px 4px 0 rgba($nxp-absolute-black, 0.15);
+
+  @include breakpoint(screen-medium) {
+    height: auto;
+    padding-left: 4px;
+    overflow: visible;
+    white-space: normal;
+    background: none;
+    border-bottom: 1px solid $cool-grey;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > li {
+    display: flex;
+    float: left;
+    flex-shrink: 0;
+    margin-bottom: -1px;
+    border-right: 1px solid $warm-grey-xxlight;
+
+    @include breakpoint(screen-medium) {
+      flex-shrink: 1;
+      border-right: none;
+    }
+
+    > a {
+      @include transition(all .25s ease);
+      display: flex;
+      align-items: center;
+      padding: 14px 1em 1em;
+      font-size: inherit;
+      font-weight: bold;
+      line-height: $line-height-base;
+      color: $cool-grey-dark;
+      text-align: center;
+      background-color: $cool-grey-xxlight;
+      border: none;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+
+      &:active,
+      &:focus,
+      &:hover {
+        border: none;
+        background-color: inherit;
+      }
+
+      @include breakpoint(screen-medium) {
+        padding: .5em 1em;
+        margin-right: 4px;
+        border: 1px solid $cool-grey;
+
+        &:hover {
+          background-color: $white;
+          border: 1px solid $cool-grey;
+        }
+      }
+    }
+
+    &.active {
+      box-shadow: 0 -5px 0 0 $nxp-orange inset;
+
+      @include breakpoint(screen-medium) {
+        box-shadow: none;
+      }
+    }
+
+    &.active > a,
+    &.active > a:hover,
+    &.active > a:focus {
+      border: none;
+      background-color: inherit;
+
+      @include breakpoint(screen-medium) {
+        color: $grey-xdark;
+        cursor: pointer;
+        border: 1px solid $cool-grey;
+        border-bottom-color: $white;
+      }
+    }
+  }
+}

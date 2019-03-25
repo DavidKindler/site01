@@ -1,0 +1,48 @@
+// =========================
+// CMS Component
+// Component Name: Community Discussions
+// Component Type: Table
+// Notes:
+// - Needs to define which community system we are going to use
+// - Needs to pull information based on giving tags
+// - Needs the ability to rename the section"
+// =========================
+.communityDiscussions {
+  ul {
+    padding-left: 1.75em;
+    position: relative;
+    // remove default list bullets
+    padding-left: 0;
+    list-style: none;
+    li:not(.communityDiscussions-postTitle) {
+      padding-left: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .communityDiscussions-postTitle {
+    font-weight: 700;
+    padding-left: 2.5rem;
+    margin-bottom: 0;
+    &:before {
+      position: absolute;
+      top: .68em;
+      left: 0;
+      font-family: 'icomoon';
+      content: "\e22a";
+      color: $text-color;
+      font-size: 16px;
+    }
+  }
+  .communityDiscussions-postByline {
+    font-size: small;
+    margin-left: 2.5rem;
+    //margin-bottom: .5em;
+    span {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 70%;
+    }
+  }
+}

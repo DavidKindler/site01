@@ -1,0 +1,60 @@
+//  ---------------------------------------------------------------------------
+//  Main grouped-links Component
+//  ::  Minimal Styling needed, placing structure for future changes
+//  ---------------------------------------------------------------------------
+
+.grouped-links {
+  padding-top: $padding-component-vertical;
+  // removes 1em = margin bottom on the ul for better vertial alignment
+  padding-bottom: ($padding-component-vertical - 1em);
+
+  // list container
+  &-container {
+    // container styles
+  }
+
+  &-image {
+    img,
+    svg {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  // separate styles for icons since display differs from images
+  &-icon {
+    $max-height: 40px;
+    margin-bottom: 10px;
+
+    // font icons
+    [class*='icon-'] {
+      display: block;
+      font-size: $max-height;
+      color: $cool-grey-xdark;
+      line-height: $max-height;
+    }
+
+    // images
+    img {
+      max-height: $max-height;
+    }
+
+    // svg icons
+    svg {
+      max-height: $max-height;
+      height: 100%;
+      fill: $cool-grey-xdark;
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  &-text {
+    margin-bottom: 0.5em;
+  }
+
+  &-list {
+    @include list-unstyled;
+  }
+}

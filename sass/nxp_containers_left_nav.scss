@@ -1,0 +1,222 @@
+//  ---------------------------------------------------------------------------
+//  Container Styles
+//  ::  Variables
+//  ::  Left Column
+//  ::  Right Column
+//  Band Class  ::  to be moved
+//  Hero Styles ::  to be moved
+//  Tabs Styles ::  to be moved
+//  ---------------------------------------------------------------------------
+
+//  Variables
+//  -----------------------------------
+$vp-smallest: 480px;
+$vp-small: 768px;
+$vp-medium: 992px;
+$vp-large: 1200px;
+$vp-xlarge: 1440px;
+$vp-xxlarge: 1800px;
+
+$left-column-small: 250px;
+$left-column-large: 300px;
+
+$grid-gutter-width: 30px;
+
+//  Left Column
+//  -----------------------------------
+.iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-3 {
+  display: none;
+  width: $left-column-small;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #f4f4f5;
+  border-right: 1px solid #e4e4e6;
+}
+
+@media screen and (min-width: $vp-small) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-3 {
+    display: block;
+  }
+}
+
+@media screen and (min-width: $vp-large) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-3 {
+    width: $left-column-large;
+  }
+}
+
+//  Right Column
+//  -----------------------------------
+//  Tablet Styles
+@media screen and (min-width: $vp-small) {
+  //  row container for two columns
+  .iw_viewport-wrapper > .container-fluid > .row > .iw_columns > .row {
+    display: flex;
+  }
+
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-9 {
+    width: calc(100vw - #{$left-column-small});
+    padding-left: 30px;
+    padding-right: 30px; // overriding padding spacing from Bootstrap
+  }
+  // Footer styles, move to Global ?
+  #footer.container {
+    margin-top: 0;
+  }
+}
+
+//  Desktop Small Styles
+@media screen and (min-width: $vp-medium) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-9 {
+    max-width: ($vp-medium - $left-column-small); //  742px
+    margin-left: calc((100vw - #{$vp-medium}) / 2);
+    margin-right: calc((100vw - #{$vp-medium}) / 2);
+  }
+}
+
+//  Desktop Large Styles
+@media screen and (min-width: $vp-large) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-9 {
+    max-width: ($vp-large - $left-column-large); //  900px
+    margin-left: calc((100vw - #{$vp-large}) / 2);
+    margin-right: calc((100vw - #{$vp-large}) / 2);
+  }
+}
+
+//  Desktop Extra Large Styles
+//  *** Review if this should be implemented
+@media screen and (min-width: $vp-xlarge) {
+  .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-9 {
+    max-width: ($vp-xlarge - $left-column-large);
+    margin-left: calc((100vw - #{$vp-xlarge}) / 2);
+    margin-right: calc((100vw - #{$vp-xlarge}) / 2);
+  }
+}
+
+//  Desktop Extra Large Styles
+//  *** Review if this should be implemented
+//  +++ Removing XXLarge Brekpoint for now, revisit after testing
+//  +++ if put back in place, update the Hero Level 1 component as well
+// @media screen and (min-width: $vp-xxlarge) {
+//   .iw_viewport-wrapper > .container-fluid .iw_columns.col-lg-9 {
+//    max-width: ($vp-xxlarge - $left-column-large);
+//    margin-left: calc((100vw - #{$vp-xxlarge}) / 2);
+//   }
+// }
+
+//  Color Band Styles
+//  ---------------------------------------------------------------------------
+.band {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    z-index: -1;
+    display: block;
+    width: calc(100% + #{$grid-gutter-width});
+    height: 100%;
+    background: inherit;
+    transform: translateX(50%);
+
+    @media screen and (min-width: $vp-small) {
+      width: calc(100vw - #{$left-column-small});
+    }
+
+    @media screen and (min-width: $vp-medium) {
+      // width: calc(100vw - #{$left-column-small});
+    }
+
+    @media screen and (min-width: $vp-large) {
+      width: calc(100vw - #{$left-column-large});
+    }
+  }
+}
+
+// Product Selector styles
+//  ---------------------------------------------------------------------------
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-9
+    .selectorguide
+    #product-selector-component {
+    width: calc(100%);
+    margin-left: 5px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-9
+    .selectorguide
+    #product-selector-component {
+    width: calc(100% + (100vw - 1002px));
+    margin-left: calc(((100vw - 962px) / 2 * -1) + 20px);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-9
+    .selectorguide
+    #product-selector-component {
+    width: calc(100% + (100vw - 1210px));
+    margin-left: calc(((100vw - 1170px) / 2 * -1) + 20px);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .iw_viewport-wrapper
+    > .container-fluid
+    .iw_columns.col-lg-9
+    .selectorguide
+    #product-selector-component {
+    width: calc(100% + (100vw - 1450px));
+    margin-left: calc(((100vw - 1410px) / 2 * -1) + 20px);
+  }
+}
+
+//  Banding Styles
+//  ---------------------------------------------------------------------------
+//  keeping hero-band in place because it is used on Thought Leadership pages
+//  this makes the right column span fullwidth
+//  - Need a better solution, but this is in place for now.
+.hero-band {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  background: {
+    //    image: ; set inline
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+  transform: translateX(-50%);
+
+  @media screen and (min-width: $vp-small) {
+    width: calc(100vw - #{$left-column-small});
+  }
+
+  @media screen and (min-width: $vp-large) {
+    width: calc(100vw - #{$left-column-large});
+  }
+  // !important styles need to be incorporated into Hero component
+  > div {
+    position: relative;
+    margin: 0 auto !important;
+
+    @media screen and (min-width: $vp-small) {
+      //      max-width: 510px; // using max-widths to avoid possible overflow
+    }
+
+    @media screen and (min-width: $vp-medium) {
+      max-width: 742px !important; // using max-widths to avoid possible overflow
+    }
+
+    @media screen and (min-width: $vp-large) {
+      max-width: 900px !important; // using max-widths to avoid possible overflow
+    }
+  }
+}

@@ -1,0 +1,244 @@
+/* Start _nxp_breadcrumbs.scss */
+//  ---------------------------------------------------------------------------
+// Updated Breadcrumbs for Page Title Favorite button
+//  ---------------------------------------------------------------------------
+
+.bc-container {
+  margin: 2px 0 0;
+  border-bottom: 1px solid $nxp-gray-xlight;
+  box-shadow: 0 2px 2px rgba($absolute-black,.05);
+  position: relative;
+  z-index: 101;
+    display: none;
+
+  @include breakpoint(screen-small) {
+      display: block;
+    // margin: 0;
+    margin:0 -15px;  // Adjusted to handle all environments.
+  }
+
+  .bc {
+	.icon-home{
+		font-size: 14px;
+	}
+	.dropdown-menu{
+		border-top: 0 none;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		> li{
+			&:hover{
+				background-color: $breadcrumb-bg;
+			}
+			&.active, &.parent{
+				> a{
+					color: white;
+					background-color: $cool-grey-xdark;
+					&:hover, &:focus{
+						color: white;
+						background-color: $cool-grey-xdark;
+					}
+				}
+			}
+			> a{
+				font-size: 12px;
+				//padding: 3px 0px;
+				//margin: 0px 20px;
+				//display: inline-block;
+				&.selected {
+					//border-bottom: 1px solid $nxp-orange;
+					text-decoration: underline;
+					-moz-text-decoration-color: $nxp-orange; /* Code for Firefox */
+					text-decoration-color: $nxp-orange;
+					font-weight:600;
+				}
+			}
+		}
+		> li{ border-top: 1px solid $nxp-gray-xlight;}
+		> li:first-of-type{ border-top: 0px;}
+	}
+    @include list-unstyled;
+    display: none;
+    //max-width: calc(100% - 100px);
+    margin: 0 30px;
+	padding: 11px 0 8px;
+    color: $nxp-body-text;
+    font-size: 13px;
+    line-height: 18px;
+
+    @include breakpoint(screen-small) {
+      display: inline-block;
+    }
+
+  	> li {
+      position: relative;
+      display: inline-block;
+      padding: 0;
+      margin-bottom: 0;
+	  margin-right: 25px;
+	  .truncate{
+		  width: 5em;
+		  white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  display: inline-block;
+		  vertical-align: middle;
+		  margin-right: 0;
+	  }
+      // removes orange square
+      &:before { content: ""; }
+      //  adds > between links
+      [data-toggle="dropdown"]{
+		&:after {
+			content: "\f10b";
+			position: absolute;
+			bottom: 1px;
+			margin-left: 5px;
+			right: -15px;
+			font: {
+			  family: "icomoon";
+			  style: normal;
+			  size: 14px;
+			  variant: normal;
+			  weight: 400;
+			}
+			text-transform: uppercase;
+			display: inline-block;
+			text-decoration: none;
+		}
+      }
+	  >.dropdown.open{
+		[data-toggle="dropdown"]{
+			&:after {
+				content: "\f109";
+				position: absolute;
+				bottom: 1px;
+				margin-left: 5px;
+				right: -15px;
+				font: {
+				  family: "icomoon";
+				  style: normal;
+				  size: 14px;
+				  variant: normal;
+				  weight: 400;
+				}
+				text-transform: uppercase;
+				display: inline-block;
+				text-decoration: none;
+			}
+		}
+	  }
+
+      &:first-of-type{
+		margin-right: 15px;
+      }
+//      &.active{
+      &:last-of-type{
+		border-bottom: 1px solid $nxp-orange;
+		font-weight:600;
+	    &:after { display: none; }
+      }
+  	}// li
+  }// .bc
+
+  // not included in nest so that styles work for share buttons
+  a {
+    color: $nxp-body-text;
+
+    &:link, &:visited, &:active {
+      color: $nxp-body-text;
+    }
+
+    &:hover {
+      color: $link-hover-color;
+	  text-decoration: none;
+    }
+  }// a
+
+//  .share-icons {
+//    max-width: 100px;
+//
+//    > * {
+//      display: inline-block;
+//      padding: 0 0 0 5px;
+//
+//      &:first-child { padding: 0; }
+//      &.favorite { font-size: 110%; }
+//      &.favorited { color: $nxp-orange; }
+//    }
+//
+//    a {
+//      text-decoration: none;
+//
+//      &:hover {
+//        color: $nxp-body-text;
+//      }
+//
+//      &.favorited:hover { color: $nxp-orange; }
+//    }
+//  }// .share-icons
+}
+/* End _nxp_breadcrumbs.scss */
+
+
+//  ---------------------------------------------------------------------------
+//  Page Title - to be moved to new component area when finished
+//  ---------------------------------------------------------------------------
+.page-title {
+  // remove margin from h1 and place on container element
+  // so that share icons align to top of text
+  margin-top: 1.5em;
+  margin-bottom: .625em;
+
+  .title {
+    float: left;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+    margin-bottom: 0;
+    // margins moved to container above
+
+    @include breakpoint(screen-small) {
+      max-width: calc(100% - 80px);
+      //  80px max-width of share icons
+      //  update size if/when "Favorite" Icon is replaced
+    }
+  }
+
+	.share-icons {
+	  display: none;
+	  float: right;
+	  width: auto;
+	  max-width: 80px;
+	  margin-top: .5em; // help align with baseline of title text first line
+	  text-align: right;
+
+	  > * {
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 0 0 5px;
+
+		&:first-child { padding: 0; }
+		&.favorite { font-size: 110%; }
+		&.favorited { color: $nxp-orange; }
+	  }
+
+	  a {
+		color: $cool-grey-xxdark;
+		text-decoration: none;
+
+		&:link, &:visited, &:active {
+		  color: $cool-grey-xxdark;
+		}
+
+		&:hover {
+		  color: $nxp-body-text;
+		}
+
+		&.favorited:hover { color: $nxp-orange; }
+	  }// a
+
+	  @include breakpoint(screen-small) {
+		display: inline-block;
+	  }
+	}
+}

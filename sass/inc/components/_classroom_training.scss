@@ -1,0 +1,50 @@
+// =========================
+// Component Name: Classroom Training
+// Component Type: Table (Dynamic)
+// =========================
+.classroomTraining {
+  margin-bottom: 0.625em;
+  //max-width: 50%;
+  th {
+    white-space: nowrap;
+    &.date {
+      width: 17%;
+    }
+  }
+  td:nth-of-type(1) {
+    white-space: nowrap;
+  }
+  td:nth-of-type(1),
+  td:nth-of-type(3),
+  td:nth-of-type(4),
+  td:nth-of-type(5) {
+    text-align: center;
+  }
+  // vendor column
+  td:nth-of-type(3) {
+    min-width: 130px;
+    max-width: 150px;
+  }
+  .classroomTraining-items {
+    margin-bottom: 0;
+    // remove default list bullets
+    @include nobullets ();
+    li {
+      &:not(.classroomTraining-title):not(.classroomTraining-description) {
+        display: inline;
+        margin-right: 1em;
+        color: $cool-grey;
+      }
+    }
+    .classroomTraining-title {
+      margin-bottom: .5em;
+      small {
+        display: block;
+      }
+    }
+    .classroomTraining-title,
+    .classroomTraining-description {
+      display: block;
+    }
+  }
+}

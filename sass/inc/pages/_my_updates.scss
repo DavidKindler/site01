@@ -1,0 +1,218 @@
+// ---------------------------------------------------------------------------
+// My Updates page styles
+// :: These are not formal components, so grouping them here to make updates
+// :: easier and more understandable
+//
+// Table of contents
+// * Preferences block (contains list of available documents and checkboxes)
+// * Table list of products
+// ---------------------------------------------------------------------------
+
+// Preferences block
+// ----------------------------------------
+// main container (well)
+.updates-preferences {
+  margin-bottom: $padding-component-small-vertical;
+}
+
+.options-container {
+  padding-left: 20px;
+}
+
+// options toggle to reveal checkboxes
+.btn-preferences-options {
+  &:before {
+    @include icon($icon-caret-down);
+    transition: transform $animation-duration-fastest $cubic-bezier-base;
+  }
+
+  &.collapsed {
+    &:before {
+      transform: rotate(-90deg);
+    }
+  }
+}
+// container for checkbox list
+.preferences-list {
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+}
+
+.preferences-email-documents,
+.preferences-email-software {
+  column-count: 2;
+  column-width: 180px;
+
+  .checkbox {
+    margin-top: 0; // correct alignment for checkboxes
+  }
+}
+
+// Disabled checkboxes, general style that should be applied
+.checkbox.disabled label,
+.radio.disabled label,
+fieldset[disabled] .checkbox label,
+fieldset[disabled] .radio label {
+  color: $text-muted;
+
+  // darken disabled checkbox/radio when in a well container
+  .well & {
+    color: $cool-grey;
+  }
+}
+
+// Table list and table header
+// ----------------------------------------
+.updates-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding-bottom: $padding-component-small-vertical;
+  // using margin top to collapse margins with well container above
+  margin-top: $padding-component-base-vertical;
+  margin-bottom: $padding-component-base-vertical;
+  border-bottom: 1px solid $border-color-base;
+
+  &-title {
+    padding-right: $grid-gutter-width;
+    margin-top: 0; // margins placed on updates-header for spacing
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+}
+
+// Sort switch should be a reusable component, create pattern page
+// ----------------------------------------------------------------------
+// consider using this on the other SPAs
+.sort-switch {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: $font-size-base;
+
+  &.updates-sort {
+    margin-top: 10px; // may be specific to My Updates page so prefixing here
+  }
+
+  &-label {
+    margin-right: 10px;
+  }
+
+  &-items {
+    display: flex; // shrinks space between labels so that it works on one line on iPhone 5
+    color: $link-color;
+
+    .radio-inline {
+      padding-left: 0;
+
+      // using general selector based on html markup input > label > input > label ...
+      ~ .radio-inline {
+        padding-left: 10px;
+        margin-left: 10px;
+        border-left: 1px solid $border-color-base;
+      }
+    }
+
+    input:checked + .radio-inline {
+      font-weight: $font-weight-heavy;
+      color: $text-color;
+    }
+  }
+}
+
+.updates-product {
+  margin-bottom: $padding-component-small-vertical;
+}
+
+.product-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-items: flex-end;
+  margin-bottom: 0.625em;
+
+  @include breakpoint($screen-sm) {
+    flex-wrap: nowrap; // explict wrap instructions for Safari 9
+  }
+
+  .product-title {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include breakpoint($screen-sm) {
+      max-width: 80%;
+    }
+
+    // remove this and concatenation styles if no concat is decided
+    .product-label {
+      max-width: 100%;
+      overflow: hidden;
+      margin-top: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .product-action {
+    flex-shrink: 0;
+    margin-top: 0.5em;
+
+    @include breakpoint($screen-sm) {
+      margin-top: 0;
+      margin-left: auto;
+
+      .btn {
+        margin-left: $grid-gutter-width;
+      }
+    }
+  }
+}
+
+// Sortable table styles
+// ----------------------------------------
+.updatedDocs {
+  // if more/less follows table, remove bottom margin
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  // provide table spacing for trigger since it is within border of table-responsive
+  + .moreLessTrigger {
+    padding: 8px;
+    margin-bottom: 0;
+  }
+
+  // override nxp-legacy stylesheet on My Updates page
+  &.table > tbody > tr > td,
+  &.table > thead > tr > th {
+    font-size: $font-size-base; // was set to 12px in legacy.css
+  }
+
+  // text alignment styles
+  td,
+  th {
+    &:not(:first-of-type) {
+      width: (100% / 6); // equalize column widths
+      min-width: 165px;
+      text-align: center;
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+    font-family: $font-family-sans-serif;
+
+    sup {
+      font-weight: $font-weight-base;
+      color: $text-color;
+    }
+  }
+
+  &-meta {
+    @include list-inline;
+    margin-bottom: 0;
+    color: $cool-grey;
+  }
+}

@@ -1,0 +1,233 @@
+// ----------------------------------------------------------------------
+// Contextnav (Jump to links)
+// ----------------------------------------------------------------------
+// style used for smooth scroll positioning
+aside#contextnav {
+  // set min-height so first jump to click works correctly
+  // problem: when nav gets affixed, container goes to 0 height and throws off the scrollTop value in JS file
+  min-height: 45px;
+}
+
+#contextnav {
+  // where is this input displayed?
+  input {
+    width: 95%;
+    height: 30px;
+    box-shadow: none;
+    border-radius: 2px;
+    border: 1px solid $warm-grey-light;
+    padding-left: 8px;
+  }
+
+  label {
+    margin-bottom: 0px;
+  }
+}
+
+.contextnav {
+  margin-bottom: 1em;
+  font-size: $font-size-base;
+
+  h2 {
+    margin-top: 1.714285em;
+    font: {
+      family: $font-family-sans-serif;
+      size: 100%;
+    }
+    text-transform: capitalize;
+  }
+
+  li {
+    a[href^='#'] {
+      color: $nxp-body-text;
+      display: inline-block;
+      padding: 0.25em 0;
+      margin-bottom: 0.25em;
+
+      &:hover {
+        color: $black;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        background-color: transparent;
+      }
+    }
+
+    &.selected,
+    &.active {
+      &::before {
+        content: ' ';
+        position: absolute;
+        top: 5px;
+        width: 4px;
+        display: inline-block;
+        height: 17px;
+        margin-left: -10px;
+        background-color: $nxp-orange;
+      }
+
+      > a {
+        color: $black;
+        font-weight: $font-weight-heavy;
+      }
+    }
+  }
+
+  // nested lists, where is this used?
+  ul {
+    margin-left: 20px;
+
+    li {
+      a {
+        display: block;
+        font-size: $font-size-small;
+        color: $cool-grey-dark;
+
+        &:hover {
+          text-decoration: none;
+          color: $black;
+        }
+      }
+
+      // &.selected {
+      //   background-color: $cool-grey-xxxlight;
+      //
+      //   a {
+      //     font-weight: $font-weight-heavy;
+      //     color: $black;
+      //     text-decoration: none;
+      //   }
+      // }
+    }
+  }
+
+  // styles when links are affixed to the top of the page
+  &.affix {
+    top: 10px;
+    padding-right: $grid-gutter-width;
+    width: 225px;
+  }
+
+  // styles when it is not affixed to top of the page
+  &.affix-top {
+    top: 10px;
+    padding-right: $grid-gutter-width;
+    width: 225px;
+  }
+}
+
+// Modifiers: Horizontal layout
+// ----------------------------------------------------------------------
+.contextnav.is-horizontal {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    margin-left: calc((100vw - 100%) / -2);
+    background-color: $white;
+    box-shadow: 0 3px 5px rgba($absolute-black, 0.2);
+  }
+
+  &.affix-top {
+    top: 0;
+    width: 100vw;
+    padding-right: calc((100vw - 100%) / 2);
+    padding-left: calc((100vw - 100%) / 2);
+    margin-right: calc((100vw - 100%) / -2);
+    margin-left: calc((100vw - 100%) / -2);
+  }
+
+  &.affix {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    z-index: $zindex-navbar;
+    width: 100%;
+    padding-right: 0;
+    transform: translateX(-50%);
+
+    @include breakpoint($screen-sm) {
+      width: 720px;
+    }
+
+    @include breakpoint($screen-md) {
+      width: 940px;
+    }
+
+    @include breakpoint($screen-lg) {
+      width: 1140px;
+    }
+  }
+
+  h2 {
+    display: none;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    min-height: 45px;
+    text-align: center;
+
+    &:first-child {
+      display: none; // hide element with h2
+    }
+
+    // this assumes the first li is present with an h2 that is hidden
+    &:nth-child(n + 3) {
+      margin-left: 50px;
+    }
+
+    &.has-button {
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+
+    &.active {
+      &:before {
+        $highlight-height: 5px;
+        top: calc(100% - #{$highlight-height});
+        width: 100%;
+        margin-left: 0;
+        height: $highlight-height;
+      }
+    }
+
+    a {
+      margin-bottom: 0;
+
+      &.btn-get-started {
+        padding: $padding-small-vertical ($padding-small-horizontal * 2);
+        color: $white;
+        background-color: $petrol-blue;
+        border: 1px solid $petrol-blue-dark;
+
+        &:hover {
+          // would be nice if this was petrol-blue-light
+          background-color: lighten($petrol-blue, 5%);
+        }
+      }
+
+      span[class^='icon-'] {
+        // make icon larger without having to reposition
+        transform: scale(1.5);
+        margin-right: $padding-small-horizontal;
+      }
+    }
+  }
+}

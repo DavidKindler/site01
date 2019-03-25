@@ -1,0 +1,121 @@
+$magic-number: 25px;
+$color-active: $cool-grey;
+$color-passive: $cool-grey-xlight;
+$color-hover-border: $cool-grey-xdark;
+$color-hover-bg: $color-active;
+
+ul.treeview {
+  padding: 0;
+  list-style-type: none;
+  color: $cool-grey-dark;
+  ul {
+    @include transition(all .25s ease);
+  }
+  li {
+    padding: 5px 0 5px;
+    a {
+      //text-decoration: none;
+    }
+    /* if it isn't a tree branch then give it a different icon */
+    &:not(.closed) {
+      position: relative;
+      &:before {
+        position: absolute;
+        left: 5px;
+        top: 1.5em;
+        font-size: .6em;
+        font-family: $font-family-icons;
+        content: "\e568";
+        /* minus icon */
+        color: $color-passive;
+      }
+    }
+    &:before {
+      content: normal; //remove the default bullet from the list
+    }
+  }
+  li.expandable,
+  li.closed {
+    padding-left: $magic-number;
+  }
+  li:not(.closed),
+  li:not(.expandable) {
+    padding-left: $magic-number;
+  }
+  li:not(.closed):before,
+  li:not(.expandable):before {}
+  .hitarea {
+    position: relative;
+    float: left;
+    //background-image: none;
+    //list-style-image: none;
+    margin-left: -$magic-number;
+    outline: none;
+    & span,
+    & i {
+      position: absolute;
+      top: 1px;
+      display: block;
+      width: 18px;
+      height: 17px;
+      margin-right: 4px;
+      padding: 2px;
+      border: 1px solid $color-active;
+      border-radius: 2px;
+      font-size: 8px;
+      text-align: center;
+      //text-decoration: none;
+      background-color: white;
+      box-shadow: $btn-shadow;
+      color: $color-active;
+      @include transition(all .25s ease);
+      &:hover {
+        background-color: $color-active;
+        border-color: $color-hover-border;
+        color: white;
+        cursor: pointer;
+      }
+    }
+    /* plus icon */
+    &.expandable-hitarea .innericon:before {
+      font-family: $font-family-icons;
+      content: "\e569";
+    }
+    /* minus icon */
+    &.collapsible-hitarea .innericon:before {
+      font-family: $font-family-icons;
+      content: "\e568";
+      .hitarea {
+        position: relative;
+        float: left;
+        background-image: none;
+        list-style-image: none;
+        margin-left: -$magic-number;
+        outline: none;
+        & span,
+        & i {
+          position: absolute;
+          top: 1px;
+          display: block;
+          width: 18px;
+          height: 17px;
+          margin-right: 4px;
+          padding: 2px;
+          border: 1px solid $color-active;
+          border-radius: 2px;
+          font-size: 8px;
+          text-align: center;
+          //text-decoration: none;
+          background-color: white;
+          color: $color-active;
+          &:hover {
+            background-color: $color-active;
+            border-color: $color-hover-border;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

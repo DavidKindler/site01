@@ -1,0 +1,191 @@
+//  ---------------------------------------------------------------------------
+//  TABLE OF CONTENTS: Secondary Related Topic
+//    Main Container
+//    List Container
+//    -  Number Variations (one, two, three)
+//    Item
+//    -  Number Variations (one, two, three)
+//    Media Area
+//    -  Image
+//    Text Area
+//    -  Title
+//    -  Text
+//    -  Links
+//  ---------------------------------------------------------------------------
+
+//  Main Container
+//  ----------------------------------------
+.secondary-topic {
+  padding: $padding-component-vertical 0;
+
+  //  List Container
+  //  ----------------------------------------
+  &-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: -#{$grid-gutter-width-half};
+    margin-right: -#{$grid-gutter-width-half};
+
+    //  Item Number Variations (List)
+    //  ----------------------------------------
+    &.one {
+      @include breakpoint(screen-medium) {
+        justify-content: center; // centers item horiz in avail space
+      }
+    }
+
+    & + & {
+      padding-top: $padding-component-small-vertical;
+    }
+  }
+
+  //  Item
+  //  ----------------------------------------
+  &-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 0;
+    flex-shrink: 1;
+    width: 100%; // set width instead of flex-basis for this component
+    padding: 0.5em $grid-gutter-width-half;
+    margin-bottom: 0.5em;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    //  Item Number Variations
+    //  ----------------------------------------
+    .one & {
+      @include breakpoint(screen-medium) {
+        width: 83.3333%; // set to BS col-9 sizing
+      }
+
+      @include breakpoint(screen-large) {
+        width: 66.6666%; // set to BS col-8 sizing
+      }
+    }
+
+    .two & {
+      @include breakpoint(screen-medium) {
+        width: 50%;
+        margin-bottom: 0;
+      }
+    }
+
+    .three & {
+      @include breakpoint(screen-medium) {
+        width: 50%;
+      }
+
+      @include breakpoint-min-max($screen-md, $screen-lg) {
+        &:nth-of-type(3n + 3) {
+          width: 100%;
+        }
+      }
+
+      @include breakpoint(screen-large) {
+        width: 33.3333%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  //  Media Area
+  //  ----------------------------------------
+  &-media {
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.3333%;
+    padding-right: $grid-gutter-width-half;
+
+    //  Item Number Variations
+    //  ----------------------------------------
+    .one & {
+      padding-right: 30px;
+
+      @include breakpoint($screen-md) {
+        max-width: 25%;
+      }
+    }
+
+    .three .secondary-topic-item:nth-of-type(3n + 3) & {
+      @include breakpoint-min-max($screen-md, $screen-lg) {
+        max-width: 25%;
+      }
+    }
+  }
+
+  //  image
+  &-img {
+    a {
+      display: block;
+      border: 1px solid rgba($absolute-black, 0.05);
+
+      &:hover {
+        border-color: rgba($absolute-black, 0.1);
+      }
+    }
+
+    svg {
+      display: block;
+      min-width: 40px;
+    }
+  }
+
+  //  Text Area
+  //  ----------------------------------------
+  //  container
+  &-content {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    @include breakpoint-max($screen-md) {
+      align-self: center;
+    }
+
+    //  Item Number Variations
+    //  ----------------------------------------
+    .one & {
+      @include breakpoint(screen-medium) {
+        align-self: center; // vert align text center since image is larger
+      }
+    }
+
+    .three .secondary-topic-item:nth-of-type(3n + 3) & {
+      @include breakpoint-min-max($screen-md, $screen-lg) {
+        align-self: center;
+      }
+    }
+  }
+
+  // h3 title
+  &-title {
+    margin-top: 0;
+  }
+
+  //  paragraph container
+  &-text {
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  // Links
+  &-link {
+    @include nobullets;
+    margin-bottom: 0;
+
+    > li {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      @include cta;
+    }
+  }
+}

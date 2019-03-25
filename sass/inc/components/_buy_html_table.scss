@@ -1,0 +1,63 @@
+// =========================
+// Component Name: Buy HTML Table
+// Component Type: Table (Blob)
+// =========================
+.buyHTMLTable {
+  tbody tr td:first-of-type:not([colspan]) {
+    vertical-align: middle;
+    background-color: $cool-grey-xxxlight;
+    
+    @include breakpoint(screen-large) {
+      text-align: center;
+    }
+  }
+  .-purchDetail {
+    margin-bottom: 1em;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    &.pull-left {
+      //padding-right: 15px;
+      margin-bottom: 0;
+    }
+    &.pull-left:last-of-kind {
+      padding-right: 0;
+    }
+    .-price {
+      font-size: 115%;
+      font-weight: 700;
+    }
+    .-license,
+    .-item,
+    .-price {
+      &:before {
+        // these are overrides of the existing li:before
+        font-family: Arial, sans-serif;
+        line-height: 1.458;
+        color: #666;
+        font-size: 100%;
+        position: static;
+        display: inline;
+        //      min-width: 5em;
+      }
+    }
+    .-license:before {
+      content: "License: ";
+    }
+    //    .-item:before {
+    //      content: "ITEM: ";
+    //    }
+    //    .-price:before {
+    //      content: "PRICE: ";
+    //    }
+  }
+  .modal-body {
+    padding-top: 0;
+  }
+  tr.highlight > td,
+  td.highlight,
+  tr.highlight > th,
+  th.highlight {
+    background-color: $nxp-orange-xxlight !important;
+  }
+}

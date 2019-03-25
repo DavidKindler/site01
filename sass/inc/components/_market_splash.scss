@@ -1,0 +1,69 @@
+// Market Splash component
+// Author: B57029
+.marketSplashComponent {
+  margin-bottom: 1em;
+  .marketSplash {
+    z-index: 0;
+    //min-height: 350px;
+    div {
+      // do not use a height attr... will cause problem with Prev / Next
+      width: 100%;
+    }
+    .cycle-overlay {
+      //margin-top: $typespace;
+    }
+    .-slide-smallThumb {
+      img {
+        width: 25%;
+        float: left;
+      }
+      .cycle-overlay {
+        width: 75%;
+        float: left;
+        padding-left: 15px;
+        margin-top: 0 !important;
+        h4 {
+          margin-top: 0 !important;
+        }
+      }
+    }
+  }
+  .marketSplash-pager {
+    @include breakpoint (screen-small) {
+      border-top: 1px solid $table-border-color;
+      // margin-top: 1em;
+    }    
+    font-size: 3em;
+    color: $cool-grey-xlight;
+    text-align: center;
+    .cycle-pager-active {
+      color: $cool-grey-xdark;
+    }
+    span {
+      @include transition(all .25s ease);
+    }
+    span:hover {
+      cursor: pointer;
+      color: $cool-grey;
+    }
+  }
+  .marketSplash-prevNext {
+    @include breakpoint (screen-small) {
+      display: none;
+    }
+    text-align: center;
+    margin-bottom: 1em;
+    a {
+      width: 40%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+
+// hide n+1 slides till finished initializing
+
+.marketSplash.cycle-slideshow  div.-slide{ display: none }
+.marketSplash.cycle-slideshow  div.-slide:first-child { display: block }

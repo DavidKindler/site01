@@ -1,0 +1,145 @@
+// adjust Bootstrap's form control feedback glyphicon
+// larger screens need the icon to have the right line-height since
+// the fonts are scaling
+.form-control-feedback {
+  @include breakpoint(screen-small) {
+    line-height: 40px;
+  }
+}
+
+// make Bootstrap's input borders match the web style guide
+.form-control {
+  font-size: 1em;
+  //  border: 1px solid $cool-grey;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  box-shadow: $input-shadow;
+}
+
+.form-control[disabled] {
+  box-shadow: none;
+  border-color: $cool-grey-xlight;
+}
+
+.has-success,
+.has-warning,
+.has-error {
+  .form-control {
+    box-shadow: $input-shadow;
+  }
+}
+label.has-error.not-bold {
+  font-weight: normal;
+}
+
+select.form-control {
+  border-radius: 2px;
+  box-shadow: $btn-shadow;
+}
+
+// Commented out checkbox overrides until further review
+// - potential to cause problems on macro level
+//// Stylize the default Bootstrap checkbox input.
+//.checkbox label,
+//.radio label {
+//  padding-left: 26px;
+//}
+//
+//.checkbox {
+//  input[type=checkbox] {
+//    display: none;
+//  }
+//  label:before {
+//    content: "";
+//    display: inline-block;
+//    width: 20px;
+//    height: 20px;
+//    margin-right: 10px;
+//    position: absolute;
+//    left: 0;
+//    bottom: 1px;
+//    background: white;
+//    border: 1px solid #979799;
+//    box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+//    border-radius: 2px;
+//  }
+//  label:before {
+//    border-radius: 2px;
+//  }
+//  input[type=checkbox]:checked + label:before {
+//    content: "\e563";
+//    font-family: $font-family-icons;
+//    font-size: 16px;
+//    color: $link-color;
+//    text-align: center;
+//    line-height: 16px;
+//  }
+//}
+//
+//.radio {
+//  label {
+//    margin-right: $typespace;
+//  }
+//  input[type=radio] {
+//    display: none;
+//  }
+//  label:before {
+//    position: absolute;
+//    display: inline-block;
+//    content: "";
+//    width: 20px;
+//    height: 20px;
+//    //margin-right: 10px;
+//    margin-left: -26px;
+//    //left: 0;
+//    bottom: 1px;
+//    box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .25);
+//    background: white;
+//    border: 1px solid #979799;
+//    border-radius: 10px !important;
+//  }
+//  label:before {
+//    border-radius: 2px;
+//  }
+//  input[type=radio]:checked + label:before {
+//    content: "\e63b";
+//    font-family: $font-family-icons;
+//    font-size: 11px;
+//    color: $link-color;
+//    text-align: center;
+//    line-height: 19px;
+//  }
+//}
+//  Override Bootstrap to better align Checkboxes & Radio inputs
+.form-group label {
+  position: relative;
+}
+
+.checkbox input[type='checkbox'],
+.checkbox-inline input[type='checkbox'],
+.radio input[type='radio'],
+.radio-inline input[type='radio'] {
+  top: 2px;
+  height: 13px;
+  width: 14px;
+  padding: 0;
+  margin-top: 0;
+  @include breakpoint(screen-small) {
+    width: 14px;
+    height: 15px;
+  }
+}
+
+// Some Eloqua rules
+// ==========================
+.LV_validation_message {
+}
+
+.LV_invalid {
+  color: #a94442;
+}
+
+.LV_invalid_field {
+  border-color: #a94442;
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}

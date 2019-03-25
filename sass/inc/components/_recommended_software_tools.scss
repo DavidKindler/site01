@@ -1,0 +1,136 @@
+// =========================
+// Component Name: Recommended Software and Tools
+// Component Type: List (Dynamic)
+// =========================
+.recSoftTools {
+  border-bottom: 1px solid $warm-grey-xxlight;
+  margin-bottom: $typespace;
+  .recSoftTools-item {
+    padding: $typespace 0 $typespace 0;
+    margin: 0;
+    // remove default list bullets
+    @include nobullets();
+    position: relative;
+    border-top: 1px solid $warm-grey-xxlight;
+    &.first {
+      border-top: 3px solid $cool-grey;
+    }
+    .recSoftTools-title {
+      font-weight: bold;
+      [class*='icon-'] {
+        margin-left: .5em;
+      }
+      sup {
+        font-weight: normal;
+      }
+    }
+    li:not(.recSoftTools-title) {
+      font-size: $font-size-small;
+    }
+    li:not(.recSoftTools-action) {
+      width: 100%;
+      @include breakpoint(screen-smallest) {
+        width: 75%;
+      }
+    }
+    li.recSoftTools-details {
+      width: 100%;
+    }
+    li.recSoftTools-image {
+      display: none;
+      font-size: 60px;
+      line-height: 0;
+      [class*='icon-'] {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+      @include breakpoint(screen-small) {
+        display: inherit;
+        width: inherit;
+        position: absolute;
+      }
+	  img{
+		max-width: 80px;
+		height: 80px;
+		font-size: 12px;
+		-o-object-fit: cover;
+		object-fit: cover;
+	  }
+    }
+    .recSoftTools-description {
+      margin-bottom: $typespace;
+    }
+    .recSoftTools-action {
+      width: 100%;
+      @include breakpoint(screen-smallest) {
+        position: absolute;
+        top: 1em;
+        right: 0;
+        width: 20%;
+      }
+      .btn {
+        margin-bottom: $typespace / 2;
+      }
+      .btn-block {
+        width: auto;
+        @include breakpoint(screen-smallest) {
+          width: 100%;
+          white-space: inherit;
+        }
+      }
+      .recSoftTools-actionDetails {
+        display: block;
+      }
+      [class*='icon-'] {
+        margin-right: .25em;
+      }
+      .collapsed .icon-arrow-down2 {
+        @include transition(all .25s ease);
+        transform: rotate(0deg);
+      }
+      .icon-arrow-down2 {
+        @include transition(all .25s ease);
+        transform: rotate(-180deg)
+      }
+    }
+    .recSoftTools-category {
+      color: $cool-grey;
+    }
+    .recSoftTools-meta {
+      margin-bottom: $typespace;
+      position: relative;
+      color: $cool-grey;
+      span {
+        margin-right: 1em;
+      }
+      span.recSoftTools-date {
+        display: block;
+        @include breakpoint (screen-smallest) {
+          display: inline;
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+    li.recSoftTools-title,
+    li.recSoftTools-description,
+    li.recSoftTools-category,
+    li.recSoftTools-meta,
+    li.recSoftTools-details {
+      @include breakpoint(screen-small) {
+        padding-left: 95px !important;
+      }
+    }
+  }
+}
+
+// Make some quick fixes for the tablet range
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .recSoftTools .btn {
+    font-size: 85%;
+  }
+  .recSoftTools .recSoftTools-item .recSoftTools-meta span.recSoftTools-date {
+    display: inline-block;
+    position: relative;
+  }
+}

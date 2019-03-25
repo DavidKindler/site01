@@ -1,0 +1,58 @@
+// -----------------------------------------------------------------------------
+// 3PNet specific styles
+// Place SPA specific styles here. If too many styles are added here, do the following:
+// 1. create new folder named for SPA (should follow name for file, ie. approved-consultants/)
+// 2. create file structure that mirrors /single-page-apps folder (ie. _filters, _layout, etc.)
+// 3. place styles in correct component file
+// -----------------------------------------------------------------------------
+
+// using two id's seems overly specific, consider adding classes to each unique section
+// ie. 3pnet-landing-page, 3pnet-results, etc.
+#c3pnet-app {
+    #landing-page {
+      .card1-item {
+        // Make media behave like 'row', and left/body like 'columns'
+        .media {
+          margin-right: -10px;
+          margin-left: -10px;
+  
+          // Left column, with image/media
+          &-left {
+            padding-right: 10px;
+            padding-left: 10px;
+  
+            @include breakpoint-min-max($screen-md, $screen-lg) {
+              display: block;
+              max-width: 100%;
+              margin-bottom: 15px;
+            }
+  
+            [class*='icon-'] {
+              font-size: 50px;
+            }
+          }
+  
+          // Right column, text/list content
+          &-body {
+            padding-right: 10px;
+            padding-left: 10px;
+  
+            @include breakpoint-min-max($screen-md, $screen-lg) {
+              display: block;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  
+    .c3pnet-items {
+      .item-media {
+        max-width: 70px;
+        font-size: 33px;
+        color: $cool-grey-dark;
+        text-align: center;
+      }
+    }
+  }
+  

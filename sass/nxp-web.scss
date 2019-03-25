@@ -1,0 +1,207 @@
+// @import url("https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css");
+// @import "../assets/css/bootstrap.min.scss";
+
+// @import 'inc/_dob';
+@import "inc/_bootstrap";
+/****************************************************/
+
+/* NXP CMS Common stylesheet - delta for bootstrap  */
+
+/****************************************************/
+
+@import "inc/_nxp_colors";
+@import "inc/_nxp_variables";
+@import "inc/_nxp_mixins";
+@import "inc/_mixins_b57029";
+@import "inc/_mixin_prefix";
+@import "inc/flexbox"; // imported for flexbox prefixes
+$randomNumber: random(100000);
+@mixin font-base64-mixin(
+  $base64,
+  $font-family-name,
+  $font-file-name,
+  $font-path: "//branding.nxp.com/fonts/",
+  $weight: normal,
+  $style: normal,
+  $update: $randomNumber
+) {
+  font-family: $font-family-name;
+  // src: ~"url('@{font-path}@{font-file-name}.eot?@{update}')";
+  src: url("#{$font-path}#{$font-file-name}.eot}");
+  src: $base64;
+  // src: url('http://style.nxp.com/shared/fonts/Lato.eot}');
+  font-weight: $weight;
+  font-style: $style;
+}
+
+html {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  @include box-sizing(border-box);
+  position: relative;
+}
+
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+//  * containers commented out and move to its own stylesheet
+//  * file is still in place to make reverting easier
+//  @import "inc/_nxp_containers";
+@import "inc/_mobile_frame";
+@import "inc/_img";
+@import "inc/_fonts";
+@import "inc/_lists";
+//@import "inc/_nxp_breadcrumbs";
+@import "inc/_nxp_breadcrumbs_new";
+@import "inc/_tables";
+@import "inc/_tablesaw_custom.scss";
+// @import 'inc/_nxp_spacing'; moved below for added specificity, revert if needed
+@import "inc/_nxp_input_groups";
+@import "inc/_nxp_icons";
+@import "inc/_nxp_icons_extend";
+@import "inc/_icomoon";
+@import "inc/_lato_base64";
+@import "inc/_nxp_header_desktop";
+// @import 'inc/_nxp_header_mobile';
+@import "inc/_nxp_header";
+@import "inc/jquery.mmenu.all";
+@import "inc/_nxp_footer";
+@import "inc/_nxp_forms";
+@import "inc/_nxp_buttons";
+@import "inc/_nxp_leftnav";
+@import "inc/_nxp_overlay";
+@import "inc/_flex";
+// @import 'inc/_ui_errata'; moved below for added specificity, revert if needed
+@import "inc/_nxp_column_floats";
+@import "inc/_nxp_modal";
+
+// CMS Components
+@import "inc/components/_page_headline"; // moved styles from breadcrumbs to here
+@import "inc/components/_contextnav";
+@import "inc/components/_info_units";
+@import "inc/components/_features_accordions";
+@import "inc/components/_overview";
+@import "inc/components/_alerts";
+@import "inc/components/_notice_block";
+@import "inc/components/_tabbed_navigation";
+@import "inc/components/_treeview";
+@import "inc/components/_info_unit_leftnav";
+@import "inc/components/_product_dial";
+@import "inc/components/_filters";
+@import "inc/components/_communities";
+@import "inc/components/_community_support";
+@import "inc/components/_community_demo";
+//@import 'inc/components/_community_discussions';
+@import "inc/components/_video_container";
+@import "inc/components/_video_embed";
+@import "inc/components/_jump_start_your_design";
+//@import "inc/components/_parametric_desktop";
+@import "inc/components/_collapse_mobile";
+@import "inc/components/_get_started_tabs"; //v1
+@import "inc/components/_getting_started_tab"; //v2
+@import "inc/_nxp_typography";
+// Sliders and carousels
+// ----------------------------------------
+@import "inc/components/_sliders";
+@import "inc/components/_rich_media_carousel_mobile";
+@import "inc/components/_rich_media_carousel_desktop";
+@import "inc/components/_block_diagram";
+@import "inc/components/_market_splash";
+@import "inc/components/_video_filmstrip";
+@import "inc/components/_development_board_slider";
+@import "inc/components/_related_products";
+@import "inc/components/_recommended_peripherals";
+@import "inc/components/_reference_designs";
+@import "inc/components/_other_recommended_products_slider";
+@import "inc/components/_similar_products_slider";
+
+// ----------------------------------------
+@import "inc/components/_twitter_feed";
+@import "inc/components/_responsive_show";
+@import "inc/components/_complimentary_products";
+@import "inc/components/_thumbAppstoreImgGallery";
+@import "inc/components/_target_applications";
+@import "inc/components/_supported_devices";
+@import "inc/components/_cta_buttons";
+@import "inc/components/_system_requirements";
+@import "inc/components/_media";
+@import "inc/components/_search_input";
+@import "inc/components/_cards";
+@import "inc/components/_type-callout";
+@import "inc/components/_design_tools_dev_boards";
+@import "inc/components/_design-tools-dev-resources";
+@import "inc/components/_design-tools-recommended-design-resources.scss";
+@import "inc/components/_scrollable";
+@import "inc/components/_chat_support.scss";
+@import "inc/components/_badges";
+
+// "Table" components
+@import "inc/components/_recommended_documentation";
+@import "inc/components/_ondemand_training";
+@import "inc/components/_classroom_training";
+@import "inc/components/_hardware_software_engineering_services";
+@import "inc/components/_additional_links";
+@import "inc/components/_comparison_table";
+@import "inc/components/_key_features_product_table";
+@import "inc/components/_related_documents";
+@import "inc/components/_recommended_software_tools";
+@import "inc/components/_recommended_products";
+@import "inc/components/_restricted_docs";
+@import "inc/components/_custom_table";
+@import "inc/components/_pagination";
+@import "inc/components/_data_tables";
+@import "inc/components/_buy_html_table";
+@import "inc/components/_parametric_desktop_oldcms";
+@import "inc/components/_key_parametrics";
+@import "inc/components/_webinar_training";
+@import "inc/components/_sp_features";
+
+// "Parts Detail Page"
+@import "inc/components/_parts-details";
+@import "inc/components/_avail-disti";
+@import "inc/components/_table-flyouts";
+@import "inc/components/_our_partners";
+
+// Going to host this on a CDN, so commenting it out
+//@import "inc/_nxp_color_schemes";
+
+// Thought Leadership & Upper Level Product Components
+@import "inc/components/_carousel-interactive";
+@import "inc/components/_hero";
+@import "inc/components/_sp_hero"; // for RDSP designs
+@import "inc/components/_sp-icons"; // RDSP designs
+@import "inc/components/_sp-buy"; // RDSP designs
+@import "inc/components/_sp-guides"; // RDSP designs
+@import "inc/components/_hero-lead";
+@import "inc/components/_section-lead";
+// Cards
+@import "inc/components/_full-bleed-cards";
+@import "inc/components/_key-topics-cards";
+@import "inc/components/_whats-new-cards";
+// Links
+@import "inc/components/_grouped-links";
+@import "inc/components/_icon-signposts";
+@import "inc/components/_supplemental-links";
+// Highlights
+@import "inc/components/_primary-topic";
+@import "inc/components/_secondary-topic";
+@import "inc/components/_switchbacks";
+// Product template roadmap
+@import "inc/components/_value-prop";
+
+// Page specific styles
+@import "inc/pages/_single_page_apps";
+@import "inc/pages/_my_updates";
+
+// Utilities - should come last to override any previous styles
+@import "inc/_nxp_utilities";
+@import "inc/_ui_errata";
+@import "inc/_nxp_spacing";
+
+// drop in some developer tools
+// comment them out when not needed
+// @import "inc/_dev_tools";

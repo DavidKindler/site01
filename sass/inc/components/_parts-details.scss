@@ -1,0 +1,418 @@
+//  ---------------------------------------------------------------------------
+//  ::  Piped List
+//  ::  General Info (Part Details)
+//  ::  Buy Options
+//  ::
+//  ---------------------------------------------------------------------------
+
+.part-detail {
+  //  Container
+  &-info {
+    padding: 1em;
+    margin-bottom: 1em;
+    background: $nxp-gray-xxlight;
+
+    @include breakpoint(screen-small) {
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include breakpoint(screen-medium) {
+      max-width: 970px;
+    }
+
+    @include breakpoint(screen-large) {
+      max-width: 1170px;
+    }
+  }
+
+  //  Title
+  &-title {
+    margin: 0 0 0.5em;
+    text-align: center;
+
+    @include breakpoint(screen-medium) {
+      text-align: left;
+    }
+
+    &_status {
+      display: inline-block;
+      position: relative;
+      margin-left: 0.25em;
+      text-transform: none;
+
+      &.active {
+        &:before {
+          content: '(';
+        }
+        &:after {
+          content: ')';
+        }
+      }
+    } // _status
+  } // -title
+
+  // Description
+  &-description {
+    margin: 0 0 0.5em;
+    text-align: center;
+
+    @include breakpoint(screen-medium) {
+      text-align: left;
+    }
+  }
+
+  //  Link Area
+  &-links {
+    text-align: center;
+    margin-left: 0;
+
+    @include breakpoint(screen-medium) {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    &-item {
+      .icon {
+        margin-right: 5px;
+      }
+
+      @include breakpoint(screen-medium) {
+        width: 45%;
+      }
+    }
+  }
+
+  //  Image
+  &-img {
+    margin-bottom: 1em;
+    width: 100%;
+    text-align: center;
+
+    &:before {
+      content: ' ';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+    img {
+      margin: 0 auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @include breakpoint(screen-small) {
+      margin-bottom: 0;
+    }
+  }
+
+  //  List
+  &-list {
+    &-item {
+      padding: 0;
+      margin: 0 0 0.25em;
+      font-size: 85%; // mimmic "small" class styling
+
+      &:before {
+        content: '';
+      }
+    }
+
+    &_label {
+      display: inline-block;
+      width: calc(50% - 5px);
+      padding-right: 5px;
+      text-align: right;
+      margin: 0;
+      font-weight: 700;
+      vertical-align: top;
+
+      &:after {
+        content: ':';
+      }
+
+      @include breakpoint(screen-medium) {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        font-weight: 700;
+        vertical-align: top;
+      }
+    }
+
+    &_data {
+      display: inline-block;
+      width: 50%;
+      margin: 0;
+      vertical-align: bottom;
+
+      @include breakpoint(screen-medium) {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        vertical-align: bottom;
+      }
+    }
+
+    @include breakpoint(screen-small) {
+      display: table-cell;
+      vertical-align: middle;
+      height: 150px;
+      width: 100%;
+      text-align: center;
+    }
+    @include breakpoint(screen-medium) {
+      display: table-cell;
+      vertical-align: middle;
+      height: 150px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+// http://sw-jira.freescale.net/browse/NXPCOMINT-1579 request
+@media screen and (min-width: 992px) {
+  div.part-detail-description {
+    text-align: center;
+  }
+}
+
+//  Piped Navigation
+//  - move this to Lists scss area?
+//  - used on Part Details page and Product Clock/List pages
+//  ---------------------------------------------------------------------------
+.nav-piped {
+  @include list-inline($margin: -10px, $padding: 10px); // uses mixin defaults
+  display: flex; // removes extra whitespace from inline-block elements
+  flex-wrap: wrap; // allow items to wrap to another row
+  font-size: $font-size-base; // 14px
+
+  .hero-lead + & {
+    // max-width: 800px; // TO DO: set max line length as a variable
+    padding-bottom: $padding-component-base-vertical;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+
+  // Modifications
+  &.is-centered {
+    justify-content: center;
+    text-align: center; // fallback for no flex support
+  }
+
+  &.is-large {
+    font-size: $font-size-base-plus;
+  }
+
+  li {
+    flex-shrink: 0;
+    border-right: 1px solid $border-color-base;
+
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+}
+
+.table.table-centered {
+  .text-left {
+    text-align: left;
+  }
+}
+
+//  Buy Options
+.part-buy {
+  .currency {
+    margin-top: 1.25em;
+
+    &-selector {
+      display: inline-block;
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 1em 0;
+    margin: 0;
+    font-size: 1.4rem;
+    //  convert color to variable
+    border-bottom: 1px solid $border-color-base;
+
+    > li {
+      margin-bottom: 0.75em;
+    }
+
+    // Name Column
+    // ----------------------------------------
+    // added-flex due to markup differences between UAT & Branding
+    &-name,
+    &-name-flex {
+      order: 1;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 50%;
+
+      @include breakpoint(screen-small) {
+        flex-basis: 25%;
+      }
+
+      @include breakpoint(screen-large) {
+        flex-basis: 16.6666%; // two columns
+      }
+    }
+
+    &-name_sku {
+      font-size: 1.1428em; // 16px
+      font-weight: 700;
+      text-transform: uppercase; // ? good idea ?
+      color: #252526;
+    }
+
+    &-name_number {
+      font-size: 0.857em;
+    } // 12px
+
+    // Status Column
+    // ----------------------------------------
+    &-status {
+      order: 2;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 25%;
+      text-align: center;
+
+      @include breakpoint(screen-small) {
+        flex-basis: 16.6666%;
+      }
+
+      @include breakpoint(screen-medium) {
+        flex-basis: 8.3333%;
+      }
+    }
+
+    // Package Column
+    // ----------------------------------------
+    &-package {
+      order: 4;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+
+      .icon {
+        display: inline-block;
+        vertical-align: top;
+        width: 15px;
+        margin-top: 2px;
+      }
+
+      @include breakpoint(screen-small) {
+        order: 3;
+        flex-basis: 41.6666%; // 5 columns
+      }
+
+      @include breakpoint(screen-medium) {
+        flex-basis: 25%;
+      }
+    }
+    // think this is not being used
+    &-package_container {
+      display: inline-block;
+      width: calc(100% - 30px);
+    }
+
+    &-package_description,
+    &-package_quantity {
+      display: inline-block;
+    }
+
+    // Buttons Column
+    // ----------------------------------------
+    &-buttons {
+      order: 5;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+
+      @include breakpoint(screen-medium) {
+        order: 4;
+        flex-basis: 33.3333%;
+      }
+
+      @include breakpoint(screen-large) {
+        flex-basis: 41.6666%; // 5 columns
+      }
+    }
+
+    &-buttons_container {
+      display: flex;
+      flex-flow: row wrap;
+
+      li {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: 50%;
+        padding-right: 5px;
+        margin-bottom: 0.5em;
+        text-align: center;
+
+        &:last-of-type {
+          padding-right: 0;
+        }
+
+        @include breakpoint(screen-small) {
+          flex-basis: 25%;
+        }
+
+        @include breakpoint(screen-medium) {
+          flex-basis: auto;
+        }
+
+        .avail {
+          display: inline-block;
+          font-size: 0.875em;
+        } // 12px
+      }
+      //  container
+      @include breakpoint(screen-medium) {
+        padding: 0 5px;
+      }
+    }
+
+    // Price column
+    // ----------------------------------------
+    &-price {
+      order: 3;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 25%;
+      text-align: right;
+
+      @include breakpoint(screen-small) {
+        order: 4;
+        flex-basis: 16.6666%; // 2 columns
+      }
+
+      @include breakpoint(screen-medium) {
+        order: 5;
+        flex-basis: 8.3333%;
+      }
+
+      .item-qty {
+        font-size: 0.857em;
+      }
+
+      .item-amount {
+        display: block;
+        font-size: 1.4285em;
+        font-weight: 700;
+        color: #252526;
+      }
+    }
+  }
+}

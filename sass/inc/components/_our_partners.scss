@@ -1,0 +1,67 @@
+//	---------------------------------------------------------------------------
+//	Our Partners Component
+//	:: Standard Component
+//		::	Container
+//		::	List
+//		::	Item
+//		::	Link
+//		::	Image
+//	::	Variations
+//		::	Greyscale
+//		::	Text Links
+//	---------------------------------------------------------------------------
+
+.ourPartners {
+	// subtract -li- bottom margin amount from overall padding
+	padding: $padding-component-vertical 0 ($padding-component-vertical - .5em);
+
+	//  Logo List
+	//  ----------------------------------------
+	&__partnerGroup {
+		@include nobullets;
+		@include list-inline($margin: 0, $padding: 0);
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	//	Logo Items
+	//  ----------------------------------------
+	&__logo { }
+
+	&__link { }
+
+	&__image {
+		max-width: 10em;
+		max-height: 8em;
+		padding: 1em;
+		border: 0px solid transparent; // not sure why needed, appears on one image
+	}
+
+	//	Variations
+	//  ----------------------------------------
+	//	Greyscale images
+	&__partnerGroup.greyscale {
+		.ourPartners__image {
+			filter: grayscale(100%);
+			transition: all .25s ease;
+		}
+
+		.ourPartners__link:hover .ourPartners__image {
+			filter: grayscale(0%);
+		}
+	}
+
+	//	Text Links (no images)
+	&__partnerGroup.text {
+		@include columns($count: 3, $width: 220px, $child: '.ourPartners__logo');
+		text-align: inherit;
+
+		.ourPartners__logo {
+			display: list-item;
+		}
+
+		.ourPartners__link {
+			@include cta;
+		}
+	}
+}

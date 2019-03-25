@@ -1,0 +1,95 @@
+// =========================
+// Component Name:  Complementary Products
+// Description:     A filmstrip component max 4 products
+// =========================
+.complimentary-products {
+  //  edits 2017-06-13 Daniel
+  //  adding for mobile, 'Collapse' default is block and breaks alignment
+  //  comment out flex prefixes and mixins, autoprefixer takes care of these now
+  .collapse-mobile.active h2 ~ & {
+    display: flex;
+  }
+
+  $spacing: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: $spacing;
+
+  @include breakpoint(screen-smallest) {
+    justify-content: flex-start;
+  }
+
+  @include breakpoint(screen-small) {
+    padding: 0;
+  }
+
+  .complimentary-products-title {
+    width: 100%;
+  }
+
+  .content {
+    width: calc(50% - 10px);
+    white-space: normal;
+
+    @include breakpoint-min-max($screen-xs, $screen-md) {
+		display: inline-block;
+		vertical-align: top;
+	}
+    @include breakpoint(screen-smallest) {
+      width: calc(25% - #{$spacing});
+      margin-right: $spacing;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  } // content
+
+  .complimentary-products-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: auto;
+      min-width: 1px;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+    }
+
+    // added for NXP logo in SVG format
+    // would 'suqeeze' sizing in IE11 since width/height declared in SVG
+    img[src$=".svg"] {
+      width: 40%;
+      height: auto;
+    }
+
+    @include breakpoint(screen-smallest) {
+      height: 110px;
+    }
+
+    @include breakpoint(screen-small) {
+      height: 100px;
+    }
+
+    @include breakpoint(screen-medium) {
+      height: 120px;
+    }
+
+    @include breakpoint(screen-large) {
+      height: 140px;
+    }
+  }
+
+  .complimentary-products-caption {
+    padding: .25em 0 2em;
+    font-size: 14px;
+  }
+}
+/* End Complimentary Products */

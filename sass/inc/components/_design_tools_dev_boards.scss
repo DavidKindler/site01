@@ -1,0 +1,161 @@
+// ----------------------------------------------------------------------
+// Recommended development boards component
+// ----------------------------------------------------------------------
+
+.dev-boards {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: calc(
+    #{$padding-component-base-vertical} - #{$grid-gutter-width}
+  );
+
+  &-heading {
+    margin-top: 0;
+  }
+
+  // List
+  // ----------------------------------------------------------------------
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+
+    &.has-few {
+      @include breakpoint($screen-sm) {
+        justify-content: center;
+        padding: $grid-gutter-width ($grid-gutter-width / 2);
+        margin-right: 0;
+        margin-bottom: $grid-gutter-width;
+        margin-left: 0;
+        border: 1px solid $border-color-base;
+        background-color: $white;
+      }
+    }
+  }
+
+  // Main item
+  // ----------------------------------------------------------------------
+  &-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    margin-bottom: $grid-gutter-width;
+
+    // set up the "card" look
+    > * {
+      background-color: $white;
+      border-right: 1px solid $border-color-base;
+      border-left: 1px solid $border-color-base;
+    }
+
+    > :first-child {
+      padding-top: $padding-component-base-inner;
+      border-top: 1px solid $border-color-base;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+    }
+
+    > :last-child {
+      padding-bottom: $padding-component-base-inner;
+      border-bottom: 1px solid $border-color-base;
+      border-radius: 0 0 $border-radius-base $border-radius-base;
+    }
+
+    @include breakpoint($screen-xs) {
+      width: 50%;
+    }
+
+    @include breakpoint($screen-md) {
+      width: (100% / 3);
+    }
+
+    @include breakpoint($screen-lg) {
+      width: 25%;
+    }
+
+    .has-few & {
+      @include breakpoint($screen-sm) {
+        flex-grow: 1;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 0;
+
+        &:only-child {
+          align-items: center;
+        }
+
+        + .dev-boards-item {
+          margin-top: ($grid-gutter-width * 2);
+        }
+
+        // remove the "card" look
+        > * {
+          padding-top: 0;
+          padding-bottom: 0;
+          border: none;
+        }
+      }
+
+      @include breakpoint($screen-md) {
+        width: 50%;
+
+        + .dev-boards-item {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  // Image container
+  // ----------------------------------------------------------------------\
+  &-img {
+    min-height: 1px; // fix IE 11 column height issue
+    padding-bottom: $padding-component-base-inner;
+
+    img {
+      display: block;
+      max-width: 50%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .has-few & {
+      @include breakpoint($screen-sm) {
+        flex-shrink: 0;
+        width: 25%;
+        padding-right: ($grid-gutter-width / 2);
+        padding-left: ($grid-gutter-width / 2);
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  // Content area
+  // ----------------------------------------------------------------------
+  &-content {
+    flex-grow: 1;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+	
+	span[class^="icon"] {
+		margin-right: .25em;
+	}
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  &-partner {
+    font-size: $font-size-small;
+    color: $text-muted;
+  }
+}

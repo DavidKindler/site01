@@ -1,0 +1,32 @@
+// =========================
+// Component Name: Recommended Products Table
+// Component Type: Table (Dynamic)
+// =========================
+/*.related-products{
+	@include breakpoint(screen-small) {
+		&.first-related-products{
+			> h2{
+				border-top:0 !important;
+				margin-top: 0 !important;
+				padding-top: 0 !important;
+			}
+		}
+		h2{
+			font-size: 1.15em !important;
+			font-weight: 700 !important;
+		}
+	}
+}*/
+/*.related-products-section {
+	> div  h3{
+		border-top: 1px solid #eee;
+		margin-top: 2em;
+		padding-top: 2em;
+	}
+	> div:first-of-type  h3{
+		border-top: 0px solid #eee;
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+  
+}*/

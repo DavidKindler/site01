@@ -1,0 +1,188 @@
+#overview,
+.overview {
+  .expand-list.collapse:not(.in) {
+    height: 300px !important;
+  }
+
+  margin-bottom: 2em;
+
+  @include breakpoint($screen-sm) {
+    margin-bottom: 0.5em;
+  }
+}
+
+#overviewSectionDiv p:last-child {
+  margin-bottom: 0;
+}
+
+div#overview + .expand-list.collapse:not(.in) {
+  height: 300px !important; //hack for pos cms
+}
+
+div#featuresExpand.collapse + p#featureSectionMore,
+div#featuresExpand.collapsing + p#featureSectionMore {
+  display: block;
+
+  @include breakpoint($screen-lg) {
+    display: none;
+  }
+}
+
+div#overviewExpand.collapse + p#overviewSectionMore,
+div#featuresExpand.collapse + p#featureSectionMore {
+  margin-bottom: 0px;
+  border-top: 1px dashed $grey-light;
+  margin-top: 15px;
+
+  @include breakpoint($screen-sm) {
+    margin-right: calc(100% - 750px * 0.75 + 30px);
+  }
+
+  @include breakpoint($screen-md) {
+    margin-right: calc(100% - 970px * 0.75 + 30px);
+  }
+
+  @include breakpoint($screen-lg) {
+    margin-right: calc(100% - 1170px * 0.75 + 30px);
+  }
+
+  a.show-hide {
+    padding-bottom: 5px;
+  }
+}
+
+// ----------------------------------------------------------------------
+// New Overview section for Product Template Roadmap
+// ----------------------------------------------------------------------
+.is-high-level {
+  &.overview {
+    padding-bottom: $padding-component-base-vertical;
+    margin-bottom: 0;
+  }
+
+  .overview {
+    &-intro {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: ($grid-gutter-width / -2);
+      margin-left: ($grid-gutter-width / -2);
+      margin-bottom: $grid-gutter-width;
+
+      &:only-child {
+        padding-top: ($grid-gutter-width / 2);
+        margin-bottom: 0;
+        border-top: 1px solid $border-color-base;
+      }
+    }
+
+    &-media {
+      align-self: center;
+      max-width: 25%;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+
+      @include breakpoint-max($screen-md) {
+        display: none;
+      }
+
+      svg {
+        display: block;
+        width: 75%;
+        max-width: 160px;
+        fill: $text-color;
+      }
+    }
+
+    &-text {
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+      margin-bottom: ($grid-gutter-width / 2);
+
+      @include breakpoint($screen-sm) {
+        flex-basis: 0;
+        flex-grow: 1;
+        margin-bottom: 0;
+      }
+
+      p {
+        @include lead();
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-actions {
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+
+      @include breakpoint($screen-sm) {
+        max-width: 25%;
+      }
+    }
+
+    // Data visualization
+    &-data {
+      margin-bottom: ($grid-gutter-width / 2);
+    }
+
+    // Additional content and links
+    &-aux {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: auto;
+      margin-left: auto;
+
+      @include breakpoint($screen-lg) {
+        width: (10 / 12 * 100%);
+      }
+
+      &-item {
+        width: 100%;
+        padding-right: ($grid-gutter-width / 2);
+        padding-left: ($grid-gutter-width / 2);
+
+        @include breakpoint($screen-xs) {
+          width: 50%;
+        }
+
+        @include breakpoint($screen-md) {
+          width: (100% / 3);
+          flex-grow: 1;
+        }
+      }
+
+      &-title {
+        position: relative;
+        font-size: $font-size-h3;
+        border-color: transparent;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: ($grid-gutter-width / -2);
+          display: block;
+          width: 0;
+          height: 1em;
+          border: {
+            color: inherit;
+            style: solid;
+            width: 3px;
+          }
+        }
+      }
+
+      &-text {
+        p {
+          //
+        }
+      }
+
+      &-links {
+        @include list-unstyled();
+      }
+    }
+  }
+}

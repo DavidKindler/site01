@@ -1,0 +1,49 @@
+// =========================
+// Component Name: Recommended Products Table
+// Component Type: Table (Dynamic)
+// =========================
+
+.recommendedProducts {
+  &-product {
+    // add specificity for styles
+    .recommendedProducts & {
+      font-size: $font-size-base-plus;
+      font-weight: $font-weight-heavy;
+      border-top-width: 2px;
+
+      ~ td {
+        border-top-width: 2px;
+      }
+    }
+  }
+
+  &-category {
+    td,
+    + tr td {
+      border-top: 2px solid $warm-grey-xxlight;
+    }
+
+    > td[rowspan='2'] {
+      white-space: nowrap;
+    }
+  }
+}
+
+// Component wrapper for recommended products - used to add custom styles and padding to the recommended products | DSPs
+.recommended-outer {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+
+  .iw_component:not(:last-of-type) .collapse-mobile & {
+    @include breakpoint($screen-sm) {
+      padding-bottom: 0;
+    }
+  }
+  table.recommendedProducts {
+	margin-bottom:0;
+  }
+  
+  #recommended-products {
+	margin-top:0;
+  }
+}

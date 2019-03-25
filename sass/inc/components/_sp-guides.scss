@@ -1,0 +1,138 @@
+// ----------------------------------------------------------------------
+// SP-Buy info component
+// ----------------------------------------------------------------------
+
+// set variable to remove bottom margin from overall padding
+// TODO: change padding number to px value to make math like this easier
+$bottom-margin: $grid-gutter-width;
+
+.sp-guides {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: calc(#{$padding-component-base-vertical} - #{$bottom-margin});
+  font-size: $font-size-base;
+  
+	&.restricted, &.assetgroup {
+		padding-top:0;
+		.sp-guides-description {
+			padding-bottom: 10px;
+		}
+	}
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    margin-bottom: $bottom-margin;
+
+    // add media query here
+    @include breakpoint($screen-sm) {
+      &.half-width {
+        width: 50%;
+      }
+
+      &.third-width {
+        width: (100% / 3);
+      }
+    }
+
+    // ----------------------------------------------------------------------
+
+    &.full-width {
+      .expand-list.collapse:not(.in) {
+        height: 180px !important;
+      }
+    }
+
+    // ----------------------------------------------------------------------
+  }
+
+  &-header {
+    padding: $padding-small-vertical $padding-small-horizontal;
+    font-size: $font-size-small;
+    color: $white;
+    background-color: $petrol-blue;
+  }
+
+  &-content {
+    flex-grow: 1;
+    padding: $padding-component-base-inner;
+    border: 1px solid $border-color-base;
+    background-color: $white;
+
+    .sp-guides-header & {
+      border-top: none;
+    }
+
+    .ui-accordion-header {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-top: 1px dashed $border-color-base;
+      margin-top: 15px;
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  &-description {
+    //
+  }
+
+  &-links {
+    @include list-unstyled();
+    margin-right: ($grid-gutter-width / -2);
+    margin-bottom: 0;
+    margin-left: ($grid-gutter-width / -2);
+
+    > li {
+      width: 100%;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+    }
+
+    @include breakpoint($screen-sm) {
+      display: flex;
+
+      > li {
+        width: (100% / 3);
+        flex-grow: 1;
+      }
+    }
+
+    span[class^='icon'] {
+      margin-right: 0.25em;
+    }
+
+    ul {
+      margin-top: 3px;
+      font-size: $font-size-small;
+      color: $cool-grey;
+    }
+  }
+
+  &-file {
+    display: flex;
+
+    & + & {
+      padding-top: 7px;
+    }
+  }
+
+  &-icon {
+    font-size: $font-size-base-plus;
+    color: $aqua;
+    padding-right: 0.25em;
+  }
+}

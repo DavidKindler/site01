@@ -1,0 +1,46 @@
+//  ---------------------------------------------------------------------------
+//  ::  Available Disti Pop-up
+//  ---------------------------------------------------------------------------
+/*  begin _avail-disti.scss  */
+#avail_disti_modal {
+  .modal {
+    //  Structure
+
+    //  Header
+    &-intro {
+      margin-top: 0;
+
+      .product-name {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+
+    //  Body
+    &-body {
+//      padding: 0 1em 1.5em;
+
+      // center select text in table
+      .avail-disti-table {
+        thead th:not(:first-of-type),
+        tbody tr td {
+          text-align: center;
+        }
+      }
+    }
+    //  Footer
+  }
+}
+
+.avail-disti-table {
+  .col-2, .col-4 {
+    display: none;
+  }
+
+  @include breakpoint(screen-small) {
+    .col-2, .col-4 {
+      display: table-cell;
+    }
+  }
+}
+/*  end _avail-disti.scss  */

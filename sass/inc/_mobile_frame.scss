@@ -1,0 +1,31 @@
+// =============================================
+// Mobile Frame Styles:
+// For implementation on adaptive components
+// =============================================
+.mobileFrame, #mobileFrame {
+  width: 368px;
+  height: 800px;
+  background-image: url('//branding.nxp.com/img/iphone_6.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: 14px;
+
+  h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  #mobileOnly {
+    width: 320px;
+    height: 568px;
+    position: relative;
+    overflow-y: scroll;
+    top: 91px;
+    left: 39px;
+  }
+}

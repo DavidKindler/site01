@@ -1,0 +1,304 @@
+// ---------------------------------------------------------------------------
+// Media Object Component(s)
+// :: Bootstrap 3.3.7 Base Media
+// :: Flex-Media component
+// ---------------------------------------------------------------------------
+
+// Bootstrap Base Media
+// ----------------------------------------
+.media {
+  // override BS standard margin top, apply it to media that follow
+  // use case: media inside dismissible Alert component, button must be first child to float right
+  // - This causes extra margin top on .media, since not first child, move margin to .media that follow if present
+  margin-top: 0;
+
+  & + & {
+    margin-top: ($grid-gutter-width / 2);
+  }
+}
+
+.media-left {
+  [class*='icon-'] {
+    // fix a bug where it clips small portion of icons when placed in media element
+    margin-left: 1px;
+  }
+}
+
+.media-body {
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Flex Media Component
+// ----------------------------------------
+
+// main container
+.media-flex {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+  // top section above list, contains header and intro text
+  &-header {
+    margin-bottom: $grid-gutter-width;
+  }
+
+  &-title {
+    //
+  }
+
+  &-description {
+    p {
+      // keep standard paragrph styles
+    }
+
+    ul {
+      // keep standard list styles, no larger font size like paragraph?
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // list container
+  &-list {
+    @include nobullets;
+    margin-right: ($grid-gutter-width / -2);
+    // margin-bottom: $padding-component-large-vertical; // in case of sybling lists, increase space as if standard spacing above and below was applied (only it is on bottom and removed from last item).
+    margin-left: ($grid-gutter-width / -2);
+
+    // set bottom margin in case you stack lists inside one container, and remove final items bottom margin
+    &:last-of-type {
+      // margin-bottom: 0;
+    }
+
+    // provide common spacing between stacked lists, commenting out bottom margin above and adding it to margin-top here instead
+    & + & {
+      margin-top: $padding-component-base-vertical;
+    }
+  }
+
+  // individual items, can be li if in a list, or div, etc.
+  &-item {
+    display: flex;
+    flex-flow: row wrap;
+
+    // nested media-items, provides spacing between
+    & & {
+      margin-top: $grid-gutter-width;
+    }
+
+    &.is-single {
+      // align-items: center;
+      margin-right: ($grid-gutter-width / -2);
+      margin-left: ($grid-gutter-width / -2);
+
+      // Is Inverse only applies to single items
+      // if is-inverse should apply to single list items, need to apply more styles
+      &.is-inverse {
+        // add additional padding top/bottom and set default background color
+        // use bg-color utility classes for additional background colors
+        padding: 35px ($grid-gutter-width / 2);
+        background-color: $brand-primary;
+        // remove negative horiz margins when single
+        margin-right: 0;
+        margin-left: 0;
+
+        @include breakpoint($screen-md) {
+          padding: ($grid-gutter-width * 1.5);
+        }
+      }
+    }
+
+    .media-flex-list & {
+      margin-bottom: $grid-gutter-width;
+    }
+
+    .has-borders & {
+      padding-top: $grid-gutter-width;
+      padding-bottom: $grid-gutter-width;
+      margin-bottom: 0;
+      border-top: 1px solid $border-color-base;
+    }
+
+    .media-flex-header + .has-borders > & {
+      &:first-child {
+        padding-top: 0;
+        border-top: none;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint-max($screen-sm) {
+      flex-direction: column;
+
+      > * {
+        margin-bottom: 1em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &-media {
+    order: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    max-width: 30%;
+    padding-left: $grid-gutter-width-half;
+    padding-right: $grid-gutter-width-half;
+
+    @include breakpoint-max($screen-sm) {
+      max-width: 50%;
+    }
+
+    img,
+    svg {
+      // img styles go here
+    }
+  }
+
+  &-body {
+    order: 0;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: auto; // ie11 needs auto set for proper height display
+    max-width: 100%; // ie11 fix
+    padding-left: $grid-gutter-width-half;
+    padding-right: $grid-gutter-width-half;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($screen-sm) {
+      flex-basis: 0; // need 0 set so that image is on same row, auto pushes text to wrap
+    }
+  }
+
+  &-heading {
+    margin-top: 0;
+
+    .is-single & {
+      // styles for single items
+    }
+
+    .is-single.is-inverse & {
+      color: $white;
+    }
+  }
+
+  &-text {
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    .is-single & {
+      // styles for single items
+    }
+
+    .is-single.is-inverse & {
+      color: $white;
+    }
+
+    // if single cta is place after text, add cta style and spacing above
+    + a {
+      @include cta;
+      display: inline-block;
+      margin-top: 1em;
+    }
+  }
+
+  &-links {
+    @include nobullets;
+    @include list-unstyled;
+    margin-top: 1em; // if present, provide space between text and links
+
+    a {
+      @include cta;
+
+      .is-single.is-inverse & {
+        color: $white;
+      }
+    }
+  }
+
+  &-actions {
+    order: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    max-width: 30%;
+    padding-left: $grid-gutter-width-half;
+    padding-right: $grid-gutter-width-half;
+
+    @include breakpoint-max($screen-sm) {
+      max-width: 50%;
+    }
+  }
+
+  // Modifiers, to be used on either the -media or -body elements for layout
+  // ----------------------------------------
+  // all changes applied after mobile screens
+
+  &-item {
+    @include breakpoint($screen-sm) {
+      // layout
+      .is-top {
+        order: -4;
+        flex-basis: auto;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: ($grid-gutter-width / 2);
+      }
+
+      .is-bottom {
+        order: 4;
+        flex-basis: auto;
+        width: 100%;
+        max-width: 100%;
+        margin-top: ($grid-gutter-width / 2);
+      }
+
+      .is-left {
+        order: -1;
+        margin-right: auto;
+      }
+
+      // removing middle for now, not working properly and three items would be outside of the normal use for this component. May add back in the future, but needs to be thought out more.
+      // .is-middle {
+      //   order: 0;
+      //   margin-right: auto;
+      //   margin-left: auto;
+      // }
+
+      .is-right {
+        order: 1;
+        margin-left: auto;
+      }
+
+      // Alignment
+      .is-align-top {
+        align-self: top;
+      }
+      .is-align-center {
+        align-self: center;
+      }
+      .is-align-bottom {
+        align-self: flex-end;
+      }
+      .is-align-start {
+        align-self: flex-start;
+      }
+      .is-align-end {
+        align-self: flex-end;
+      }
+    }
+  }
+}

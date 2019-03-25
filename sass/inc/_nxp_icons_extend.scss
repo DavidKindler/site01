@@ -1,0 +1,16 @@
+// Modify the Angle Right icon
+// We use the angle right icon thoughout the site as a link indicator
+// especially in headings.  
+
+//Give the icon some space between the last character
+.videostore-container .right-arrow .icon-angle-right{
+    &:before {
+        margin-left: 0;
+	}
+}
+span.icon-angle-right {
+    &:before {
+        margin-left: .25em;
+        font-weight: inherit;
+    }
+}

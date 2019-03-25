@@ -1,0 +1,56 @@
+// ----------------------------------------------------------------------
+// Notice Block
+// ----------------------------------------------------------------------
+
+.notice-block,
+.notice-block-warning {
+  padding: $alert-padding;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+  // Improve alignment and spacing of inner content
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  *,
+  *:after,
+  *:before {
+    color: $text-color;
+  }
+  // set colors for links
+  a {
+    color: inherit;
+    text-decoration: $alert-link-decoration;
+  }
+  // special rules for Media component
+  .media {
+    &-body {
+      > :first-child {
+        margin-top: 0;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// utilize Alert mixin to apply background, text and border colors
+.notice-block {
+  // bg | border color | text color
+  @include alert-variant($cool-grey-xxxlight, transparent, $text-color);
+}
+
+.notice-block-warning {
+  @include alert-variant(
+    $alert-danger-bg,
+    $alert-danger-border,
+    $alert-danger-text
+  );
+}

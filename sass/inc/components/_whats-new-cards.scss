@@ -1,0 +1,343 @@
+//  ---------------------------------------------------------------------------
+//  ::  What's New Cards
+//    ::  Main container
+//    ::  List container
+//    ::  Item settings (two, three, four)
+//    ::  Images
+//    ::  Captions
+//    ::  Content
+//    ::  Links
+//    ::  Horizontal Layout (large mobile through tablet)
+//  ---------------------------------------------------------------------------
+
+//  Main container - used to add band class to
+//    issues with :before content and parent display flex in IE11
+.whats-new {
+  // setting whats-new-card margin bottom in variable here
+  // variable is used to subtract bottom margin from overall component padding
+  $whats-new-margin: 2em;
+  padding: $padding-component-vertical 0
+    ($padding-component-vertical - $whats-new-margin);
+  background-color: $cool-grey-xxlight; // set default background color to cool-grey-xxlight, override by helper classes if needed
+
+  // item container
+  &-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include breakpoint($screen-xs) {
+      align-items: stretch;
+    }
+
+    &.one {
+      justify-content: center;
+    }
+  }
+
+  // Whats New Articles
+  //  ----------------------------------------
+  &-item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    background: $white;
+
+    @include breakpoint-min-max($screen-xs, $screen-md) {
+      display: flex;
+      flex-direction: row;
+    }
+
+    @include breakpoint(screen-smallest) {
+      padding-bottom: 0;
+    }
+
+    @include breakpoint(screen-medium) {
+      // defaul setting is 2 column layout
+      flex-basis: calc((100% - 2em) / 2);
+    }
+
+    // Single Item settings
+    .one & {
+      // should be 50% by default and centered
+      // nth-of-type hides all times above 1
+      &:nth-of-type(1n + 2) {
+        display: none;
+      }
+    }
+
+    // Two Items settings
+    //  ----------------------------------------
+    .two & {
+      //  default settings
+      // nth-of-type hides all times above 2
+      &:nth-of-type(1n + 3) {
+        display: none;
+      }
+    }
+
+    // Three items settings
+    //  ----------------------------------------
+    .three &,
+    .four & {
+      // nth-of-type hides all times above 3
+      &:nth-of-type(1n + 4) {
+        display: none;
+      }
+
+      @include breakpoint(screen-medium) {
+        flex-basis: calc((100% - 4em) / 3); // IE11 calc() issue - see above
+      }
+    }
+  }
+
+  //  Figure holding an image
+  //  ----------------------------------------
+  &-img {
+    @include responsive-image(46%);
+    background: {
+      color: $cool-grey-xxdark;
+      image: url('//www.nxp.com/assets/images/en/icons/nxp-logo-white.png');
+      position: calc(100% - 2em) 2em; // right | top
+      repeat: no-repeat;
+      size: 20% auto;
+    }
+
+    .three &,
+    .four & {
+      background-position: calc(100% - 0.5em) 0.5em;
+
+      @include breakpoint(screen-medium) {
+        background-position: calc(100% - 1em) 1em;
+      }
+    }
+
+    //  Topic Specific Styles
+    //  ----------------------------------------
+    .applications & {
+      background-color: $deep-red;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-cog-checklist.svg');
+    }
+    .blog & {
+      background-color: $aqua;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-bubble13.svg');
+    }
+    .brochure & {
+      background-color: $deep-blue;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-file4.svg');
+    }
+    .case-study & {
+      background-color: $deep-blue;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-file4.svg');
+    }
+    .connect & {
+      background-color: $aqua;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-users.svg');
+    }
+    .demo & {
+      background-color: $deep-orange;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-training.svg');
+    }
+    .events & {
+      background-color: $aqua;
+      background-image: url('//www.nxp.com/assets/images/en/icons/whatsnew-events.svg');
+    }
+    .fact-sheet & {
+      background-color: $deep-blue;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-file4.svg');
+    }
+    .news & {
+      background-color: $aqua;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-file4.svg');
+    }
+    .products & {
+      background-color: $deep-red;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-part.svg');
+    }
+    .software & {
+      background-color: $deep-red;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-software.svg');
+    }
+    .support & {
+      background-color: $deep-orange;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-users.svg');
+    }
+    .tools & {
+      background-color: $deep-red;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-cog-checklist.svg');
+    }
+    .training & {
+      background-color: $deep-orange;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-training.svg');
+    }
+    .video & {
+      background-color: $deep-orange;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-video.svg');
+    }
+    .webinar & {
+      background-color: $deep-orange;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-training.svg');
+    }
+    .whitepaper & {
+      background-color: $deep-blue;
+      background-image: url('//www.nxp.com/assets/images/en/icons/icon-file4.svg');
+    }
+
+    img {
+      width: 102%;
+      max-width: 102%; // sliver of color bg showing at just 100%
+    }
+    svg {
+      width: 4em;
+      height: 4em;
+      fill: $white;
+    }
+
+    //  Image Media Queries
+    @include breakpoint($screen-xs) {
+      min-height: calc(
+        50vw - $grid-gutter-width
+      ); // this makes FF act like other browsers
+    }
+
+    @include breakpoint(screen-small) {
+      min-height: calc((100vw - 330px) / 2);
+    }
+
+    @include breakpoint-min-max($screen-xs, $screen-md) {
+      flex-grow: 0;
+      flex-shring: 0;
+      flex-basis: 50%;
+
+      > img {
+        width: auto;
+        max-width: none;
+        height: 100.5%;
+      }
+    }
+
+    @include breakpoint(screen-medium) {
+      min-height: 0;
+      height: auto;
+    }
+  }
+
+  //  Image Caption
+  //  ----------------------------------------
+  &-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.5em 1em;
+    color: $white;
+    background-color: rgba($cool-grey-xxdark, 0.5);
+
+    .applications &,
+    .brochure &,
+    .case-study &,
+    .fact-sheet &,
+    .products &,
+    .software &,
+    .tools &,
+    .whitepaper & {
+      background-color: rgba($white, 0.4);
+    }
+
+    //  Topic Specific Styles
+    .applications img + & {
+      background-color: $deep-red;
+    }
+    .blog img + & {
+      background-color: $aqua;
+    }
+    .brochure img + & {
+      background-color: $deep-blue;
+    }
+    .case-study img + & {
+      background-color: $deep-blue;
+    }
+    .connect img + & {
+      background-color: $aqua;
+    }
+    .demo img + & {
+      background-color: $deep-orange;
+    }
+    .events img + & {
+      background-color: $aqua;
+    }
+    .fact-sheet img + & {
+      background-color: $deep-blue;
+    }
+    .news img + & {
+      background-color: $aqua;
+    }
+    .products img + & {
+      background-color: $deep-red;
+    }
+    .software img + & {
+      background-color: $deep-red;
+    }
+    .support img + & {
+      background-color: $deep-orange;
+    }
+    .tools img + & {
+      background-color: $deep-red;
+    }
+    .training img + & {
+      background-color: $deep-orange;
+    }
+    .video img + & {
+      background-color: $deep-orange;
+    }
+    .webinar img + & {
+      background-color: $deep-orange;
+    }
+    .whitepaper img + & {
+      background-color: $deep-blue;
+    }
+  }
+
+  //  Content Section
+  //  ----------------------------------------
+  &-content {
+    flex-grow: 1;
+    padding: 1em;
+
+    @include breakpoint-min-max($screen-xs, $screen-md) {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 50%;
+      align-self: center;
+      max-width: 50%;
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+    font-size: 1.15em; // size as h3, for older h2 markup (remove when not needed)
+  }
+
+  &-description {
+    p {
+    }
+  }
+
+  // Link Area
+  &-links {
+    @include nobullets;
+    margin-bottom: 0;
+
+    li {
+      &:last-of-type {
+        margin-bottom: 0; // should this be global ??
+      }
+    }
+
+    a {
+      @include cta;
+    }
+  }
+}

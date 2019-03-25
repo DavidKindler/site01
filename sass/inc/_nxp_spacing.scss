@@ -1,0 +1,248 @@
+// Spacing utility classes
+// --------------------------------------------
+// legacy for finite adjustments
+@mixin generate-margins($n, $i: 1) {
+  @while $i<=$n {
+    $l: $i * 5;
+    .marginleft#{$l} {
+      margin-left: (5px * $i) !important;
+    }
+    .marginright#{$l} {
+      margin-right: (5px * $i) !important;
+    }
+    .top#{$l},
+    .margintop#{$l} {
+      margin-top: (5px * $i) !important;
+    }
+    .bottom#{$l},
+    .marginbottom#{$l} {
+      margin-bottom: (5px * $i) !important;
+    }
+    $i: $i + 1;
+    // @include generate-margins($n, ($i + 1));
+  }
+}
+
+@mixin generate-padding($n, $i: 1) {
+  @while $i <=$n {
+    $l: $i * 5;
+    .paddingleft#{$l} {
+      padding-left: (5px * $i);
+    }
+    .paddingright#{$l} {
+      padding-right: (5px * $i);
+    }
+    .paddingtop#{$l} {
+      padding-top: (5px * $i);
+    }
+    .paddingbottom#{$l} {
+      padding-bottom: (5px * $i);
+    }
+    $i: $i + 1;
+    // @include generate-padding($n, ($i + 1));
+  }
+}
+
+@include generate-margins(20);
+@include generate-padding(20);
+
+// Relative vertical rhythm helpers (responsive)
+// -----------------------------------------------------
+// where p = padding / m = margin
+// l = left / r = right / t = top / b = bottom
+// q1 = 1/4 / q2 = 1/2 / q3 = 3/4
+// Function for calculating power
+@function pow($number, $exponent) {
+  $value: 1;
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+  @return $value;
+}
+
+// Relative margins
+@mixin generate-relative-margins($n, $i: 1) {
+  @while $i<=$n {
+    $l: $i * 1;
+    .m#{$l} {
+      margin: pow(2, $i) * 0.5em !important;
+    }
+    .ml#{$l} {
+      margin-left: pow(2, $i) * 0.5em !important;
+    }
+    .mr#{$l} {
+      margin-right: pow(2, $i) * 0.5em !important;
+    }
+    .t#{$l},
+    .mt#{$l} {
+      margin-top: pow(2, $i) * 0.5em !important;
+    }
+    .b#{$l},
+    .mb#{$l} {
+      margin-bottom: pow(2, $i) * 0.5em !important;
+    }
+    $i: $i + 1;
+  }
+}
+
+// Auto margins, helpful for Flex layouts
+// ---------------------------------------------------------------------------
+// completely center something (vertically and horizontally)
+.m-auto {
+  margin: auto !important;
+}
+// center something horizontally
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+// center something vertically
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+// move a flex item in one direction
+.mt-auto {
+  margin-top: auto !important;
+}
+.mr-auto {
+  margin-right: auto !important;
+}
+.mb-auto {
+  margin-bottom: auto !important;
+}
+.ml-auto {
+  margin-left: auto !important;
+}
+
+// Generate margin classes
+@include generate-relative-margins(5);
+.mtq1 {
+  margin-top: 0.25em;
+}
+
+.mtq2 {
+  margin-top: 0.5em;
+}
+
+.mbq1 {
+  margin-bottom: 0.25em;
+}
+
+.mbq2 {
+  margin-bottom: 0.5em;
+}
+
+.mlq1 {
+  margin-left: 0.25em;
+}
+
+.mlq2 {
+  margin-left: 0.5em;
+}
+
+.mrq1 {
+  margin-right: 0.25em;
+}
+
+.mrq2 {
+  margin-right: 0.5em;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mr0 {
+  margin-right: 0 !important;
+}
+
+.ml0 {
+  margin-left: 0 !important;
+}
+
+.m0 {
+  margin: 0 !important;
+}
+
+// Relative padding
+@mixin generate-relative-padding($n, $i: 1) {
+  @while $i<=$n {
+    $l: $i * 1;
+    .p#{$l} {
+      padding: pow(2, $i) * 0.5em !important;
+    }
+    .pl#{$l} {
+      padding-left: pow(2, $i) * 0.5em !important;
+    }
+    .pr#{$l} {
+      padding-right: pow(2, $i) * 0.5em !important;
+    }
+    .pt#{$l} {
+      padding-top: pow(2, $i) * 0.5em !important;
+    }
+    .pb#{$l} {
+      padding-bottom: pow(2, $i) * 0.5em !important;
+    }
+    $i: $i + 1;
+  }
+}
+
+@include generate-relative-padding(5);
+.ptq1 {
+  padding-top: 0.25em;
+}
+
+.ptq2 {
+  padding-top: 0.5em;
+}
+
+.pbq1 {
+  padding-bottom: 0.25em;
+}
+
+.pbq2 {
+  padding-bottom: 0.5em;
+}
+
+.plq1 {
+  padding-left: 0.25em;
+}
+
+.plq2 {
+  padding-left: 0.5em;
+}
+
+.prq1 {
+  padding-right: 0.25em;
+}
+
+.prq2 {
+  padding-right: 0.5em;
+}
+
+.pt0 {
+  padding-top: 0 !important;
+}
+
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
+.p0 {
+  padding: 0 !important;
+}

@@ -1,0 +1,371 @@
+// ----------------------------------------------------------------------
+// Scrollable content
+// ----------------------------------------------------------------------
+.scrollable {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+}
+
+// Jump links
+.scrollable-links {
+  @include list-unstyled;
+  margin-top: $padding-large-vertical;
+  margin-bottom: 0;
+  font-size: $font-size-base;
+
+  @include breakpoint-max($screen-sm) {
+    display: none;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+  a {
+    display: block;
+    padding: $padding-small-vertical $padding-small-horizontal;
+    color: $text-color;
+
+    &:hover,
+    &.active {
+      text-decoration: none;
+      background-color: $cool-grey-xxlight;
+    }
+  }
+
+  // unique styles for first level links
+  > li > a {
+    font-weight: $font-weight-heavy;
+  }
+
+  // nested list styles
+  ul {
+    @include list-unstyled;
+
+    a {
+      padding-left: ($grid-gutter-width / 2 + $padding-small-vertical);
+    }
+  }
+}
+
+// Content area
+.scrollable-area {
+  @include breakpoint($screen-sm) {
+    min-height: 400px;
+    max-height: 600px;
+    overflow-y: auto;
+    margin-top: -1px;
+    border: 1px solid $border-color-base;
+    -ms-overflow-style: scrollbar;
+  }
+}
+
+.scrollable-section {
+  @include breakpoint($screen-sm) {
+    padding: ($grid-gutter-width / 2) $grid-gutter-width;
+    border-bottom: 1px solid $border-color-base;
+  }
+}
+
+.scrollable-list {
+  padding-bottom: $padding-component-base-inner;
+}
+
+// Typography
+.scrollable {
+  &-heading {
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  &-nav {
+    @include list-inline($margin: 0, $padding: 0);
+    margin-top: $padding-component-base-inner;
+    margin-bottom: 0;
+    border-bottom: 1px solid $border-color-base;
+
+    li {
+      margin-bottom: 0;
+
+      + li {
+        margin-left: ($grid-gutter-width / 2);
+      }
+
+      a {
+        position: relative;
+        display: block;
+        padding-right: 2px;
+        padding-bottom: 5px;
+        padding-left: 2px;
+        font-family: $headings-font-family;
+        color: $nxp-subheads;
+
+        &.active {
+          font-weight: $font-weight-heavy;
+
+          &:before {
+            content: '';
+            position: absolute;
+            bottom: -1px; // move down to overlap border
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: $nxp-orange;
+          }
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // removing margins and adding padding so that scroll-to aligns better
+  &-title {
+    padding-top: $padding-large-vertical;
+    padding-bottom: $padding-large-vertical;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &-subtitle {
+    padding-top: $padding-large-vertical;
+    padding-bottom: $padding-large-vertical;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Scroll card component
+.scrollCard {
+  $scrollCard-breakpoint: $screen-sm;
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+
+  .iw_component + .iw_component & {
+    padding-top: 0; // attempt to reduce space between sections in TSP design
+  }
+
+  &-inner {
+    @include breakpoint($scrollCard-breakpoint) {
+      display: flex;
+      background-color: $white;
+      border: 1px solid $border-color-base;
+    }
+  }
+
+  // Left column, links
+  // ----------------------------------------------------------------------
+
+  &-actions {
+    width: 25%;
+    // padding-right: ($grid-gutter-width / 2);
+    // padding-left: ($grid-gutter-width / 2);
+
+    // padding-right: $grid-gutter-width;
+    // padding-left: $grid-gutter-width;
+    padding: $grid-gutter-width;
+
+    @include breakpoint-max($scrollCard-breakpoint) {
+      display: none;
+    }
+  }
+
+  &-link-title {
+    margin-bottom: 1em;
+    font-size: $font-size-base;
+    color: $cool-grey-dark;
+    text-transform: uppercase;
+  }
+
+  &-links {
+    @include list-unstyled();
+    padding-left: $grid-gutter-width;
+    font-size: $font-size-base;
+
+    ul {
+      @include list-unstyled();
+      display: none;
+      padding-left: ($grid-gutter-width / 2);
+
+      &.parent-open {
+        display: block;
+      }
+    }
+
+    li {
+      margin-bottom: 0;
+    }
+
+    a {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.75em; // margin here, not li for inner list spacing
+      color: $text-color;
+
+      &.active {
+        font-weight: $font-weight-heavy;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -8px;
+          top: 0;
+          display: block;
+          width: 3px;
+          height: 100%;
+          background-color: $nxp-orange;
+        }
+
+        + ul {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // Right column, content
+  // ----------------------------------------------------------------------
+  &-area {
+    position: relative;
+
+    @include breakpoint($scrollCard-breakpoint) {
+      width: 75%;
+      max-height: 600px;
+      overflow-y: scroll;
+      // padding-right: ($grid-gutter-width / 2);
+      // padding-left: ($grid-gutter-width / 2);
+      // padding-right: $grid-gutter-width;
+      // padding-left: $grid-gutter-width;
+      padding: $grid-gutter-width;
+      border-left: 1px solid $border-color-base;
+    }
+  }
+
+  &-section-title {
+    margin-top: 0;
+  }
+
+  // category container
+  &-section {
+    //
+  }
+
+  &-group {
+    @include breakpoint-max($scrollCard-breakpoint) {
+      padding: 10px;
+      background-color: $white;
+      border: 1px solid $border-color-base;
+    }
+  }
+
+  // subcategory container
+  &-list {
+    @include breakpoint($scrollCard-breakpoint) {
+      padding-bottom: $grid-gutter-width;
+      border-bottom: 1px solid $border-color-base;
+    }
+  }
+
+  &-item {
+    font-size: $font-size-base;
+
+    // Media flex component overrides
+    .media-flex {
+      &-media {
+        span[class^='icon-'] {
+          font-size: $icon-size-sm;
+          color: $aqua;
+        }
+
+        img {
+          max-width: 80px;
+        }
+
+        @include breakpoint($screen-sm) {
+          padding-right: 0;
+        }
+      }
+
+      &-body {
+        //
+      }
+
+      &-heading {
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-base;
+
+        // decrease size in lock icon, style as a sup in _fonts.scss
+        [class^='icon-'] {
+          position: relative;
+          top: -0.4em;
+          vertical-align: baseline;
+          font-size: $font-size-small;
+        }
+      }
+
+      &-actions {
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+          min-width: 160px; // attempt to standardize button sizing
+        }
+      }
+    }
+  }
+
+  &-title {
+    padding-top: 20px; // better align with scroll-to functionality
+    margin-top: 0;
+  }
+
+  &-subtitle {
+    padding-top: (
+      $grid-gutter-width / 2
+    ); // better align with scroll-to functionality
+    margin-top: 0;
+  }
+
+  &-metadata {
+    @include list-inline;
+    margin-top: 0.5em;
+  }
+
+  &-details {
+    margin-top: ($grid-gutter-width / 2);
+  }
+}
+
+.dropdown-supported-parts {
+  min-width: 300px;
+  max-height: 185px; // shows 4 1/2 items in the dropdown
+  overflow-y: scroll;
+
+  .dropdown-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 3px 20px; // replace standard BS padding
+
+    .form-group {
+      flex-grow: 1;
+    }
+
+    .btn {
+      margin-right: -#{$padding-base-horizontal}; // button padding value here
+      color: $text-color;
+    }
+  }
+}
+
+// Attempt to fix minor display issues with Doc & Software section TSPs
+#documentsandsoftware {
+  // fix white line that appears between sections with color background at
+  // certain screen sizes
+  padding-bottom: ($grid-gutter-width / 2);
+  margin-bottom: -2px !important;
+}

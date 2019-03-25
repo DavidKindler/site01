@@ -1,0 +1,104 @@
+// Adaptive mobile-only version of the Rich Media Carousel component
+// Author: B57029
+// @media screen and (max-width: $screen-sm) {
+// }
+.cycle-slideshow.richMediaCarouselMobile {
+  z-index: 0;
+  border: 2px solid #ddd;
+  padding-bottom: 1em;
+  margin-top: 2em;
+  a {
+    display: block;
+    width: 100% !important;
+    //height: 100% !important;
+    height: auto !important;
+    position: relative;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      outline: none;
+    }
+    &.-zoom-indicator:after {
+      position: absolute;
+      display: block;
+      bottom: 0;
+      right: 0;
+      font-family: $font-family-icons;
+      content: "\e1b8";
+      line-height: 1;
+      padding: .5em;
+      border-radius: 1px;
+      border: 1px solid rgba(white, 1);
+      background-color: rgba($cool-grey, 1);
+      color: rgba(white, 1);
+    }
+    img {
+      display: block;
+      max-height: 200px;
+      max-width: 92%;
+      margin: auto;
+    }
+  }
+  div {
+    // do not use a height attr... will cause problem with Prev / Next
+    width: 100%;
+  }
+  .cycle-overlay {
+    margin-top: $typespace;
+  }
+  h2 {
+    padding: 0 .5em;
+  }
+  .-thumbVideoWrapper {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 4em;
+      height: 4em;
+      left: 50%;
+      top: 50%;
+      transform-origin: center;
+      transform: translate(-50%, -50%);
+      background: $VideoOverlayButton no-repeat center center; 
+      // background: url('//branding.nxp.com/img/VideoOverlayButton.png') no-repeat center center;
+      // temp till we go to production, then use link below.
+      // background: url('//www.nxp.com/assets/images/buttons/VideoOverlayButton.png') no-repeat center center;
+      background-size: 4em 4em;
+      z-index: 1;
+      opacity: .75;
+       pointer-events:none;
+    }
+  }
+}
+
+.richMediaCarouselMobile-pager {
+  font-size: 3em;
+  color: $cool-grey-xlight;
+  text-align: center;
+  .cycle-pager-active {
+    color: $cool-grey-xdark;
+  }
+}
+
+.richMediaCarouselMobile-prevNext {
+  text-align: center;
+  a {
+    width: 40%;
+    &:first-of-type {
+      margin-right: 15px;
+    }
+  }
+}
+
+.richMediaCarouselMobile-prevNext ~ .modal .modal-header {
+  padding-bottom: 1.5em;
+//  padding-left: 90px;
+  // background: url('../img/nxp-logo.svg') 15px 15px no-repeat;
+  background: $nxpLogo 15px 15px no-repeat;
+  background-size: 60px auto;
+  .modal-title {
+    margin: 2em 0 0;
+  }
+}

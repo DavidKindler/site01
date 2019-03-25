@@ -1,0 +1,101 @@
+/* NXP Typography */
+// Author: B57029
+
+// https://varvy.com/mobile/legible-font-size.html
+
+.page-title-small {
+  font-size: 3.2rem;
+
+  @include breakpoint(screen-small) {
+    font-size: 3rem;
+  }
+}
+
+.page-title-small-80 {
+  font-size: 2.2rem;
+
+  @include breakpoint(screen-small) {
+    font-size: 2.7rem;
+  }
+}
+
+.page-title-small-100 {
+  font-size: 2.2rem;
+
+  @include breakpoint(screen-small) {
+    font-size: 2.7rem;
+  }
+}
+
+.page-title-small-120 {
+  font-size: 1.8rem;
+
+  @include breakpoint(screen-small) {
+    font-size: 2.2rem;
+  }
+}
+
+//  mixin for multiline ellispis
+//  http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  position: relative;
+  width: 100%;
+  max-height: $lineHeight * $lineCount;
+  overflow: hidden;
+  padding-right: 1em;
+//  margin-right: -1em;
+  text-align: justify;
+  line-height: $lineHeight;
+
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+.page-title-100 {
+  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);
+}
+
+//  Ellipsis Icon
+.icon-ellipsis {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 12px;
+    background: $nxp-body-text;
+    border-radius: 50%;
+    box-shadow: -9px 0 0 $nxp-body-text, 9px 0 0 $nxp-body-text;
+  }
+
+  @include breakpoint(screen-small) {
+    display: none;
+  }
+}
+
+.page-title-more {
+  display: none;
+
+  @include breakpoint(screen-small) {
+    display: inline;
+  }
+}

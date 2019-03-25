@@ -1,0 +1,554 @@
+//  ---------------------------------------------------------------------------
+//  Hero Component
+//  ::  Common Styles
+//    ::  Containers
+//    ::  Title
+//    ::  Sub-Title
+//    ::  Text
+//  ::  Level One Styles
+//  ::  Level Two Styles
+//  ::  Level Three Styles
+//  ::  Slider
+//  ::  Video
+//  ---------------------------------------------------------------------------
+
+//  Containers
+//  ----------------------------------------
+.hero {
+  position: relative;
+  padding-top: $padding-component-small-vertical;
+  padding-bottom: $padding-component-small-vertical;
+  // setting auto height here, adjust min-height per variation
+  height: auto;
+  background: {
+    //    image: ; // set inline, set fallback here (img or color)?
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    display: block;
+    width: calc(100% + #{$grid-gutter-width});
+    height: 100%;
+    background: inherit;
+    transform: translateX(50%);
+
+    @include breakpoint($screen-sm) {
+      width: 100vw;
+    }
+  }
+
+  // IE11 has issue inheriting background-color, use background-image instead
+  &.aqua {
+    background-image: linear-gradient($aqua, $aqua);
+  }
+
+  // adjust the hero banner when left nav is present
+  // - could go in containers_left_nav file if necessary
+  .col-lg-12 .col-lg-9 & {
+    @include breakpoint($screen-sm) {
+      &:before {
+        width: calc(100vw - #{$left-column-small});
+      }
+    }
+
+    @include breakpoint($screen-lg) {
+      &:before {
+        width: calc(100vw - #{$left-column-large});
+      }
+    }
+  }
+
+  &-container {
+    // outter wrapper needed to vertically center items in IE11
+    // https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+    display: flex;
+    flex-direction: column; // not necessary, but recommended by Flexbugs
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: $white;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Title Container
+  //  ----------------------------------------
+  &-title-container {
+    //
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  &-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  //  Subtitle
+  //  ----------------------------------------
+  &-subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+  }
+
+  //  Text
+  //  ----------------------------------------
+  &-text {
+    color: $white;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+
+//  Level One
+//  ---------------------------------------------------------------------------
+.hero-level1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+
+  //  Content
+  //  ----------------------------------------
+  .hero-content {
+    //
+  }
+
+  //  Title Container
+  //  ----------------------------------------
+  .hero-title-container {
+    //
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  .hero-title {
+    //
+  }
+
+  //  Subtitles
+  //  ----------------------------------------
+  .hero-subtitle {
+    //
+  }
+
+  //  Text
+  //  ----------------------------------------
+  // this has been depreciated, removing old styles
+  .hero-text {
+    display: none;
+  }
+}
+
+//  Level Two
+//  ---------------------------------------------------------------------------
+.hero-level2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 35vh;
+
+  //  Content
+  //  ----------------------------------------
+  .hero-content {
+    //
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  .hero-title-container {
+    //
+  }
+
+  .hero-title {
+    //
+  }
+
+  //  Subtitles
+  //  ----------------------------------------
+  .hero-subtitle {
+    //
+  }
+
+  //  Text
+  //  ----------------------------------------
+  .hero-text {
+    //
+  }
+}
+
+//  Level Three
+//  ---------------------------------------------------------------------------
+.hero-level3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 21vh;
+
+  //  Content
+  //  ----------------------------------------
+  .hero-content {
+    //
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  .hero-title {
+    //
+  }
+
+  //  Subtitles
+  //  ----------------------------------------
+  .hero-subtitle {
+    //
+  }
+
+  //  Text
+  //  ----------------------------------------
+  .hero-text {
+    //
+  }
+}
+
+//  ---------------------------------------------------------------------------
+//  Hero Video
+//  ::  Container
+//  ::  Video
+//  ::  Overlay
+//  ::  Text
+//  ---------------------------------------------------------------------------
+
+.hero-video {
+  //  this component uses negative left margins for IE11 compatability
+  //  using positive left positions caused scrollbars in IE11 and older FF/Chrome browsers
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% + 30px);
+  height: 56.25vw; // set to 16x9 ratio
+  min-height: 320px; // ratio set with min-width on video container for mobile
+  overflow: hidden;
+  padding: 2em 0;
+  margin-left: -15px;
+  background: {
+    // image: ; // set inline and :after content will inherit for opacity overlay
+    image: linear-gradient(
+      to right,
+      rgba($absolute-black, 0.5),
+      rgba($absolute-black, 0) 90%
+    );
+    position: center center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  // move to video-wrapper if this causes an issue
+  // sometimes pseudo content on items with display flex have troubles in IE
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+  }
+
+  //  Left Nav Dependent Styles
+  //  ----------------------------------------------------------------------
+  //  No Left Nav
+  @include breakpoint($screen-sm) {
+    width: 100vw;
+    min-height: auto;
+    max-height: 350px;
+    margin-left: calc((100vw - 720px) / -2);
+  }
+
+  @include breakpoint($screen-md) {
+    margin-left: calc((100vw - 940px) / -2);
+  }
+
+  @include breakpoint($screen-lg) {
+    margin-left: calc((100vw - 1140px) / -2);
+  }
+
+  // Left Nav
+  .col-lg-12 .col-lg-9 & {
+    @include breakpoint($screen-sm) {
+      width: calc(100% + 60px);
+      // account for left nav, keep height in 16x9 aspect ratio
+      height: calc((100vw - 250px) * 0.5626);
+      margin-left: -30px;
+    }
+
+    @include breakpoint($screen-md) {
+      width: calc(100vw - 250px);
+      margin-left: calc((100vw - #{$both-columns-medium}) / -2);
+    }
+
+    @include breakpoint($screen-lg) {
+      width: calc(100vw - 300px);
+      height: calc((100vw - 300px) * 0.5626);
+      margin-left: calc((100vw - #{$both-columns-large}) / -2);
+    }
+
+    @include breakpoint(screen-extra-large) {
+      margin-left: calc((100vw - #{$both-columns-xlarge}) / -2);
+    }
+  }
+
+  //  Video Area
+  //  ------------------------------------------------------------
+  &-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+
+    video {
+      position: relative;
+      top: 50%;
+      display: block;
+      width: 100%;
+      min-width: 680px; // sets min with so lowest screen = 320x320 video, can edit
+      height: auto;
+      margin: 0 auto;
+      transform: translateY(-50%);
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(-50%);
+  }
+
+  //  Content Area
+  //  ------------------------------------------------------------
+  &-content {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    z-index: 1;
+
+    //  No Left Nav Template Media Queries
+    //  ------------------------------------
+    @include breakpoint($screen-sm) {
+      max-width: 780px;
+    }
+
+    @include breakpoint($screen-md) {
+      max-width: 1000px;
+    }
+
+    @include breakpoint($screen-lg) {
+      max-width: 1200px;
+    }
+
+    //  Left Nav Template Media Queries
+    //  ------------------------------------
+    .col-lg-12 .col-lg-9 & {
+      @include breakpoint($screen-sm) {
+        padding: 0 30px;
+      }
+
+      @include breakpoint($screen-md) {
+        max-width: 742px;
+      }
+
+      @include breakpoint($screen-lg) {
+        max-width: 900px;
+      }
+
+      @include breakpoint($screen-xl) {
+        max-width: 1140px;
+      }
+    }
+  }
+
+  //  Title Container
+  //  ------------------------------------------------------------
+  &-title-container {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Titles
+  //  ----------------------------------------
+  &-title {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $white;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  //  Subtitle
+  //  ----------------------------------------
+  &-subtitle {
+    position: relative;
+    margin-top: 0;
+    color: $white;
+  }
+
+  //  Text
+  //  ----------------------------------------
+  &-text {
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  //  Level 1 Styles
+  &.level1 {
+    // No Left Nav Styles
+    @include breakpoint($screen-sm) {
+      min-height: auto;
+      height: 56.25vw;
+      max-height: 450px; // kicks in around 1100px in left-nav layout
+    }
+
+    //  Content Area
+    //  ------------------------------------------------------------
+    .hero-video-content {
+      position: relative;
+      padding: 0 15px;
+      margin: 0 auto;
+
+      @include breakpoint($screen-sm) {
+        padding: 0 30px;
+      }
+    }
+
+    .hero-video-title-container {
+      position: relative;
+      width: 90%;
+      padding: 15px 15px 15px 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: calc(100% + 30px);
+        height: 100%;
+        background: rgba($absolute-black, 0.5);
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
+
+      //  No Left Nav Styles
+      //  ----------------------------------------
+      @include breakpoint($screen-sm) {
+        padding-right: 30px;
+        padding-left: 0;
+
+        &:before {
+          width: calc((100vw - 720px) / 2 + 100%);
+        }
+      }
+
+      @include breakpoint($screen-md) {
+        width: 75%;
+
+        &:before {
+          width: calc(((100vw - 940px) / 2) + 100%);
+        }
+      }
+
+      @include breakpoint($screen-lg) {
+        &:before {
+          width: calc(((100vw - 1140px) / 2) + 100%);
+        }
+      }
+
+      //  Left Nav Styles
+      //  ----------------------------------------
+      .col-lg-12 .col-lg-9 & {
+        @include breakpoint($screen-sm) {
+          &:before {
+            width: calc(100% + 30px);
+          }
+        }
+
+        @include breakpoint($screen-md) {
+          $value: ($screen-md - ($grid-gutter-width * 2));
+          &:before {
+            width: calc(((100vw - #{$value}) / 2) + 100%);
+          }
+        }
+
+        @include breakpoint($screen-lg) {
+          $value: ($screen-lg - ($grid-gutter-width * 2));
+          &:before {
+            width: calc(((100vw - #{$value}) / 2) + 100%);
+          }
+        }
+
+        @include breakpoint($screen-xl) {
+          $value: ($screen-xl - ($grid-gutter-width * 2));
+          &:before {
+            width: calc(((100vw - #{$value}) / 2) + 100%);
+          }
+        }
+      }
+    }
+
+    //  Titles
+    //  ----------------------------------------
+    .hero-video-title {
+    }
+
+    //  Subtitles
+    //  ----------------------------------------
+    .hero-video-subtitle {
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.2;
+      color: $grey-light;
+    }
+
+    //  Text
+    //  ----------------------------------------
+    .hero-video-text {
+      width: 90%;
+      padding: 15px 15px 15px 0;
+
+      @include breakpoint($screen-sm) {
+        padding-right: 30px;
+        padding-left: 0;
+      }
+
+      @include breakpoint($screen-md) {
+        width: 75%;
+      }
+    }
+  }
+}

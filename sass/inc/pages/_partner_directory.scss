@@ -1,0 +1,39 @@
+// -----------------------------------------------------------------------------
+// Partner Directory specific styles
+// Place SPA specific styles here. If too many styles are added here, do the following:
+// 1. create new folder named for SPA (should follow name for file, ie. partner-directory/)
+// 2. create file structure that mirrors /single-page-apps folder (ie. _filters, _layout, etc.)
+// 3. place styles in correct component file
+// -----------------------------------------------------------------------------
+
+// landing page container
+.partner-directory-landing-data {
+  //
+}
+
+// results main container, contains search, filters, etc.
+.partner-directory-results {
+  //
+}
+
+// results list container, is a ul
+.partner-directory-items {
+  padding-top: 0;
+
+  .media-flex-media {
+    // Fix for images that are larger than 100px with room for padding left/right of 15px;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 130px;
+  }
+
+  @include breakpoint-max($screen-sm) {
+    .media-flex-media {
+      display: none;
+    }
+  }
+
+  .partner-meta-list {
+    font-size: $font-size-base;
+  }
+}

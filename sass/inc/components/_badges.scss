@@ -1,0 +1,50 @@
+//
+// Badges: extends Bootstrap Badge component
+// :: Bootstrap documentation - https://getbootstrap.com/docs/3.3/components/#badges
+// :: Bootstrap source code - https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_badges.scss
+// --------------------------------------------------
+
+// if sizing needs to change between standard badge and user icon, use mixin with size parameter
+%notification {
+  display: inline-block;
+  vertical-align: super;
+  min-width: 7px;
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.badge {
+  &-notification {
+    color: $white;
+    background-color: $deep-red;
+
+    &:empty {
+      @extend %notification;
+    }
+
+    // change color when in header account dropdown, only on hover
+    #header a[role='menuitem']:hover & {
+      background-color: $black;
+    }
+  }
+}
+
+#userDropDownMenu {
+  > .icon-user.has-notification {
+    &:after {
+      content: '';
+      @extend %notification;
+      background-color: $deep-red;
+    }
+  }
+
+  &:hover {
+    > .icon-user.has-notification {
+      &:after {
+        opacity: 0.5;
+      }
+    }
+  }
+}

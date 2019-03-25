@@ -1,0 +1,289 @@
+//  ---------------------------------------------------------------------------
+//  Key Topic Cards
+//  ::  Main Container
+//  ::  List
+//  ::  Item
+//  ::  - Number Variations
+//  ::  Images
+//  ::  Content
+//  ::  Links
+//  ---------------------------------------------------------------------------
+
+.key-topic {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+
+  // list wrapper, holds items
+  &-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -$grid-gutter-width-half;
+    margin-left: -$grid-gutter-width-half;
+
+    &.one {
+      justify-content: center;
+    }
+
+    & + & {
+      margin-top: $padding-component-small-vertical;
+    }
+  }
+
+  // Key Topic Articles
+  &-item {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+    margin-top: $padding-component-small-vertical;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    @include breakpoint($screen-sm) {
+      // defaul setting is 2 column layout
+      flex-grow: 0;
+      width: 50%;
+
+      // selects first two items, could just select second item, first is chosen above
+      &:nth-of-type(-n + 2) {
+        margin-top: 0;
+      }
+    }
+
+    //  Number Variations
+    //  -----------------------------------
+    //  Single Item
+    .one & {
+      // should be 50% by default and centered
+    }
+
+    //  Two Items settings
+    .two & {
+      // not needed since default
+    }
+
+    // Three items settings
+    .three & {
+      @include breakpoint($screen-md) {
+        width: (100% / 3);
+
+        &:nth-of-type(-n + 3) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    // Four Item Settings
+    .four & {
+      @include breakpoint($screen-sm) {
+      }
+
+      @include breakpoint($screen-lg) {
+        width: 25%;
+
+        &:nth-of-type(-n + 4) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  //  Image
+  //  -----------------------------------
+  // set flag for image animation on hover, leave for dev and remove if not being used (2018-09-11)
+  $img-animation: false;
+
+  &-img {
+    @include responsive-image(56.25%); // 16x9 ratio
+    margin-bottom: 1em;
+
+    img {
+      @if $img-animation {
+        transition: transform 200ms ease-in-out;
+      }
+      // special rule for img src='..svg' in IE11, warping without w/h declaration
+      // this may become more global, but scoping to Key Topic for now
+      &[src$='.svg'] {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @if $img-animation {
+      a {
+        &:hover {
+          img {
+            transform: translate(-50%, -50%) scale(1.05);
+          }
+        }
+      }
+    }
+
+    svg {
+      // use case for this?
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      background-color: rgba($absolute-black, 0.1);
+
+      svg {
+        display: block;
+        width: (100% / 5);
+        margin: auto; // vert & horiz centered
+      }
+    }
+  }
+
+  //  Content Section
+  //  -----------------------------------
+  &-content {
+    // content styles
+  }
+
+  &-title {
+    // title styles
+  }
+
+  &-subtitle {
+    // subtitle styles
+  }
+
+  &-description {
+    p {
+      // paragraph styles
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  //  Links
+  //  -----------------------------------
+  &-links {
+    @include nobullets();
+    margin-bottom: 0;
+
+    // provide spacing above if present after copy
+    .key-topic-content + & {
+      margin-top: 1em;
+    }
+
+    li {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      @include cta;
+
+      &.btn {
+        // @include button-primary;
+      }
+    }
+
+    // Add has-columns class to key-topic-list to break links into two columns
+    // when space allows.
+    // Added -item specificity so has-columns couldn't go on -item
+    // - if has-columns is used, it applyies to every -item
+    .has-columns .key-topic-item & {
+      // count|gap|width|child
+      @include columns($count: 2, $gap: 1em, $width: 140px, $child: 'li');
+    }
+  }
+}
+
+// Featured Key Topic Modifications
+.key-topic {
+  &-item {
+    &.is-featured {
+      width: 100%;
+
+      @include breakpoint($screen-md) {
+        width: (200% / 3);
+      }
+    }
+  }
+
+  &-feature-column {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .key-topic-item {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    @include breakpoint($screen-sm) {
+      .key-topic-item {
+        width: 50%;
+      }
+    }
+
+    @include breakpoint($screen-md) {
+      flex-direction: column;
+      width: (100% / 3);
+
+      .key-topic-item {
+        width: 100%;
+        margin-top: 0;
+
+        &:last-child {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+
+  &-img {
+    a {
+      display: block;
+    }
+    .has-feature & {
+      // tighten spacing for layout, move to global Key Topic Img?
+      margin-bottom: 10px;
+    }
+    .is-featured & {
+      padding-bottom: (200% / 3);
+    }
+  }
+
+  &-title {
+    .has-feature & {
+      // max-height: 42px; // at 1200px viewport
+      // overflow: hidden;
+    }
+  }
+
+  &-subtitle {
+    .has-feature &,
+    .has-feature + .key-topic-list & {
+      display: none;
+    }
+  }
+
+  &-description {
+    .has-feature &,
+    .has-feature + .key-topic-list & {
+      display: none;
+    }
+  }
+
+  &-links {
+    .has-feature &,
+    .has-feature + .key-topic-list & {
+      display: none;
+    }
+  }
+}

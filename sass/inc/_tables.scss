@@ -1,0 +1,469 @@
+//
+// Tables
+// --------------------------------------------------
+table {
+  max-width: 100%;
+  background-color: $table-bg;
+}
+
+th {
+  text-align: left;
+}
+
+// Baseline styles
+.table {
+  width: 100%;
+  margin-bottom: $line-height-computed;
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        // line-height: $line-height-base;
+        line-height: $line-height-condensed;
+        vertical-align: top;
+        border-top: 1px solid $table-border-color;
+        font-size: ceil(($font-size-base * 0.85)); // 12px Mobile
+        @include breakpoint(screen-small) {
+          font-size: ceil(
+            ($font-size-base-plus * 0.85)
+          ); // 14px Larger than mobile
+        }
+        color: $nxp-subheads;
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    // vertical-align: bottom;
+    border-bottom: 2px solid $table-border-color;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+  // Nesting
+  .table {
+    //background-color: $body-bg;
+  }
+}
+
+// Condensed table w/ half padding
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+.table-bordered {
+  border: 1px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+      background-color: $table-bg-accent;
+    }
+  }
+}
+
+// Single Stripe
+//
+tr.stripe > td,
+td.stripe {
+  background-color: $table-bg-accent;
+}
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+.table-hover {
+  > tbody > tr:hover {
+    > td,
+    > th {
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
+// Table cell sizing
+//
+// Reset default table behavior
+table col[class*='col-'] {
+  position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+
+table {
+  td,
+  th {
+    &[class*='col-'] {
+      position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+@media (max-width: $screen-xs-max) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: ($line-height-computed * 0.75);
+    overflow-y: hidden;
+    overflow-x: scroll;
+    //    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid $table-border-color;
+    //    -webkit-overflow-scrolling: touch;
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ******** NXP TABLE class definitions *****************
+.table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 2px;
+}
+
+.table th,
+.table td {
+  padding: 4px 4px;
+  line-height: 16px;
+  // overriding - it is affecting markup b57029
+  //  text-align: left;
+  vertical-align: top;
+}
+
+.table td {
+  border-spacing: 0px;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table thead th,
+table.table thead td {
+  vertical-align: top;
+  border-right: 1px solid white;
+  background-color: $cool-grey-xxlight;
+}
+
+.table.table-bordered {
+  border: 1px solid $warm-grey-xxlight;
+  //*border-collapse: collapse;
+  border-collapse: collapse;
+}
+
+.table.table-head-light thead td,
+.table.table-head-light thead th {
+  background-color: $white;
+  border-bottom: 3px solid $cool-grey;
+}
+
+.table.table-bordered td {
+  border: 1px solid $warm-grey-xxlight;
+  border-collapse: collapse;
+  //*border-collapse: collapse;
+}
+
+.table.table-bordered th {
+  border-left: 1px solid $warm-grey-xxlight;
+  border-right: 1px solid $warm-grey-xxlight;
+  border-top: 1px solid $warm-grey-xxlight;
+  border-collapse: collapse;
+  //*border-collapse: collapse;
+}
+
+.table.table-centered td {
+  text-align: center;
+  vertical-align: inherit;
+}
+
+.table.table-centered th {
+  text-align: center;
+  vertical-align: inherit;
+}
+
+.table.table-bordered thead:first-child tr:first-child th,
+.table.table-bordered thead:first-child tr:first-child td {
+  border-right: 1px solid $white;
+  border-top: 1px solid $warm-grey-xxlight;
+}
+
+.table.table-bordered.table-head-light thead:first-child tr:first-child th {
+  border-right: 1px solid $warm-grey-xxlight;
+  // border-top: 1px solid $warm-grey-xxlight;
+}
+
+.table.table-bordered thead:first-child tr:first-child th:last-child {
+  border-right: 1px solid $warm-grey-xxlight;
+}
+
+.table.table-striped tbody > tr:nth-child(even) > td,
+.table.table-striped tbody > tr:nth-child(even) > th {
+  background-color: #f8f8f9;
+}
+
+.table.table-striped tbody > tr:nth-child(odd) > td,
+.table.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: $white;
+}
+
+// Make scrollbars always appear
+.table-responsive::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.table-responsive::-webkit-scrollbar:vertical {
+  width: 12px;
+}
+
+.table-responsive::-webkit-scrollbar:horizontal {
+  height: 12px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.table-responsive::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+// Limit the height of a checkbox filter in a table head (used in an Advanced Custom dataTables component)
+.dataTable {
+  .limit-checkbox-filter-height {
+    display: inline-block;
+    max-height: 4em;
+    overflow-y: scroll;
+  }
+}
+
+// Classes for table sorting
+.table-bordered thead tr th.headerSortDown .icon-arrow-up2 {
+  color: #e66a08;
+  display: inline;
+}
+
+.table-bordered thead tr th.headerSortDown .icon-arrow-down2 {
+  display: none;
+}
+
+.table-bordered thead tr th.headerSortUp .icon-arrow-up2 {
+  display: none;
+}
+
+.table-bordered thead tr th.headerSortUp .icon-arrow-down2 {
+  display: inline;
+  color: #e66a08;
+}
+
+.table-bordered thead tr th .icon-arrow-up2 {
+  display: none;
+}
+
+.table.sortable .icon-arrow-down2,
+.table.sortable .icon-arrow-up2,
+.table.stdtable .icon-arrow-down2,
+.table.stdtable .icon-arrow-up2,
+.table.rectable .icon-arrow-down2,
+.table.rectable .icon-arrow-up2,
+.tablesaw-sortable .icon-arrow-down2,
+.tablesaw-sortable .icon-arrow-up2 {
+  cursor: pointer;
+}
+
+.table-limited {
+  tr {
+    // hide table rows if more than three on tablet and desktop screens
+    &:nth-child(n + 4) {
+      display: none;
+
+      .collapse-mobile & {
+        // show all table rows when in mobile collapse panel, also impacts .moreLessTrigger
+        @include breakpoint-max($screen-sm) {
+          display: table-row;
+        }
+      }
+    }
+  }
+}
+
+.tablesorter-header-inner {
+  cursor: pointer;
+
+  &:before {
+    @include icon();
+
+    .tablesorter-headerUnSorted & {
+      content: '\e418';
+    }
+
+    .tablesorter-headerDesc & {
+      content: $icon-caret-down;
+    }
+
+    .tablesorter-headerAsc & {
+      content: $icon-caret-up;
+    }
+  }
+
+  // remove html i icons and replace with pseudo css icons
+  i {
+    display: none !important;
+  }
+}
+
+//Helper classes for tables
+.table .vertCenter {
+  vertical-align: middle;
+}
+
+// Table Helpers
+table.table.table--red thead td,
+table.table.table--red thead th {
+  background-color: $red;
+  color: $white;
+}
+
+table.table.table--aqua thead td,
+table.table.table--aqua thead th {
+  background-color: $aqua;
+  color: $aqua-xdark;
+}
+
+//  Operating Characteristics Table - on Parts Details Page
+//  move to it's own scss file? import from bottom of this _tables page?
+.part-operating {
+  @include breakpoint-max($screen-sm) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    .table {
+      margin-bottom: 0;
+
+      &.table-bordered {
+        border: 0;
+      }
+
+      th,
+      td {
+        width: 50%;
+      }
+    }
+  }
+}
+
+// OneBox table on search results
+// --------------------------------------------------
+.onebox {
+  &-heading {
+    font-size: $font-size-base;
+    color: $cool-grey;
+  }
+}
+
+// ********<-- END of TABLE class definitions --> *****************

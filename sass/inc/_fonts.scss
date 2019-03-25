@@ -1,0 +1,390 @@
+/* Start _fonts.scss */
+
+//
+// Project: NXP Responsive Design;
+// Description: Basic Font Standardization Recommendations;
+// Author: Paul Capetola;
+// ========================================================
+// --------------------------------------------------------
+// Scales
+// --------------------------------------------------------
+// Mobile
+// Font sizes are 12.5% smaller than desktop sizes
+
+// Larger than Mobile sizes
+//                     .small     .857142em (85.7412%) 13.7143px
+// h6,.h6                         1em (100%) 16px
+// h5,.h5                         1em (100%) 16px
+// h4,.h4                         1em (100%) 16px
+// h3,.h3  +.display   .large     1.15em (115%) 18.4px
+// h2,.h2  +.display   .xlarge    1.35em (135%) 21.6px
+// h1,.h1  +.display   .xxlarge   1.953em (195.3%) 31.248px
+//         .display-4             2.441em (244.1%) 39.056px
+//         .display-3             3.052em (305.2%) 48.832px
+//         .display-2             3.815em (381.5%) 61.04px
+//         .display-1             4.768em (476.8%) 76.288px
+
+// Mobile
+// h1 - 27.342px
+// h2 - 18.9px
+// h3 - 16.1px
+// h4 - 14px
+// h5 - 14px
+// h6 - 14px
+// sm,
+// tb - 12px
+
+// Larger than Mobile
+// h1 - 31.248px
+// h2 - 21.6px
+// h3 - 18.4px
+// h4 - 16px
+// h5 - 16px
+// h6 - 16px
+// sm,
+// tb - 13.7143px
+// --------------------------------------------------------------
+// #1.0 - Reset root font-size to 10px (easy-to-handle rem values)
+// --------------------------------------------------------------
+html {
+  font-size: 62.5%; // Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+  font-size: 10px; // Corrects text resizing oddly when browsers zoom text only. rem units will call back to this root font-size.
+  height: 100%;
+  overflow-y: auto; // Keeps page centered in all browsers regardless of content height
+  -webkit-text-size-adjust: 100%; // Prevents iOS text size adjust after orientation change, without disabling user zoom
+  -ms-text-size-adjust: 100%; // Prevents iOS text size adjust after orientation change, without disabling user zoom
+
+  //  Scrollbars
+  //  ::  attempt to set scrollbars to overlay so their width isn't calcuated
+  //  ::  in vw units (https://www.sitepoint.com/community/t/100vw-and-scrollbars/196480)
+  // --------------------------------------------------------------
+  //  https://msdn.microsoft.com/en-us/library/hh771902(v=vs.85).aspx
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+// --------------------------------------------------------------
+// #2.0 - Set base body font-size (changes from mobile -> desktop)
+// --------------------------------------------------------------
+body {
+  color: $nxp-body-text; // Set base font color
+  font-family: $font-family-sans-serif; // Set base font-family
+  font-size: $font-size-base; // Set base font-size (mobile-first). This is the global parent for em units.
+  line-height: $line-height-base; // Set base line-height
+}
+
+@media (min-width: $screen-sm) {
+  body {
+    font-size: $font-size-base-plus;
+  } // Increase base font-size larger than mobile.
+}
+
+@media print {
+  body {
+    background: transparent; // Removes any background color from printing
+    color: black; // Sets standard text print color.
+    font-size: 12pt; // Reduce font size (in pts.)
+  }
+}
+
+// --------------------------------------------------------------
+// #3.0 - Heading Font Sizes
+// --------------------------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  margin: 1em 0 0.5em 0;
+  font-family: $headings-font-family;
+  color: $nxp-subheads;
+  text-indent: 0;
+  line-height: 1.2;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-heavy;
+
+  small {
+    text-transform: uppercase;
+    font-weight: $font-weight-base;
+  }
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-heavy;
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-heavy;
+}
+
+h4,
+.h4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-heavy;
+}
+
+h5,
+.h5 {
+  font-size: $font-size-h5;
+  font-weight: $font-weight-heavy;
+}
+
+h6,
+.h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-heavy;
+}
+
+// Display sized fonts; used when more emphasis is needed and should be used in high level marketing areas, not in the bulk of pages in the site
+// Using major 3rd ratio of 4:5 starting at ms(5) for the display scale
+// http://www.modularscale.com/?1&em&1.25&sass&text
+[class*='display-'] {
+  line-height: 1.1;
+  font-weight: $font-weight-base;
+  text-transform: uppercase;
+}
+
+// utility class (will likely use on an H1)
+.display {
+  text-transform: uppercase !important;
+  font-weight: $font-weight-base;
+  line-height: 1.2;
+  margin: 1em 0 0.5em 0;
+}
+
+.display-1 {
+  font-size: 4.172em;
+}
+
+.display-2 {
+  font-size: 3.338125em;
+}
+
+.display-3 {
+  font-size: 2.6705em;
+}
+
+.display-4 {
+  font-size: 2.135875em;
+}
+
+@include breakpoint($screen-lg) {
+  .display-1 {
+    font-size: 4.768em;
+  }
+  .display-2 {
+    font-size: 3.815em;
+  }
+  .display-3 {
+    font-size: 3.052em;
+  }
+  .display-4 {
+    font-size: 2.441em;
+  }
+}
+
+@media print {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: $absolute-black;
+  }
+  h1,
+  .h1 {
+    font-size: 20px;
+  }
+  h2,
+  .h2 {
+    font-size: 16pt;
+  }
+  h3,
+  .h3 {
+    font-size: 14pt;
+  }
+  h4,
+  .h4 {
+    font-size: 12pt;
+  }
+  h5,
+  .h5 {
+    font-size: 10pt;
+  }
+  h6,
+  .h6 {
+    font-size: 8pt;
+  }
+}
+
+// --------------------------------------------------------------
+// As a sidenote, I'm not sure how concerned we are with print styles, but this really just covers them at the most basic sense. Also, I know we've already discussed using rem for headers, but the em sizes I show, give some indication as to how I reached my rem values (for desktop.) It also shows the greater control I have for mobile header sizes.
+// --------------------------------------------------------------
+
+// Typographic Icon sizing
+// Font sizing to be used on display font icons
+//-------------------------
+.icon-size-md {
+  font-size: $icon-size-md;
+}
+
+.icon-size-lg {
+  font-size: $icon-size-lg;
+}
+
+.icon-size-xl {
+  font-size: $icon-size-xl;
+}
+
+// Typographic Elements
+//-------------------------
+p,
+ul,
+ol,
+pre,
+table,
+blockquote,
+li {
+  //  margin-top: 0;
+  //  margin-bottom: .5em;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+// Modifiers
+//-------------------------
+//b,
+//strong,
+//em,
+small,
+code {
+  line-height: 1;
+}
+
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
+sub {
+  top: 0.4em;
+}
+
+.small,
+small {
+  font-size: 85.7142%;
+  line-height: 1.25;
+  opacity: 0.9;
+}
+
+.large {
+  font-size: 115%;
+}
+
+.xlarge {
+  font-size: 135%;
+}
+
+.xxlarge {
+  font-size: 195.3%;
+}
+
+.heading,
+.headline {
+  display: block;
+  margin: 1em 0 0.5em 0;
+  font-weight: 700;
+}
+
+.intro,
+.lead {
+  @include lead;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.xbold {
+  font-weight: bolder !important;
+  font-weight: 900 !important;
+}
+
+.transform-none {
+  text-transform: none;
+}
+
+// Anchors
+//-------------------------
+a {
+  color: $link-color;
+  text-decoration: none;
+  background-color: initial;
+
+  &.cta {
+    @include cta;
+  }
+}
+
+.ext {
+  @include ext;
+
+  &.btn {
+    &:after {
+      content: $icon-newtab;
+    }
+  }
+}
+
+a:visited {
+  color: $link-visited-color;
+}
+
+a:hover,
+a:focus {
+  color: $link-hover-color;
+  text-decoration: underline;
+  background-color: initial;
+  cursor: pointer;
+}
+
+a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  color: $link-color;
+}
+
+/* End _fonts.scss */

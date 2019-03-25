@@ -1,0 +1,987 @@
+// ---------------------------------------------------------------------------
+/* Basecamp Docs: styles for branding.nxp/qualcomm */
+/* Do not edit the .css file, edits go in the qc-sass/basecamp-docs.scss file */
+// ---------------------------------------------------------------------------
+
+// Core variables and mixins
+// @import 'inc/nxp_functions';
+@import 'inc/nxp_colors';
+@import 'inc/nxp_variables';
+// @import 'inc/bootstrap/mixins';
+@import 'inc/nxp_mixins';
+@import 'inc/mixins_b57029';
+
+// Component Styles
+// @import 'basecamp/navbar';
+
+//
+// ----------------------------------------
+//
+.fsl-container {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.back-to-top {
+  padding: 4px 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: $font-size-small;
+  font-weight: $font-weight-base;
+  color: $text-color;
+}
+
+// BS Callout Blocks
+// ----------------------------------------
+.bs-callout {
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid $border-color-base;
+  border-left-width: 5px;
+  border-radius: $border-radius-base;
+
+  h4 {
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  code {
+    border-radius: $border-radius-base;
+  }
+
+  // reduce space between stacked callout sections
+  & + & {
+    margin-top: -5px;
+  }
+
+  // Color Variations
+  // ----------------------------------------
+  &-danger {
+    border-color: $brand-danger;
+
+    h4 {
+      color: $brand-danger;
+    }
+  }
+
+  &-warning {
+    border-color: $brand-warning;
+
+    h4 {
+      color: $brand-warning;
+    }
+  }
+
+  &-info {
+    border-color: $brand-info;
+
+    h4 {
+      color: $brand-info;
+    }
+  }
+}
+
+// Anchor Page Links
+// ----------------------------------------
+.anchor {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 60px;
+  margin-top: -60px;
+}
+
+// FSL Docs Header, dont thik this is being used
+// ----------------------------------------
+.fsl-docs-header {
+  position: relative;
+  overflow: hidden;
+  padding: 0px;
+  color: linen;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba($absolute-black, 0.1);
+
+  @include breakpoint($screen-sm) {
+    height: 300px;
+  }
+
+  @include breakpoint($screen-md) {
+    height: 350px;
+  }
+
+  .row {
+    position: absolute;
+    top: 0;
+    padding-left: 20px;
+  }
+
+  #draftmode h2 {
+    padding-top: 100px;
+    color: red;
+    font-size: 70px;
+    transform: rotate(-30deg);
+  }
+
+  h1 {
+    font-size: 30px;
+    color: linen;
+
+    @include breakpoint($screen-sm) {
+      font-size: 50px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+// FSL Docs Nav: not sure if this is being used
+// ----------------------------------------
+.fsl-docs-nav {
+  margin-bottom: 0;
+  background-color: #ff4f00;
+  border-bottom: 0px;
+}
+
+.fsl-docs-nav .navbar-brand,
+.fsl-docs-nav .navbar-nav > li > a {
+  color: $white;
+  font-weight: $font-weight-base;
+}
+
+.fsl-docs-nav .navbar-nav > li > a:hover,
+.fsl-docs-nav .navbar-nav > .active > a,
+.fsl-docs-nav .navbar-nav > .active > a:hover {
+  color: $white;
+  background-color: #ff8f5d;
+}
+
+.fsl-docs-nav .navbar-toggle .icon-bar {
+  background-color: $white;
+}
+
+.fsl-docs-nav .navbar-header .navbar-toggle {
+  border-color: $white;
+}
+
+.fsl-docs-nav .navbar-header .navbar-toggle:hover,
+.fsl-docs-nav .navbar-header .navbar-toggle:focus {
+  background-color: #ff4f00;
+  border-color: $white;
+}
+
+// Icon styles
+// ----------------------------------------
+// #iconList,
+// #parametric-icons {
+//   font-size: 20px;
+// }
+
+.iconInfo {
+  font-size: 20px;
+
+  &:hover {
+    color: $headings-color;
+  }
+
+  > span:first-of-type {
+    width: 15%;
+    max-width: 40px;
+    text-align: center;
+  }
+
+  .display-icon-name {
+    font-size: $font-size-small;
+    margin-left: $grid-gutter-width-half;
+  }
+}
+
+// FSL Docs Sidebar
+// ----------------------------------------
+.fsl-docs-sidebar {
+  display: block;
+  margin-top: 20px;
+
+  &.affix {
+    top: 0;
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+
+  &.affix-bottom {
+    bottom: 10px;
+  }
+
+  @include breakpoint-max($screen-md) {
+    display: none;
+  }
+
+  .nav {
+    li {
+      margin-bottom: 0px;
+    }
+
+    // indent list items in nested lists
+    .nav {
+      li {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+.fsl-docs-sidebar .nav {
+  > li {
+    > a {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #999;
+      padding: 2px 20px;
+
+      &:hover,
+      &:focus {
+        padding-left: 19px;
+        color: $link-color;
+        text-decoration: none;
+        background-color: transparent;
+        border-left: 1px solid $link-color;
+      }
+    }
+
+    &.active,
+    &.active:hover,
+    &.active:focus {
+      > a {
+        padding-left: 18px;
+        font-weight: $font-weight-heavy;
+        color: $link-hover-color;
+        background-color: transparent;
+        border-left: 2px solid $brand-primary;
+      }
+    }
+  }
+
+  // hide nested lists
+  .nav {
+    display: none;
+  }
+
+  // reveal nested lists when active
+  > .active > .nav {
+    display: block;
+  }
+}
+
+// Helper Classes
+// ----------------------------------------
+.is-hidden {
+  color: #ccc;
+  background-color: #f9f9f9 !important;
+}
+
+.is-visible {
+  color: #468847;
+  background-color: #dff0d8 !important;
+}
+
+.show-grid.row {
+  margin-bottom: 10px;
+}
+
+// .show-grid [class*='col-'] {
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   color: $qc-color2-dark;
+//   background-color: rgba($qc-color2, 0.15);
+//   border: 1px solid $qc-color2-dark;
+// }
+
+// Type
+// ----------------------------------------
+.page-header {
+  font-weight: $font-weight-heavy;
+}
+
+// Container and sidebar NXP styles
+// ----------------------------------------
+.nxp-doc-container {
+  padding-top: 60px;
+
+  .col-md-9 {
+    width: 100%;
+    padding-left: $grid-gutter-width-half;
+    padding-right: $grid-gutter-width-half;
+
+    @include breakpoint($screen-sm) {
+      width: calc(100% - #{$left-column-small});
+      margin-left: $left-column-small;
+    }
+
+    @include breakpoint($screen-md) {
+      width: ($screen-md - $left-column-medium);
+      margin-left: calc(#{$left-column-medium} + (100vw - #{$screen-md}) / 2);
+    }
+
+    @include breakpoint($screen-lg) {
+      width: ($screen-lg - $left-column-large);
+      margin-left: calc(#{$left-column-large} + (100vw - #{$screen-lg}) / 2);
+    }
+
+    @include breakpoint($screen-xl) {
+      width: ($screen-xl - $left-column-xlarge);
+      margin-left: calc(#{$left-column-xlarge} + (100vw - #{$screen-xl}) / 2);
+    }
+  }
+}
+
+// left nav on Components page
+.nxp-docs-sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  display: block;
+  width: $left-column-small;
+  height: 93%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: $grid-gutter-width-half $grid-gutter-width-half $grid-gutter-width
+    $grid-gutter-width-half;
+  // font-size: $font-size-small;
+  border-right: 1px solid $border-color-base;
+
+  @include breakpoint-max($screen-sm) {
+    display: none;
+  }
+
+  @include breakpoint($screen-md) {
+    width: $left-column-medium;
+  }
+
+  @include breakpoint($screen-lg) {
+    width: $left-column-large;
+  }
+
+  .nav {
+    li {
+      margin-bottom: 0;
+
+      a {
+        padding: 5px;
+
+        &:hover {
+          background-color: $cool-grey-xxxlight;
+        }
+      }
+    }
+  }
+}
+
+*[id].page-header:target:before {
+  content: ' ';
+  display: block;
+  height: 80px;
+  margin: 0;
+  visibility: hidden;
+}
+
+// Example continer
+.bc-example {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin-bottom: 0;
+  background-color: $white;
+  border: 1px solid $border-color-base;
+  border-radius: $border-radius-base;
+
+  &:after {
+    content: 'Example';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: $font-size-xsmall;
+    font-weight: $font-weight-heavy;
+    color: $cool-grey-dark;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  > p > .close {
+    float: none;
+  }
+}
+
+// Syntax Highlighter
+.syntaxhighlighter {
+  @include breakpoint-max($screen-xs) {
+    display: none;
+  }
+
+  .bc-example + .highlight & {
+    margin-top: 0 !important;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+
+  .line {
+    white-space: pre-wrap !important;
+  }
+}
+
+// Color Palette Styles
+// ----------------------------------------
+//
+// duplicating bg-variant mixin and declarations here
+// don't want to introduce font-coloring in main stylesheet yet, but need for branding example
+
+// @mixin bg-variant($parent, $color, $text-color: true) {
+//   #{$parent} {
+//     @if $text-color == true {
+//       color: ensureTextContrast($qc-text-light, $color);
+//     }
+//     background-color: $color !important;
+//   }
+// }
+// Primary color - Aqua
+// @include bg-variant('.bg-qc-color1', $qc-color1);
+// @include bg-variant('.bg-qc-color1-light', $qc-color1-light);
+// @include bg-variant('.bg-qc-color1-dark', $qc-color1-dark);
+// // Blue
+// @include bg-variant('.bg-qc-color2', $qc-color2);
+// @include bg-variant('.bg-qc-color2-light', $qc-color2-light);
+// @include bg-variant('.bg-qc-color2-dark', $qc-color2-dark);
+// @include bg-variant('.bg-qc-color2-accent', $qc-color2-accent);
+// // Orange
+// @include bg-variant('.bg-qc-color3', $qc-color3);
+// @include bg-variant('.bg-qc-color3-light', $qc-color3-light);
+// @include bg-variant('.bg-qc-color3-dark', $qc-color3-dark);
+// @include bg-variant('.bg-qc-color3-accent', $qc-color3-accent);
+// // Red
+// @include bg-variant('.bg-qc-color4', $qc-color4);
+// @include bg-variant('.bg-qc-color4-light', $qc-color4-light);
+// @include bg-variant('.bg-qc-color4-dark', $qc-color4-dark);
+// // Violet
+// @include bg-variant('.bg-qc-color5', $qc-color5);
+// @include bg-variant('.bg-qc-color5-light', $qc-color5-light);
+// @include bg-variant('.bg-qc-color5-dark', $qc-color5-dark);
+// // Grayscale
+// @include bg-variant('.bg-qc-text-header', $qc-text-header);
+// @include bg-variant('.bg-qc-text-headline', $qc-text-headline);
+// @include bg-variant('.bg-qc-text-copy', $qc-text-copy);
+// @include bg-variant('.bg-qc-module-dark', $qc-module-dark);
+// @include bg-variant('.bg-qc-module-light-cool', $qc-module-light-cool);
+// @include bg-variant('.bg-qc-module-light', $qc-module-light);
+// @include bg-variant('.bg-qc-module-menu', $qc-module-menu);
+// @include bg-variant('.bg-qc-border-base', $qc-border-base);
+// @include bg-variant('.bg-qc-border-divider', $qc-border-divider);
+// @include bg-variant('.bg-qc-border-divider-cool', $qc-border-divider-cool);
+
+.color-group {
+  margin-bottom: 20px;
+
+  &.columns {
+    column-gap: 30px;
+  }
+
+  .color {
+    padding: 10px;
+    border: 1px solid rgba($absolute-black, 0.1);
+  }
+}
+
+.color-info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0;
+
+  .class {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    margin-bottom: 0;
+    font-size: 20px;
+  }
+
+  .rgb {
+    text-align: right;
+  }
+}
+
+// General Component styles on components page
+// --------------------------------------------
+
+.component {
+  position: relative;
+  padding: 10px;
+  margin-bottom: $padding-component-small-vertical;
+
+  &:nth-child(even) {
+    background-color: $cool-grey-xxxlight;
+  }
+}
+
+.-label {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid $border-color-base;
+  margin-bottom: 1em;
+  padding-bottom: 5px;
+
+  h2 {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+}
+
+.-button {
+  float: right;
+  margin-left: auto;
+
+  & + & {
+    margin-left: 0.5em;
+  }
+}
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    width: 100%;
+    padding: 0 10px;
+
+    @include breakpoint($screen-xs) {
+      width: 50%;
+    }
+
+    @include breakpoint($screen-sm) {
+      width: 25%;
+    }
+  }
+}
+
+.color-thumbnail {
+  padding: 10px;
+  font-size: 16px;
+  color: $white;
+
+  &.it {
+    background-color: $petrol-blue;
+
+    &.disabled {
+      background-color: $cool-grey-dark !important;
+    }
+  }
+
+  &.wp {
+    background-color: $deep-orange;
+
+    &.disabled {
+      background-color: $cool-grey-dark !important;
+    }
+  }
+
+  &.big {
+    width: 45px;
+    height: 45px;
+    font-size: $font-size-large;
+    line-height: 45px;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// Component Specific Styles
+// --------------------------------------------
+.nav-tabs::before {
+  width: 100%;
+}
+
+// Documentation table for components
+// --------------------------------------------
+.pattern-element {
+  min-width: 150px;
+}
+
+.pattern-required {
+  min-width: 150px;
+}
+
+.pattern-description {
+  //
+}
+
+.pattern-modifier {
+  //
+}
+
+// Metadata
+// TODO: make styles more specific (metadta-audience) to avoid conflicts
+.nxp-metadata-audience {
+  @include list-inline(0, 0);
+  position: relative;
+  margin-left: -0.5em; // align button text with surrounding text
+  color: $cool-grey;
+  font-size: $font-size-small;
+
+  // &:before {
+  //   @include icon('\e186');
+  // }
+
+  li + li {
+    margin-left: 3px;
+  }
+
+  .btn-metadata {
+    @include button-variant(
+      $color: $cool-grey,
+      $background: $cool-grey-xxxlight,
+      $border: $cool-grey-xxxlight
+    );
+  }
+
+  a {
+    padding: 0.25em 0.5em;
+    color: $cool-grey;
+    background-color: $cool-grey-xxxlight;
+    border-radius: 3px;
+    transition: all $animation-duration-fastest $cubic-bezier-base;
+
+    &:hover {
+      color: $cool-grey-dark;
+      text-decoration: none;
+      background-color: $cool-grey-xxlight;
+    }
+  }
+}
+
+// Family Tree
+.family-tree {
+  $line-size: 20px;
+
+  ul {
+    position: relative;
+    transition: all $animation-duration-fast $cubic-bezier-base;
+
+    ul {
+      padding-top: $line-size;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 0;
+        height: $line-size;
+        border-left: 1px solid $border-color-base;
+      }
+    }
+  }
+
+  li {
+    position: relative;
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    padding: $line-size 5px 0 5px;
+    transition: all $animation-duration-fast $cubic-bezier-base;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 50%;
+      height: $line-size;
+      border-top: 1px solid $border-color-base;
+    }
+
+    &:after {
+      right: auto;
+      left: 50%;
+      border-left: 1px solid $border-color-base;
+    }
+
+    &:only-child {
+      padding-top: 0;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+
+    &:first-child {
+      &:before {
+        border: 0 none;
+      }
+
+      &:after {
+        border-radius: $border-radius-base 0 0 0;
+      }
+    }
+
+    &:last-child {
+      &:before {
+        border-right: 1px solid $border-color-base;
+        border-radius: 0 $border-radius-base 0 0;
+      }
+
+      &:after {
+        border: 0 none;
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: $padding-small-vertical $padding-small-horizontal;
+      font-size: $font-size-small;
+      color: $text-color;
+      text-decoration: none;
+      border: 1px solid $border-color-base;
+      border-radius: $border-radius-base;
+      transition: all $animation-duration-fast $cubic-bezier-base;
+
+      &:hover {
+        color: $nxp-subheads;
+        background-color: $cool-grey-xxlight;
+      }
+
+      &.current {
+        box-shadow: inset 0 -3px 0 0 $petrol-blue;
+      }
+    }
+  }
+}
+
+// Leftnav
+.leftnav {
+  ul {
+    display: none;
+  }
+
+  .open {
+    // background-color: $cool-grey-xlight;
+
+    ul {
+      display: block; // initial ?
+
+      li {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+.nxp-wrapper {
+  padding-top: 60px;
+}
+
+// Grid layout
+.nxp-docs {
+  padding-top: 0; // counter the padding on 'body' for nxp.com
+
+  &-body {
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+  }
+
+  // Media queries: declare grid here to avoid mobile conflicts
+  // ----------------------------------------
+  @include breakpoint-max($screen-sm) {
+    &-aside {
+      display: none;
+    }
+  }
+
+  @include breakpoint($screen-sm) {
+    &-wrapper {
+      display: grid;
+      grid-column-gap: ($grid-gutter-width / 2);
+      grid-template-columns: 250px 1fr;
+      grid-template-areas:
+        'header header'
+        'aside  body'
+        'footer footer';
+    }
+
+    &-header {
+      grid-area: header;
+    }
+
+    &-aside {
+      grid-area: aside;
+    }
+
+    &-body {
+      grid-area: body;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    &-footer {
+      grid-area: footer;
+    }
+  }
+
+  @include breakpoint($screen-md) {
+    &-body {
+      width: 700px;
+    }
+  }
+
+  @include breakpoint($screen-lg) {
+    &-body {
+      width: 920px;
+    }
+  }
+
+  @include breakpoint($screen-xl) {
+    &-body {
+      width: 1140px;
+    }
+  }
+}
+
+// Content guidelines wireframe styles
+.wireframe {
+  width: 50%;
+
+  &-section {
+    display: block;
+    // text-align: right;
+    background-color: #f4f4f5;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 2em 1em;
+
+    &:last-of-type {
+      border-bottom: 1px solid $border-color-base;
+    }
+
+    .wireframe-inner {
+      position: relative;
+      z-index: 1;
+      transform: translateX(50vw);
+
+      @include breakpoint($screen-sm) {
+        transform: translateX(35vw);
+      }
+
+      @include breakpoint($screen-md) {
+        transform: translateX(400px);
+      }
+
+      @include breakpoint($screen-lg) {
+        transform: translateX(475px);
+      }
+
+      @include breakpoint($screen-xl) {
+        transform: translateX(580px);
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background-color: $black;
+        transform: translateY(-50%);
+      }
+
+      &:before {
+        top: 50%;
+        left: -95px;
+        width: 75px;
+        height: 1px;
+      }
+
+      &:after {
+        top: 50%;
+        left: -20px;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+      }
+    }
+
+    // specific section styles
+    &.wireframe-overview {
+      background: {
+        image: radial-gradient($cool-grey-xxlight, $cool-grey-xxlight),
+          radial-gradient($cool-grey-xxlight, $cool-grey-xxlight),
+          radial-gradient($cool-grey-xxlight, $cool-grey-xxlight);
+        size: calc(100% - 40px) 10px, calc(100% - 80px) 10px;
+        position: 20px 20px, 20px 40px;
+        repeat: no-repeat;
+      }
+    }
+
+    &.wireframe-valprop {
+      background: {
+        image: linear-gradient(
+          to right,
+          $cool-grey-xxlight,
+          $cool-grey-xxlight 20%,
+          transparent 20%,
+          transparent 40%,
+          $cool-grey-xxlight 40%,
+          $cool-grey-xxlight 60%,
+          transparent 60%,
+          transparent 80%,
+          $cool-grey-xxlight 80%,
+          $cool-grey-xxlight
+        );
+        size: calc(100% - 40px) 20px;
+        position: left 20px center;
+        repeat: no-repeat;
+      }
+    }
+
+    &.wireframe-marketing {
+      position: relative;
+      border-top: none;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+      }
+
+      &:after {
+        top: 0;
+        left: 10%;
+        width: 80%;
+        height: 100%;
+        background-color: $cool-grey-xxlight;
+        border: 1px solid $border-color-base;
+      }
+
+      &:before {
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $cool-grey-xxlight;
+      }
+
+      + .wireframe-section {
+        border-top: none;
+      }
+    }
+  }
+}

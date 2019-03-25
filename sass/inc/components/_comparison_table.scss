@@ -1,0 +1,15 @@
+// =========================
+// Component Name: Comparison Table (Package / Quality)
+// Component Type: Table (Dynamic)
+// =========================
+.comparisonTable {
+  .comparisonTable-packing {
+    white-space: nowrap;
+  }
+  .comparisonTable-rohsPbFree {
+    min-width: 8em;
+    a {
+      display: inline-block;
+    }
+  }
+}

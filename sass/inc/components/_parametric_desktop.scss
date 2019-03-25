@@ -1,0 +1,159 @@
+// =========================
+// Component Name: Parametric - Desktop
+// =========================
+$filter-products-close-icon-color: $cool-grey;
+$filter-panel-bg-color: $cool-grey-xxxlight;
+$filter-panel-arrow-color: $cool-grey-light;
+$header-sort-arrow-color: $cool-grey-xlight;
+$header-sort-arrow-active: $cool-grey;
+@media screen and (min-width: $screen-sm) {
+  .paramSrch {
+    // make the first column have a max-width
+    [class*='col-']:first-of-type {
+      max-width: 292.5px;
+    }
+    .paramSrch-filters-products {
+      position: relative;
+      padding: .5em 1em;
+      margin-bottom: 1em;
+      background-color: $filter-panel-bg-color;
+      span:not(.icon-close3),
+      a {
+        vertical-align: middle;
+      }
+      span.icon-close3 {
+        color: $filter-products-close-icon-color;
+      }
+    }
+    .paramSrch-primaryCTAs {
+      margin-bottom: $typespace;
+      text-align: right;
+      a[class*='btn'] {
+        margin-right: 15px;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+    .paramSrch-filters-results {
+      background-color: $filter-panel-bg-color;
+      .paramSrch-filters-results-panel {
+        position: relative;
+        border-bottom: 2px solid white;
+        padding: $typespace;
+        .__panel-title {
+          display: block;
+          font-weight: 700;
+          font-size: small;
+          margin-bottom: $typespace;
+        }
+        .__panel-toggle {
+          display: inline-block;
+          padding-right: 1.5em;
+          color: inherit;
+          &:hover {
+            text-decoration: none;
+          }
+          .__toggle-icon {
+            position: absolute;
+            top: .75em;
+            right: $typespace;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: transparent url('/assets/img/icon-triangle-down1.svg') 50% 50% no-repeat;
+          }
+          .__toggle-icon.open {
+            transform: rotate(180deg);
+          }
+        }
+        .__range {
+          .-slider {
+            position: relative;
+            height: 17px;
+            margin-bottom: $typespace;
+            //          background: rgba(255,150,130,.5);
+            .-knob-min,
+            .-knob-max {
+              position: absolute;
+              z-index: 3;
+              box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.15);
+              background: #FFFFFF;
+              border: 5px solid #009094;
+              height: 17px;
+              width: 17px;
+              border-radius: 17px;
+            }
+            .-knob-min {
+              left: 0;
+            }
+            .-knob-max {
+              right: 0;
+            }
+            .-active-range {
+              position: absolute;
+              z-index: 2;
+              top: 5px;
+              left: 2.5%;
+              height: 7px;
+              width: 95%;
+              background-color: #009094;
+            }
+            .-bar {
+              position: absolute;
+              z-index: 1;
+              height: 7px;
+              width: 100%;
+              top: 5px;
+              background: white;
+              border: 0px solid $cool-grey-xlight;
+              box-shadow: inset 2px 1px 0px 0px rgba(0, 0, 0, 0.15);
+              border-radius: 4px;
+            }
+          }
+          .-val-min,
+          .-val-max {
+            display: inline-block;
+            width: 4.5em;
+            text-align: center;
+          }
+          .-val-max {
+            float: right;
+          }
+        }
+        input.__search {
+          position: relative;
+          padding-right: 2em;
+        }
+        input.__search:after {
+          //        position: absolute;
+          //        font-family: $font-family-icons;
+          //        right: .25em;
+          //        content: "\e1ba";
+          //        color: $cool-grey;
+          //        font-size: 1em;
+          display: block !important;
+          width: 16px;
+          height: 16px;
+          background-color: green;
+        }
+      }
+    }
+    .paramSrch-results {
+      th {
+        position: relative;
+        padding: .9em .6em .7em 1.6em;
+        vertical-align: bottom;
+        span[class*='icon-'] {
+          position: absolute;
+          left: 0;
+          bottom: .8em;
+          color: $header-sort-arrow-color;
+        }
+        span.icon-arrow-down2 {
+          color: $header-sort-arrow-active;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+// =========================
+// Component Name: Custom Table w Extended Functions
+// Component Type: Static Table
+// =========================
+.customTable-wrapper {
+  .customTable-wrapper-row {
+    border-top: 1px solid $cool-grey;
+    border-bottom: 1px solid $cool-grey;
+    padding: .5em;
+  }
+  .customTable-wrapper-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .rowCount {
+    //text-align: center;
+    //margin-bottom: .5em;
+    @include breakpoint (screen-small) {
+      //width: 50%;
+      //float: left;
+      text-align: left;
+      margin-top: .5em;
+      //margin-bottom: 0;
+    }
+  }
+  .paginator {
+    text-align: center;
+    @include breakpoint (screen-small) {
+      float: right;
+      width: 50%;
+      text-align: right;
+    }
+    a.btn {
+      margin-left: .25em;
+    }
+  }
+  .customTable {
+    th {
+      vertical-align: bottom;
+      &.customTable-description {
+        width: 35%;
+      }
+    }
+    .customTable-appGroup {
+      ul {
+        @include nobullets();
+        ;
+      }
+      li {
+        display: block;
+      }
+      label {
+        float: right;
+        width: 80%;
+        margin: 0;
+        font-weight: normal;
+      }
+      ;
+      input {
+        float: left;
+        width: 15%;
+        margin: 0;
+      }
+    }
+  }
+}

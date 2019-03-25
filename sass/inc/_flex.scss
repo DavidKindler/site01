@@ -1,0 +1,32 @@
+// --------------------------------------------------------------
+// Bootstrap Addon - Columns of Equal Height
+// --------------------------------------------------------------
+// This styling adds flex-height (equal height columns) on top of Bootstrap column structures.
+// Compatible with IE10+, modern browsers
+
+// Equal Height Flex Row
+.row-flex-height {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+}
+
+// Equal Height Flex Column
+.col-flex-height {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  float: left;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+}

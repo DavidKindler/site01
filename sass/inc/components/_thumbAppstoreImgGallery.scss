@@ -1,0 +1,61 @@
+// =========================
+// CMS Component (not part of original spec)
+// Component Name: thumbAppstoreImgGallery
+// Component Type: Image Blocks
+// Author: Robin Rowell
+// Notes:
+// - used on the mobile apps page of NXP 
+// - associated with appstore product CTAs and employs modals
+// =========================
+.thumbAppstoreImgGallery {
+  // We need some space at the end of the containing panel;
+  margin-bottom: 2em;
+  .-appThumb {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    @include breakpoint(screen-small) {
+      margin-top: 0;
+    }
+  }
+  .-getApps {
+    a {
+      margin-right: 1em;
+      @include breakpoint(screen-small) {
+        margin-right: 0;
+      }
+      @include breakpoint(screen-smallest) {
+        img {
+          margin-bottom: 1em;
+        }
+      }
+    }
+    margin-bottom: .5em;
+  }
+  .-meta {
+    margin-top: 1em;
+    @include breakpoint(screen-smallest) {
+      font-size: 85.714285714%;
+    }
+  }
+  [class*='adv-custom-caption-'],
+  .adv-custom-caption-01 {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  .-prevNextbuttons {
+    text-align: center;
+    .btn {
+      width: 30%;
+      &:first-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+  .modal-lg {
+    @include breakpoint (screen-large) {
+      width: 800px;
+    }
+  }
+}

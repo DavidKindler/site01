@@ -1,0 +1,71 @@
+// Mixin used instead of Extend to help with Media Query Issues
+// Wanting to define SCSS in one area for better maintainability
+
+//  Collapse Mobile
+//  Creates mobile styles for collapsed panels with arrow animations
+@mixin collapse-mobile {
+  margin-top: 20px;
+
+  > h2,
+  > h3:not(.ui-accordion-header) {
+    position: relative;
+    display: block;
+    padding: 12px 35px 12px 12px;
+    // padding-right: 35px;
+    font-weight: normal;
+    color: $cool-grey-dark;
+    text-align: left;
+    background-color: $cool-grey-xxlight;
+    border: 1px solid $cool-grey;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:after {
+      content: '\e3b2';
+      position: absolute;
+      top: 0.65em;
+      right: 0.5em;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      font-family: $font-family-icons;
+      font-size: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1;
+      speak: none;
+      background: none;
+      transition: all $animation-duration-fast $cubic-bezier-base;
+    }
+
+    ~ * {
+      display: none;
+    }
+  }
+
+  &.active > h2,
+  &.active > h3:not(.ui-accordion-header) {
+    &:after {
+      perspective: 900000px;
+      transform: rotateX(180deg);
+      z-index: 99;
+    }
+
+    ~ * {
+      display: block;
+    }
+  }
+} // end mixin
+
+@include breakpoint-max($screen-sm) {
+  .collapse-mobile {
+    @include collapse-mobile;
+  }
+}
+
+@include breakpoint-min-max($screen-sm, $screen-md) {
+  .iu-left.collapse-mobile {
+    @include collapse-mobile;
+  }
+}

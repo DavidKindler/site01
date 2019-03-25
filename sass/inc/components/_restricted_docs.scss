@@ -1,0 +1,23 @@
+// =========================
+// Component Name: Restricted Documents
+// =========================
+.myrestrictedDocs {
+  margin-bottom: 3em;
+  background-color: #f4f4f5;
+  padding: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  & table tbody {
+    background-color: white;
+  }
+}
+
+.recSoftTools {
+  background-color: white;
+  padding-right: 1em;
+  border-top: 1px solid #e6e5e4;
+}
+
+.recSoftTools .recSoftTools-item:first-child {
+  border-top: none;
+}

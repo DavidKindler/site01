@@ -1,0 +1,215 @@
+//  ---------------------------------------------------------------------------
+//  ::  Nav Wizard
+//  ::  Get Started Container
+//  ::  Jump To/Get Started Nav
+//  ---------------------------------------------------------------------------
+
+.nav-pills.nav-wizard {
+  display: block;
+  @include flexbox;
+  width: auto;
+  min-width: 100%;
+  overflow: auto;
+
+  > li {
+    @include flex(1,0,auto);
+    display: inline-block;
+    width: auto;
+    margin-right: 25px;
+    border: none;
+
+    &:first-of-type {
+      a {
+        border-radius: 4px 0 0 4px;
+        &:before { display: none; }
+      }
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+
+      a {
+        border-radius: 0 4px 4px 0;
+        &:after { display: none; }
+      }
+    }
+
+    a {
+      position: relative;
+      width: auto;
+      min-height: 40px;
+      margin-bottom: 0;
+      color: $white;
+      background: $warm-grey-light;
+      border: none;
+      border-color: $warm-grey-light;
+      border-radius: 0;
+
+      &:hover {
+        background: $cool-grey;
+        border-color: $cool-grey;
+      }
+
+      & ~ a,
+      &.active {
+        background: $nxp-blue;
+        border-color: $nxp-blue;
+
+        &:hover {
+//            background: #337ab7;
+//            border-color: #337ab7;
+          background: darken($nxp-blue, 20);
+          border-color: darken($nxp-blue, 20);
+        }
+      }
+
+      &:after,
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        // one pixel difference in order to hide gap that appears sometimes
+        // between <a> background and arrow tip/tails
+        border-left: 21px solid transparent;
+        border-bottom: 20px solid transparent;
+      }
+
+      &:before {
+        left: -20px;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+      }
+
+      &:after {
+        right: -20px;
+        border-left-color: inherit;
+      }
+      // a media queries
+      @include breakpoint(screen-small) {
+        min-height: 43px;
+
+        &:after,
+        &:before {
+          @include breakpoint(screen-small) {
+            border-top-width: 22px;
+            border-bottom-width: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//  Get Started Container
+//  --------------------------------------------------
+.get-started-container {
+  a.arrow-right {
+    position: relative;
+    display: inline-block;
+    min-width: 100px;
+    height: 28px;
+    margin-right: 15px;
+    text-decoration: none;
+    line-height: 28px;
+    background: #F9B500 !important;
+    border: none;
+    outline: none;
+  }
+
+  a.arrow-right:before {
+    content: "";
+    position: absolute;
+    right: -14px;
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-left: 14px solid $nxp-orange;
+    border-bottom: 14px solid transparent;
+  }
+
+  a.arrow-right button {
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+  }
+
+  *[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -75px;
+    height: 75px;
+    visibility: hidden;
+  }
+}
+
+//  Jump To/Get Started Nav
+//  --------------------------------------------------
+.jumptonav {
+  margin-top: -60px;
+  @extend .contextnav;
+
+  h2 {
+    margin-left: 10px;
+  }
+}
+
+.getstartednav {
+  > ul {
+    @extend .contextnav;
+  }
+  @include breakpoint(screen-medium) {
+    margin-top: -60px;
+
+    h2 {
+      margin-left: 10px;
+    }
+  }
+}
+// .jumptonav, .getstartednav {margin-top: -60px;}
+
+.getstartednav.affix,
+.jumptonav.affix {
+  position: relative;
+  margin-top: 0;
+  top: 0;
+  padding: 10px 0;
+  background-color: $white;
+  z-index: 0;
+  @include breakpoint(screen-medium) {
+    position: fixed;
+    width: 212px;
+    z-index: 2;
+  }
+  @include breakpoint(screen-large) {
+    width: 262px;
+  }
+}
+
+.arrownav {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 10px;
+
+  &.affix {
+    top: 0;
+    //  calc size matches column padding
+    width: calc(100% - 60px);
+    background: $white;
+    z-index: 1;
+
+    @include breakpoint(screen-small) {
+      width: calc(100% - 190px);
+    }
+
+    @include breakpoint(screen-medium) {
+      width: calc(75% - 95px);
+      max-width: 862px;
+    }
+  }
+}

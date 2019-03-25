@@ -1,0 +1,33 @@
+.webinarTraining {
+  margin-bottom: .625em;
+
+  &-items {
+    @include nobullets;
+    margin-bottom: 0;
+
+    .webinarTraining-title {
+      display: block;
+      margin-bottom: .5em;
+    }
+
+    .webinarTraining-description {
+      display: block;
+    }
+
+    li:not(.webinarTraining-title):not(.webinarTraining-description) {
+      display: inline;
+      margin-right: 1em;
+      color: $cool-grey;
+    }
+  }
+
+  td:nth-of-type(2),
+  td:nth-of-type(3) {
+    text-align: center;
+  }
+
+  td:nth-of-type(3),
+  th,  {
+    white-space: nowrap;
+  }
+}

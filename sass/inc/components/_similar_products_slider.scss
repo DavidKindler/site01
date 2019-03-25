@@ -1,0 +1,128 @@
+// =========================
+// Component Name:  Similar Products Slider
+// Description:     A filmstrip (carousel) component using jQuery Cycle 2 (http://jquery.malsup.com/cycle2/).  
+//                  Adaptive component with an experience for mobile to tablet and a desktop experience.
+// =========================
+// MOBILE VERSION
+.similarProduSlider-mobile {
+	.content {
+		display: block;
+	}
+}
+
+// DESKTOP VERSION
+.similarProduSlider-desktop {
+	margin-bottom: 2em;
+	position: relative;
+	&.nopager{	
+		margin-bottom: 30px;
+		.cycle-slide {
+			@media (min-width: $vp-small) {
+				width: calc(750px - 250px - 30px); // content area - contextnav - row/col space
+			}
+			@media (min-width: $vp-medium) {
+				width: calc(970px - 300px - 30px);
+			}
+			@media (min-width: $vp-large) {
+				width: calc(1170px - 300px - 30px);
+			}
+		}
+	}
+  .cycle-slide {
+		@media (min-width: $vp-small) {
+			width: calc(750px - 250px - 30px - 6em); // content area - contextnav - row/col space - container margin
+		}
+		@media (min-width: $vp-medium) {
+			width: calc(970px - 300px - 30px - 6em);
+		}
+		@media (min-width: $vp-large) {
+			width: calc(1170px - 300px - 30px - 6em);
+		}
+	}
+	$spacing: 20px;
+	.content { 
+		overflow-wrap: break-word;
+		vertical-align: top;
+		display: inline-block;
+		width: calc(50% - 10px);
+		white-space: normal;
+		@include breakpoint(screen-smallest) {
+			width: calc(25% - #{$spacing});
+			margin-right: $spacing;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	} // content
+	.similar-products-caption {
+		padding: .25em 0 2em;
+		white-space: initial;
+		font-size: 14px;
+	}
+	.cycle-slideshow {
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+	.cycle-slideshow div:first-child {
+		display: inline-block;
+	}
+	.-overlay {
+		position: absolute;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		padding: .25em .5em;
+		background: rgba(0, 0, 0, .25);
+		color: white;
+	}
+	.-prevNextButtons {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		pointer-events: none;
+		z-index: 3;
+		.btn {
+			display: inline-block;
+			padding: 0;
+			pointer-events: all;
+			border-radius: 32px;
+			background-color: $pager-btn-color;
+			&:hover {
+				background-color: $pager-btn-color-hover;
+			}
+		}
+		.icon-angle-left,
+		.icon-angle-right {
+			font-weight: 700 !important;
+			font-size: 20px;
+			width: 32px;
+			height: 32px;
+			line-height: 30px;
+		}
+		.icon-angle-left:before {
+			margin-right: 1px;
+		}
+		.icon-angle-right:before {
+			margin-left: 3px;
+		}
+		.btn:last-of-type {
+			float: right;
+		}
+	}
+	.similarProdpager {
+		font-size: 3em;
+		color: $cool-grey-xlight;
+		text-align: center;
+		height: 1em;
+		span{
+			display: inline-block !important;
+			&.cycle-pager-active {
+				color: $cool-grey-xdark;
+			}
+		}
+		 
+	}
+}

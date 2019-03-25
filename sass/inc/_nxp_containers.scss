@@ -1,0 +1,95 @@
+//  copying Bootstrap classes in order to %extend for container-fluid
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+//  Making container-fluids just like container
+.iw_viewport-wrapper .container-fluid {
+  @extend .container;
+  //  assumes header is always first & footer is always last container-fluid
+  &:first-of-type, &:last-of-type {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+//  Column Styling to mimick Bootstrap Responsiveness
+.iw_viewport-wrapper > .container-fluid > .iw_row > .iw_columns {
+  //  Mixin for setting column float & widths
+  $columns: 12;
+  @mixin col-lg-x {
+    @include breakpoint(screen-small) {
+      @for $i from 1 through $columns {
+        &.col-lg-#{$i} {
+          float: left;
+          width: calc((#{$i}/12) * 100%);
+        }
+      }
+    }
+  }
+  @include col-lg-x;
+
+  //  Setting Standard Layout of col-3 / col-9 for wider Left Column
+  &.col-lg-3 {
+    //  hidden on mobilez
+    display: none;
+    //  sets base with on tablet sizes
+    @include breakpoint(screen-small) {
+      display: initial;
+      float: left;
+      width: 245px;
+    }
+    //  increases size at max-width (lg)
+    @include breakpoint(screen-large) {
+      width: 295px;
+    }
+  }
+
+  &.col-lg-9 {
+    //  full width minus left colum size
+    @include breakpoint(screen-small) {
+      float: left;
+      width: calc(100% - 245px);
+    }
+    //  full width minus left colum size
+    @include breakpoint(screen-large) {
+      width: calc(100% - 295px);
+    }
+  }
+  //  Right column sub-columns styling
+  //  only moves breakpoint from LG to MD
+  @mixin col-md-x {
+    @include breakpoint(screen-medium) {
+      @for $i from 1 through $columns {
+        &.col-lg-#{$i} {
+          float: left;
+          width: calc((#{$i}/12) * 100%);
+        }
+      }
+    }
+  }
+
+  .iw_columns {
+    @include col-md-x;
+  } // end nested .iw_columns
+} //  end iw_columns

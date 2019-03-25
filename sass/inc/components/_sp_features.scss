@@ -1,0 +1,74 @@
+// ----------------------------------------------------------------------
+// SP Features Table (Features | TSP)
+// ----------------------------------------------------------------------
+
+.legacy-features {
+	.panel-default {
+		background-color: transparent;
+		box-shadow: none;
+		border: 0;
+	
+		.panel-collapse {
+			display: block;
+		}
+		
+		h3 {
+			a {
+				cursor: default;
+				color: #000;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.sp-features {
+  border:1px solid $border-color-base;
+  padding:15px;
+  background-color:#fff;
+
+  @include breakpoint($screen-md) {
+    padding:$grid-gutter-width
+  }
+
+  .sp-features-img {
+    max-width:60px;
+    min-width:60px;
+  }
+
+  .recommendedProducts-category{
+    strong {
+      display:block;
+    }
+    img {
+      display:block;
+      max-width:90px;
+      min-width:70px;
+      padding-top:15px;
+    }
+  }
+
+  &-bordered {
+
+    & > li {
+      padding-top:5px;
+		  padding-left:0;
+      &:before {
+        content:none;
+      }
+    }
+
+    & > li:not(:first-child) {
+      border-top:1px solid $border-color-base;
+    }
+  }
+
+  .table > tbody > tr > td{
+    border-top:0;
+    //white-space:normal;
+  }
+  .table > tbody > tr:not(:first-child) > td{
+    border-top:1px solid $border-color-base;
+  }
+
+}

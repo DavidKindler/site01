@@ -1,0 +1,173 @@
+// =========================
+// Component Name:  Other Recommended Slider
+// Description:     A filmstrip (carousel) component using jQuery Cycle 2 (http://jquery.malsup.com/cycle2/).  
+//                  Adaptive component with an experience for mobile to tablet and a desktop experience.
+// =========================
+// MOBILE VERSION
+.othRecProduSlider-mobile {
+	.content {
+		display: block;
+	}
+}
+//fix merged component
+#compl_prod_section_main.collapse-mobile:not(.active) + .other-recommended-products > #othRecProduSlider-desktop > .mobile-show > * {
+    display: none;
+}
+// DESKTOP VERSION
+.othRecProduSlider-desktop {
+	margin-bottom: 2em;
+	position: relative;	
+	&.nopager{	
+		margin-bottom: 30px;
+		.cycle-slide {
+			@media (min-width: $vp-small) {
+				width: calc(750px - 250px - 30px); // content area - contextnav - row/col space
+			}
+			@media (min-width: $vp-medium) {
+				width: calc(970px - 300px - 30px);
+			}
+			@media (min-width: $vp-large) {
+				width: calc(1170px - 300px - 30px);
+			}
+		}
+	}
+	.cycle-slide {
+		@media (min-width: $vp-small) {
+			width: calc(750px - 250px - 30px - 6em); // content area - contextnav - row/col space - container margin
+		}
+		@media (min-width: $vp-medium) {
+			width: calc(970px - 300px - 30px - 6em);
+		}
+		@media (min-width: $vp-large) {
+			width: calc(1170px - 300px - 30px - 6em);
+		}
+	}
+	$spacing: 20px;
+	.content {	
+		overflow-wrap: break-word;
+		vertical-align: top;
+		display: inline-block;
+		width: calc(50% - 10px);
+		white-space: normal;
+		@include breakpoint(screen-smallest) {
+			width: calc(25% - #{$spacing});
+			margin-right: $spacing;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	} // content
+	.other-recommended-products-caption {
+		padding: .25em 0 2em;
+		white-space: initial;
+		font-size: 14px;
+	}
+	.complimentary-products-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 140px;
+		width: 100%;
+		overflow: hidden;
+
+		img {
+			width: auto;
+			min-width: 1px;
+			max-width: 100%;
+			height: auto;
+			max-height: 100%;
+		}
+
+		// added for NXP logo in SVG format
+		// would 'suqeeze' sizing in IE11 since width/height declared in SVG
+		img[src$=".svg"] {
+			width: 40%;
+			height: auto;
+		}
+
+		@include breakpoint(screen-smallest) {
+			height: 110px;
+		}
+
+		@include breakpoint(screen-small) {
+			height: 100px;
+		}
+
+		@include breakpoint(screen-medium) {
+			height: 120px;
+		}
+
+		@include breakpoint(screen-large) {
+			height: 140px;
+		}
+	}
+	.cycle-slideshow {
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+	.cycle-slideshow div:first-child {
+		display: inline-block;
+	}
+	.-overlay {
+		position: absolute;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		padding: .25em .5em;
+		background: rgba(0, 0, 0, .25);
+		color: white;
+	}
+	.-prevNextButtons {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		pointer-events: none;
+		z-index: 3;
+		.btn {
+			display: inline-block;
+			padding: 0;
+			pointer-events: all;
+			border-radius: 32px;
+			background-color: $pager-btn-color;
+			&:hover {
+				background-color: $pager-btn-color-hover;
+			}
+		}
+		.icon-angle-left,
+		.icon-angle-right {
+			font-weight: 700 !important;
+			font-size: 20px;
+			width: 32px;
+			height: 32px;
+			line-height: 30px;
+		}
+		.icon-angle-left:before {
+			margin-right: 1px;
+		}
+		.icon-angle-right:before {
+			margin-left: 3px;
+		}
+		.btn:last-of-type {
+			float: right;
+		}
+	}
+	
+	.othRecProdpager {
+		font-size: 3em;
+		height: 1em;
+		color: $cool-grey-xlight;
+		text-align: center;
+		span{
+			display: inline-block !important;
+			&.cycle-pager-active {
+				color: $cool-grey-xdark;
+			}
+		}
+		> *{
+			cursor: pointer;
+		}
+	}
+}

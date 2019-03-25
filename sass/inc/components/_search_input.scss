@@ -1,0 +1,85 @@
+// ----------------------------------------------------------------------
+// Search Input
+// ----------------------------------------------------------------------
+
+//
+// *** update padding values for search icon
+//
+
+// container: goes inside of form-group if used with a label
+.input-group-search {
+  display: flex;
+  align-self: flex-end; // aligns input to bottom of text
+  flex-grow: 1;
+  min-width: (100% / 3);
+  // if used with other items, this keeps it from collapsing too far (SRPs)
+
+  // Icon (to left)
+  .search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    flex-shrink: 0;
+    width: auto;
+    padding: 14px;
+
+    @include breakpoint-max($screen-sm) {
+      display: none; // hide search icon on mobile screens
+    }
+
+    .icon-search {
+      color: $nxp-body-text;
+      // padding: 10px 0px 10px 20px;
+      font-size: 17px;
+      // background-color: $white;
+      // border: 1px solid $input-border;
+      // border-right: none;
+      // border-radius: $border-radius-base 0 0 $border-radius-base;
+    }
+  }
+
+  &.input-group-lg .icon-search {
+    // padding: 18px 0px 18px 20px;
+  }
+
+  // Button Example
+  .btn-search-icon {
+    padding-right: 0;
+    font-family: $font-family-icons;
+    border: 1px solid $input-border;
+    border-right: none;
+  }
+
+  // Input
+  .search-input {
+    padding-left: 10px;
+    border: 1px solid $input-border !important;
+    border-right: none;
+    // border-color: $input-border;
+    border-radius: $border-radius-base 0 0 $border-radius-base;
+    caret-color: $nxp-body-text;
+
+    &:hover {
+      // border-color: $input-border; // removes standard form styles
+    }
+    &:focus {
+      // border-color: $input-border; // removes standard form styles
+    }
+
+    @include breakpoint($screen-sm) {
+      padding-left: 45px;
+    }
+  }
+
+  // Submit button container
+  .search-btn {
+    flex-shrink: 0;
+    width: auto;
+
+    .btn-search {
+      @extend .btn;
+      // @include button-primary;
+    }
+  }
+}

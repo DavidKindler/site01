@@ -1,0 +1,187 @@
+// Unordered and Ordered lists
+// ------------------------------
+ul,
+.list-unstyled,
+.list-unstyled ol {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+ol {
+  padding-left: 1.375em;
+  list-style-type: decimal;
+  ol {
+    list-style-type: lower-alpha;
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+ul,
+ol {
+  margin-top: 0;
+  //margin-bottom: ($line-height-computed / 2);
+  li {
+    //margin-bottom: ($line-height-computed / 2);
+    li {
+      margin-bottom: 0;
+    }
+  }
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// Unordered lists
+// ------------------------------
+ul > li {
+  padding-left: 1.25em;
+  position: relative;
+}
+
+.list-inline > li {
+  // padding-left: 0; // ul has negative margin left (-5px), padding accounts for this
+}
+
+ul.list-unstyled li {
+  padding-left: 0;
+}
+
+.compressed li {
+  margin-bottom: 0;
+}
+
+// Column lists
+// ------------------------------
+// A vertical list gets displayed in equal columns after certain breakpoints
+
+// TODO: Remove list-columns since we use css columns below in the columns() mixin
+// This breakpoint a bit before the defacto tablet
+@media screen and (min-width: 640px) {
+  ul.list-columns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul.list-columns > li {
+    padding-right: 1em;
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  ul.list-columns > li {
+    padding-right: 2em;
+    flex-basis: 33.3333333%;
+  }
+}
+
+//  Columns using CSS columns
+.columns {
+  //  defaults set at count: auto, gap: 1em, width: 220px
+  @include columns();
+}
+
+// Unordered list boxes
+// ------------------------------
+ul > li:before {
+  font-family: 'icomoon';
+  content: '\e431';
+  color: $cool-grey-light;
+  font-size: 0.4em;
+  line-height: 0;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: (2.2em * 1.428/2); // Vertically centered
+}
+
+ul ul > li:before {
+  content: '\e387';
+  color: $cool-grey-dark;
+}
+
+.list-unstyled li:before,
+.list-inline li:before {
+  content: none;
+}
+
+// Override default list styling (list fix)
+[class*='nav'] li,
+[class*='menu'] li {
+  padding-left: 0;
+
+  &:before {
+    content: none;
+  }
+}
+
+// Group Lists
+// ------------------------------
+.group-module {
+  width: 100%;
+
+  @media screen and (min-width: $screen-sm) {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(50% - 23px); // Cannot be 22.5px due to Safari rounding
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+
+    &:nth-child(odd) {
+      margin-left: 15px;
+    }
+
+    &:nth-child(even) {
+      margin-right: 15px;
+    }
+  } // end media query
+}
+
+@media screen and (max-width: $screen-md) {
+  .mdwrap {
+    margin-bottom: 0;
+  }
+}
+
+.bottom-5 {
+  margin-bottom: -5px;
+}
+
+// Component Adjustments
+// ------------------------------
+.communityDiscussions li {
+}
+h2.list-header {
+  // font-size: 1.8rem;
+  // Removed - let fonts.scss handle heading sizes
+
+  @media screen and (min-width: $screen-sm) {
+    // font-size: 2rem;
+  }
+}
+
+// ------------------------------
+// Legacy - Check usage
+// ------------------------------
+#descSectionDiv ul {
+  list-style: none;
+}
+#descSectionDiv ul li {
+  margin: 0;
+  padding-left: 1em;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAF0lEQVQIHWP8uZXhPwMWwIRFDCxEDwkAjygCuZMRiw4AAAAASUVORK5CYII=)
+    no-repeat 0px 7px;
+
+  ul {
+    padding-left: 0px;
+  }
+  ul li {
+    list-style-type: none;
+    padding-left: 0.8em;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAF0lEQVQIHWOcPn3mfwYkwITEBjMJCwAAtmACzss/xusAAAAASUVORK5CYII=')
+      no-repeat 0px 7px;
+  }
+}

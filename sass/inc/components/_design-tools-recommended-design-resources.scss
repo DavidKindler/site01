@@ -1,0 +1,174 @@
+// ----------------------------------------------------------------------
+// Recommended design resources info component
+// ----------------------------------------------------------------------
+
+.design-res {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+
+  &-rev {
+    color: #4a4a4d;
+    font-size: $font-size-base;
+    font-weight: normal;
+  }
+
+  &-heading {
+    margin-top: 0;
+  }
+
+  &-item {
+    display: flex;
+    padding-top: $padding-component-base-inner;
+    padding-bottom: $padding-component-base-inner;
+
+    & + & {
+      border-top: 1px solid $border-color-base;
+    }
+	
+	.icon-arrow-down6 {
+		font-size: 60px;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+  }
+
+  &-img {
+    display: none;
+    max-width: 95px;
+    margin-right: 15px;
+    margin-bottom: 0.5em;
+	width:95px;
+
+    img {
+      width: 80px;
+    }
+
+    @include breakpoint($screen-sm) {
+      display: block;
+    }
+	
+	a {
+		color: #4a4a4d;
+	}
+  }
+
+  &-content {
+    display: block;
+    width: 100%;
+
+    @include breakpoint($screen-sm) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .exclude {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+    }
+
+    .design-res-more-details {
+      .well {
+        margin-bottom: 0;
+
+        ul li {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+  }
+
+  &-desc {
+    font-size: $font-size-base;
+
+    p {
+      // margin: 0;
+    }
+
+    .rhide {
+      display: none;
+    }
+    .rshow {
+      display: inline;
+    }
+  }
+
+  &-details {
+    color: $cool-grey;
+    font-size: $font-size-small;
+
+    p {
+      margin: 0;
+    }
+	
+	span[class^="icon"] {
+		margin-right: .25em;
+	}
+	
+	.newline{
+		width:100%;
+	}
+  }
+
+  &-actions {
+    width: 100%;
+
+    a {
+      display: block;
+      margin-top: 5px;
+    }
+
+    @include breakpoint($screen-sm) {
+      width: 25%;
+    }
+
+    @include breakpoint($screen-md) {
+      width: 20%;
+    }
+
+    .icon-arrow-down2 {
+      transition: all $animation-duration-fastest $cubic-bezier-base;
+      transform: rotate(-180deg);
+    }
+
+    .collapsed {
+      .icon-arrow-down2 {
+        transform: rotate(0deg);
+      }
+    }
+	
+	.btn {
+		span[class^="icon"] {
+			margin-right: .25em;
+		}
+	}
+  }
+
+  &-action-details {
+    font-size: $font-size-small;
+  }
+
+  &-more-details {
+    font-size: $font-size-small;
+    margin-top: 5px;
+  }
+
+  &-info {
+    width: 100%;
+    padding-right: 0;
+
+    @include breakpoint($screen-sm) {
+      width: 75%;
+      padding-right: $grid-gutter-width;
+    }
+
+    @include breakpoint($screen-md) {
+      width: 80%;
+      padding-right: $grid-gutter-width;
+    }
+  }
+}

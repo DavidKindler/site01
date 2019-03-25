@@ -1,0 +1,40 @@
+.overlay .img-heading {
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay .img-heading > h4 {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: .5em 1em;
+  overflow: hidden;
+  color: white;
+  background: rgba(0, 0, 0, 0.66);
+//  font-family: 'lato', arial, sans-serif;
+//  font-weight: 700;
+//  font-size: 14px;
+//  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.overlay .img-heading > h4 a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.overlay .img-heading > h4 a:after {
+    content: '\f109';
+    font-family: "icomoon";
+    padding-left: 3px;
+    vertical-align: bottom;
+}
+
+.overlay .img {
+  max-width: 100%;
+  height: auto !important;
+}

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `My first Gatsby site`,
-    description: `Description of gatsby site`,
+    title: `Web Branding`,
+    description: `NXP Web Branding Guidelines and Component Descriptions`,
     author: `@kindlerdavid`,
   },
   plugins: [
@@ -11,8 +11,28 @@ module.exports = {
         // Accepts all options defined by `babel-plugin-emotion` plugin.
       },
     },
+    "gatsby-plugin-sass",
+    // {
+    //   resolve: `gatsby-plugin-sass`,
+    //   options: {
+    //     includePaths: [`${__dirname}/sass`],
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `components`,
+        path: `${__dirname}/components`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `patters`,
+        path: `${__dirname}/patterns`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

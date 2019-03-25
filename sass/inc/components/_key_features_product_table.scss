@@ -1,0 +1,155 @@
+// =========================
+// Component Name: Key Features Product Table
+// Component Type: Table
+// =========================
+.keyFeaturesProductTable-wrapper {
+  .summary {
+    position: relative;
+    display: block;
+    padding: 0.5em;
+    color: $white;
+    text-align: center;
+    background-color: $cool-grey-xdark;
+    border-bottom: 2px solid $table-border-color;
+  }
+}
+
+.table.keyFeaturesProductTable {
+  @include table-bordered();
+
+  // trick to keep span background to appear full width to repsonsive table
+  .table-responsive & {
+    @include breakpoint-max($screen-sm) {
+      box-shadow: 0 -2px 0 0 $table-border-color, 0 -300px 0 0 $cool-grey-xdark;
+    }
+  }
+
+  // added specificity to override Bootstrap table styles
+  > thead {
+    > tr {
+      > th {
+        vertical-align: middle;
+        font-size: 12px;
+        // mirror subheader color styles for tables missing markup
+        color: $white;
+        background-color: $cool-grey;
+        border-color: $cool-grey-xxlight;
+        border-top: none;
+
+        @include breakpoint($screen-sm) {
+          text-align: center;
+        }
+      }
+
+      // mirror header color styles for tables missing markup
+      // &:nth-child(odd)
+      &:first-of-type:not(:last-of-type) {
+        th {
+          border-bottom: none;
+          background-color: $cool-grey-dark;
+        }
+      }
+    }
+  }
+
+  > tbody {
+    > tr {
+      > td {
+        font-size: 12px;
+        vertical-align: top;
+
+        &:empty {
+          color: $cool-grey;
+
+          &:before {
+            content: '-';
+          }
+        }
+      }
+    }
+  }
+
+  .categoryHeaders {
+    > th {
+      font-weight: normal;
+      color: $white;
+      text-align: center;
+      background-color: $cool-grey-dark;
+      border-bottom: none;
+      border-color: $cool-grey-xxlight;
+    }
+  }
+
+  .categorySubHeaders {
+    > th {
+      color: $white;
+      background-color: $cool-grey;
+      border-top: none;
+      border-color: $cool-grey-xxlight;
+    }
+  }
+
+  .name {
+    font-family: $headings-font-family;
+    font-size: 1.5em;
+    font-weight: $font-weight-heavy;
+    color: $nxp-deep-orange;
+
+    &:after {
+      content: $icon-angle-right;
+      display: inline-block;
+      vertical-align: text-bottom;
+      margin-left: 0.25em;
+      font-family: $font-family-icons;
+    }
+  }
+
+  .name-na {
+    font-family: $headings-font-family;
+    font-size: 1.5em;
+    font-weight: $font-weight-heavy;
+    color: $nxp-deep-orange;
+  }
+
+  .icon-checkmark3 {
+    width: 100%;
+    color: $nxp-aqua;
+    text-align: center;
+  }
+  // hack the last th to wrap (bug)
+  .tablesaw-cell-label {
+    white-space: normal;
+  }
+  // hide the top th row on mobile
+  .tablesaw-cell-label-top {
+    display: none !important;
+  }
+  // this makes the vertical th headers.
+  // We fix the inconsistent behaviors across browsers with extra markup (th > div > span)
+  // http://stackoverflow.com/questions/4564638/using-position-relative-absolute-within-a-td
+  @include breakpoint($screen-lg) {
+    max-width: $screen-lg;
+    overflow-x: hidden;
+
+    .tdticks {
+      text-align: left;
+
+      div {
+        position: relative;
+        height: 110px;
+      }
+
+      span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        display: block;
+        width: 100%;
+        font-weight: normal;
+        white-space: nowrap;
+        transform: rotate(-90deg);
+        transform-origin: left;
+      }
+    }
+  }
+}

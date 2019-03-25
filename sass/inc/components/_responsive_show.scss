@@ -1,0 +1,30 @@
+.mobile-show {
+   display:block;
+}
+.OverviewTabContent{
+	.desktop-show {
+	   > h2:not(#features) {
+			border-top: 1px solid #eee;
+			padding-top: 2em;
+			margin-top: 2em;
+		}
+	}
+	/*.related-products{
+		&.first-related-products{	
+			.desktop-show {
+				> h2{		
+					border-top:0 !important;
+					margin-top: 0 !important;
+					padding-top: 0 !important;
+				}
+			}
+		}
+	}*/
+}
+
+@media (min-width:768px){
+  .mobile-show {display:none;}
+}
+@media (max-width:767px){
+  .desktop-show {display:none;}
+}

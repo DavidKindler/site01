@@ -1,0 +1,63 @@
+#communities {
+  // Search Bar
+  .community-search-container {
+    @include breakpoint(screen-small) {
+      width: 50%;
+      margin: -36px 0 0 50%;
+
+      .form-group, label { margin-bottom: 0; }
+    }
+  }
+
+  // Community List Item
+  .community-item {
+    .community-icon {
+      display: inline-block;
+      width: auto;
+      padding: 0 5px 0 0;
+      margin-top: 18px;
+      vertical-align: top;
+      font-size: 1em;
+      text-align: center;
+
+      span {
+        vertical-align: top;
+      }
+
+      @include breakpoint(screen-small) {
+        padding: 0 15px;
+        font-size: 50px;
+      }
+    }
+
+    .community-info {
+      display: inline-block;
+      width: calc(100% - 30px);
+
+      @include breakpoint(screen-small) {
+        width: calc(100% - 100px);
+      }
+
+      .community-title {
+        .community-post-count {
+          display: inline-block;
+        }
+      }
+
+      .community-list-container {
+        .community-list {
+          dt { display: inline-block; }
+
+          dd {
+            display: inline;
+
+            &:after {
+              content: "";
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

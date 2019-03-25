@@ -1,0 +1,421 @@
+// ----------------------------------------------------------------------
+// Table of Contents:
+// :: Component variables and animations
+// :: Main Container
+// :: Nav Clearing Area: close button
+// :: Nav Header: Filters title and selected filters list
+// :: List Heading
+// :: Filter Nav Lists
+// :: Filter Nav List items (standard, parent, selected)
+// :: More link
+// :: Filter Nav Sub Lists
+// :: Filter Nav Checkbox Lists
+// ----------------------------------------------------------------------
+// Variables and Animations
+// ----------------------------------------
+//
+// base sizes
+$nav-vert-base: 7px;
+$nav-horiz-base: 12px;
+// large sizing
+$nav-vert-large: 10px; // for mobile touch points
+$nav-horiz-large: 15px;
+// xl sizing?
+$nav-vert-xlarge: 15px;
+
+// ----------------------------------------------------------------------
+// Nav Prefixed Items
+// ----------------------------------------------------------------------
+//
+
+.nav {
+  // Main Container
+  // ----------------------------------------
+  &-container {
+    // make column full height for right border
+    min-height: 100%;
+    // provide space bottom mobile screens
+    padding-bottom: $padding-component-base-vertical;
+    font-size: $font-size-base;
+    border-right: 1px solid $border-color-base;
+
+    // these styles require container to be hidden and revealed by button click
+    @include breakpoint-max($screen-sm) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: 1000;
+      width: 90%;
+      height: 100%;
+      background: $cool-grey-xxxlight;
+      box-shadow: none;
+      transform: translateX(100%);
+      transition: all $animation-duration-base $cubic-bezier-base;
+    }
+
+    &.is-open {
+      transform: translateX(0);
+      box-shadow: -80px 0 0 0 rgba($absolute-black, 0.6);
+    }
+  }
+
+  // Nav Clearing, close button
+  // ----------------------------------------
+  &-clearing {
+    display: flex;
+    justify-content: center;
+    padding: ($grid-gutter-width / 2);
+    border-bottom: 1px solid $border-color-divider;
+
+    @include breakpoint($screen-sm) {
+      display: none; // may not be necessary, React wont render if not mobile?
+    }
+  }
+  // Nav Close button
+  // ----------------------------------------
+  &-close {
+    // use @extend for button?
+    // @include button($after: false);
+    // @include button-default($variant-icon: null);
+    @extend .btn;
+    display: block;
+    width: 50%;
+  }
+
+  // Nav Header
+  // ----------------------------------------
+  &-header {
+    display: flex;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    // color: $headings-color; needed? it equals inherit
+    text-transform: none;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-component-base-inner $grid-gutter-width-half;
+    border-bottom: 1px solid $border-color-divider;
+
+    @include breakpoint($screen-sm) {
+      // 38 number matches height of input section in right col
+      padding-top: 38px;
+      padding-bottom: 38px;
+      padding-left: $grid-gutter-width;
+      // margin-bottom: $nav-vert-xlarge;
+    }
+  }
+
+  // Nav Heading
+  // ----------------------------------------
+  &-heading {
+    // inline-block & width 50% for non-flex browsers
+    display: inline-block;
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  // Clear Filters Link
+  // ----------------------------------------
+  &-clear-filters {
+    // inline-block & width 48% for non-flex browsers
+    display: inline-block;
+    width: 48%;
+    text-align: right;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+//
+// Selected Filters
+// ----------------------------------------
+//
+.selected-filters {
+  padding-left: $padding-base-horizontal;
+  margin-top: $padding-component-base-inner;
+  margin-bottom: 0;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    &:before {
+      content: $icon-close;
+      vertical-align: bottom;
+      margin-left: -16px;
+      font-family: $font-family-icons;
+    }
+  }
+
+  .is-keyword {
+    // &:after {
+    //   content: $icon-search;
+    //   vertical-align: baseline;
+    //   margin-left: 5px;
+    //   font-family: $font-family-icons;
+    //   font-size: 65%;
+    // }
+  }
+}
+
+//
+// List Container
+// ----------------------------------------
+//
+.filter-nav-inner {
+  padding-top: 20px;
+
+  @include breakpoint-max($screen-sm) {
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+
+    .header-search & {
+      display: none;
+    }
+  }
+}
+
+//
+// List Headings
+// ----------------------------------------
+//
+.filter-nav-heading {
+  position: relative;
+  padding: $grid-gutter-width-half;
+  margin-top: $padding-component-base-inner;
+  margin-bottom: 0;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  color: $headings-color;
+  border: 1px solid rgba($absolute-black, 0.1);
+
+  &:after {
+    content: $icon-angle-down;
+    position: absolute;
+    top: 50%;
+    right: $grid-gutter-width-half;
+    transform: translateY(-50%);
+    font-family: $font-family-icons;
+  }
+
+  &.is-active {
+    border-bottom: none;
+
+    &:after {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+  }
+
+  // Desktop display styles
+  @include breakpoint($screen-sm) {
+    padding: $nav-vert-base $nav-horiz-base $nav-vert-base $grid-gutter-width;
+    margin-top: 0;
+    font-size: $font-size-small;
+    font-weight: $font-weight-heavy;
+    // color: $cool-grey-light;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: none;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+//
+// Filter Nav Lists
+// ----------------------------------------
+.filter-nav {
+  // --------------------
+  // scoped variables defined here for $touchpoint math
+  $font-size: $font-size-base;
+  $line-height: 1.25; // used with 16px makes text 20px high
+  $text-height: ($font-size * $line-height);
+  // --------------------
+  @include breakpoint-max($screen-sm) {
+    display: none;
+    border: 1px solid rgba($absolute-black, 0.1);
+    border-top: none;
+  }
+
+  // Filter Nav List Items (standard, parent, selected)
+  // ----------------------------------------
+  &-item {
+    margin-bottom: 0;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    // scoped variables defined above [$text-height, $line-height]
+    padding: (($touchpoint - $text-height) / 2) $grid-gutter-width-half;
+    padding-left: ($grid-gutter-width-half + $nav-horiz-base);
+    color: $text-color;
+    // set lh to round value for easier height setting 16px = 20
+    line-height: $line-height;
+
+    &:hover {
+      // color: $link-hover-color;
+      color: $deep-orange;
+      text-decoration: none;
+      background-color: $border-color-base;
+    }
+
+    @include breakpoint($screen-sm) {
+      padding: $nav-vert-base $nav-horiz-base;
+      padding-left: ($grid-gutter-width + $nav-horiz-base);
+
+      .header-search & {
+        padding-left: $nav-horiz-base;
+      }
+    }
+  }
+
+  // More/Less links
+  .more-filters-link {
+    color: $link-color;
+
+    &:after {
+      content: $icon-angle-down;
+      display: inline-block;
+      vertical-align: text-top;
+      margin-left: 5px;
+      font-family: $font-family-icons;
+      font-weight: inherit;
+      transition: transform $animation-duration-fast $cubic-bezier-base;
+    }
+
+    &:hover {
+      color: $link-hover-color;
+      background-color: transparent;
+    }
+
+    &.is-open {
+      &:after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  // &.is-parent
+  .is-parent {
+    a {
+      padding-left: $grid-gutter-width-half;
+      // font-weight: $font-weight-heavy;
+      color: $headings-color;
+
+      @include breakpoint($screen-sm) {
+        padding-left: $grid-gutter-width;
+      }
+
+      &:before {
+        content: $icon-angle-left;
+        vertical-align: text-bottom;
+        margin-right: 5px;
+        font-family: $font-family-icons;
+        font-weight: inherit;
+      }
+    }
+  }
+
+  // was above in &.is-selected (not necessary)
+  .selected-label {
+    display: block;
+    padding: $nav-vert-base $nav-horiz-base;
+    padding-left: ($grid-gutter-width-half + $nav-horiz-base);
+    font-weight: bold;
+    color: $headings-color;
+    cursor: default;
+
+    @include breakpoint($screen-sm) {
+      padding-left: ($grid-gutter-width + $nav-horiz-base);
+    }
+  }
+
+  // Checkboxes
+  .checkbox {
+    padding: (($touchpoint - ($font-size-base * 1.25)) / 2) $nav-horiz-large;
+    padding-left: ($grid-gutter-width-half + $nav-horiz-large);
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.25;
+
+    @include breakpoint($screen-sm) {
+      padding: $nav-vert-base $nav-horiz-base;
+      padding-left: ($grid-gutter-width + $nav-horiz-base);
+    }
+
+    label {
+      &:hover {
+        color: $link-color;
+      }
+    }
+
+    input[type='checkbox'] {
+      // move styles into general 'forms' file?
+      // appearance: none;
+      top: 0.5em;
+      // width: $font-size-small;
+      // height: $font-size-small;
+      // border: 1px solid $cool-grey-xxxlight;
+      // border-radius: $border-radius-base;
+    }
+
+    input:checked {
+      // use background image for custom checkbox?
+      // background-color: $link-color;
+      // border: 1px solid $link-color;
+    }
+  }
+
+  // Sub Menus
+  // ----------------------------------------
+  &-sub {
+    display: block; // counter filter-nav styles
+    margin-top: 0;
+    border-bottom: none; // counter filter-nav styles
+
+    .checkbox,
+    a {
+      padding-left: ($grid-gutter-width-half + ($nav-horiz-base * 2));
+
+      @include breakpoint($screen-sm) {
+        padding-left: ($grid-gutter-width + ($nav-horiz-base * 2));
+      }
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  margin-left: -#{$grid-gutter-width-half};
+  margin-right: -#{$grid-gutter-width-half};
+  // padding: $padding-base-vertical $grid-gutter-width-half;
+  padding: $padding-component-base-inner ($grid-gutter-width / 2);
+  border-bottom: 1px solid $border-color-base;
+
+  @include breakpoint($screen-sm) {
+    display: none;
+  }
+
+  .filter-return {
+    color: $headings-color;
+
+    &:before {
+      content: $icon-angle-left;
+      margin-right: (1em / 3);
+      font-family: $font-family-icons;
+      vertical-align: bottom;
+    }
+  }
+
+  .filter-toggle {
+    margin-left: auto;
+  }
+}

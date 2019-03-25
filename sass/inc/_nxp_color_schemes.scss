@@ -1,0 +1,1156 @@
+// All themes
+[class*='color-scheme-'] {
+  a {
+    @include transition(color .25s ease);
+  }
+  .table-head-light th {
+    color: white !important;
+    background-color: transparent !important;
+    border-right: none;
+  }
+}
+
+// Extension Classes
+// =================================
+// Use below to extend the color schemes
+.typography-color-schemes {
+  h1,
+  h1 > *,
+  h2,
+  h2 > *,
+  h3,
+  h3 > *,
+  h4,
+  h4 > *,
+  h5,
+  h5 > *,
+  h6,
+  h6 > *,
+  .title,
+  .subtitle,
+  .sub-subtitle,
+  p,
+  ul,
+  ol,
+  dl,
+  label,
+  .LV_validation_message,
+  label,
+  ul li:before,
+  .table > tbody > tr > td,
+  a.btn,
+  a.btn:hover {
+    color: white;
+  }
+}
+
+.segment-title-color-schemes {
+  .segment-title {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.segment-title-color-schemes-dark {
+  .segment-title {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.table-color-schemes-dark {
+  .table > thead > tr > th,
+  .table thead th,
+  table.table thead td,
+  .table thead th,
+  table.table thead td {
+    color: currentColor;
+    background-color: rgba(255, 255, 255, .5);
+    border-color: rgba(255, 255, 255, .75);
+  }
+  .table > tbody > tr > td,
+  .table.table-bordered,
+  .table.table-bordered.table-head-light thead:first-child tr:first-child th,
+  .table.table-bordered thead:first-child tr:first-child th {
+    border-color: rgba(255, 255, 255, .25);
+  }
+  .table-striped > tbody > tr:nth-of-type(odd),
+  .table.table-striped tbody > tr:nth-child(odd) > td,
+  .table.table-striped tbody > tr:nth-child(odd) > th {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .table.table-striped tbody > tr:nth-child(even) > td,
+  .table.table-striped tbody > tr:nth-child(even) > th,
+  .table-hover > tbody > tr:hover,
+  .table-hover > tbody > tr:hover > td,
+  .table-hover > tbody > tr:hover > th {
+    background-color: rgba(0, 0, 0, .10);
+  }
+}
+
+.table-color-schemes-light {
+  .table > thead > tr > th,
+  .table thead th,
+  table.table thead td,
+  .table thead th,
+  table.table thead td {
+    color: white;
+    background-color: rgba(0, 0, 0, .5);
+    border-color: rgba(0, 0, 0, .75);
+  }
+  .table > tbody > tr > td,
+  .table.table-bordered,
+  .table.table-bordered.table-head-light thead:first-child tr:first-child th,
+  .table.table-bordered thead:first-child tr:first-child th {
+    border-color: rgba(0, 0, 0, .25);
+  }
+  .table-striped > tbody > tr:nth-of-type(odd),
+  .table.table-striped tbody > tr:nth-child(odd) > td,
+  .table.table-striped tbody > tr:nth-child(odd) > th {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .table.table-striped tbody > tr:nth-child(even) > td,
+  .table.table-striped tbody > tr:nth-child(even) > th,
+  .table-hover > tbody > tr:hover,
+  .table-hover > tbody > tr:hover > td,
+  .table-hover > tbody > tr:hover > th {
+    background-color: rgba(255, 255, 255, .10);
+  }
+  .table-head-light th {
+    color: black !important;
+  }
+}
+
+.form-color-schemes-dark {
+  .form-control {
+    color: currentColor !important;
+  }
+}
+
+.well-color-schemes-light {
+  &.well,
+  .well {
+    border: 1px solid rgba(0, 0, 0, .15);
+  }
+  .well {
+    background-color: rgba(0, 0, 0, .10);
+  }
+}
+
+.well-color-schemes-dark {
+  &.well,
+  .well {
+    border: 1px solid rgba(255, 255, 255, .15);
+  }
+  .well {
+    background-color: rgba(255, 255, 255, .10);
+  }
+}
+
+// COLOR SCHEMES
+// =================================
+// Light Grey Color Scheme
+// =================================
+.color-scheme-light-grey {
+  background-color: $cool-grey-xxxlight;
+  color: $cool-grey-xxdark;
+  @extend .well-color-schemes-light;
+  @extend .segment-title-color-schemes;
+  @extend .table-color-schemes-light;
+  @extend .form-color-schemes-dark;
+  a {
+    color: $cool-grey-xdark;
+    text-decoration: underline;
+    &:hover {
+      color: $cool-grey-xxdark;
+    }
+  }
+  a.btn {
+    text-decoration: none;
+  }
+  .topic-card {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .topic-card h4,
+  .topic-card p {
+    //    color: #2F1502;
+  }
+  .topic-card a {
+    //    color: currentColor;
+  }
+  .news-card h4,
+  .news-card p,
+  .news-card [class*='icon-'] {
+    color: currentColor;
+  }
+  .btn {
+    background-color: $cool-grey-xdark;
+  }
+  .btn:hover {
+    background-color: $cool-grey-xxdark;
+  }
+}
+
+// Medium Grey Color Scheme
+// =================================
+.color-scheme-medium-grey {
+  background-color: $cool-grey;
+  color: $cool-grey;
+  @extend .well-color-schemes-light;
+  @extend .typography-color-schemes;
+  @extend .segment-title-color-schemes;
+  @extend .table-color-schemes-dark;
+  .table:not(.table-head-light) thead th {
+    color: $cool-grey-xdark !important;
+  }
+  @extend .form-color-schemes-dark;
+  a {
+    color: $cool-grey-xxxlight;
+    text-decoration: underline;
+    &:hover {
+      color: $cool-grey-xxlight;
+    }
+  }
+  a.btn {
+    text-decoration: none;
+  }
+  .topic-card {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .topic-card h4,
+  .topic-card p {
+    //    color: #2F1502;
+  }
+  .topic-card a {
+    //    color: currentColor;
+  }
+  .news-card h4,
+  .news-card p,
+  .news-card [class*='icon-'] {
+    color: currentColor;
+  }
+  .btn {
+    background-color: $cool-grey-xdark;
+  }
+  .btn:hover {
+    background-color: $cool-grey-xxdark;
+  }
+}
+
+// Dark Grey Color Scheme
+// =================================
+.color-scheme-dark-grey {
+  background-color: $cool-grey-xdark;
+  color: $cool-grey-xdark;
+  @extend .well-color-schemes-dark;
+  @extend .typography-color-schemes;
+  @extend .segment-title-color-schemes-dark;
+  @extend .table-color-schemes-dark;
+  @extend .form-color-schemes-dark;
+  a {
+    color: $cool-grey-xxlight;
+    text-decoration: underline;
+    &:hover {
+      color: $cool-grey-xxxlight;
+    }
+  }
+  a.btn {
+    text-decoration: none;
+  }
+  .topic-card {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .topic-card h4,
+  .topic-card p {
+    //    color: #2F1502;
+  }
+  .topic-card a {
+    //    color: currentColor;
+  }
+  .news-card h4,
+  .news-card p,
+  .news-card [class*='icon-'] {
+    color: currentColor;
+  }
+  .btn {
+    background-color: $cool-grey;
+  }
+  .btn:hover {
+    background-color: $cool-grey-light;
+  }
+}
+
+// Black Color Scheme
+// =================================
+.color-scheme-black {
+  background-color: $cool-grey-xxxdark;
+  color: $cool-grey-xxxdark;
+  @extend .well-color-schemes-dark;
+  @extend .typography-color-schemes;
+  @extend .segment-title-color-schemes-dark;
+  @extend .table-color-schemes-dark;
+  .table:not(.table-head-light) thead th {
+    color: white !important;
+  }
+  @extend .form-color-schemes-dark;
+  
+  a {
+    color: $cool-grey-xlight;
+    text-decoration: underline;
+    &:hover {
+      color: $cool-grey-xxlight;
+    }
+  }
+  a.btn {
+    text-decoration: none;
+  }
+  .topic-card {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .topic-card h4,
+  .topic-card p {
+    //    color: #2F1502;
+  }
+  .topic-card a {
+    //    color: currentColor;
+  }
+  .news-card h4,
+  .news-card p,
+  .news-card [class*='icon-'] {
+    color: currentColor;
+  }
+  .btn {
+    background-color: $cool-grey;
+  }
+  .btn:hover {
+    background-color: $cool-grey-light;
+  }
+}
+
+// White Color Scheme
+// =================================
+.color-scheme-white {
+  background-color: white;
+  color: white;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .title,
+  .subtitle,
+  .sub-subtitle,
+  p,
+  ul,
+  dl,
+  label,
+  .LV_validation_message,
+  label,
+  ul li:before,
+  .table > tbody > tr > td {
+    color: $cool-grey-xxdark;
+  }
+  @extend .well-color-schemes-light;
+  @extend .segment-title-color-schemes;
+  @extend .table-color-schemes-light;
+  @extend .form-color-schemes-dark;
+  a {
+    color: $cool-grey-dark;
+    text-decoration: underline;
+    &:hover {
+      color: $cool-grey-xdark;
+    }
+  }
+  a.btn {
+    text-decoration: none;
+  }
+  .topic-card {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  .topic-card h4,
+  .topic-card p {
+    //    color: #2F1502;
+  }
+  .topic-card a {
+    //    color: currentColor;
+  }
+  .news-card h4,
+  .news-card p,
+  .news-card [class*='icon-'] {
+    color: currentColor;
+  }
+  .btn {
+    background-color: $cool-grey-xdark;
+  }
+  .btn:hover {
+    background-color: $cool-grey-xxdark;
+  }
+}
+
+// NXP Orange Color Scheme
+// =================================
+//.color-scheme-nxp-orange {
+//  background-color: $nxp-orange;
+//  color: $nxp-orange-xdark;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $nxp-orange-xdark;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $nxp-orange-xxdark;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $nxp-orange-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $nxp-orange-xxdark;
+//  }
+//}
+
+// Deep Orange Color Scheme
+// =================================
+//.color-scheme-deep-orange {
+//  background-color: $deep-orange;
+//  color: $deep-orange;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $deep-orange-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $deep-orange-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $deep-orange-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $deep-orange-xxdark;
+//  }
+//}
+
+// Yellow Color Scheme
+// =================================
+//.color-scheme-yellow {
+//  background-color: $yellow;
+//  color: $yellow;
+//  h1,
+//  h2,
+//  h3,
+//  h4,
+//  h5,
+//  h6,
+//  .title,
+//  .subtitle,
+//  .sub-subtitle,
+//  p,
+//  ul,
+//  dl,
+//  label,
+//  .LV_validation_message,
+//  label,
+//  ul li:before,
+//  .table > tbody > tr > td {
+//    color: $yellow-xxdark;
+//  }
+//  @extend .well-color-schemes-light;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $yellow-xdark;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $yellow-xxdark;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $yellow-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $yellow-xxdark;
+//  }
+//}
+
+// Red Color Scheme
+// =================================
+//.color-scheme-red {
+//  background-color: $red;
+//  color: $red;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $red-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $red-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $red-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $red-xxdark;
+//  }
+//}
+
+// Deep Red Color Scheme
+// =================================
+//.color-scheme-deep-red {
+//  background-color: $deep-red;
+//  color: $deep-red;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $deep-red-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $deep-red-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $deep-red-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $deep-red-xxdark;
+//  }
+//}
+
+// NXP Blue Color Scheme
+// =================================
+//.color-scheme-nxp-blue {
+//  background-color: $nxp-blue;
+//  color: $nxp-blue;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes-dark;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $nxp-blue-xdark;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $nxp-blue-xxdark;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $nxp-blue-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $nxp-blue-xxdark;
+//  }
+//}
+
+// NXP Green Color Scheme
+// =================================
+//.color-scheme-nxp-green {
+//  background-color: $nxp-green;
+//  color: $nxp-green;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $nxp-green-xdark;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $nxp-green-xxdark;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $nxp-green-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $nxp-green-xxdark;
+//  }
+//}
+
+// pale-aqua Color Scheme
+// =================================
+//.color-scheme-pale-aqua {
+//  background-color: $pale-aqua;
+//  color: $pale-aqua;
+//  h1,
+//  h2,
+//  h3,
+//  h4,
+//  h5,
+//  h6,
+//  .title,
+//  .subtitle,
+//  .sub-subtitle,
+//  p,
+//  ul,
+//  dl,
+//  label,
+//  .LV_validation_message,
+//  label,
+//  ul li:before,
+//  .table > tbody > tr > td {
+//    color: $pale-aqua-xxdark;
+//  }
+//  @extend .well-color-schemes-light;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $pale-aqua-xdark;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $pale-aqua-xxdark;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $pale-aqua-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $pale-aqua-xxdark;
+//  }
+//}
+
+// deep-green Color Scheme
+// =================================
+//.color-scheme-deep-green {
+//  background-color: $deep-green;
+//  color: $deep-green;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes-dark;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $deep-green-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $deep-green-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $deep-green-light;
+//  }
+//  .btn:hover {
+//    background-color: $deep-green-xlight;
+//  }
+//}
+
+// petrol-blue Color Scheme
+// =================================
+//.color-scheme-petrol-blue {
+//  background-color: $petrol-blue;
+//  color: $petrol-blue;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $petrol-blue-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $petrol-blue-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $petrol-blue-light;
+//  }
+//  .btn:hover {
+//    background-color: $petrol-blue-xlight;
+//  }
+//}
+
+// olive-green Color Scheme
+// =================================
+//.color-scheme-olive-green {
+//  background-color: $olive-green;
+//  color: $olive-green;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $olive-green-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $olive-green-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $olive-green-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $olive-green-xxdark;
+//  }
+//}
+
+// pale-blue Color Scheme
+// =================================
+//.color-scheme-pale-blue {
+//  background-color: $pale-blue;
+//  color: $pale-blue;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $pale-blue-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $pale-blue-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $pale-blue-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $pale-blue-xxdark;
+//  }
+//}
+
+// deep-blue Color Scheme
+// =================================
+//.color-scheme-deep-blue {
+//  background-color: $deep-blue;
+//  color: $deep-blue;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes-dark;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $deep-blue-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $deep-blue-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $deep-blue-light;
+//  }
+//  .btn:hover {
+//    background-color: $deep-blue-xlight;
+//  }
+//}
+
+// purple Color Scheme
+// =================================
+//.color-scheme-purple {
+//  background-color: $purple;
+//  color: $purple;
+//  @extend .well-color-schemes-dark;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes-dark;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $purple-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $purple-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $purple-light;
+//  }
+//  .btn:hover {
+//    background-color: $purple-xlight;
+//  }
+//}
+
+// magenta Color Scheme
+// =================================
+//.color-scheme-magenta {
+//  background-color: $magenta;
+//  color: $magenta;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $magenta-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $magenta-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $magenta-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $magenta-xxdark;
+//  }
+//}
+
+// aqua Color Scheme
+// =================================
+//.color-scheme-aqua {
+//  background-color: $aqua;
+//  color: $aqua;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $aqua-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $aqua-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $aqua-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $aqua-xxdark;
+//  }
+//}
+
+// green Color Scheme
+// =================================
+//.color-scheme-green {
+//  background-color: $green;
+//  color: $green;
+//  @extend .well-color-schemes-light;
+//  @extend .typography-color-schemes;
+//  @extend .segment-title-color-schemes;
+//  @extend .table-color-schemes-dark;
+//  @extend .form-color-schemes-dark;
+//  a {
+//    color: $green-xxlight;
+//    text-decoration: underline;
+//    &:hover {
+//      color: $green-xxxlight;
+//    }
+//  }
+//  a.btn {
+//    text-decoration: none;
+//  }
+//  .topic-card {
+//    background-color: rgba(255, 255, 255, 0.95);
+//  }
+//  .topic-card h4,
+//  .topic-card p {
+//    //    color: #2F1502;
+//  }
+//  .topic-card a {
+//    //    color: currentColor;
+//  }
+//  .news-card h4,
+//  .news-card p,
+//  .news-card [class*='icon-'] {
+//    color: currentColor;
+//  }
+//  .btn {
+//    background-color: $green-xdark;
+//  }
+//  .btn:hover {
+//    background-color: $green-xxdark;
+//  }
+//}
+
+[class*='color-scheme-'] {}

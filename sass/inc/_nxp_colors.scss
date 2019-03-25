@@ -1,0 +1,323 @@
+// =========================
+// Colors for NXP.com
+// Contents:
+// 1) Functions
+// 2) Variables
+// 3) Color helper classes
+// =========================
+
+// 1) FUNCTIONS
+// =========================
+// Using these functions to help generate the color ranges within a specific base color
+/// Lighten a color
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Darken a color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// USAGE
+// .foo {
+//   color: tint(gold, 62%);
+// }
+// .bar {
+//   background-color: shade(#663399, 42%);
+// }
+
+// 2) VARIABLES
+// =========================
+// NXP Base Colors
+$grey: #999999;
+$warm-grey: #999694;
+$cool-grey: #949499;
+$nxp-blue: #65abe2; //was #7BB1DB;
+$nxp-orange: #ffa700; //was #F9B500;
+$nxp-green: #b0ca00; //was #C9D200;
+$pale-aqua: #9ed3ca;
+$deep-green: #005042;
+$petrol-blue: #007088;
+$olive-green: #979200;
+$pale-blue: #5e89c1;
+$deep-blue: #003883;
+$purple: #50227b;
+$magenta: #e2007b;
+$red: #e3004a;
+$deep-red: #bc0d0d;
+$deep-orange: #e66a08;
+$yellow: #ffcf00;
+$aqua: #00a4a7;
+$green: #00945f;
+
+// Color Mix Variables
+$mix-lowestend: 10%;
+$mix-lowend: 25%;
+$mix-mid: 50%;
+$mix-highend: 75%;
+$mix-highestend: 90%;
+
+// Color grey Variables
+$grey-light: tint($grey, $mix-lowend);
+$grey-xlight: tint($grey, $mix-mid);
+$grey-xxlight: tint($grey, $mix-highend);
+$grey-xxxlight: tint($grey, $mix-highestend);
+$grey-dark: shade($grey, $mix-lowend);
+$grey-xdark: shade($grey, $mix-mid);
+$grey-xxdark: shade($grey, $mix-highend);
+$grey-xxxdark: shade($grey, $mix-highestend);
+
+// Color warm-grey Variables
+$warm-grey-light: tint($warm-grey, $mix-lowend);
+$warm-grey-xlight: tint($warm-grey, $mix-mid);
+$warm-grey-xxlight: tint($warm-grey, $mix-highend);
+$warm-grey-xxxlight: tint($grey, $mix-highestend);
+$warm-grey-dark: shade($warm-grey, $mix-lowend);
+$warm-grey-xdark: shade($warm-grey, $mix-mid);
+$warm-grey-xxdark: shade($warm-grey, $mix-highend);
+$warm-grey-xxxdark: shade($grey, $mix-highestend);
+
+// Color cool-grey Variables
+$cool-grey-light: tint($cool-grey, $mix-lowend);
+$cool-grey-xlight: tint($cool-grey, $mix-mid);
+$cool-grey-xxlight: tint($cool-grey, $mix-highend);
+$cool-grey-xxxlight: tint($cool-grey, $mix-highestend);
+$cool-grey-dark: shade($cool-grey, $mix-lowend);
+$cool-grey-xdark: shade($cool-grey, $mix-mid);
+$cool-grey-xxdark: shade($cool-grey, $mix-highend);
+$cool-grey-xxxdark: shade($cool-grey, $mix-highestend);
+
+// Color nxp-blue Variables
+$nxp-blue-light: tint($nxp-blue, $mix-lowend);
+$nxp-blue-xlight: tint($nxp-blue, $mix-mid);
+$nxp-blue-xxlight: tint($nxp-blue, $mix-highend);
+$nxp-blue-xxxlight: tint($nxp-blue, $mix-highestend);
+$nxp-blue-dark: shade($nxp-blue, $mix-lowend);
+$nxp-blue-xdark: shade($nxp-blue, $mix-mid);
+$nxp-blue-xxdark: shade($nxp-blue, $mix-highend);
+$nxp-blue-xxxdark: shade($nxp-blue, $mix-highestend);
+
+// Color nxp-orange Variables
+$nxp-orange-light: tint($nxp-orange, $mix-lowend);
+$nxp-orange-xlight: tint($nxp-orange, $mix-mid);
+$nxp-orange-xxlight: tint($nxp-orange, $mix-highend);
+$nxp-orange-xxxlight: tint($nxp-orange, $mix-highestend);
+$nxp-orange-dark: shade($nxp-orange, $mix-lowend);
+$nxp-orange-xdark: shade($nxp-orange, $mix-mid);
+$nxp-orange-xxdark: shade($nxp-orange, $mix-highend);
+$nxp-orange-xxxdark: shade($nxp-orange, $mix-highestend);
+
+// Color nxp-green Variables
+$nxp-green-light: tint($nxp-green, $mix-lowend);
+$nxp-green-xlight: tint($nxp-green, $mix-mid);
+$nxp-green-xxlight: tint($nxp-green, $mix-highend);
+$nxp-green-xxxlight: tint($nxp-green, $mix-highestend);
+$nxp-green-dark: shade($nxp-green, $mix-lowend);
+$nxp-green-xdark: shade($nxp-green, $mix-mid);
+$nxp-green-xxdark: shade($nxp-green, $mix-highend);
+$nxp-green-xxxdark: shade($nxp-green, $mix-highestend);
+
+// Color pale-aqua Variables
+$pale-aqua-light: tint($pale-aqua, $mix-lowend);
+$pale-aqua-xlight: tint($pale-aqua, $mix-mid);
+$pale-aqua-xxlight: tint($pale-aqua, $mix-highend);
+$pale-aqua-xxxlight: tint($pale-aqua, $mix-highestend);
+$pale-aqua-dark: shade($pale-aqua, $mix-lowend);
+$pale-aqua-xdark: shade($pale-aqua, $mix-mid);
+$pale-aqua-xxdark: shade($pale-aqua, $mix-highend);
+$pale-aqua-xxxdark: shade($pale-aqua, $mix-highestend);
+
+// Color deep-green Variables
+$deep-green-light: tint($deep-green, $mix-lowend);
+$deep-green-xlight: tint($deep-green, $mix-mid);
+$deep-green-xxlight: tint($deep-green, $mix-highend);
+$deep-green-xxxlight: tint($deep-green, $mix-highestend);
+$deep-green-dark: shade($deep-green, $mix-lowend);
+$deep-green-xdark: shade($deep-green, $mix-mid);
+$deep-green-xxdark: shade($deep-green, $mix-highend);
+$deep-green-xxxdark: shade($deep-green, $mix-highestend);
+
+// Color petrol-blue Variables
+$petrol-blue-light: tint($petrol-blue, $mix-lowend);
+$petrol-blue-xlight: tint($petrol-blue, $mix-mid);
+$petrol-blue-xxlight: tint($petrol-blue, $mix-highend);
+$petrol-blue-xxxlight: tint($petrol-blue, $mix-highestend);
+$petrol-blue-dark: shade($petrol-blue, $mix-lowend);
+$petrol-blue-xdark: shade($petrol-blue, $mix-mid);
+$petrol-blue-xxdark: shade($petrol-blue, $mix-highend);
+$petrol-blue-xxxdark: shade($petrol-blue, $mix-highestend);
+
+// Color olive-green Variables
+$olive-green-light: tint($olive-green, $mix-lowend);
+$olive-green-xlight: tint($olive-green, $mix-mid);
+$olive-green-xxlight: tint($olive-green, $mix-highend);
+$olive-green-xxxlight: tint($olive-green, $mix-highestend);
+$olive-green-dark: shade($olive-green, $mix-lowend);
+$olive-green-xdark: shade($olive-green, $mix-mid);
+$olive-green-xxdark: shade($olive-green, $mix-highend);
+$olive-green-xxxdark: shade($olive-green, $mix-highestend);
+
+// Color pale-blue Variables
+$pale-blue-light: tint($pale-blue, $mix-lowend);
+$pale-blue-xlight: tint($pale-blue, $mix-mid);
+$pale-blue-xxlight: tint($pale-blue, $mix-highend);
+$pale-blue-xxxlight: tint($pale-blue, $mix-highestend);
+$pale-blue-dark: shade($pale-blue, $mix-lowend);
+$pale-blue-xdark: shade($pale-blue, $mix-mid);
+$pale-blue-xxdark: shade($pale-blue, $mix-highend);
+$pale-blue-xxxdark: shade($pale-blue, $mix-highestend);
+
+// Color deep-blue Variables
+$deep-blue-light: tint($deep-blue, $mix-lowend);
+$deep-blue-xlight: tint($deep-blue, $mix-mid);
+$deep-blue-xxlight: tint($deep-blue, $mix-highend);
+$deep-blue-xxxlight: tint($deep-blue, $mix-highestend);
+$deep-blue-dark: shade($deep-blue, $mix-lowend);
+$deep-blue-xdark: shade($deep-blue, $mix-mid);
+$deep-blue-xxdark: shade($deep-blue, $mix-highend);
+$deep-blue-xxxdark: shade($deep-blue, $mix-highestend);
+
+// Color purple Variables
+$purple-light: tint($purple, $mix-lowend);
+$purple-xlight: tint($purple, $mix-mid);
+$purple-xxlight: tint($purple, $mix-highend);
+$purple-xxxlight: tint($purple, $mix-highestend);
+$purple-dark: shade($purple, $mix-lowend);
+$purple-xdark: shade($purple, $mix-mid);
+$purple-xxdark: shade($purple, $mix-highend);
+$purple-xxxdark: shade($purple, $mix-highestend);
+
+// Color magenta Variables
+$magenta-light: tint($magenta, $mix-lowend);
+$magenta-xlight: tint($magenta, $mix-mid);
+$magenta-xxlight: tint($magenta, $mix-highend);
+$magenta-xxxlight: tint($magenta, $mix-highestend);
+$magenta-dark: shade($magenta, $mix-lowend);
+$magenta-xdark: shade($magenta, $mix-mid);
+$magenta-xxdark: shade($magenta, $mix-highend);
+$magenta-xxxdark: shade($magenta, $mix-highestend);
+
+// Color red Variables
+$red-light: tint($red, $mix-lowend);
+$red-xlight: tint($red, $mix-mid);
+$red-xxlight: tint($red, $mix-highend);
+$red-xxxlight: tint($red, $mix-highestend);
+$red-dark: shade($red, $mix-lowend);
+$red-xdark: shade($red, $mix-mid);
+$red-xxdark: shade($red, $mix-highend);
+$red-xxxdark: shade($red, $mix-highestend);
+
+// Color deep-red Variables
+$deep-red-light: tint($deep-red, $mix-lowend);
+$deep-red-xlight: tint($deep-red, $mix-mid);
+$deep-red-xxlight: tint($deep-red, $mix-highend);
+$deep-red-xxxlight: tint($deep-red, $mix-highestend);
+$deep-red-dark: shade($deep-red, $mix-lowend);
+$deep-red-xdark: shade($deep-red, $mix-mid);
+$deep-red-xxdark: shade($deep-red, $mix-highend);
+$deep-red-xxxdark: shade($deep-red, $mix-highestend);
+
+// Color deep-orange Variables
+$deep-orange-light: tint($deep-orange, $mix-lowend);
+$deep-orange-xlight: tint($deep-orange, $mix-mid);
+$deep-orange-xxlight: tint($deep-orange, $mix-highend);
+$deep-orange-xxxlight: tint($deep-orange, $mix-highestend);
+$deep-orange-dark: shade($deep-orange, $mix-lowend);
+$deep-orange-xdark: shade($deep-orange, $mix-mid);
+$deep-orange-xxdark: shade($deep-orange, $mix-highend);
+$deep-orange-xxxdark: shade($deep-orange, $mix-highestend);
+
+// Color yellow Variables
+$yellow-light: tint($yellow, $mix-lowend);
+$yellow-xlight: tint($yellow, $mix-mid);
+$yellow-xxlight: tint($yellow, $mix-highend);
+$yellow-xxxlight: tint($yellow, $mix-highestend);
+$yellow-dark: shade($yellow, $mix-lowend);
+$yellow-xdark: shade($yellow, $mix-mid);
+$yellow-xxdark: shade($yellow, $mix-highend);
+$yellow-xxxdark: shade($yellow, $mix-highestend);
+
+// Color Aqua Variables
+$aqua-light: tint($aqua, $mix-lowend);
+$aqua-xlight: tint($aqua, $mix-mid);
+$aqua-xxlight: tint($aqua, $mix-highend);
+$aqua-xxxlight: tint($aqua, $mix-highestend);
+$aqua-dark: shade($aqua, $mix-lowend);
+$aqua-xdark: shade($aqua, $mix-mid);
+$aqua-xxdark: shade($aqua, $mix-highend);
+$aqua-xxxdark: shade($aqua, $mix-highestend);
+
+// Color Green Variables
+$green-light: tint($green, $mix-lowend);
+$green-xlight: tint($green, $mix-mid);
+$green-xxlight: tint($green, $mix-highend);
+$green-xxxlight: tint($green, $mix-highestend);
+$green-dark: shade($green, $mix-lowend);
+$green-xdark: shade($green, $mix-mid);
+$green-xxdark: shade($green, $mix-highend);
+$green-xxxdark: shade($green, $mix-highestend);
+
+$black: $cool-grey-xxxdark; // was #19191A
+$absolute-black: black;
+$white: white;
+// Greys
+
+//$nxp-orange:					#F9B500; Original "print" orange
+// new, higher contrast "digital" orange
+//$nxp-orange:					rgba(255,167,0,1);
+$nxp-orange-66: #fccf57;
+$nxp-orange-33: #fee7ab;
+$nxp-deep-orange: #e66a08;
+$nxp-deep-orange-66: #ef9d5c;
+$nxp-deep-orange-33: #f7ceae;
+$nxp-pale-blue: #5e89c1;
+$nxp-pale-blue-66: #95b1d6;
+$nxp-pale-blue-33: #cad8eb;
+// $nxp-green:						#C9D200;
+// $nxp-blue:						#7BB1DB;
+$nxp-petrol-blue: #007088;
+$nxp-apple-red: #bc0d0d;
+$nxp-olive-green: #979200;
+$nxp-aqua: #00a4a7;
+
+// Variables for Legacy Freescale Carryovers
+$fsl-black: $black;
+$fsl-white: $white;
+
+//$fsl-yellow:                    $nxp-orange;
+//$fsl-yellow-xlight:             $cool-grey-xxxlight;
+
+$fsl-gray: $cool-grey;
+$fsl-gray-dark: $cool-grey-dark;
+$fsl-gray-light: $warm-grey-xxlight;
+$fsl-gray-medium: $warm-grey-light;
+$fsl-gray-xlight: $grey-xxlight;
+$nxp-gray-xlight: $grey-xxlight;
+$fsl-gray-xxlight: $cool-grey-xxxlight;
+$nxp-gray-xxlight: $cool-grey-xxxlight;
+$fsl-gray-xxlight: $cool-grey-xxxlight;
+$fsl-slate: $cool-grey;
+
+$fsl-blue: $nxp-blue;
+$fsl-blue-light: $nxp-blue;
+$fsl-blue-xlight: $nxp-blue;
+$fsl-lightblue: $nxp-blue;
+$fsl-lightblue-light: $nxp-blue;
+
+$fsl-purple: $cool-grey-dark;
+$fsl-purple-light: $cool-grey;
+$fsl-purple-xlight: $warm-grey-xxlight;
+
+$fsl-green: $nxp-green;
+
+// Misc.
+// $nxp-body-text:					$cool-grey-dark;
+$nxp-body-text: $cool-grey-xdark;
+$fsl-text-color: $nxp-body-text;
+$nxp-subheads: $cool-grey-xxdark;
+
+$nxp-megamenu: $white;
+
+$nxp-footer-gray: $cool-grey-xxxlight;
+$nxp-footer-bottom: $grey-xxlight;

@@ -1,0 +1,98 @@
+// =========================
+// CMS Component
+// Component Name: Community Support
+// Component Type: Table
+// Notes:
+// - Needs to define which community system we are going to use
+// - Needs to pull information based on giving tags
+// - Needs the ability to rename the section"
+// =========================
+
+#Support {
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
+.communityModule {
+  // outer most container, after code update
+  &-outer {
+    @include breakpoint($screen-sm) {
+      width: percentage(10/12);
+    }
+  }
+
+  &-title {
+    margin-bottom: 20px;
+  }
+
+  // suggestions dropdown
+  ul {
+    &.dropdown-menu {
+      margin: 0;
+
+      li {
+        display: block;
+        margin: 0;
+        padding: 0;
+
+        a {
+          display: block;
+          padding: $padding-small-vertical 20px;
+          color: $text-color;
+          text-decoration: none;
+        }
+
+        &:first-child {
+          padding: $padding-small-vertical 20px;
+          // padding: 0 25px 0 20px;
+          // margin: 10px 0;
+          color: $text-muted;
+          font-size: $font-size-base-plus;
+          // line-height: 25px;
+        }
+
+        &:not(:first-child):hover {
+          // background-color: #ececec;
+          // background-color: $cool-grey-xxlight;
+        }
+      }
+    }
+  }
+
+  span {
+    &.input-group-btn {
+      a {
+        &:visited {
+          color: #fff;
+        }
+      }
+    }
+
+    &.toggle-helper {
+      display: none;
+    }
+  }
+
+  input {
+    &#communityKeywordText {
+      // color: #555;
+      // font-size: 16px;
+    }
+  }
+}
+
+div.communityQuickLinks {
+  ul {
+    li {
+      a {
+        @include link-treatment();
+      }
+    }
+  }
+}
+
+// article#communityLinks {
+.communityModule + .grouped-links {
+  padding-top: 2em;
+}

@@ -1,0 +1,211 @@
+// ---------------------------------------------------------------------------
+// Type Callout Component
+// ---------------------------------------------------------------------------
+
+// container created to group items and apply the 'band' class to
+.type-callout-container {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+  background: {
+    // image: ;
+    position: right bottom;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  &.band {
+    background-color: $cool-grey-xxxlight;
+  }
+
+  &.is-inverse {
+    // set default value, override by color helper class on .type-callout element
+    background-color: $petrol-blue;
+    // additional styles placed on each text element to change styles
+  }
+}
+
+.type-callout {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+  background-color: $cool-grey-xxxlight;
+
+  // only use neg margins when in a banded section
+  .band & {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: -$grid-gutter-width-half;
+    margin-right: -$grid-gutter-width-half;
+    background-color: transparent;
+  }
+
+  @include breakpoint-max($screen-sm) {
+    flex-direction: column;
+  }
+
+  & + & {
+    // reduce space between items when stacked on top of each other
+    padding-top: 0;
+  }
+
+  // Main Component Modifiers
+  .is-centered & {
+    text-align: center;
+
+    @include breakpoint(screen-small) {
+      width: (200% / 3);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // main container for typography and links
+  &-body {
+    order: 0;
+    flex-grow: 1;
+    width: 100%;
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+
+    @include breakpoint($screen-md) {
+      flex-basis: 0;
+      width: auto; // reset the width 100%, necessary?
+
+      .type-callout-container:not(.band) .type-callout-media + & {
+        padding-left: $grid-gutter-width;
+        padding-right: $grid-gutter-width;
+      }
+    }
+
+    & + & {
+      @include breakpoint-max($screen-md) {
+        margin-top: $padding-component-base-inner;
+      }
+    }
+  }
+
+  // Image
+  &-thumbnail {
+    margin-bottom: $padding-component-base-inner;
+
+    @include breakpoint-max($screen-sm) {
+      display: none;
+    }
+    // adding img here, but could be svg?
+    img {
+      width: auto;
+      height: auto;
+      max-height: 80px;
+    }
+  }
+
+  &-title {
+    margin-top: 0;
+    font-size: $font-size-h1;
+
+    .is-primary & {
+      // @include $font-size-h1, should be default
+    }
+
+    .is-secondary & {
+      font-size: $font-size-h2;
+    }
+
+    .is-tertiary & {
+      font-size: $font-size-h3;
+    }
+
+    .is-inverse & {
+      color: $white;
+    }
+  }
+
+  &-text {
+    // remove margin from last item for better spacing, shoudl be <p> but you never know
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    .is-inverse & {
+      color: $white;
+    }
+  }
+
+  &-links {
+    @at-root ul.type-callout-links {
+      @include list-inline;
+
+      li {
+        margin-bottom: 0;
+
+        .type-callout-title + & {
+          // margin-top: 0; // removes top spacing if it directly follows the title
+        }
+      }
+    }
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+
+  &-link {
+    @include cta;
+
+    .is-primary & {
+      //
+    }
+
+    .is-inverse & {
+      color: $white;
+    }
+  }
+
+  // large image container
+  &-media {
+    order: 0;
+    // align-self: center;
+    flex-shrink: 0;
+    padding-right: $grid-gutter-width-half;
+    padding-left: $grid-gutter-width-half;
+    margin-bottom: $padding-component-base-inner;
+
+    @include breakpoint($screen-xs) {
+      max-width: 50%;
+    }
+
+    @include breakpoint($screen-sm) {
+      order: initial;
+      max-width: 25%;
+      // padding-left: 1em;
+    }
+
+    @include breakpoint($screen-md) {
+      margin-bottom: 0;
+
+      .type-callout-container:not(.band) & {
+        // max-width: (100% / 3);
+        padding-right: $grid-gutter-width;
+        padding-left: $grid-gutter-width;
+      }
+    }
+  }
+
+  // Modifiers: applied after mobile screens when layout goes horizontal
+  @include breakpoint($screen-sm) {
+    .is-first {
+      order: -1;
+    } // pull to left
+    .is-last {
+      order: 1;
+      margin-top: $padding-component-base-inner;
+      margin-bottom: 0;
+    } // pull to right
+  }
+
+  @include breakpoint($screen-md) {
+    .is-last {
+      margin-top: 0;
+    }
+  }
+}

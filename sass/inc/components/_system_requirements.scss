@@ -1,0 +1,11 @@
+// =========================
+// Component Name:  System Requirements
+// Description:     
+//                 
+// =========================
+
+	@media ( min-width: $vp-large){
+		.row .col-lg-6:first-child .collapse-mobile h2{
+			margin-right: -30px;
+		}
+	}	

@@ -1,0 +1,50 @@
+/*
+ ***********************************************************************
+ * DO NOT MODIFY DIRECTLY. USE nxp-web-branding GIT REPO FOR ALL CHANGES
+ ***********************************************************************
+ */
+
+// Remove padding/margin and set positioning on Share Icons
+.iw_viewport-wrapper {
+  .page-title {
+    position: relative;
+    padding: 0;
+    margin: 0;
+
+    h1 {
+      // remove text if present
+      display: none;
+    }
+
+    // place position rules on Share Icons
+    .share-icons {
+      position: absolute;
+      top: 2em;
+      right: 0;
+      z-index: 1000; // equals $zindex-dropdown: 1000; in _nxp_variables file
+      margin-top: 0;
+    }
+
+    .share-icons {
+      a {
+        // Set link colors to white over banner images
+        color: #fff;
+      }
+
+      ul a {
+        color: #252526;
+      }
+    }
+
+    .share-icons a:hover {
+      // color: #fff;
+    }
+  }
+
+  // Add some room to the right in the Hero Title area for Share Icons
+  @media screen and (min-width: 768px) {
+    .hero-title {
+      padding-right: 60px;
+    }
+  }
+}

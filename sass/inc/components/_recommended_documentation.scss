@@ -1,0 +1,42 @@
+// =========================
+// Component Name: Recommended Documents
+// Component Type: Table (Dynamic)
+// =========================
+.recommendedDocs { 
+  th {
+    white-space: nowrap;
+    &.date {
+      width: 17%;
+    }
+  }
+  th:nth-of-type(2),
+  th:nth-of-type(3),
+  td:nth-of-type(2),
+  td:nth-of-type(3){
+    text-align: center;
+  }
+  td:nth-of-type(3) {
+    white-space: nowrap; 
+  }
+}
+
+.recommendedDocs-docList {
+  margin-bottom: 0;
+  // remove default list bullets
+  @include nobullets();
+}
+
+.recommendedDocs-docTitle {
+  margin-bottom: .5em;
+}
+
+.recommendedDocs-docList { 
+  margin: 0;
+  padding: 0;
+  li:not(.recommendedDocs-docTitle) {
+    display:inline;
+    margin-right: 1em;
+    color: $cool-grey;
+  }
+}
+

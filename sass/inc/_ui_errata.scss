@@ -1,0 +1,782 @@
+/* begin ui-errata.scss */
+
+// =========================
+// User Interface Errata - for that which doesn't have a definitive home
+// =========================
+
+// prevent body scrolling when mobile menu is open for filters on SPA
+body.no-scroll {
+  @include breakpoint-max($screen-sm) {
+    overflow-y: hidden;
+    max-height: 100%;
+  }
+}
+
+// Loading spinner icon
+.loading-div-icon {
+  .spin-icon {
+    display: block;
+    margin: 0.75em auto;
+    font-size: 36px;
+  }
+}
+
+// Load More / Load Less
+// A show/hide for revealing more items in a table or list
+// -------------------------
+.loadMore {
+  //font-size: 115%;
+}
+
+.moreLessTrigger {
+  display: inline-block;
+  margin-bottom: 1em;
+
+  &.collapsed {
+    &:before {
+      content: 'More';
+    }
+
+    .icon-arrow-down2 {
+      transform: rotate(0deg);
+    }
+  }
+
+  &:not(.collapsed) {
+    &:before {
+      content: 'Less';
+      outline: none !important;
+    }
+
+    .icon-arrow-down2 {
+      transform: rotate(-180deg);
+    }
+  }
+
+  [class*='icon-'] {
+    // @include transition(all 0.25s ease);
+    margin-right: 0.25em;
+    transition: all $animation-duration-fast $cubic-bezier-base;
+  }
+
+  .collapse-mobile & {
+    @include breakpoint-max($screen-xs) {
+      // show all table rows when in mobile collapse panel, also impacts .table-limited class
+      display: none;
+    }
+  }
+}
+
+// An integer that is shown next to a title to denote how many
+// items belong to a set of dynamically generated content
+// -------------------------
+span.count {
+  // adding style for SPA, if causes problem move to 'sass/pages/single-page-apps/results' file
+  vertical-align: text-bottom;
+  color: $cool-grey;
+  font-weight: 400;
+  font-size: smaller;
+}
+
+// Add a shadow on the right side of a
+// .table-responsive container if overflow is present
+// -------------------------
+//.table-responsive {
+//  position: relative;
+//}
+//.table-responsive:before {
+//  display: block;
+//  position: absolute;
+//  right: 0;
+//  width: 1em;
+//  height: 100%;
+//  z-index: 5;
+//  content:"";
+//  background-image: -webkit-linear-gradient(left, rgba(255,255,255,0.00) 0%, rgba(216,216,216,0.50) 100%);
+//  background-image: -o-linear-gradient(left, rgba(255,255,255,0.00) 0%, rgba(216,216,216,0.50) 100%);
+//  background-image: linear-gradient(to right, rgba(255,255,255,0.00) 0%, rgba(216,216,216,0.50) 100%);
+//}
+
+// Modify Bootstrap's .well class
+// -------------------------
+.well {
+  background-color: $cool-grey-xxxlight;
+  border-color: $warm-grey-xxlight;
+  padding: 1em;
+  //  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Modify Bootstrap's hr styles
+// -------------------------
+hr {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-top: 1px solid rgba($absolute-black, 0.15);
+}
+
+// Presentational Items
+// -------------------------
+// %headings use only when this is an extension
+.segment-title,
+%headings.segment-title {
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+  font-size: 1.563em;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
+  background-color: $cool-grey-xdark;
+  color: white;
+  margin: 0.71428571428em 0;
+  display: inline-block;
+  a {
+    color: white;
+    &:after {
+      font-family: $font-family-icons;
+      content: '\f109';
+      padding-left: 0.5em;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+h2 a:not(span) {
+  color: $nxp-deep-orange;
+  &:after {
+    font-family: $font-family-icons;
+    content: '\f109';
+    padding-left: 0.5em;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $nxp-deep-orange;
+  }
+  &:visited {
+    color: lighten($nxp-deep-orange, 10%);
+  }
+}
+
+.segment-subtitle {
+  color: #646464;
+  border-bottom: 3px solid #646464;
+  padding-bottom: 0.25em;
+  margin: 2em 0;
+  font-size: 70%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+div.segment-break {
+  margin: calc(0.71428571428 * 4em) 0;
+  height: 0;
+  border-bottom: 3px solid #f0efef;
+  &.no-line {
+    border-bottom: 0;
+    height: 3px;
+  }
+}
+
+// Example (demo) container for library
+.bc-example {
+  position: relative;
+  padding: 45px 15px 15px;
+  background-color: #fff;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: #fff;
+  border-width: 1px;
+  border-color: #ddd;
+  border-radius: 4px 4px 0 0;
+  box-shadow: none;
+  &:after {
+    content: 'Example';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+// Contextual Statuses for Text
+// Alert users when something is required
+.text-required {
+  color: $text-required;
+}
+
+// New and Updated inline styles best used with <small>
+.text-new,
+.text-updated {
+  color: $nxp-green !important;
+  text-transform: uppercase;
+}
+
+// Published styles best used with <small>
+.text-archived {
+  color: $cool-grey !important;
+  text-transform: uppercase;
+}
+
+// Archive status
+h1.publish-status-archived {
+  position: relative;
+}
+
+h1.publish-status-archived:before {
+  display: inline-block;
+  content: 'ARCHIVED';
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: white;
+  background-color: $cool-grey-xxlight;
+  padding: 0.25em 0.5em;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  vertical-align: super;
+  margin-right: 1em;
+}
+
+// Create a group class for clearing floats when a .row isnt needed
+.group {
+  display: table;
+  content: ' ';
+}
+
+// Syntax Highlighter is annoying when viewing on a mobile device. Intended for developers using PCs so let's hide it on the smallest mobile devices.
+.syntaxhighlighter {
+  @include breakpoint(screen-smallest-and-less) {
+    display: none;
+  }
+}
+
+body div.syntaxhighlighter div.line {
+  white-space: pre-wrap !important;
+  /* make code wrap */
+}
+
+// Missing red-colored text warning - adding it in per Luis Duran
+.simple-warning {
+  color: #e31b23 !important;
+}
+
+// We need a generic way to put those video icons over images that represent a video link
+.thumbVideoWrapper,
+.thumbVideoWrapperSmall {
+  position: relative;
+  display: inline-block;
+  //  width: 100%;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    display: block;
+    width: 4em;
+    height: 4em;
+    pointer-events: none;
+    // background: url("//branding.nxp.com/img/VideoOverlayButton.png") no-repeat center center;
+    background: $VideoOverlayButton no-repeat center center;
+    // temp till we go to production, then use link below
+    // background: url("//www.nxp.com/assets/images/buttons/VideoOverlayButton.png") no-repeat center center;
+    background-size: 4em 4em;
+    opacity: 0.75;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    //  add smoothing effect to hover below
+    transition: 500ms all;
+  }
+  &:hover {
+    &:before {
+      //  enlarge image a bit on hover
+      transform: translate(-50%, -50%) scale(1.1, 1.1);
+    }
+  }
+}
+
+.thumbVideoWrapperSmall {
+  &:before {
+    width: 2em;
+    height: 2em;
+    background-size: 2em 2em;
+  }
+}
+
+// bringing back the disabled generic class
+.disabled,
+.disabled td,
+.disabled div {
+  color: rgba($nxp-body-text, 0.5);
+}
+
+// Some width helpers for percentage widths , used in context with finite control
+// of table column widths, but can be used for other things
+.w10 {
+  width: 10% !important;
+}
+
+.w20 {
+  width: 20% !important;
+}
+
+.w30 {
+  width: 30% !important;
+}
+
+.w40 {
+  width: 40% !important;
+}
+
+.w50 {
+  width: 50% !important;
+}
+
+.w60 {
+  width: 60% !important;
+}
+
+.w70 {
+  width: 70% !important;
+}
+
+.w80 {
+  width: 80% !important;
+}
+
+.w90 {
+  width: 90% !important;
+}
+
+.w100 {
+  width: 100% !important;
+}
+
+// Float content at breakpoint helpers
+@media screen and (min-width: $screen-xs) {
+  .float-xs-left {
+    float: left !important;
+  }
+  .float-xs-right {
+    float: right !important;
+  }
+  .float-xs-none {
+    float: none !important;
+  }
+}
+
+@media screen and (min-width: $screen-sm) {
+  .float-sm-left {
+    float: left !important;
+  }
+  .float-sm-right {
+    float: right !important;
+  }
+  .float-sm-none {
+    float: none !important;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .float-md-left {
+    float: left !important;
+  }
+  .float-md-right {
+    float: right !important;
+  }
+  .float-sm-none {
+    float: none !important;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .float-lg-left {
+    float: left !important;
+  }
+  .float-lg-right {
+    float: right !important;
+  }
+  .float-sm-none {
+    float: none !important;
+  }
+}
+
+iframe[name='elqFCSFra'] {
+  display: none;
+}
+
+// eloqua wants to mess up my page.  I say NFW.
+iframe[name='google_conversion_frame'] {
+  display: none;
+}
+
+// Now google wants to do the same thing.
+// Hide rollover info on tablets and mobile
+@media (max-width: $screen-tablet) {
+  .blockDetailsMobile,
+  .blockDetails {
+    display: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Border helper classes
+// - media flex has similar border class '.has-borders', note the -border(s) difference
+// ---------------------------------------------------------------------------
+.has-border {
+  border: 1px solid $border-color-base;
+}
+.has-border-top {
+  border-top: 1px solid $border-color-base;
+}
+.has-border-right {
+  border-right: 1px solid $border-color-base;
+}
+.has-border-bottom {
+  border-bottom: 1px solid $border-color-base;
+}
+.has-border-left {
+  border-left: 1px solid $border-color-base;
+}
+
+// Content Section wrapper classes
+// classes designed to group/wrap abstract content in for better control of spacing
+// this could get a little messy, try to keep as organized as possible
+// ----------------------------------------
+//
+.content-outer {
+  margin-bottom: $padding-component-base-vertical;
+
+  > * {
+    // reset all outer spacing for interal sections
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: $padding-component-small-vertical;
+
+    &:last-child {
+      // not needed due to collapsing margins, keep for testing (may be reversed)
+      // margin-bottom: 0; // remove margin from last item, use -outer item margin
+    }
+  }
+
+  // add more spacing above/below when a band background color is used.
+  // padding-top/bottom ensures more color spacing for the content
+  // margin-bottom pushes next section down past the color band
+  > .band {
+    padding-top: $padding-component-base-vertical;
+    padding-bottom: $padding-component-base-vertical;
+    margin-bottom: 0; // margin bottom allows two .band sections to have no space between
+
+    + *:not(.band) {
+      // if not two band sections in a row, provide space above second section
+      margin-top: $padding-component-base-vertical;
+    }
+  }
+}
+
+.content-inner {
+  margin-bottom: $padding-component-small-vertical;
+}
+
+// Wrapper class for intro content on Family/Series pages
+// want to change this to content-lead
+.content-lead {
+  @include lead;
+  margin-bottom: 1em;
+  // using margin bottom to utilize collapsing margins from mt* helper classes palced on tables commonly found below this intended section.
+}
+
+// Content area separator
+// Style an hr element to work like a band section
+// Does not need a background color class, using !important to override one if present
+hr.band {
+  min-height: 1px;
+  background-color: $border-color-base !important;
+  border: none;
+  overflow: visible; // Chrome hides overflow in User Agent stylesheet
+}
+
+// added per gforge 30416
+// TO DO: is this needed?
+dd {
+  margin-left: 2em;
+}
+
+//  ---------------------------------------------------------------------------
+//  THUMB & THUMBP fixes - should probably be moved to images.scss
+//  ::  Variables
+//  ::  Images
+//  ::  Content
+//  ::  CSS Patches
+//  ::  Special Circumstances
+//  ---------------------------------------------------------------------------
+//  variables
+$image-margin: 0.75em;
+$list-padding: 85px;
+// old thumb CSS
+.iu img.thumb,
+.puiu img.thumb,
+.iu a img.thumb,
+.puiu a img.thumb {
+  //  padding: 0.1em 0 0.2em;
+  //  margin: 0 !important;
+}
+
+//  Images
+.thumb {
+  float: left;
+  padding: 0;
+  margin: 0 $image-margin $image-margin 0;
+  border: 0;
+}
+
+//  Content Container
+.thumbp {
+  padding: 0;
+  margin: 0;
+  .boxes {
+    padding-left: $list-padding;
+  }
+}
+
+//  Target images that are missing "thumb" class by using img src location
+//  Hopefully these thumbnails come from distinct image folders
+
+//Summary Pages top border for iu-container
+@include breakpoint(screen-small) {
+  .OverviewTabContent.InfoUnitContent > .iw_component:last-child {
+    border-top: 1px solid #eee;
+    margin-top: 2em;
+  }
+}
+
+.OverviewTabContent {
+  &.InfoUnitContent > .iw_component:last-child {
+    @include breakpoint(screen-small) {
+      border-top: 1px solid #eee;
+      margin-top: 2em;
+    }
+  }
+
+  .collapse-mobile {
+    @media screen and (min-width: $screen-sm) {
+      &:not(.band-component) {
+        margin-bottom: 1em;
+      }
+      > h2:not(#features) {
+        border-top: 1px solid #eee;
+        padding-top: 2em;
+        margin-top: 2em;
+      }
+    }
+  }
+
+  .iw_component:not(.band-component)
+    + .iw_component.band-component
+    .collapse-mobile {
+    //padding-top: 0.5em;
+    @media screen and (min-width: $screen-sm) {
+      padding-top: 2.7em;
+    }
+  }
+  &:not(.WhatsNewContent) > .iw_component:last-of-type:not(.band-component) {
+    margin-bottom: 2.7em;
+  }
+
+  &.WhatsNewContent > .iw_component:last-of-type {
+    @include breakpoint(screen-small) {
+      //margin-top: 2.7em;
+    }
+    .collapse-mobile {
+      @media screen and (min-width: $screen-sm) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.collapse-mobile {
+  border: none;
+  > a {
+    // adding CSS selector to find smaller images in particular folder
+    > img[src*='/logos-internal/'],
+    img[src*='/icons/'],
+    img[src*='placehold'] {
+      @extend .thumb;
+    }
+  }
+  &:last-of-type {
+    //margin-bottom: 40px;
+  }
+}
+
+//  Some markup uses "media" instead of thumb & thumbp classes
+//  Overriding Bootstrap Media for these thumbnail images
+//  Should be removed after markup has been cleaned up
+.collapse-mobile > .padMe5 + .media {
+  > .media-left {
+    display: block;
+    img {
+      float: left;
+      margin: 0 $image-margin $image-margin 0;
+    }
+  }
+  > .media-right {
+    display: block;
+    .boxes {
+      padding-left: $list-padding;
+    }
+  }
+}
+
+// Special Thumb class circumstances - haven't seen any examples so styles left
+#ahp-popup-inner,
+.ahp-popup-inner {
+  .thumb {
+    padding: 0 1em 1em 0;
+  }
+}
+
+.thumb[src$='58X64.jpg'] + .thumbp {
+  padding-left: 68px;
+}
+
+.iu div.featured a img.thumb {
+  padding-right: 10px;
+}
+
+//  End - Proposed THUMB & THUMBP fixes
+//  ---------------------------------------------------------------------------
+// .simpleProductTable properties to handle indentions for sub-product items
+.simpleProductTable-cellIndent {
+  padding-left: 2em !important;
+}
+
+// Make it easy for web publishers and designers to find misalignment issues
+// by applying this class to divs where needed using Google Chrome tools
+.devTools-showGrid {
+  background-color: rgba(100, 100, 200, 0.1);
+  background-clip: content-box;
+  border: 1px solid rgba(100, 100, 200, 0.25);
+}
+
+//  Typography helper classes
+//  Should be moved to a better location
+.overline {
+  text-decoration: overline;
+}
+
+.taxoContainer {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+a#blog-icon svg g#blog-text path {
+  fill: #646464;
+  stroke: #646464;
+}
+
+a#blog-icon svg path#blog-fill {
+  fill: #646464;
+}
+
+a#blog-icon svg {
+  height: 32px;
+  width: 32px;
+}
+
+a#weixin-icon svg {
+  fill: #7bb1db;
+  height: 30px;
+  width: 30px;
+}
+
+// a#weixin-icon svg {
+//     fill: #646464;
+// }
+
+nav.pull-right.share-icons {
+  display: inline-flex;
+}
+
+nav.pull-right.share-icons a {
+  padding: 5px;
+}
+.beforeUIchange {
+  display: none;
+  visibility: hidden;
+}
+// Search images (partners and video thumbnails)
+.freescale_result_box #main_res .main-results {
+  img[src*='connect/images/logos'] {
+    height: 80px;
+    max-width: 80px;
+    outline: 2px solid white;
+    outline-offset: -1px;
+  }
+  img[src*='videos/thumbnail'] {
+    height: 81px;
+    max-width: 135px;
+  }
+}
+
+// Generic content wrappers for consistent spacing and a css hook for future updates
+// ----------------------------------------
+//
+// Generic component wrapper for consistent Padding
+// add to ui_errata file
+.component-wrapper {
+  padding-top: $padding-component-base-vertical;
+  padding-bottom: $padding-component-base-vertical;
+
+  .iw_component:not(:last-of-type) .collapse-mobile & {
+    @include breakpoint($screen-sm) {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// Component divider to add a border-top to divide multiple components under same wrapper/background color
+.has-component-divider {
+  box-shadow: inset 0px 1px 0px $border-color-base;
+}
+
+// Metadata
+// ----------------------------------------
+.metadata {
+  font-size: $font-size-base;
+  color: $cool-grey;
+}
+
+// Two Factor Auth page container
+.two-factor-container {
+  margin-right: auto;
+  margin-left: auto;
+
+  // subtract gutter width since container is in col-* with padding l/r
+  @media (min-width: $screen-sm-min) {
+    width: ($container-sm - $grid-gutter-width);
+  }
+  @media (min-width: $screen-md-min) {
+    width: ($container-md - $grid-gutter-width);
+  }
+  @media (min-width: $screen-lg-min) {
+    width: ($container-lg - $grid-gutter-width);
+  }
+}
+/* end ui-errata.scss */

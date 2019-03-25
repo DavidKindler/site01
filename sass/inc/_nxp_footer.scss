@@ -1,0 +1,298 @@
+#footer {
+  padding: 0;
+  clear: both;
+  &:before {
+    content: " ";
+    display: table;
+  }
+  .row {
+    a {
+      transition: all .25s ease;
+      color: $nxp-blue;
+    }
+    a:hover {
+      color: $nxp-blue-xlight;
+      text-decoration: none;
+    }
+  }
+  &.container {
+    background-color: $cool-grey-xdark;
+    overflow: hidden;
+    padding: 1em 0;
+	//margin-top: 5em;
+    .legal {
+      background-color: $nxp-footer-bottom;
+      padding-bottom: 5px;
+      .vertical li {
+        border-left: 1px solid $cool-grey;
+        //line-height: 12px;
+        &:first-child {
+          border-left: 0px;
+        }
+      }
+    }
+  }
+  .row:first-child {
+    padding: 20px 0px 10px 20px;
+  }
+  .dtmFooter,
+  #newsContainer {
+    margin-bottom: 10px;
+  }
+  [class*='icon-'] {
+    margin-bottom: 10px;
+  }
+  h4,
+  h5 {
+    //font-weight: bold;
+    margin-top: 0;
+    color: $white;
+  }
+  ul {
+    margin-bottom: 5px;
+  }
+  #footer-social {
+    li {
+      span {
+        font-size: 2.4rem;
+        vertical-align: middle;
+      }
+      a {
+        //        @include transition(all .25s ease);
+        &:hover {
+          //          color: shade($pale-blue, 15%);
+          cursor: pointer;
+        }
+      }
+    }
+    &.list-inline {
+      margin-left: 0;
+    }
+  }
+  li a.nav-sprite {
+    width: 26px;
+    height: 22px;
+    display: block;
+    margin-bottom: -7px;
+  }
+  .copyright,
+  .legal {
+    font-size: 12px;
+    ul:first-of-type li {
+      padding: 0 .5rem 0 .8rem;
+    }
+    div:nth-of-type(2) {
+      margin-top: 0 !important;
+    }
+    div:nth-of-type(2) span {
+      @include breakpoint(screen-medium) {
+        font-size: 100% !important;
+      }
+    }
+  }
+  .facebook-icon {
+    background-position: 0 -123px;
+  }
+  .twitter-icon {
+    background-position: 0 -1091px;
+  }
+  .youtube-icon {
+    background-position: 0 -1163px;
+  }
+  .googleplus-icon {
+    background-position: 0 -821px;
+  }
+  .linkedin-icon {
+    background-position: 0 -893px;
+  }
+  .youku-icon {
+    background-position: 0 -1236px;
+  }
+  .weibo-icon {
+    background-position: 0 -1315px;
+  }
+  .rss-icon {
+    background-position: 0 -1386px;
+  }
+  .newsContainer {
+    position: relative;
+  }
+  .newsItem {
+    max-width: 370px;
+    visibility: hidden;
+    display: none;
+    &:first-child {
+      visibility: visible;
+      display: block;
+    }
+    p {
+      font-size: $font-size-small;
+      color: white;
+    }
+    h5 {
+      color: white;
+    }
+  }
+  #newsDirection {
+    position: absolute;
+    top: -5px;
+    right: 50px;
+    z-index: 900
+  }
+  a#newsLeft,
+  a#newsRight {
+    font-size: 20px;
+    z-index: 999;
+    cursor: pointer;
+  }
+  a#newsLeft {
+    margin-right: .5em;
+  }
+  a {
+    &.readmore,
+    &#newsLeft:hover,
+    &#newsRight:hover,
+    &#newsLeft:focus,
+    &#newsRight:focus,
+    &#newsLeft:visited,
+    &#newsRight:visited {
+      text-decoration: none;
+    }
+  }
+  // fix the news item wrapper being too wide for small devices
+  #news,
+  .newsItem,
+  .caroufredsel_wrapper {
+    width: 100% !important;
+  }
+  .row a:not(#newsLeft) {
+    //color: $cool-grey-dark;
+    //text-decoration: underline;
+  }
+  .row:first-child {
+    padding: 20px 15px 10px 15px;
+  }
+  #newsDirection {
+    left: 190px;
+  }
+}
+
+//#footer
+footer {
+  background-color: $cool-grey-xdark;
+  color: rgba(250, 250, 250, .5);
+  li {
+    &:before {
+      content: none;
+    }
+  }
+  // }
+  .footer-privacy {
+    text-align: center;
+    padding-left: 0;
+    @include breakpoint(screen-small) {
+      padding-left: 35px;
+      text-align: inherit;
+    }
+    & + div.pull-right,
+    & + div.pull-right span.pull-right {
+      /* the copyright info */
+      float: none !important;
+      text-align: center;
+      margin-bottom: 1em;
+      @include breakpoint(screen-small) {
+        float: right !important;
+        text-align: inherit;
+        margin-bottom: inherit;
+      }
+    }
+    & + div.pull-right span.pull-right {
+      @include breakpoint(screen-small) {
+        padding-right: 15px;
+      }
+    }
+  }
+  // }
+  .legalContainer {
+    background-color: tint($cool-grey-xdark, 5%);
+//    border-top: 1px solid rgba(255,255,255,.15);
+    font-size: 12px;
+    padding: 1.5em 0 1.5em;
+    .row a {
+      color: $nxp-blue;
+      transition: all .25s ease;
+    }
+    
+    .row a:hover {
+      color: $nxp-blue-xlight;
+      text-decoration: none;
+    }
+    .-legalLinks,
+    .-legalLinks li {
+      text-align: center;
+      margin-bottom: .25em;
+      line-height: 1.5;
+      @include breakpoint(screen-small) {
+        text-align: left;
+        margin-bottom: 0;
+      }
+      &:nth-of-type(even) {
+        color: rgba(255,255,255,.15);
+      }
+    }
+    .footer-privacy {
+      text-align: center;
+      padding-left: 15px;
+    }
+    .-copyright {
+      line-height: 1.5;
+      text-align: center;
+      @include breakpoint(screen-small) {
+        text-align: right;
+      }
+    }
+    .footer-privacy + div.pull-right,
+    .footer-privacy + div.pull-right span.pull-right {
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// footer
+// fix the orphaned icons at certain breakpoints
+@media screen and (min-width: $screen-md) {
+  // @media screen and (min-width: 840px) {
+  #footer #footer-social li span {
+    font-size: 3.2rem;
+  }
+  footer .footer-privacy,
+  footer .legalContainer .-legalLinks,
+  footer .legalContainer .-legalLinks li {
+    text-align: left;
+  }
+  footer .footer-privacy + div.pull-right,
+  footer .footer-privacy + div.pull-right span.pull-right {
+    text-align: right;
+    margin-bottom: 0;
+  }
+  #footer #newsDirection {
+    right: 15px;
+  }
+  #footer #newsDirection {
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  footer .legalContainer .legal .vertical li:first-child {
+    border-left: 0px;
+  }
+  footer .footer-privacy {
+    padding-left: 15px;
+    text-align: inherit;
+  }
+  footer .footer-privacy + div.pull-right span.pull-right {
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,61 @@
+//  ---------------------------------------------------------------------------
+//  Supplemental Links
+//  ---------------------------------------------------------------------------
+
+.supplemental-links {
+  padding-top: $padding-component-vertical;
+  padding-bottom: $padding-component-vertical;
+
+  &-list {
+    // provide backup styles in case .has-* class is not injected by javascript
+    @include columns(2, 1em, 220px, 'li'); // columns|gap|width|child
+    margin-bottom: 0;
+
+    @include breakpoint($screen-md) {
+      column-count: 3;
+    }
+
+    // using '>' combines styles introduced in columns mixin when minified
+    > li {
+      margin-bottom: 1em; // provide extra space between each item
+    }
+
+    // is-* classes equal number exactly (one, two or four)
+    // has-* classes equal number of columns to display with more than 4 items
+    &.has-three {
+      // default styles
+    }
+
+    &.has-four {
+      @include breakpoint($screen-xl) {
+        column-count: 4;
+      }
+    }
+
+    // for single or double items, just display centered in section
+    &.is-one,
+    &.is-two,
+    &.is-three {
+      @include breakpoint($screen-md) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        > li {
+          padding-right: 2.25em; // 1.25em = padding left, 1em = column gap
+        }
+      }
+    }
+
+    // Four items gets special screen-md display so all columns are full
+    &.is-four {
+      @include breakpoint($screen-md) {
+        column-count: 2;
+      }
+
+      @include breakpoint($screen-xl) {
+        column-count: 4;
+      }
+    }
+  }
+}
