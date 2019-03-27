@@ -38,11 +38,11 @@ module.exports = {
     sourceType: "module",
   },
   extends: ["eslint:recommended", "plugin:react/recommended", "standard-jsx"],
-  settings: {
-    react: {
-      pragma: "h",
-    },
-  },
+  // settings: {
+  //   react: {
+  //     pragma: "h",
+  //   },
+  // },
   rules: {
     "no-const-assign": "warn",
     "no-this-before-super": "warn",

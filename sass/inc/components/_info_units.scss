@@ -190,7 +190,7 @@ End Old Code revised Dec 2, 2016 by Dan */
 }
 
 .OverviewTabContent .iu-container {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 //  Moved .iu outside of .iu-container and added width declarations in order
@@ -208,7 +208,8 @@ End Old Code revised Dec 2, 2016 by Dan */
   color: #646464;
   background-color: #ededf0;
   @include breakpoint(screen-smallest) {
-    flex: 1 0 calc((100% - 15px) / 2);
+    flex-grow: 1;
+    flex-basis: calc((100% - 15px) / 2);
     width: calc((100% - 15px) / 2);
     &:first-of-type {
       margin-right: 15px;
@@ -220,7 +221,8 @@ End Old Code revised Dec 2, 2016 by Dan */
     }
   }
   @include breakpoint(screen-medium) {
-    flex: 0 0 calc((100% - 30px) / 3);
+    flex-grow: 0;
+    flex-basis: calc((100% - 30px) / 3);
     width: calc((100% - 30px) / 3);
     &:nth-of-type(2) {
       margin-right: 15px;
@@ -241,16 +243,15 @@ End Old Code revised Dec 2, 2016 by Dan */
   &:first-of-type {
     margin-top: 0;
   }
-//  @include breakpoint(screen-small) {
-//    font-size: 2rem;
-//  }
+  //  @include breakpoint(screen-small) {
+  //    font-size: 2rem;
+  //  }
 }
 
 //  List Styles
 .iu {
   li,
-  .boxes li,
-  {
+  .boxes li {
     padding-left: 0;
     &:before {
       display: none;
@@ -334,4 +335,3 @@ End Old Code revised Dec 2, 2016 by Dan */
     float: none;
   }
 }
-

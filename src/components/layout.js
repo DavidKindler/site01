@@ -1,3 +1,4 @@
+/* eslint-disable jsx-quotes */
 /**
  * Layout component that queries for data
  * with Gatsby's StaticQuery component
@@ -8,8 +9,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql, Link } from "gatsby"
-
 import Header from "./header"
+
 // import "./layout.css"
 
 const ListLink = props => (
@@ -42,21 +43,13 @@ const Layout = ({ children }) => (
     render={data => {
       return (
         <>
-          <Header siteTitle={data.SiteTitleQuery.siteMetadata.title} />
-          <header style={{ marginBottom: "1.4rem" }}>
-            {/* <Image2 /> */}
-            <ul style={{ listStyle: "none" }}>
-              <ListLink to="/">Home</ListLink>
-              <ListLink to="/components">Components</ListLink>
-              <ListLink to="/guidelines">Code Guidelines</ListLink>
-            </ul>
-          </header>
+          <Header />
           <div
             style={{
               margin: `0 auto`,
               maxWidth: 1200,
-              padding: `0px 1rem 1rem`,
-              paddingTop: 0,
+              padding: `60px 1rem 1rem`,
+              // paddingTop: 0,
             }}
           >
             <main>{children}</main>

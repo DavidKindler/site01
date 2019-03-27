@@ -1,33 +1,30 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import NavBar from "./navbar"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `#e7e7e7`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+  <header className="navbar navbar-default megamenu navbar-fixed-top" id="top">
+    <div className="navbar-header">
+      <button
+        className="navbar-toggle"
+        type="button"
+        data-toggle="collapse"
+        data-target="#fsl-navbar-collapse"
+      >
+        <span className="icon-bar" />
+        <span className="icon-bar" />
+        <span className="icon-bar" />
+      </button>
+      <Link to="/" className="navbar-brand">
+        <img
+          src="//www.nxp.com/resources/images/nxp-logo.svg"
+          style={{ height: "25px", display: "inline-block" }}
+        />
+        Web Branding
+      </Link>
     </div>
+    <NavBar />
   </header>
 )
 
