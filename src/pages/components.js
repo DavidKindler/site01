@@ -11,7 +11,7 @@ const Headline = styled.h1`
 export default ({ data }) => {
   console.log(data)
   return (
-    <Layout>
+    <Layout aside={true}>
       <div>
         <Headline>Components</Headline>
         <h4>{data.components.totalCount} Components</h4>
@@ -19,7 +19,10 @@ export default ({ data }) => {
           return (
             <div key={node.id} id={_.camelCase(node.frontmatter.title)}>
               <hr />
-              <Link to={node.fields.slug} style={{ textDecoration: "none" }}>
+              <Link
+                to={node.fields.patternPage}
+                style={{ textDecoration: "none" }}
+              >
                 <h3>{node.frontmatter.title}</h3>
                 <p>{node.frontmatter.date}</p>
                 <p>{node.excerpt}</p>
@@ -49,25 +52,7 @@ export const query = graphql`
           excerpt
           fields {
             slug
-          }
-        }
-      }
-    }
-    patterns: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/patterns/" } }
-      sort: { fields: [fields___slug], order: ASC }
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date
-          }
-          excerpt
-          fields {
-            slug
+            patternPage
           }
         }
       }

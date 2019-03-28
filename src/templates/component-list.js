@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 const ComponentList = ({ data }) => {
   const post = data.markdownRemark
   return (
-    <Layout>
+    <Layout aside={true}>
       <h1>{post.frontmatter.title}</h1>
       <p>{post.frontmatter.description}</p>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />

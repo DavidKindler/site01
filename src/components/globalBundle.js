@@ -58,11 +58,11 @@ export default class GlobalBundle extends React.Component {
   render() {
     return (
       <Helmet>
-        <link
+        {/* <link
           type="text/css"
           rel="stylesheet"
           href="//www.nxp.com/css/nxp_containers_no_left_nav.css"
-        />
+        /> */}
       </Helmet>
     )
   }

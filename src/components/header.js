@@ -4,7 +4,7 @@ import React from "react"
 import NavBar from "./navbar"
 
 const Header = ({ siteTitle }) => (
-  <header className="navbar navbar-default megamenu navbar-fixed-top" id="top">
+  <div className="navbar navbar-default megamenu navbar-fixed-top">
     <div className="navbar-header">
       <button
         className="navbar-toggle"
@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => (
       </Link>
     </div>
     <NavBar />
-  </header>
+  </div>
 )
 
 Header.propTypes = {

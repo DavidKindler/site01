@@ -24,6 +24,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       })
       createNodeField({
         node,
+        name: "patternPage",
+        value: "/patterns" + slug,
+      })
+      createNodeField({
+        node,
         name: "dir",
         value: "/components",
       })
@@ -34,6 +39,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         name: "slug",
         value: "/patterns" + slug,
       })
+
       createNodeField({
         node,
         name: "dir",

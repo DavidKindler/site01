@@ -14,16 +14,16 @@ const ListLink = props => (
   </li>
 )
 
-const Layout2 = ({ aside, children }) => (
+const Layout2 = ({ children }) => (
   <>
     <Header />
 
-    {aside && <Aside />}
+    <Aside />
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: aside ? 650 : 1200,
-        padding: aside ? `60px 1.0875rem 1.45rem` : `60px 0px 1.45rem`,
+        maxWidth: 650,
+        padding: `60px 1.0875rem 1.45rem`,
         // paddingTop: 0,
       }}
     >
