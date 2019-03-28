@@ -14,29 +14,29 @@ var loadJS = function(url, implementationCode, location) {
   location.appendChild(scriptTag)
 }
 
-loadJS(
-  `//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js`,
-  env => {
-    console.log("tweenmax loaded")
-  },
-  document.head
-)
+// loadJS(
+//   `//cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js`,
+//   env => {
+//     console.log("tweenmax loaded")
+//   },
+//   document.head
+// )
 
-loadJS(
-  `//cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js`,
-  env => {
-    console.log("three loaded")
-  },
-  document.body
-)
+// loadJS(
+//   `//cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js`,
+//   env => {
+//     console.log("three loaded")
+//   },
+//   document.body
+// )
 
-loadJS(
-  `https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js`,
-  env => {
-    console.log("orbitControls loaded")
-  },
-  document.body
-)
+// loadJS(
+//   `https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js`,
+//   env => {
+//     console.log("orbitControls loaded")
+//   },
+//   document.body
+// )
 
 var StartDragon = function() {
   return new StartDragon.Init()
