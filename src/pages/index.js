@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
 import "../../sass/nxp-web.scss"
+import "../../sass/basecamp-docs.scss"
 
 const IndexPage = () => (
   <Layout>

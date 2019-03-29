@@ -5,11 +5,11 @@
 
 // Core variables and mixins
 // @import 'inc/nxp_functions';
-@import 'inc/nxp_colors';
-@import 'inc/nxp_variables';
+@import "inc/nxp_colors";
+@import "inc/nxp_variables";
 // @import 'inc/bootstrap/mixins';
-@import 'inc/nxp_mixins';
-@import 'inc/mixins_b57029';
+@import "inc/nxp_mixins";
+@import "inc/mixins_b57029";
 
 // Component Styles
 // @import 'basecamp/navbar';
@@ -389,7 +389,7 @@
 }
 
 *[id].page-header:target:before {
-  content: ' ';
+  content: " ";
   display: block;
   height: 80px;
   margin: 0;
@@ -406,7 +406,7 @@
   border-radius: $border-radius-base;
 
   &:after {
-    content: 'Example';
+    content: "Example";
     position: absolute;
     top: 15px;
     left: 15px;
@@ -680,7 +680,7 @@
       padding-top: $line-size;
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 50%;
@@ -701,7 +701,7 @@
 
     &:before,
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 50%;
@@ -814,9 +814,9 @@
       grid-column-gap: ($grid-gutter-width / 2);
       grid-template-columns: 250px 1fr;
       grid-template-areas:
-        'header header'
-        'aside  body'
-        'footer footer';
+        "header header"
+        "aside  body"
+        "footer footer";
     }
 
     &-header {
@@ -896,7 +896,7 @@
 
       &:before,
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         background-color: $black;
@@ -958,7 +958,7 @@
 
       &:before,
       &:after {
-        content: '';
+        content: "";
         position: absolute;
       }
 
@@ -984,4 +984,19 @@
       }
     }
   }
+}
+
+.type-info pre {
+  width: 210px;
+}
+
+.gridWrapper {
+  border: 1px dashed rgba(250, 50, 50, 0.5);
+}
+
+.gridDemo {
+  background-color: rgba(100, 100, 200, 0.1);
+  background-clip: content-box;
+  border: 1px solid rgba(100, 100, 200, 0.25);
+  text-align: center;
 }
