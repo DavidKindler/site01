@@ -8,7 +8,7 @@ const Headline = styled.h1`
   color: inline-block;
   color: cornflowerblue;
 `
-export default ({ data }) => {
+const components = ({ data }) => {
   console.log(data)
   return (
     <Layout aside={true}>
@@ -34,6 +34,7 @@ export default ({ data }) => {
     </Layout>
   )
 }
+export default components
 
 export const query = graphql`
   query {

@@ -6,11 +6,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../../sass/nxp-web.scss"
 import "../../sass/basecamp-docs.scss"
+import CodeBlock from "../components/syntax-highlighter"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`NXP.com`, `Web branding`, `react`]} />
-    <h1>Overview page</h1>
+    <SEO title="Home" />
+    home page
   </Layout>
 )
 

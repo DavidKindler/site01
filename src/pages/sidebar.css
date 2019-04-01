@@ -1,0 +1,7 @@
+div.fsl-docs-sidebar.affix {
+  position: fixed;
+  top: 70px;
+}
+div.fsl-docs-sidebar .open {
+  display: block !important;
+}

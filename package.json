@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "autoprefixer": "^9.5.0",
+    "classnames": "^2.2.6",
     "core-js": "2",
     "cssnano": "^4.1.10",
     "gatsby": "^2.2.5",
@@ -26,7 +27,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-waypoint": "^9.0.1"
   },
   "devDependencies": {
     "@emotion/core": "^10.0.9",
