@@ -2,11 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout2"
 
+// eslint-disable-next-line react/display-name
 export default ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1>My images</h1>
+        <h1>My files</h1>
         <table>
           <thead>
             <tr>

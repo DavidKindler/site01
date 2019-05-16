@@ -2,6 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const Greeting = ({ greeting, name }) => {
+  console.log("greeting", greeting)
+  console.log("name", name)
+
+  // if (name.length) {
+  //   console.log("length is", name.length)
+  // }
   return (
     <div style={{ color: "teal" }}>
       <h2>
@@ -18,6 +24,7 @@ Greeting.PropTypes = {
 
 Greeting.defaultProps = {
   greeting: "hello",
+  // name: "George",
 }
 
 export default Greeting

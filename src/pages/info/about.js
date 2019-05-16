@@ -8,9 +8,9 @@ export default function About() {
     <Layout2>
       <h1>About page</h1>
       <Greeting greeting="Hello there" name="David" />
-      <Greeting name="Sam" />
+      <Greeting greeting="Sam" />
       <Link to="/">Home Page</Link>
-      <p>
+      {/* <p>
         Helping marketers serve unmatched cross-phase personalized experiences
         at every step of the FirstSpriti Digital Experience Platform. Helping
         marketers serve unmatched cross-phase personalized experiences at every
@@ -33,7 +33,7 @@ export default function About() {
         introduced new capabilities of the customer journey. Helping marketers
         serve unmatched cross-phase personalized experiences at every step of
         the FirstSpriti Digital Experience Platform.
-      </p>
+      </p> */}
     </Layout2>
   )
 }

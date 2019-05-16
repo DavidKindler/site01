@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-quotes */
-import React, { Component, PureComponent } from "react"
+import React from "react"
 import { Waypoint } from "react-waypoint"
 
-class Scrollspy extends Component {
+class Scrollspy extends React.Component {
   constructor(props) {
     super(props)
     this.topWaypointLeave = this.topWaypointLeave.bind(this)

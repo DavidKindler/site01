@@ -88,12 +88,14 @@
 
 // Anchor Page Links
 // ----------------------------------------
-.anchor {
-  position: relative;
-  display: block;
-  width: 1px;
-  height: 60px;
-  margin-top: -60px;
+a.anchor {
+  text-decoration: none;
+  cursor: default;
+  // position: relative;
+  // display: block;
+  // width: 1px;
+  // height: 60px;
+  // margin-top: -60px;
 }
 
 // FSL Docs Header, dont thik this is being used

@@ -50,7 +50,7 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     max-height: 140px;
 
     @include breakpoint($screen-xs) {

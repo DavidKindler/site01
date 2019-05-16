@@ -9503,6 +9503,11 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-children-utilities@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-1.0.9.tgz#6a95ad15094cd65e11ea3445ad730621680b4ad6"
+  integrity sha512-7RputOqcuKYOxcU9+/ycKOgN18LP2lfi1zXojC8/3c3hDFgwlrzBRqF6vSU41mA4CWGZ5iLvTV/VI2A2GGBPXA==
+
 react-dev-utils@^4.2.1:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"

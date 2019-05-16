@@ -26,6 +26,7 @@
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-children-utilities": "^1.0.9",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-waypoint": "^9.0.1"

@@ -6,19 +6,20 @@ import { jsx, css } from "@emotion/core"
 import styled from "@emotion/styled"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
 // import Scrollspy from "../utils/Scrollspy"
 import "./sidebar.css"
 
 import { Waypoint } from "react-waypoint"
 
-const sidebarNav = styled.ul(props => ({
+const SidebarNav = styled.ul(props => ({
   display: props.open ? "block" : "none",
 }))
 
-const sidebarNav = styled.li(props => ({
-  display: props.open ? "block" : "none",
-  // color: props.open
-}))
+// const SidebarNav = styled.li(props => ({
+//   display: props.open ? "block" : "none",
+//   // color: props.open
+// }))
 
 class Css extends React.PureComponent {
   constructor(props) {
@@ -51,7 +52,7 @@ class Css extends React.PureComponent {
   render() {
     const sidebar = () => (
       <div className="fsl-docs-sidebar affix">
-        <sidebarNav open={this.state.id.indexOf("type") !== -1} className="nav">
+        <SidebarNav open={this.state.id.indexOf("type") !== -1} className="nav">
           <li
             className={this.state.id.indexOf("type") !== -1 ? "active" : null}
           >
@@ -334,12 +335,13 @@ class Css extends React.PureComponent {
               </li>
             </ul>
           </li>
-        </sidebarNav>
+        </SidebarNav>
         <a className="back-to-top" href="#top">
           Back to top
         </a>
       </div>
     )
+
 
     const htmlContent = () => (
       <div className="fsl-container container">
@@ -785,6 +787,7 @@ class Css extends React.PureComponent {
                       </div>
                     </div>
                   </Waypoint>
+
                   <a className="anchor" id="type-lists-ordered" />
                   <h3>Ordered</h3>
                   <p>
@@ -1683,7 +1686,7 @@ class Css extends React.PureComponent {
                 </div>
               </article>
 
-              <articles className="tables-combined">
+              <article className="tables-combined">
                 <a className="anchor" id="tables-combined" />
                 <h2>Combined table classes</h2>
                 <p>
@@ -1740,7 +1743,7 @@ class Css extends React.PureComponent {
                 `}
                   />
                 </div>
-              </articles>
+              </article>
 
               <article className="tables-responsive">
                 <a className="anchor" id="tables-responsive" />
@@ -2282,7 +2285,7 @@ class Css extends React.PureComponent {
                     <form role="form">
                       <div className="checkbox">
                         <label>
-                          <input type="checkbox" value="" /> Option one is this
+                          <input type="checkbox" /> Option one is this
                           and that—be sure to include why it's great
                         </label>
                       </div>
@@ -2293,7 +2296,6 @@ class Css extends React.PureComponent {
                             name="optionsRadios"
                             id="optionsRadios1"
                             value="option1"
-                            checked
                           />{" "}
                           Option one is this and that—be sure to include why
                           it's great
@@ -2332,7 +2334,6 @@ class Css extends React.PureComponent {
                             name="optionsRadios"
                             id="optionsRadios1"
                             value="option1"
-                            checked
                           />
                           Option one is this and that&mdash;be sure to include why
                           it's great
@@ -3593,15 +3594,15 @@ class Css extends React.PureComponent {
                       />
                       <br />
                       <select className="form-control input-lg">
-                        <option value="">.input-lg</option>
+                        <option value="input-lg">.input-lg</option>
                       </select>
                       <br />
                       <select className="form-control">
-                        <option value="">Default select</option>
+                        <option value="default">Default select</option>
                       </select>
                       <br />
                       <select className="form-control input-sm">
-                        <option value="">.input-sm</option>
+                        <option value="input-sm">.input-sm</option>
                       </select>
                     </div>
                   </form>
@@ -3986,7 +3987,7 @@ class Css extends React.PureComponent {
                 <div className="bc-example">
                   <div
                     className="well"
-                    style={{ "max-width": "400px", margin: "0 auto 10px" }}
+                    style={{ maxWidth: "400px", margin: "0 auto 10px" }}
                   >
                     <button type="button" className="btn  btn-lg btn-block">
                       Block level button
@@ -4878,7 +4879,7 @@ class Css extends React.PureComponent {
                   <div className="col-xs-6">
                     <div
                       className=""
-                      style={{ "background-color": "rgba(100, 100, 200, .1)" }}
+                      style={{ backgroundColor: "rgba(100, 100, 200, .1)" }}
                     >
                       <p>
                         An example box of content that needs some spacing
@@ -4889,7 +4890,7 @@ class Css extends React.PureComponent {
                   <div className="col-xs-6">
                     <div
                       className="p1"
-                      style={{ "background-color": "rgba(100, 100, 200, .1)" }}
+                      style={{ backgroundColor: "rgba(100, 100, 200, .1)" }}
                     >
                       <p>
                         An example box of content that has been fixed using

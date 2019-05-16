@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-quotes */
 import React from "react"
 import CodeBlock from "../components/syntax-highlighter"
@@ -290,7 +292,7 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"jsx"}
                   value={`
-                  <input type="text" disabled />
+<input type="text" disabled />
                   `}
                 />
               </section>
@@ -390,26 +392,26 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"scss"}
                   value={`
-                  /* Bad */
-                  .selector-one, .selector-two
-                  {
-                  display:block;
-                  margin-bottom:0px;
-                  background-image:linear-gradient(to right,red,green);
-                  box-shadow:rgba(0,0,0,0.5);
-                  }
-                  input.selector-three[type='text'] { display: none; }
+/* Bad */
+.selector-one, .selector-two
+{
+display:block;
+margin-bottom:0px;
+background-image:linear-gradient(to right,red,green);
+box-shadow:rgba(0,0,0,0.5);
+}
+input.selector-three[type='text'] { display: none; }
 
-                  /* Good */
-                  .selector-one,
-                  .selector-two {
-                    display: block;
-                    margin-bottom: 0;
-                    background-image: linear-gradient(to right, $red, $green);
-                    box-shadow: rgba($black,.5);
-                  }
+/* Good */
+.selector-one,
+.selector-two {
+  display: block;
+  margin-bottom: 0;
+  background-image: linear-gradient(to right, $red, $green);
+  box-shadow: rgba($black,.5);
+}
 
-                  .selector-three[type="text"] { display: none; }
+.selector-three[type="text"] { display: none; }
                 `}
                 />
               </section>
@@ -517,15 +519,15 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"scss"}
                   value={`
-                  .element-lg {
-                    @extend .element;              // sass extend
-                    @include element-style;        // sass mixins
-                    $element-spacing: 1em;         // component specific variable
-                    position: relative;            // Position
-                    padding: $element-spacing;     // Box Model
-                    color: $text-color;            // Typography
-                    border: 1px solid $text-color; // Visual
-                  }
+.element-lg {
+  @extend .element;              // sass extend
+  @include element-style;        // sass mixins
+  $element-spacing: 1em;         // component specific variable
+  position: relative;            // Position
+  padding: $element-spacing;     // Box Model
+  color: $text-color;            // Typography
+  border: 1px solid $text-color; // Visual
+}
                   `}
                 />
               </section>
@@ -611,15 +613,15 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"jsx"}
                   value={`
-                  <article className="component">
-                    <h2 className="component-title">Title</h2>
-                    <section className="component-text">
-                      <p>Some Text goes here.</p>
-                    </section>
-                    <ul className="component-links">
-                      <li><a href="#">Link</a></li>
-                    </ul>
-                  </article>
+<article className="component">
+  <h2 className="component-title">Title</h2>
+  <section className="component-text">
+    <p>Some Text goes here.</p>
+  </section>
+  <ul className="component-links">
+    <li><a href="#">Link</a></li>
+  </ul>
+</article>
                   `}
                 />
                 <div className="row">
@@ -627,37 +629,37 @@ const CodeGuidelines = () => (
                     <CodeBlock
                       language={"scss"}
                       value={`
-                      // SCSS Styles
-                      .component {
-                        position: relative;
+// SCSS Styles
+.component {
+  position: relative;
 
-                        // Header Area
-                        &-title { font-size: 1.5em; }
+  // Header Area
+  &-title { font-size: 1.5em; }
 
-                        // Body Area
-                        &-text {
-                          margin-bottom: .5em;
+  // Body Area
+  &-text {
+    margin-bottom: .5em;
 
-                          p { line-height: 1.5; }
-                        }
+    p { line-height: 1.5; }
+  }
 
-                        // Footer Area
-                        &-links {
-                          list-style: none;
+  // Footer Area
+  &-links {
+    list-style: none;
 
-                          li {
-                            padding-left: 0;
+    li {
+      padding-left: 0;
 
-                            a {
-                              color: $blue;
+      a {
+        color: $blue;
 
-                              &:hover {
-                                text-decoration: none;
-                              }
-                            }
-                          }
-                        }
-                      }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
                       `}
                     />
                   </div>
@@ -666,30 +668,30 @@ const CodeGuidelines = () => (
                     <CodeBlock
                       language={"scss"}
                       value={`
-                      /* Compiled CSS */
-                      .component {
-                        position: relative; }
+/* Compiled CSS */
+.component {
+  position: relative; }
 
-                        .component-title {
-                          font-size: 1.5em; }
+  .component-title {
+    font-size: 1.5em; }
 
-                        .component-text {
-                          margin-bottom: .5em;}
+  .component-text {
+    margin-bottom: .5em;}
 
-                        .component-text p {
-                          line-height: 1.5; }
+  .component-text p {
+    line-height: 1.5; }
 
-                        .component-links {
-                          list-style: none; }
+  .component-links {
+    list-style: none; }
 
-                          .component-links li {
-                            padding-left: 0; }
+    .component-links li {
+      padding-left: 0; }
 
-                            .component-links li a {
-                              color: blue; }
+      .component-links li a {
+        color: blue; }
 
-                              .component-links li a:hover {
-                                text-decoration: none; }
+        .component-links li a:hover {
+          text-decoration: none; }
                     `}
                     />
                   </div>
@@ -781,22 +783,22 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"scss"}
                   value={`
-                  // Vertically Align anything
-                  // -------------------------------------------------------
-                  @mixin vertical-align($position: relative, $background: $white) {
-                    position: $position;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background-color: $background;
-                  }
+// Vertically Align anything
+// -------------------------------------------------------
+@mixin vertical-align($position: relative, $background: $white) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $background;
+}
 
-                  // Usage
-                  .image {
-                    @include vertical-align(relative, $nxp-orange);
-                    // OR
-                    @include vertical-align($background: $nxp-orange);
-                    // additional css styles go here
-                  }
+// Usage
+.image {
+  @include vertical-align(relative, $nxp-orange);
+  // OR
+  @include vertical-align($background: $nxp-orange);
+  // additional css styles go here
+}
                   `}
                 />
               </section>
@@ -918,17 +920,17 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"jsx"}
                   value={`
-                  //  Template for creating javascript functions
-                  //  Put common code in blocks like this
+//  Template for creating javascript functions
+//  Put common code in blocks like this
 
-                  (function($){
-                    'use strict';
-                      try{
-                          // PUT CODE HERE
-                      } catch(e){
-                        console.error('ERROR STATEMENT::',e);
-                      }
-                  })(jQuery);
+(function($){
+  'use strict';
+    try{
+        // PUT CODE HERE
+    } catch(e){
+      console.error('ERROR STATEMENT::',e);
+    }
+})(jQuery);
                 `}
                 />
               </section>
@@ -1070,17 +1072,17 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"jsx"}
                   value={`
-                  <div className="component-wrapper band cool-grey-xxxlight">
-                    <article className="component">
-                      <h1 className="component-title">Title</h1>
-                      <div className="component-description">
-                        <p>This is a description</p>
-                      </div>
-                      <ul className="component-list">
-                        <li><a href="#">Item</a></li>
-                      </ul>
-                    </article>
-                  </div>
+<div className="component-wrapper band cool-grey-xxxlight">
+  <article className="component">
+    <h1 className="component-title">Title</h1>
+    <div className="component-description">
+      <p>This is a description</p>
+    </div>
+    <ul className="component-list">
+      <li><a href="#">Item</a></li>
+    </ul>
+  </article>
+</div>
                   `}
                 />
 
@@ -1100,30 +1102,30 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"scss"}
                   value={`
-                    // scss
-                  .component {
-                    ... // component styles
+  // scss
+.component {
+  ... // component styles
 
-                    &-wrapper { ... }
+  &-wrapper { ... }
 
-                    &-title { ... }
+  &-title { ... }
 
-                    &-description { ... }
+  &-description { ... }
 
-                    &-list {
-                      li { ... }
-                      a { ... }
-                    }
-                  }
+  &-list {
+    li { ... }
+    a { ... }
+  }
+}
 
-                  // CSS output
-                  .component { ... }
-                  .component-wrapper { ... }
-                  .component-title { ... }
-                  .component-description { ... }
-                  .component-list { ... }
-                    .component-list li { ... }
-                    .component-list a { ... }
+// CSS output
+.component { ... }
+.component-wrapper { ... }
+.component-title { ... }
+.component-description { ... }
+.component-list { ... }
+  .component-list li { ... }
+  .component-list a { ... }
                 `}
                 />
               </section>
@@ -1155,29 +1157,29 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"jsx"}
                   value={`
-                  <div className="component-wrapper band cool-grey-xxxlight">
-                    <article className="component">
-                      <h1 className="component-title">Title</h1>
-                      <div className="component-description">
-                        <p>This is a description</p>
-                      </div>
-                      <ul className="component-list">
-                        <li className="component-item media">
-                          <div className="media-left">
-                            <a href="#">
-                              <img className="media-object" src="" alt="" />
-                            </a>
-                          </div>
-                          <div className="media-body">
-                            <h4 className="media-heading">Media Heading</h4>
-                            <p className="media-text">Some text.</p>
-                          </div>
-                        </li>
-                        <li className="component-item">...</li>
-                        <li className="component-item">...</li>
-                      </ul>
-                    </article>
-                  </div>
+<div className="component-wrapper band cool-grey-xxxlight">
+  <article className="component">
+    <h1 className="component-title">Title</h1>
+    <div className="component-description">
+      <p>This is a description</p>
+    </div>
+    <ul className="component-list">
+      <li className="component-item media">
+        <div className="media-left">
+          <a href="#">
+            <img className="media-object" src="" alt="" />
+          </a>
+        </div>
+        <div className="media-body">
+          <h4 className="media-heading">Media Heading</h4>
+          <p className="media-text">Some text.</p>
+        </div>
+      </li>
+      <li className="component-item">...</li>
+      <li className="component-item">...</li>
+    </ul>
+  </article>
+</div>
                 `}
                 />
               </section>
@@ -1213,29 +1215,30 @@ const CodeGuidelines = () => (
                 </ul>
                 <CodeBlock
                   language={"jsx"}
-                  value={`                  <div className="component-wrapper band cool-grey-xxxlight">
-                    <article className="component">
-                      <h1 className="component-title">Title</h1>
-                      <div className="component-description">
-                        <p>This is a description</p>
-                      </div>
-                      <ul className="component-list is-striped">
-                        <li className="component-item media">
-                          <div className="media-left">
-                            <a href="#">
-                              <img className="media-object" src="" alt="" />
-                            </a>
-                          </div>
-                          <div className="media-body">
-                            <h4 className="media-heading">Media Heading</h4>
-                            <p className="media-text">Some text.</p>
-                          </div>
-                        </li>
-                        <li className="component-item">...</li>
-                        <li className="component-item">...</li>
-                      </ul>
-                    </article>
-                  </div>
+                  value={`                  
+<div className="component-wrapper band cool-grey-xxxlight">
+  <article className="component">
+    <h1 className="component-title">Title</h1>
+    <div className="component-description">
+      <p>This is a description</p>
+    </div>
+    <ul className="component-list is-striped">
+      <li className="component-item media">
+        <div className="media-left">
+          <a href="#">
+            <img className="media-object" src="" alt="" />
+          </a>
+        </div>
+        <div className="media-body">
+          <h4 className="media-heading">Media Heading</h4>
+          <p className="media-text">Some text.</p>
+        </div>
+      </li>
+      <li className="component-item">...</li>
+      <li className="component-item">...</li>
+    </ul>
+  </article>
+</div>
                 `}
                 />
               </section>
@@ -1337,43 +1340,43 @@ const CodeGuidelines = () => (
                 <CodeBlock
                   language={"jsx"}
                   value={`
-                  <div className="key-topic">
-                    <section className="key-topic-list two has-columns">
-                      <article className="key-topic-item">
-                        <figure className="key-topic-img">
-                          <img className="img-responsive" src="http://via.placeholder.com/720x405" />
-                        </figure>
-                        <section className="key-topic-content">
-                          <h2 className="key-topic-title">Smart Things</h2>
-                          <div className="key-topic-description">
-                            <p>This is a short paragraph for the body of the Key Topic Card.</p>
-                          </div>
-                        </section>
-                        <ul className="key-topic-links">
-                          <li><a href="#0">Link 1</a></li>
-                          <li><a href="#0">Link 2</a></li>
-                          <li><a href="#0">Link 3</a></li>
-                        </ul>
-                      </article>
-                      <article className="key-topic-item">
-                        <figure className="key-topic-img">
-                          <img className="img-responsive" src="http://via.placeholder.com/720x405" />
-                        </figure>
-                        <section className="key-topic-content">
-                          <h2 className="key-topic-title">Smart Things</h2>
-                          <div className="key-topic-description">
-                            <p>This is a short paragraph for the body of the Key Topic Card.</p>
-                          </div>
-                        </section>
-                        <ul className="key-topic-links">
-                          <li><a href="#0">Link 1</a></li>
-                          <li><a href="#0">Link 2</a></li>
-                          <li><a href="#0">Link 3</a></li>
-                          <li><a href="#0">Link 4</a></li>
-                        </ul>
-                      </article>
-                    </section>
-                  </div>
+<div className="key-topic">
+  <section className="key-topic-list two has-columns">
+    <article className="key-topic-item">
+      <figure className="key-topic-img">
+        <img className="img-responsive" src="http://via.placeholder.com/720x405" />
+      </figure>
+      <section className="key-topic-content">
+        <h2 className="key-topic-title">Smart Things</h2>
+        <div className="key-topic-description">
+          <p>This is a short paragraph for the body of the Key Topic Card.</p>
+        </div>
+      </section>
+      <ul className="key-topic-links">
+        <li><a href="#0">Link 1</a></li>
+        <li><a href="#0">Link 2</a></li>
+        <li><a href="#0">Link 3</a></li>
+      </ul>
+    </article>
+    <article className="key-topic-item">
+      <figure className="key-topic-img">
+        <img className="img-responsive" src="http://via.placeholder.com/720x405" />
+      </figure>
+      <section className="key-topic-content">
+        <h2 className="key-topic-title">Smart Things</h2>
+        <div className="key-topic-description">
+          <p>This is a short paragraph for the body of the Key Topic Card.</p>
+        </div>
+      </section>
+      <ul className="key-topic-links">
+        <li><a href="#0">Link 1</a></li>
+        <li><a href="#0">Link 2</a></li>
+        <li><a href="#0">Link 3</a></li>
+        <li><a href="#0">Link 4</a></li>
+      </ul>
+    </article>
+  </section>
+</div>
                 `}
                 />
               </section>
