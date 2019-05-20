@@ -1,16 +1,19 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-quotes */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useImperativeHandle } from "react"
+import React from "react"
+import Scrollspy from 'react-scrollspy'
 import { Link } from "gatsby"
 // import { graphql, Link } from "gatsby"
-import ScrollSpySidebar from '../components/scrollspy-sidebar';
+// import ScrollSpySidebar from '../components/scrollspy-sidebar';
 import CodeBlock from "../components/syntax-highlighter"
 import Layout from "../components/layout"
 // import Image from "../components/image"
 import SEO from "../components/seo"
 import "../../sass/nxp-web.scss"
 import "../../sass/basecamp-docs.scss"
+
+
 
 const IndexPageMainContent = () => (
   <div className='bs-docs-section'>
@@ -68,75 +71,76 @@ const IndexPageMainContent = () => (
 
 
     <section className="browser-support">
-      <a className="anchor" id="browser" value="Browser and device support" >
+      <a className='anchor' id="browser" value="Browser and device support" >
         <h2 className="page-header">Browser and device support</h2></a>
       <p>NXP-WEB is built to work best in the latest desktop and mobile browsers, meaning older browsers might display differently styled, though fully functional, renderings of certain components.</p>
+      <section>
+        <a className='anchor' id="browser_support" value="Supported Browsers" >
+          <h3>Supported Browsers</h3></a>
+        <p>Specifically, we support the <strong>latest versions</strong> of the following browsers and platforms. On Windows, <strong>we support Internet Explorer 10+</strong>. More specific support information is provided below.</p>
 
-      <a className="anchor" id="browser_support" value="Supported Browsers" >
-        <h3>Supported Browsers</h3></a>
-      <p>Specifically, we support the <strong>latest versions</strong> of the following browsers and platforms. On Windows, <strong>we support Internet Explorer 10+</strong>. More specific support information is provided below.</p>
+        <div className="table-responsive">
+          <table className="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td />
+                <th>Chrome</th>
+                <th>Firefox</th>
+                <th>Internet Explorer</th>
+                <th>Opera</th>
+                <th>Safari</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Android</th>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-danger"><span className="icon-close" /> </td>
+                <td className="text-muted" rowSpan="3" style={{ verticalAlign: "middle" }}>N/A</td>
+                <td className="text-danger"><span className="icon-close" /> </td>
+                <td className="text-muted">N/A</td>
+              </tr>
+              <tr>
+                <th>iOS</th>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-muted">N/A</td>
+                <td className="text-danger"><span className="icon-close" /> </td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+              </tr>
+              <tr>
+                <th>Mac OS X</th>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+              </tr>
+              <tr>
+                <th>Windows</th>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-success"><span className="icon-checkmark" /></td>
+                <td className="text-danger"><span className="icon-close" /> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <div className="table-responsive">
-        <table className="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <td />
-              <th>Chrome</th>
-              <th>Firefox</th>
-              <th>Internet Explorer</th>
-              <th>Opera</th>
-              <th>Safari</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Android</th>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-danger"><span className="icon-close" /> </td>
-              <td className="text-muted" rowSpan="3" style={{ verticalAlign: "middle" }}>N/A</td>
-              <td className="text-danger"><span className="icon-close" /> </td>
-              <td className="text-muted">N/A</td>
-            </tr>
-            <tr>
-              <th>iOS</th>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-muted">N/A</td>
-              <td className="text-danger"><span className="icon-close" /> </td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-            </tr>
-            <tr>
-              <th>Mac OS X</th>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-            </tr>
-            <tr>
-              <th>Windows</th>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-success"><span className="icon-checkmark" /></td>
-              <td className="text-danger"><span className="icon-close" /> </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <p>Unofficially, NXP-WEB should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 8+, though they are not officially supported.</p>
+      </section>
 
-      <p>Unofficially, NXP-WEB should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 8+, though they are not officially supported.</p>
-    </section>
-
-    <section className="browser-ie">
-      <a className="anchor" id="browser_ie" value="IE Compatibility modes" >
-        <h3>IE Compatibility modes</h3></a>
-      <p>To be sure you're using the latest rendering mode for IE, make sure the following <code>&lt;meta&gt;</code> tag is in your pages:</p>
-      <CodeBlock
-        language={"html"}
-        value={`<meta http-equiv="X-UA-Compatible" content="IE=edge">`} />
+      <section className="browser-ie">
+        <a className='anchor' id="browser_ie" value="IE Compatibility modes" >
+          <h3>IE Compatibility modes</h3></a>
+        <p>To be sure you're using the latest rendering mode for IE, make sure the following <code>&lt;meta&gt;</code> tag is in your pages:</p>
+        <CodeBlock
+          language={"html"}
+          value={`<meta http-equiv="X-UA-Compatible" content="IE=edge">`} />
 
 
-      <p>Confirm the document mode by opening the debugging tools: press <kbd>F12</kbd> and check the "Document Mode".</p>
-      <p>See <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge">this StackOverflow question</a> for more information.</p>
+        <p>Confirm the document mode by opening the debugging tools: press <kbd>F12</kbd> and check the "Document Mode".</p>
+        <p>See <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge">this StackOverflow question</a> for more information.</p>
+      </section>
     </section>
 
 
@@ -153,8 +157,20 @@ const IndexPage = () => (
     <div className="fsl-container container">
       <div className="row" id="content">
         <div className="col-md-3">
+          <div className="fsl-docs-sidebar affix">
+            <Scrollspy className="nav" items={['overview', 'overview_doctype', '#overview_mobile', 'overview_sass', 'overview_grids', 'browser', 'browser_support', 'browser_ie']} currentClassName="active" >
+              <li><a href="#overview">Overview</a></li>
+              <li style={{ paddingLeft: '10px' }}><a href="#overview_doctype">HTML5 doctype</a></li>
+              <li style={{ paddingLeft: '10px' }}><a href="#overview_mobile">Mobile first</a></li>
+              <li style={{ paddingLeft: '10px' }}><a href="#overview_sass">Using Sass</a></li>
+              <li style={{ paddingLeft: '10px' }}><a href="#overview_grids">Grids</a></li>
+              <li><a href="#browser">Browser and device support</a></li>
+              <li style={{ paddingLeft: '10px' }}><a href="#browser_support">Supported browsers</a></li>
+              <li style={{ paddingLeft: '10px' }}><a href="#browser_ie">IE Compatibility modes</a></li>
+            </Scrollspy>
+          </div>
 
-          <ScrollSpySidebar>{IndexPageMainContent()}</ScrollSpySidebar>
+
 
         </div>
         <div className="col-md-9" role="main">
