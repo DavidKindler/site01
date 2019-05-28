@@ -1,15 +1,15 @@
 // ---------------------------------------------------------------------------
-/* Basecamp Docs: styles for branding.nxp/qualcomm */
-/* Do not edit the .css file, edits go in the qc-sass/basecamp-docs.scss file */
+/* Basecamp Docs: styles for branding.nxp */
+/* Do not edit the .css file, edits go in the sass/basecamp-docs.scss file */
 // ---------------------------------------------------------------------------
 
 // Core variables and mixins
 // @import 'inc/nxp_functions';
-@import "inc/nxp_colors";
-@import "inc/nxp_variables";
+@import 'inc/nxp_colors';
+@import 'inc/nxp_variables';
 // @import 'inc/bootstrap/mixins';
-@import "inc/nxp_mixins";
-@import "inc/mixins_b57029";
+@import 'inc/nxp_mixins';
+@import 'inc/mixins_b57029';
 
 // Component Styles
 // @import 'basecamp/navbar';
@@ -18,7 +18,7 @@
 // ----------------------------------------
 //
 .fsl-container {
-  // padding-top: 60px;
+  padding-top: 60px;
   padding-bottom: 30px;
 }
 
@@ -41,6 +41,8 @@
   border-left-width: 5px;
   border-radius: $border-radius-base;
 
+  h4 {
+  }
 
   p {
     &:last-child {
@@ -86,14 +88,12 @@
 
 // Anchor Page Links
 // ----------------------------------------
-a.anchor {
-  text-decoration: none;
-  cursor: default;
-  // position: relative;
-  // display: block;
-  // width: 1px;
-  // height: 60px;
-  // margin-top: -60px;
+.anchor {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 60px;
+  margin-top: -60px;
 }
 
 // FSL Docs Header, dont thik this is being used
@@ -189,17 +189,22 @@ a.anchor {
 
 .iconInfo {
   font-size: 20px;
+  // padding: 3px 0px 3px 5px;
 
   &:hover {
     color: $headings-color;
   }
 
   > span:first-of-type {
-    width: 15%;
-    max-width: 40px;
-    text-align: center;
+    padding-left: 0px;
+    // width: 15%;
+    // max-width: 40px;
+    // text-align: center;
   }
 
+  span {
+    padding: 3px 0px 3px 5px;
+  }
   .display-icon-name {
     font-size: $font-size-small;
     margin-left: $grid-gutter-width-half;
@@ -214,7 +219,7 @@ a.anchor {
 
   &.affix {
     top: 0;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 20px;
   }
 
@@ -273,9 +278,9 @@ a.anchor {
   }
 
   // hide nested lists
-  // .nav {
-  //   // display: none;
-  // }
+  .nav {
+    display: none;
+  }
 
   // reveal nested lists when active
   > .active > .nav {
@@ -298,14 +303,6 @@ a.anchor {
 .show-grid.row {
   margin-bottom: 10px;
 }
-
-// .show-grid [class*='col-'] {
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   color: $qc-color2-dark;
-//   background-color: rgba($qc-color2, 0.15);
-//   border: 1px solid $qc-color2-dark;
-// }
 
 // Type
 // ----------------------------------------
@@ -389,7 +386,7 @@ a.anchor {
 }
 
 *[id].page-header:target:before {
-  content: " ";
+  content: ' ';
   display: block;
   height: 80px;
   margin: 0;
@@ -406,7 +403,7 @@ a.anchor {
   border-radius: $border-radius-base;
 
   &:after {
-    content: "Example";
+    content: 'Example';
     position: absolute;
     top: 15px;
     left: 15px;
@@ -441,51 +438,6 @@ a.anchor {
 // Color Palette Styles
 // ----------------------------------------
 //
-// duplicating bg-variant mixin and declarations here
-// don't want to introduce font-coloring in main stylesheet yet, but need for branding example
-
-// @mixin bg-variant($parent, $color, $text-color: true) {
-//   #{$parent} {
-//     @if $text-color == true {
-//       color: ensureTextContrast($qc-text-light, $color);
-//     }
-//     background-color: $color !important;
-//   }
-// }
-// Primary color - Aqua
-// @include bg-variant('.bg-qc-color1', $qc-color1);
-// @include bg-variant('.bg-qc-color1-light', $qc-color1-light);
-// @include bg-variant('.bg-qc-color1-dark', $qc-color1-dark);
-// // Blue
-// @include bg-variant('.bg-qc-color2', $qc-color2);
-// @include bg-variant('.bg-qc-color2-light', $qc-color2-light);
-// @include bg-variant('.bg-qc-color2-dark', $qc-color2-dark);
-// @include bg-variant('.bg-qc-color2-accent', $qc-color2-accent);
-// // Orange
-// @include bg-variant('.bg-qc-color3', $qc-color3);
-// @include bg-variant('.bg-qc-color3-light', $qc-color3-light);
-// @include bg-variant('.bg-qc-color3-dark', $qc-color3-dark);
-// @include bg-variant('.bg-qc-color3-accent', $qc-color3-accent);
-// // Red
-// @include bg-variant('.bg-qc-color4', $qc-color4);
-// @include bg-variant('.bg-qc-color4-light', $qc-color4-light);
-// @include bg-variant('.bg-qc-color4-dark', $qc-color4-dark);
-// // Violet
-// @include bg-variant('.bg-qc-color5', $qc-color5);
-// @include bg-variant('.bg-qc-color5-light', $qc-color5-light);
-// @include bg-variant('.bg-qc-color5-dark', $qc-color5-dark);
-// // Grayscale
-// @include bg-variant('.bg-qc-text-header', $qc-text-header);
-// @include bg-variant('.bg-qc-text-headline', $qc-text-headline);
-// @include bg-variant('.bg-qc-text-copy', $qc-text-copy);
-// @include bg-variant('.bg-qc-module-dark', $qc-module-dark);
-// @include bg-variant('.bg-qc-module-light-cool', $qc-module-light-cool);
-// @include bg-variant('.bg-qc-module-light', $qc-module-light);
-// @include bg-variant('.bg-qc-module-menu', $qc-module-menu);
-// @include bg-variant('.bg-qc-border-base', $qc-border-base);
-// @include bg-variant('.bg-qc-border-divider', $qc-border-divider);
-// @include bg-variant('.bg-qc-border-divider-cool', $qc-border-divider-cool);
-
 .color-group {
   margin-bottom: 20px;
 
@@ -620,13 +572,13 @@ a.anchor {
   min-width: 150px;
 }
 
-// .pattern-description {
-//   //
-// }
+.pattern-description {
+  //
+}
 
-// .pattern-modifier {
-//   //
-// }
+.pattern-modifier {
+  //
+}
 
 // Metadata
 // TODO: make styles more specific (metadta-audience) to avoid conflicts
@@ -671,6 +623,11 @@ a.anchor {
 // Family Tree
 .family-tree {
   $line-size: 20px;
+  font-size: $font-size-base-plus;
+
+  &-large {
+    font-size: $font-size-h3;
+  }
 
   ul {
     position: relative;
@@ -680,7 +637,7 @@ a.anchor {
       padding-top: $line-size;
 
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 50%;
@@ -696,12 +653,12 @@ a.anchor {
     float: left;
     text-align: center;
     list-style-type: none;
-    padding: $line-size 5px 0 5px;
+    padding: $line-size 0.25em 0 0.25em;
     transition: all $animation-duration-fast $cubic-bezier-base;
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       right: 50%;
@@ -743,6 +700,19 @@ a.anchor {
 
       &:after {
         border: 0 none;
+      }
+    }
+
+    &.assistant {
+      padding-top: 0;
+      transform: translateY(-50%);
+
+      &:first-child:after {
+        display: none !important;
+      }
+
+      &:last-child:before {
+        display: none !important;
       }
     }
 
@@ -788,6 +758,7 @@ a.anchor {
 }
 
 .nxp-wrapper {
+  // needed for site sticky header, interfers with pattern pages, find better solution to page markup
   padding-top: 60px;
 }
 
@@ -814,9 +785,9 @@ a.anchor {
       grid-column-gap: ($grid-gutter-width / 2);
       grid-template-columns: 250px 1fr;
       grid-template-areas:
-        "header header"
-        "aside  body"
-        "footer footer";
+        'header header'
+        'aside  body'
+        'footer footer';
     }
 
     &-header {
@@ -861,9 +832,9 @@ a.anchor {
 .wireframe {
   width: 50%;
 
-  &-section {
+  &-module {
+    position: relative;
     display: block;
-    // text-align: right;
     background-color: #f4f4f5;
     border: 1px solid #ddd;
     border-bottom: none;
@@ -873,82 +844,122 @@ a.anchor {
       border-bottom: 1px solid $border-color-base;
     }
 
-    .wireframe-inner {
-      position: relative;
-      z-index: 1;
-      transform: translateX(50vw);
-
-      @include breakpoint($screen-sm) {
-        transform: translateX(35vw);
-      }
-
-      @include breakpoint($screen-md) {
-        transform: translateX(400px);
-      }
-
-      @include breakpoint($screen-lg) {
-        transform: translateX(475px);
-      }
-
-      @include breakpoint($screen-xl) {
-        transform: translateX(580px);
-      }
-
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        background-color: $black;
-        transform: translateY(-50%);
-      }
-
-      &:before {
-        top: 50%;
-        left: -95px;
-        width: 75px;
-        height: 1px;
-      }
-
-      &:after {
-        top: 50%;
-        left: -20px;
-        width: 5px;
-        height: 5px;
-        border-radius: 5px;
-      }
-    }
-
     // specific section styles
     &.wireframe-overview {
       background: {
-        image: radial-gradient($cool-grey-xxlight, $cool-grey-xxlight),
-          radial-gradient($cool-grey-xxlight, $cool-grey-xxlight),
-          radial-gradient($cool-grey-xxlight, $cool-grey-xxlight);
-        size: calc(100% - 40px) 10px, calc(100% - 80px) 10px;
-        position: 20px 20px, 20px 40px;
+        image: linear-gradient($cool-grey-xxlight, $cool-grey-xxlight),
+          linear-gradient($cool-grey-xxlight, $cool-grey-xxlight),
+          linear-gradient($cool-grey-xxlight, $cool-grey-xxlight);
+        size: calc(100% - 40px) 10px, calc(100% - 80px) 10px,
+          calc(100% - 120px) 10px;
+        position: 20px 20px, 20px 40px, 20px 60px;
         repeat: no-repeat;
       }
     }
 
+    &.wireframe-overview-supplemental {
+      border-top: none;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 1em;
+        left: 10%;
+        width: 80%;
+        height: calc(100% - 2em);
+        background-color: $cool-grey-xxxlight;
+        border: 2px dashed $border-color-base;
+      }
+    }
+
     &.wireframe-valprop {
+      $unit: percentage(1/5);
       background: {
         image: linear-gradient(
           to right,
           $cool-grey-xxlight,
-          $cool-grey-xxlight 20%,
-          transparent 20%,
-          transparent 40%,
-          $cool-grey-xxlight 40%,
-          $cool-grey-xxlight 60%,
-          transparent 60%,
-          transparent 80%,
-          $cool-grey-xxlight 80%,
+          $cool-grey-xxlight $unit,
+          transparent $unit,
+          transparent ($unit * 2),
+          $cool-grey-xxlight ($unit * 2),
+          $cool-grey-xxlight ($unit * 3),
+          transparent ($unit * 3),
+          transparent ($unit * 4),
+          $cool-grey-xxlight ($unit * 4),
           $cool-grey-xxlight
         );
         size: calc(100% - 40px) 20px;
         position: left 20px center;
         repeat: no-repeat;
+      }
+    }
+
+    &.wireframe-products {
+      padding-bottom: 1em;
+      $unit: percentage(1/9);
+      background: {
+        image: linear-gradient(
+          to right,
+          $cool-grey-xxlight,
+          $cool-grey-xxlight $unit,
+          transparent $unit,
+          transparent ($unit * 2),
+          $cool-grey-xxlight ($unit * 2),
+          $cool-grey-xxlight ($unit * 3),
+          transparent ($unit * 3),
+          transparent ($unit * 4),
+          $cool-grey-xxlight ($unit * 4),
+          $cool-grey-xxlight ($unit * 5),
+          transparent ($unit * 5),
+          transparent ($unit * 6),
+          $cool-grey-xxlight ($unit * 6),
+          $cool-grey-xxlight ($unit * 7),
+          transparent ($unit * 7),
+          transparent ($unit * 8),
+          $cool-grey-xxlight ($unit * 8),
+          $cool-grey-xxlight
+        );
+        position: 20px 2em;
+        repeat: no-repeat;
+        size: calc(100% - 40px) 20px;
+      }
+    }
+
+    &.wireframe-products-supplemental {
+      border-top: none;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 1em;
+        left: 10%;
+        width: 80%;
+        height: calc(100% - 2em);
+        background-color: $cool-grey-xxxlight;
+        border: 2px dashed $border-color-base;
+      }
+    }
+
+    &.wireframe-applications {
+      padding-bottom: 1em;
+      $unit: percentage(1/5);
+      background: {
+        image: linear-gradient(
+          to right,
+          $cool-grey-xxlight,
+          $cool-grey-xxlight $unit,
+          transparent $unit,
+          transparent ($unit * 2),
+          $cool-grey-xxlight ($unit * 2),
+          $cool-grey-xxlight ($unit * 3),
+          transparent ($unit * 3),
+          transparent ($unit * 4),
+          $cool-grey-xxlight ($unit * 4),
+          $cool-grey-xxlight
+        );
+        position: 20px 2em;
+        repeat: no-repeat;
+        size: calc(100% - 40px) 20px;
       }
     }
 
@@ -958,7 +969,7 @@ a.anchor {
 
       &:before,
       &:after {
-        content: "";
+        content: '';
         position: absolute;
       }
 
@@ -967,8 +978,8 @@ a.anchor {
         left: 10%;
         width: 80%;
         height: 100%;
-        background-color: $cool-grey-xxlight;
-        border: 1px solid $border-color-base;
+        background-color: $cool-grey-xxxlight;
+        border: 2px dashed $border-color-base;
       }
 
       &:before {
@@ -979,24 +990,283 @@ a.anchor {
         background-color: $cool-grey-xxlight;
       }
 
-      + .wireframe-section {
+      + .wireframe-module {
         border-top: none;
       }
     }
   }
+
+  .wireframe-inner {
+    position: relative;
+    z-index: 1;
+    transform: translateX(50vw);
+    // transform: translateX(110%);
+
+    @include breakpoint($screen-sm) {
+      transform: translateX(35vw);
+    }
+
+    @include breakpoint($screen-md) {
+      transform: translateX(400px);
+    }
+
+    @include breakpoint($screen-lg) {
+      transform: translateX(475px);
+      // transform: none;
+      // position: relative;
+      // display: inline-block;
+      // margin-left: 100%;
+    }
+
+    @include breakpoint($screen-xl) {
+      transform: translateX(580px);
+    }
+
+    // .is-required,
+    // .is-optional {
+    //   display: inline-block;
+    //   padding: $padding-small-vertical $padding-small-horizontal;
+    //   border-radius: $border-radius-base;
+    //
+    //   &:before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 50%;
+    //     left: -2px;
+    //     display: block;
+    //     width: 10px;
+    //     height: 10px;
+    //     transform: rotate(-45deg) translateY(-50%);
+    //   }
+    // }
+
+    // .is-required {
+    //   color: $white;
+    //   background-color: $text-color;
+    //
+    //   &:before {
+    //     background-color: $text-color;
+    //   }
+    // }
+
+    // .is-optional {
+    //   color: $text-color;
+    //   background-color: $white;
+    //   border: 1px solid $text-color;
+    //
+    //   &:before {
+    //     background-color: $white;
+    //     border-color: $text-color;
+    //     border-style: solid;
+    //     border-width: 1px 0 0 1px;
+    //   }
+    // }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      background-color: $black;
+      transform: translateY(-50%);
+    }
+
+    &:before {
+      top: 50%;
+      left: -95px;
+      width: 75px;
+      height: 1px;
+    }
+
+    &:after {
+      top: 50%;
+      left: -20px;
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+    }
+  }
 }
 
-.type-info pre {
-  width: 210px;
+.componentSelections {
+  .panel-image {
+    padding: 0;
+
+    img {
+      position: relative;
+    }
+  }
+
+  .radio + .panel {
+    opacity: 0.75;
+    transition: transform 200ms ease-in-out;
+  }
+
+  .radio.active + .panel {
+    z-index: 1;
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.component-doc {
+  &-header {
+    display: flex;
+    margin-bottom: ($grid-gutter-width / 2);
+  }
+
+  &-title {
+    align-self: flex-end;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: $font-size-h2;
+  }
+
+  &-btn {
+    margin-left: auto;
+  }
+
+  &-body {
+    //
+  }
+
+  &-description {
+    margin-bottom: $grid-gutter-width;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-media {
+    display: flex;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+    margin-bottom: $grid-gutter-width;
+  }
+
+  &-labels {
+    @include list-unstyled();
+    width: percentage(2/12);
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+
+    li {
+      position: relative;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: block;
+        background-color: $black;
+        transform: translateY(-50%);
+      }
+    }
+
+    &.is-left {
+      text-align: right;
+
+      li {
+        &:before {
+          left: unset;
+          right: -45px;
+          width: 30px;
+          height: 1px;
+        }
+
+        &:after {
+          right: -15px;
+          width: 5px;
+          height: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    &.is-right {
+      li {
+        &:before {
+          left: -45px;
+          width: 30px;
+          height: 1px;
+        }
+
+        &:after {
+          left: -15px;
+          width: 5px;
+          height: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  &-image {
+    display: block;
+    width: percentage(8/12);
+    flex-grow: 1;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+
+    img {
+      border: 1px solid $border-color-base;
+    }
+  }
+
+  &-footer {
+    //
+  }
+}
+
+.table-docs {
+  &-element {
+    min-width: 120px;
+  }
+
+  &-required {
+    min-width: 120px;
+  }
+
+  &-description {
+    //
+  }
+
+  &-guidelines {
+    min-width: 200px;
+  }
+}
+
+.heading-list {
+  @include list-unstyled();
+
+  > li {
+    padding-top: ($grid-gutter-width / 2);
+    padding-bottom: ($grid-gutter-width / 2);
+    margin-bottom: 0;
+    border-bottom: 1px solid $border-color-base;
+  }
+
+  .heading-item {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.heading-metadata {
+  @include list-inline(-5px, 5px);
 }
 
 .gridWrapper {
-  border: 1px dashed rgba(250, 50, 50, 0.5);
+  border: 1px dashed rgba(250, 50, 50, .5);
 }
 
 .gridDemo {
-  background-color: rgba(100, 100, 200, 0.1);
+  background-color: rgba(100, 100, 200, .1);
   background-clip: content-box;
-  border: 1px solid rgba(100, 100, 200, 0.25);
+  border: 1px solid rgba(100, 100, 200, .25);
   text-align: center;
 }
+
+.icon-name-text {font-size: 14px;}

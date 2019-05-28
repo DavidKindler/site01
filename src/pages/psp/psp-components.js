@@ -3,15 +3,15 @@ import Layout from "../../components/layout"
 import { Link } from "gatsby"
 import SEO from "../../components/seo"
 
-function Templates() {
+function PSPComponents() {
   return (
     <Layout>
-      <SEO title='Templates' />
+      <SEO title='PSP Components' />
       <div>
-        <h1>Templates page</h1>
+        <h1>PSP Components page</h1>
       </div>
     </Layout>
   )
 }
 
-export default Templates
+export default PSPComponents

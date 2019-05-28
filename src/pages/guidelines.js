@@ -3,7 +3,7 @@
 /* eslint-disable jsx-quotes */
 import React from "react"
 import CodeBlock from "../components/syntax-highlighter"
-
+import Scrollspy from 'react-scrollspy'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -13,7 +13,71 @@ const CodeGuidelines = () => (
 
     <div className="fsl-container container">
       <div className="row" id="content">
-        <div className="col-md-3">sidebar</div>
+        <div className="col-md-3"><div className="fsl-docs-sidebar affix">
+          <Scrollspy className="nav" items={['overview', 'overview_doctype', '#overview_mobile', 'overview_sass', 'overview_grids', 'browser', 'browser_support', 'browser_ie']} currentClassName="active" >
+            <li >
+              <a href="#overview">Overview</a>
+              <ul className="nav">
+              <li ><a href="#overview_general_principles">General Principles</a></li>
+              <li ><a href="#overview_best_practices">Best Practices</a></li>
+              <li ><a href="#overview_whitespace">Whitespace</a></li>
+              <li ><a href="#overview_comments">Comments</a></li>
+              <li ><a href="#overview_code_editors">Code Editors</a></li>
+            </ul>
+            </li>
+            <li >
+              <a href="#html">HTML</a>
+              <ul className="nav">
+              <li ><a href="#html_syntax">Syntax</a></li>
+              <li><a href="#html_attributes">Attribute Order</a></li>
+              <li ><a href="#html_boolean">Boolean Attributes</a></li>
+            </ul>
+            </li>
+            <li >
+              <a href="#css">CSS</a>
+              <ul className="nav">
+              <li ><a href="#css_block_format">Block Formatting</a></li>
+              <li ><a href="#css_selector_format">Selector Formatting</a></li>
+              <li ><a href="#css_declaration">Delcaration Order</a></li>
+              <li ><a href="#css_naming">Naming Convention</a></li>
+            </ul>
+            </li>
+            <li >
+              <a href="#scss">SCSS</a>
+              <ul className="nav">
+              <li ><a href="#scss_nesting">Nesting</a></li>
+              <li><a href="#scss_comments">Comments</a></li>
+              <li ><a href="#scss_variables">Variables</a></li>
+              <li><a href="#scss_extends">Extends</a></li>
+              <li ><a href="#scss_mixins">Mixins</a></li>
+              <li ><a href="#scss_operators">Math Operators</a></li>
+            </ul>
+            </li>
+            <li >
+              <a href="#javascript">Javascript</a>
+              <ul className="nav">
+              <li ><a href="#javascript_syntax">Syntax</a></li>
+              <li ><a href="#javascript_format">Formatting</a></li>
+            </ul>
+            </li>
+            <li >
+              <a href="#tools">Tools</a>
+              <ul className="nav">
+              <li ><a href="#tools_web">Web Tools</a></li>
+            </ul>
+            </li>
+            <li >
+              <a href="#components">Components</a>
+              <ul className="nav active-sidebar">
+              <li ><a href="#components_structure">Structure</a></li>
+              <li ><a href="#components_extending">Extending Components</a></li>
+              <li ><a href="#components_modifiers">Component Modifiers</a></li>
+              <li ><a href="#components_example">Example Component</a></li>
+            </ul>
+            </li>
+          </Scrollspy>
+          <a className="back-to-top" href="#overview">Back to top</a>
+        </div></div>
         <div className="col-md-9" role="main">
           <div className="fsl-docs-section">
             <a className="anchor" id="overview" />
