@@ -46,6 +46,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         value: "/patterns",
       })
     }
+    if (fileNode.dir.includes("/examples")) {
+      createNodeField({
+        node,
+        name: "slug",
+        value: "/examples" + slug,
+      })
+
+      createNodeField({
+        node,
+        name: "dir",
+        value: "/examples",
+      })
+    }
   }
 }
 
@@ -86,6 +99,17 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       }
+
+      if (node.fields.dir === "/examples") {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve("./src/templates/example-template.js"),
+          context: {
+            slug: node.fields.slug,
+          },
+        })
+      }
+
     })
   })
 }

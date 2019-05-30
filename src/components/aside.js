@@ -35,7 +35,7 @@ const Aside = ({ children }) => (
       }
     `}
     render={data => {
-      console.log("aside data", data)
+      // console.log("aside data", data)
       return (
         <>
           <aside style={{ position: "fixed", top: "70px", maxWidth: "200px" }}>

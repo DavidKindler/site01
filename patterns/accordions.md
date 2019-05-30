@@ -2,6 +2,7 @@
 title: "Accordions"
 date: "2019-03-27"
 description: "Demonstrate Accordion Component"
+aside: false
 ---
 
 <div class="container-fluid iw_section">

@@ -18,17 +18,16 @@ import "../../sass/basecamp-docs.scss"
 const IndexPageMainContent = () => (
   <div className='bs-docs-section'>
 
-    <a className='anchor' id='overview' value="Overview" >
-      <h1>Overview</h1>
-    </a>
+    <a className='anchor' id='overview' value="Overview" />
+    <h1>Overview</h1>
     <p className='lead'>NXP Web (NXP-WEB) is the web publishing framework that we use for our corporate website. It is a superset of Bootstrap v3. So if you know Bootstrap you know NXP-WEB! NXP-WEB uses the same grid layout and mobile ready styling built into Bootstrap. We have customized it to reflect the NXP Brand Design through the use of <a href='http://css-tricks.com/multiple-class-id-selectors/' target='_blank' rel='noopener noreferrer'>compound classes</a>.</p>
 
     <p>NXP-WEB allows you to combine classes together to get the features that you want. Using compound classes allows you to create the page style that you need. Adhoc styling should be kept to a minimum.</p>
 
 
     <section className='overview-doctype'>
-      <a className='anchor' id='overview_doctype' value="HTML5 doctype" >
-        <h3>HTML5 doctype</h3></a>
+      <a className='anchor' id='overview_doctype' value="HTML5 doctype" />
+      <h3>HTML5 doctype</h3>
       <p>NXP-WEB makes use of certain HTML elements and CSS3 properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
       <CodeBlock
         language={"html"}
@@ -41,8 +40,8 @@ const IndexPageMainContent = () => (
     </section>
 
     <section className='overview-mobile'>
-      <a className='anchor' id='overview_mobile' value="Mobile First" >
-        <h3>Mobile First</h3></a>
+      <a className='anchor' id='overview_mobile' value="Mobile First" />
+      <h3>Mobile First</h3>
       <p><strong>NXP-WEB is mobile first</strong>.</p>
       <p>To ensure proper rendering and touch zooming, <strong>we add the viewport meta tag</strong> to the <code>&lt;head&gt;</code>.</p>
       <CodeBlock
@@ -57,26 +56,26 @@ const IndexPageMainContent = () => (
     </section>
 
     <section className='overview-sass'>
-      <a className='anchor' id='overview_sass' value="Using SASS" >
-        <h3>Using SASS</h3></a>
+      <a className='anchor' id='overview_sass' value="Using SASS" />
+      <h3>Using SASS</h3>
       <p>NXP-WEB's CSS is built on <Link to='/sass'>SASS</Link>, a preprocessor with additional functionality like variables, mixins, and functions for compiling CSS.</p>
     </section>
 
     <section className='overview-grids'>
-      <a className='anchor' id='overview_grids' value="Grids" >
-        <h3>Grids</h3></a>
+      <a className='anchor' id='overview_grids' value="Grids" />
+      <h3>Grids</h3>
       <p>NXP-WEB uses a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. </p>
     </section>
 
 
 
     <section className="browser-support">
-      <a className='anchor' id="browser" value="Browser and device support" >
-        <h2 className="page-header">Browser and device support</h2></a>
+      <a className='anchor' id="browser" value="Browser and device support" />
+      <h2 className="page-header">Browser and device support</h2>
       <p>NXP-WEB is built to work best in the latest desktop and mobile browsers, meaning older browsers might display differently styled, though fully functional, renderings of certain components.</p>
       <section>
-        <a className='anchor' id="browser_support" value="Supported Browsers" >
-          <h3>Supported Browsers</h3></a>
+        <a className='anchor' id="browser_support" value="Supported Browsers" />
+        <h3>Supported Browsers</h3>
         <p>Specifically, we support the <strong>latest versions</strong> of the following browsers and platforms. On Windows, <strong>we support Internet Explorer 10+</strong>. More specific support information is provided below.</p>
 
         <div className="table-responsive">
@@ -130,8 +129,8 @@ const IndexPageMainContent = () => (
       </section>
 
       <section className="browser-ie">
-        <a className='anchor' id="browser_ie" value="IE Compatibility modes" >
-          <h3>IE Compatibility modes</h3></a>
+        <a className='anchor' id="browser_ie" value="IE Compatibility modes" />
+        <h3>IE Compatibility modes</h3>
         <p>To be sure you're using the latest rendering mode for IE, make sure the following <code>&lt;meta&gt;</code> tag is in your pages:</p>
         <CodeBlock
           language={"html"}

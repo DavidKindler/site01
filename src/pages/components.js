@@ -9,7 +9,7 @@ const Headline = styled.h1`
   color: cornflowerblue;
 `
 const components = ({ data }) => {
-  console.log(data)
+  console.log('component list data', data)
   return (
     <Layout aside={true}>
       <div>
