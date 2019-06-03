@@ -21,7 +21,7 @@ const ExamplePage = ({ data }) => {
           paddingTop: `60px`,
         }}
       >
-        <div><span className="h1">Example Page</span><span className="h2">HTML code below</span></div>
+        <div><span className="h1">Example Page</span>{'   '}<span className="h2">HTML code below</span></div>
         <ExampleLayoutNoLeftNav>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </ExampleLayoutNoLeftNav>

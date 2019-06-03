@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Scrollspy from 'react-scrollspy'
-import IconsJSON from './resources/selection.json';
+import IconsJSON from '../../assets/fonts/selection.json'
 
 
 

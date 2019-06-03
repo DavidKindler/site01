@@ -38,15 +38,17 @@ class NavBar extends React.Component {
             </a>
             <ul className='dropdown-menu'>
               <ListLink to='/resources/templates'>Templates</ListLink>
+              <li style={{ display: "inline-block", marginRight: "1rem" }}>
+                <a target="_blank" href='/resources/Mobile_App_Style_Guide.pdf'>
+                  Mobile Style Guidelines
+              </a>
+              </li>
 
-              <ListLink to='/resources/Mobile_App_Style_Guide.pdf'>
-                Mobile Style Guidelines
-              </ListLink>
-
-
-              <ListLink to='/resources/Microsite_Guidance.pdf'>
-                Microsite Guidelines
-              </ListLink>
+              <li style={{ display: "inline-block", marginRight: "1rem" }}>
+                <a target="_blank" href='/resources/Microsite_Guidance.pdf'>
+                  Microsite Guidelines
+              </a>
+              </li>
               <li role='separator' className='divider' />
               <li>
                 <a className='large bold'> PSP</a>
