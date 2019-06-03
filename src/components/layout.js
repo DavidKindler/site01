@@ -1,15 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql, Link } from "gatsby"
+// import { StaticQuery, graphql, Link } from "gatsby"
 import Header from "./header"
 
-// import "./layout.css"
 
-const ListLink = props => (
-  <li style={{ display: "inline-block", marginRight: "1rem" }}>
-    <Link to={props.to}>{props.children}</Link>
-  </li>
-)
 
 const Layout = ({ children }) => (
   <React.Fragment>

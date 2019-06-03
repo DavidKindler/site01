@@ -74,6 +74,15 @@ exports.createPages = ({ graphql, actions }) => {
               slug
               dir
             }
+            html
+            id
+            frontmatter {
+              template
+              leftnav
+              title
+              date
+              description
+            }
           }
         }
       }
@@ -99,11 +108,11 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       }
-
       if (node.fields.dir === "/examples") {
+        const template = node.frontmatter.template || "example-template-left-nav";
         createPage({
           path: node.fields.slug,
-          component: path.resolve("./src/templates/example-template.js"),
+          component: path.resolve(`./src/templates/${template}.js`),
           context: {
             slug: node.fields.slug,
           },

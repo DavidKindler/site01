@@ -22118,7 +22118,7 @@ h2 .jump-start-icon {
     display: flex;
     flex: 1;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     max-height: 140px; }
     @media screen and (min-width: 480px) {
       .dev-resources-img {

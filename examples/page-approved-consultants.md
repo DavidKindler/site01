@@ -2,7 +2,8 @@
 title: "Approved Engineering Consultants"
 date: "2019-05-29"
 description: "Approved Engineering Consultants"
-aside: true
+template: example-template-left-nav
+leftnav: true
 ---
 
 <div class="container-fluid iw_section">

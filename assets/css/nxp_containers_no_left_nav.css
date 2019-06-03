@@ -1,0 +1,86 @@
+.iw_viewport-wrapper > .container-fluid:first-of-type,
+.iw_viewport-wrapper > .container-fluid:last-of-type,
+.iw_viewport-wrapper > .container-fluid:nth-child(2) {
+  width: 100% !important; }
+
+@media (min-width: 768px) {
+  .container,
+  .iw_viewport-wrapper > .container-fluid {
+    width: 750px !important; } }
+
+@media (min-width: 992px) {
+  .container,
+  .iw_viewport-wrapper > .container-fluid {
+    width: 970px !important; } }
+
+@media (min-width: 1200px) {
+  .container,
+  .iw_viewport-wrapper > .container-fluid {
+    width: 1170px !important; } }
+
+.iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+  display: none; }
+  @media screen and (min-width: 768px) {
+    .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+      display: block;
+      float: left;
+      width: 250px; } }
+  @media screen and (min-width: 992px) {
+    .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-3 {
+      width: 300px; } }
+
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-9 {
+    float: left;
+    width: calc(100% - 250px); } }
+
+@media screen and (min-width: 992px) {
+  .iw_viewport-wrapper > .container-fluid > .iw_row > .col-lg-9 {
+    width: calc(100% - 300px); } }
+
+@media screen and (min-width: 768px) {
+  .iw_viewport-wrapper
+> .container-fluid
+.iw_columns.col-lg-12
+.buyselector
+#product-selector-component {
+    width: 96vw;
+    margin-left: calc((100vw - 735px) / 2 * -1); } }
+
+@media screen and (min-width: 992px) {
+  .iw_viewport-wrapper
+> .container-fluid
+.iw_columns.col-lg-12
+.buyselector
+#product-selector-component {
+    width: 96vw;
+    margin-left: calc((100vw - 955px) / 2 * -1); } }
+
+@media screen and (min-width: 1200px) {
+  .iw_viewport-wrapper
+> .container-fluid
+.iw_columns.col-lg-12
+.buyselector
+#product-selector-component {
+    width: 97vw;
+    margin-left: calc((100vw - 1155px) / 2 * -1); } }
+
+.band {
+  position: relative; }
+  .band:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    display: block;
+    width: 100vw;
+    height: 100%;
+    background-color: inherit;
+    transform: translateX(50%);
+    z-index: -1; }
+  @media screen and (min-width: 768px) {
+    .col-lg-9 .band:before {
+      right: calc(50% + 125px); } }
+  @media screen and (min-width: 992px) {
+    .col-lg-9 .band:before {
+      right: calc(50% + 150px); } }

@@ -1,0 +1,12 @@
+{
+  "use": [
+    "autoprefixer",
+    "cssnano"
+  ],
+  "autoprefixer": {
+    "browsers": "> 1%"
+  },
+  "cssnano": {
+    "autoprefixer": true
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-var loadJS = function(url, implementationCode, location) {
+var loadJS = function (url, implementationCode, location) {
   //url is URL of external file, implementationCode is the code
   //to be called from the file, location is the location to
   //insert the <script> element

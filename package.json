@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "nxp-branding-site",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "1.1.0",
+  "author": "David Kindler",
   "dependencies": {
     "autoprefixer": "^9.5.0",
     "classnames": "^2.2.6",
@@ -54,16 +53,11 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "buildcss2": "postcss -c postcss.json",
     "buildcss": "node-sass ./sass/nxp-web.scss  -o ./assets/css",
+    "buildleftcss": "node-sass ./sass/nxp_containers_left_nav.scss  -o ./assets/css && node-sass ./sass/nxp_containers_no_left_nav.scss  -o ./assets/css",
     "node-sass": "node-sass",
-    "postcss-build": "postcss --use autoprefixer -c postcss-options.json ./assets/css/nxp-web.css -o ./assets/css/nxp-web.min.css",
+    "postcss-build": "postcss --use autoprefixer -c postcss.json ./assets/css/nxp-web.css -o ./assets/css/nxp-web.min.css",
     "postcss": "postcss"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
