@@ -1,7 +1,7 @@
 ---
 title: "Approved Engineering Consultants"
 date: "2019-05-29"
-description: "Approved Engineering Consultants"
+description: "Approved Engineering Consultants Landing Page"
 template: example-template-left-nav
 leftnav: true
 ---

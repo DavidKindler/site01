@@ -9,7 +9,7 @@ import GlobalBundle from "../components/globalBundle"
 
 const ExamplePage = ({ data }) => {
 
-  // console.log('example data', data)
+  console.log('example data no leftnav', data)
   const post = data.markdownRemark
   // console.log('example post', post)
 
@@ -21,7 +21,7 @@ const ExamplePage = ({ data }) => {
           paddingTop: `60px`,
         }}
       >
-        <div><span className="h1">Example Page</span>{'   '}<span className="h2">HTML code below</span></div>
+        <div><span className="h1">{post.frontmatter.title}&nbsp;Example Page</span>{'    '}<span className="h2">(HTML code below)</span></div>
         <ExampleLayoutNoLeftNav>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </ExampleLayoutNoLeftNav>

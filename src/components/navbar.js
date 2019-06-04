@@ -37,16 +37,18 @@ class NavBar extends React.Component {
               Resources <span className='caret' />
             </a>
             <ul className='dropdown-menu'>
+              <ListLink to='/resources/third-party-menu' >Third Party Menu</ListLink>
+              <ListLink to='/examples'>Pattern Pages</ListLink>
               <ListLink to='/resources/templates'>Templates</ListLink>
               <li style={{ display: "inline-block", marginRight: "1rem" }}>
                 <a target="_blank" href='/resources/Mobile_App_Style_Guide.pdf'>
-                  Mobile Style Guidelines
+                  Mobile Style Guidelines (pdf)
               </a>
               </li>
 
               <li style={{ display: "inline-block", marginRight: "1rem" }}>
                 <a target="_blank" href='/resources/Microsite_Guidance.pdf'>
-                  Microsite Guidelines
+                  Microsite Guidelines (pdf)
               </a>
               </li>
               <li role='separator' className='divider' />

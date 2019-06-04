@@ -9,7 +9,7 @@ import GlobalBundle from "../components/globalBundle"
 
 const ExamplePage = ({ data }) => {
 
-  // console.log('example data', data)
+  console.log('example data leftnav', data)
   const post = data.markdownRemark
   // console.log('example post', post)
 
