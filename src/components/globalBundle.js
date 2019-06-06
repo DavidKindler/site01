@@ -22,25 +22,31 @@ export default class GlobalBundle extends React.Component {
     super(props)
   }
 
-  jq = () =>
-    loadJS(
-      `//www.nxp.com/resources/scripts/jquery.min3.1.js`,
-      env => {
-        console.log("jquery loaded")
-        this.bs()
-      },
-      document.head
-    )
+  jq = () => {
+    if (!window.$) {
+      loadJS(
+        `//www.nxp.com/resources/scripts/jquery.min3.1.js`,
+        env => {
+          console.log("jquery loaded")
+          this.bs()
+        },
+        document.head
+      )
+    }
+  }
 
-  bs = () =>
-    loadJS(
-      `//www.nxp.com/resources/scripts/bootstrap.min.3.3.7.js`,
-      env => {
-        console.log("bootstrap loaded")
-        this.gb()
-      },
-      document.body
-    )
+  bs = () => {
+    if (typeof (window.$.fn.popover) === 'undefined') {
+      loadJS(
+        `//www.nxp.com/resources/scripts/bootstrap.min.3.3.7.js`,
+        env => {
+          console.log("bootstrap loaded")
+          // this.gb()
+        },
+        document.body
+      )
+    }
+  }
 
   gb = () =>
     loadJS(
@@ -58,6 +64,9 @@ export default class GlobalBundle extends React.Component {
   render() {
     return (
       <Helmet>
+        {/* <script src="//www.nxp.com/resources/scripts/jquery.min3.1.js"></script> */}
+        {/* <script src="//www.nxp.com/resources/scripts/bootstrap.min.3.3.7.js"></script> */}
+        <script src="//www.nxp.com/resources/scripts/nxp-cms/global-bundle.js"></script>
         {/* <link
           type="text/css"
           rel="stylesheet"

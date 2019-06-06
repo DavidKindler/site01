@@ -4,6 +4,7 @@
 import React from "react"
 import Scrollspy from 'react-scrollspy'
 import { Link } from "gatsby"
+
 // import { graphql, Link } from "gatsby"
 // import ScrollSpySidebar from '../components/scrollspy-sidebar';
 import CodeBlock from "../components/syntax-highlighter"
@@ -12,6 +13,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../../sass/nxp-web.scss"
 import "../../sass/basecamp-docs.scss"
+
 
 
 
@@ -152,6 +154,7 @@ const IndexPageMainContent = () => (
 
 const IndexPage = () => (
   <Layout>
+
     <SEO title='Home' />
     <div className="fsl-container container">
       <div className="row" id="content">

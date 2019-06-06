@@ -33,6 +33,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         value: "/components",
       })
     }
+    if (fileNode.dir.includes("/docs")) {
+      createNodeField({
+        node,
+        name: "slug",
+        value: "/docs" + slug,
+      })
+      createNodeField({
+        node,
+        name: "dir",
+        value: "/docs",
+      })
+    }
     if (fileNode.dir.includes("/patterns")) {
       createNodeField({
         node,
@@ -94,6 +106,15 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve("./src/templates/component-list.js"),
+          context: {
+            slug: node.fields.slug,
+          },
+        })
+      }
+      if (node.fields.dir === "/docs") {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve("./src/templates/reactdocs-template.js"),
           context: {
             slug: node.fields.slug,
           },
