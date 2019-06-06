@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import DropDown from './dropdown'
 
 const ListLink = props => (
-  <li style={{ display: "inline-block", marginRight: "1rem" }}>
+  <li>
     <Link to={props.to}>{props.children}</Link>
   </li>
 )

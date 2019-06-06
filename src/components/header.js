@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Helmet from "react-helmet"
+import ScrollUpButton from "react-scroll-up-button";
 import NavBar from "./navbar"
 import favicon from '../images/favicon.ico';
 
@@ -10,6 +11,7 @@ const Header = ({ siteTitle }) => (
     <Helmet>
       <link rel="icon" href={favicon} type="image/x-icon" />
     </Helmet>
+    <ScrollUpButton />
     <div className="navbar navbar-default megamenu navbar-fixed-top">
       <div className="navbar-header">
         <button
