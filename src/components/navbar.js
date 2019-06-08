@@ -30,6 +30,7 @@ class NavBar extends React.Component {
             <ListLink to='/guidelines'>Code Guidelines</ListLink>
             <ListLink to='/javascript'>Javascript</ListLink>
             <ListLink to='/react'>React</ListLink>
+            <ListLink to='/docs/react'>React2</ListLink>
 
           </DropDown>
 

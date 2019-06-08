@@ -81,7 +81,7 @@ aside: false
       </div>
        <p class="segment-subtitle">HTML markup <span>A</span></p>
 
-```javascript
+```html
 <div
   class="panel-group accordion ui-accordion"
   role="tablist"

@@ -38,7 +38,7 @@ const Aside = ({ children }) => (
       // console.log("aside data", data)
       return (
         <>
-          <aside style={{ position: "fixed", top: "70px", maxWidth: "200px" }}>
+          <aside style={{ position: "fixed", top: "70px", maxWidth: "200px", paddingLeft: '20px' }}>
             <h3 style={{ marginBottom: "1rem" }}>Components</h3>
             {data.components.edges.map(({ node }, index) => (
               <div key={index}>

@@ -29,18 +29,19 @@ URL: https://uat.freescale.com/webapp/offeringAPI/rest/v1/productCode/CODEID/typ
 
 All the PSPs with application board associates have the following div in the summary page template:
 
-```
+```html
 <div id="EBS-accordion" productCode="P2020">...</div>
 ```
 
-we use this div to insert the react code and obtein the spacific codeID to make the query. If we use this div the url will looks like: 
-```
+we use this div to insert the react code and obtein the spacific codeID to make the query. If we use this div the url will looks like:
+
+```html
 https://uat.freescale.com/webapp/offeringAPI/rest/v1/productCode/P2020/typeId/457665322649266814.sp
 ```
 
 This url is consumed in the EBSAccordion.js: 
 
-```
+```javascript
 //const typeId = "/typeId/457665322649266814.sp"
 //ROOT_URL_EBS_ACCORDION: https://uat.freescale.com/webapp/offeringAPI/rest/v1/productCode/
 
@@ -63,7 +64,8 @@ This url is consumed in the EBSAccordion.js:
 ## HTML Markup
 
 [More detail in branding site](https://branding.nxp.com/pattern-accordion.html#partner-panel)
-```
+
+```html
 <div class="partner-group-wrapper band cool-grey-xxxlight">
   <div class="partner-group-header">
     <h2 class="partner-group-heading">Heading</h2>
@@ -129,7 +131,8 @@ This component use an animation to scroll the selecte item to the top of the com
 - Math.easeInOutQuad() - this help ScollTop to make the calcs for the animation
 
 #### handleScroll():
-```
+
+```javascript
     handleScroll(item, ref) {
         let elem = ref
         let divHeigth = this.itemContainer.current;
@@ -139,7 +142,7 @@ This component use an animation to scroll the selecte item to the top of the com
     }
 ```
 #### scrollTo():
-```
+```javascript
 scrollTo(element, to, duration, item, ref) {
 
         var start = element.scrollTop,
@@ -167,7 +170,7 @@ scrollTo(element, to, duration, item, ref) {
 ```
 
 #### Math.easeInOutQuad():
-```
+```javascript
 //t = current time
 //b = start value
 //c = change in value
@@ -192,16 +195,18 @@ For analytics in the items use the standar DTM classes in the EBSItem.js file
 - data-dtmsubaction in the <a>
 
 
-```
-<div className="panel partner-item dtmcustomrulelink" data-dtmaction="Overview Tab - Application Board Click" >
-    <div className="partner-heading" role="tab" id={"heading" + collaps}>
-        <a className="partner-title collapsed" role="button" data-dtmsubaction={"Overview Tab - Application Board Click " + name} data-toggle="collapse" onClick={e => this.props.scroll("collapse" + collaps, this.itemElements.current)} ref={this.itemElements} data-parent="#partner-accordion" href={"#collapse" + collaps} aria-expanded="false" aria-controls={"collapse" + collaps}>
-            <span className="partner-product">{name}</span>&nbsp;<span className="partner-name">by {vendor}</span>
+```html
+<div className='panel partner-item dtmcustomrulelink' data-dtmaction='Overview Tab - Application Board Click' >
+  <div className="partner-heading" role="tab" id={"heading" + collaps}>
+      <a className="partner-title collapsed" role="button" data-dtmsubaction={'Overview Tab - Application Board Click ' + name} data-toggle="collapse" 
+      onClick={e => this.props.scroll('collapse' + collaps, this.itemElements.current)} 
+      ref={this.itemElements} data-parent="#partner-accordion" href={"#collapse" + collaps} aria-expanded="false" aria-controls={"collapse" + collaps}>
+      <span className="partner-product">{name}</span>&nbsp;<span className="partner-name">by {vendor}</span>
         </a>
-    </div>
-    <div>
-        rest of content...
-    </div>
+  </div>
+  <div>
+      rest of content...
+  </div>
 </div>
 ```
 
@@ -209,19 +214,19 @@ For analytics in the items use the standar DTM classes in the EBSItem.js file
 
 For analytics in the filter dropwDown send and object to trackCustomObject() global variable.
 
-```
-    handleAnalytics(name) {
-        let analytics = {
-            call: 'event', //event
-            name: 'event', // event
-            pageActionContentFinding: 'browse', //v1
-            eventPathing: 'Overview tab: Application Boards Click - ' + name, //c16
-            eventAssetid: name, //v16
-            eventPageTemplateType: name, //c23
-            pageAction: 'Overview tab: Application Boards Click - ' + name, //v57
-            search: {},
-            form: {}
-        };
-        trackCustomObject(analytics);
-    }
+```javascript
+handleAnalytics(name) {
+    let analytics = {
+        call: 'event', //event
+        name: 'event', // event
+        pageActionContentFinding: 'browse', //v1
+        eventPathing: 'Overview tab: Application Boards Click - ' + name, //c16
+        eventAssetid: name, //v16
+        eventPageTemplateType: name, //c23
+        pageAction: 'Overview tab: Application Boards Click - ' + name, //v57
+        search: {},
+        form: {}
+    };
+    trackCustomObject(analytics);
+}
 ```

@@ -1448,7 +1448,7 @@ class Css extends React.PureComponent {
                       </div>
                       <div className="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="" /> Option one is this and that—be sure to include why it's great</label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" /> Option one is this and that—be sure to include why it's great</label>
                       </div>
                       <div className="radio">
                         <label>
@@ -1905,7 +1905,7 @@ class Css extends React.PureComponent {
                 <p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow</code> in its place for <code>:focus</code>.</p>
                 <div className="bc-example">
                   <form role="form">
-                    <input className="form-control" id="focusedInput" type="text" value="Demonstrative focus state" autoComplete="off" />
+                    <input className="form-control" id="focusedInput" type="text" defaultValue="Demonstrative focus state" autoComplete="off" />
                   </form>
                 </div>
                 <div className="bs-callout bs-callout-info">
@@ -2534,11 +2534,11 @@ class Css extends React.PureComponent {
                   </p>
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <button type="button" class="close" aria-hidden="true">&times;</button>
-          `} /> 
+          `} />
                 </div>
               </article>
 
@@ -2550,11 +2550,11 @@ class Css extends React.PureComponent {
                   <span className="caret" />
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <span class="caret"></span>
-          `} /> 
+          `} />
                 </div>
               </article>
 
@@ -2563,17 +2563,17 @@ class Css extends React.PureComponent {
                 <h2>Quick Floats</h2>
                 <p>Float an element to the left or right with a class. <code>!important</code> is included to avoid specificity issues. Classes can also be used as mixins.</p>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="pull-left">...</div>
 <div class="pull-right">...</div>
-          `} /> 
+          `} />
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"css"}
-          value={`
+                  <CodeBlock
+                    language={"css"}
+                    value={`
 // Classes
 .pull-left {
   float: left !important;
@@ -2589,8 +2589,8 @@ class Css extends React.PureComponent {
 .another-element {
   .pull-right();
 }
-          `} /> 
-            </div>
+          `} />
+                </div>
                 <p className="mb1">Often you may want to float an image in a certain direction for desktop or tablet views, but not for smaller devices. Use media breakpoint classes like<code>.float-lg-right</code>, <code>.float-md-right</code>, etc. at the breakpoint where you want the float to begin. Available are <code>.float-xs-*</code> = extra small, <code>.float-sm-*</code> = small, <code>.float-md-*</code> = medium and <code>.float-lg-*</code> = large. <code>.float-*-none</code> using any of the breakpoint codes is also available when you do not want a float to exist.</p>
                 <div className="bc-example" data-example-id="">
                   <div className="float-xs-left">Float left on all viewport sizes</div>
@@ -2609,9 +2609,9 @@ class Css extends React.PureComponent {
                   <br />
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div className="float-xs-left">Float left on all viewport sizes</div><br />
 <div className="float-xs-right">Float right on all viewport sizes</div><br />
 <div className="float-xs-none">Don't float on all viewport sizes</div><br />
@@ -2619,8 +2619,8 @@ class Css extends React.PureComponent {
 <div className="float-md-left">Float left on viewports sized MD (medium) or wider</div><br />
 <div className="float-lg-left">Float left on viewports sized LG (large) or wider</div><br />
 <div className="float-xl-left">Float left on viewports sized XL (extra-large) or wider</div>
-          `} /> 
-                  
+          `} />
+
                 </div>
                 <div className="bs-callout bs-callout-warning">
                   <h4>Not for use in navbars</h4>
@@ -2633,16 +2633,16 @@ class Css extends React.PureComponent {
                 <h2>Center content blocks</h2>
                 <p>Set an element to <code>display: block</code> and center via <code>margin</code>. Available as a mixin and class.</p>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="center-block">...</div>
-          `} /> 
+          `} />
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"css"}
-          value={`
+                  <CodeBlock
+                    language={"css"}
+                    value={`
 // Classes
 .center-block {
   display: block;
@@ -2654,8 +2654,8 @@ class Css extends React.PureComponent {
 .element {
   .center-block();
 }
-          `} /> 
-            </div>
+          `} />
+                </div>
               </article>
 
               <article className="helper-classes-clearfix">
@@ -2663,16 +2663,16 @@ class Css extends React.PureComponent {
                 <h2>Clearfix</h2>
                 <p>Clear the <code>float</code> on any element with the <code>.clearfix</code> class. Utilizes <a href="http://nicolasgallagher.com/micro-clearfix-hack/">the micro clearfix</a> as popularized by Nicolas Gallagher. Can also be used as a mixin.</p>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="clearfix">...</div>
-          `} /> 
-            </div>
+          `} />
+                </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"css"}
-          value={`
+                  <CodeBlock
+                    language={"css"}
+                    value={`
 // Mixin itself
 .clearfix() {
   &:before,
@@ -2690,8 +2690,8 @@ class Css extends React.PureComponent {
   .clearfix();
 }
 
-          `} /> 
-            </div>
+          `} />
+                </div>
               </article>
 
               <article className="helper-classes-show-hide">
@@ -2701,17 +2701,17 @@ class Css extends React.PureComponent {
                 <p><code>.hide</code> is available, but it does not always affect screen readers and is <strong>deprecated</strong> as of v3.0.1. Use <code>.hidden</code> or <code>.sr-only</code> instead.</p>
                 <p>Furthermore, <code>.invisible</code> can be used to toggle only the visibility of an element, meaning its <code>display</code> is not modified and the element can still affect the flow of the document.</p>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="show">...</div>
 <div class="hidden">...</div>
-          `} /> 
+          `} />
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"css"}
-          value={`
+                  <CodeBlock
+                    language={"css"}
+                    value={`
 // Classes
 .show {
   display: block !important;
@@ -2732,8 +2732,8 @@ class Css extends React.PureComponent {
   .hidden();
 }
           
-          `} /> 
-            </div>
+          `} />
+                </div>
               </article>
 
               <article className="helper-classes-image-replacement">
@@ -2741,22 +2741,22 @@ class Css extends React.PureComponent {
                 <h2>Image Replacement</h2>
                 <p>Utilize the <code>.text-hide</code> class or mixin to help replace an element's text content with a background image.</p>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <h1 class="text-hide">Custom heading</h1>
-          `} /> 
-            </div>
+          `} />
+                </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"css"}
-          value={`
+                  <CodeBlock
+                    language={"css"}
+                    value={`
 // Usage as a Mixin
 .heading {
   .text-hide();
 }
-          `} /> 
-            </div>
+          `} />
+                </div>
               </article>
 
               <article className="helper-classes-spacers">
@@ -2785,22 +2785,22 @@ class Css extends React.PureComponent {
                 <p><strong>Some examples: </strong><code>.mtq1</code> = margin-top .25em; <code>.p1</code> = padding 1em; <code>.m4</code> = margin 8em <code>.pr0</code> = padding-right: 0</p>
 
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="row mb1">
   <p>Create a row with a 1x margin bottom</p>
 </div>
-          `} /> 
+          `} />
                 </div>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="p1 mt1 mb2">
   <p>create a box that has 1x padding on all sides, a unit of margin above and and twice the margin below</p>
 </div>
-          `} /> 
+          `} />
                 </div>
                 <p><strong>An example demonstrating vertical rhythm using bottom margins:</strong></p>
                 <div className="row">
@@ -2853,13 +2853,13 @@ class Css extends React.PureComponent {
                 <p className="mt1"><strong>For fixed spacing (not responsive)</strong>
                   <br />When a specific distance is required that needs to remain constant regardless of the device, use these classes: <code>.margintop##</code>, <code>.marginbottom##</code>, <code>.marginleft##</code>, <code>.marginright##</code>, <code>.paddingtop##</code>, <code>.paddingbottom##</code>, <code>.paddingleft##</code>, <code>.paddingright##</code>. The spacer classes are created in 5px increments starting at 5px and ending at 100px.</p>
                 <div className="highlight">
-                <CodeBlock
-          language={"html"}
-          value={`
+                  <CodeBlock
+                    language={"html"}
+                    value={`
 <div class="row marginbottom20">
   <p>Creates a row with a 20px margin bottom</p>
 </div>
-          `} /> 
+          `} />
                 </div>
                 <div className="highlight">
                   <h4>Example classes: increments of 5</h4>

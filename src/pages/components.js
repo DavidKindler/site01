@@ -19,14 +19,15 @@ const components = ({ data }) => {
           return (
             <div key={node.id} id={_.camelCase(node.frontmatter.title)}>
               <hr />
+
+              <h3 className='page-header'>{node.frontmatter.title}</h3>
               <Link
                 to={node.fields.patternPage}
-                style={{ textDecoration: "none" }}
-              >
-                <h3>{node.frontmatter.title}</h3>
-                <p>{node.frontmatter.date}</p>
-                <p>{node.excerpt}</p>
-              </Link>
+                className='-button btn btn-sm btn-white'
+              >View Component Details <span className='icon-angle-right' /></Link>
+              <p>{node.frontmatter.date}</p>
+              <div dangerouslySetInnerHTML={{ __html: node.html }} />
+
             </div>
           )
         })}
@@ -50,7 +51,7 @@ export const query = graphql`
             title
             date
           }
-          excerpt
+          html
           fields {
             slug
             patternPage

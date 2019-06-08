@@ -4,7 +4,7 @@ import React from "react"
 import ExampleLayoutNoLeftNav from "../components/example-without-left-nav"
 import { graphql, Link } from "gatsby"
 import CodeBlock from "../components/syntax-highlighter"
-import GlobalBundle from "../components/globalBundle"
+// import GlobalBundle from "../components/globalBundle"
 // import Breacrumb from "../components/breadcrumb"
 
 const ExamplePage = ({ data }) => {
@@ -15,7 +15,7 @@ const ExamplePage = ({ data }) => {
 
   return (
     <React.Fragment>
-      <GlobalBundle />
+      {/* <GlobalBundle /> */}
       <div
         style={{
           paddingTop: `60px`,

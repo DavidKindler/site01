@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout2"
 import { graphql, Link } from "gatsby"
-import GlobalBundle from "../components/globalBundle"
+// import GlobalBundle from "../components/globalBundle"
 // import Breacrumb from "../components/breadcrumb"
 
 const PatternPage = ({ data }) => {
@@ -10,11 +10,12 @@ const PatternPage = ({ data }) => {
   console.log('post', post)
   return (
     <React.Fragment>
-      <GlobalBundle />
+      {/* <GlobalBundle /> */}
 
       <Layout aside={post.frontmatter.aside}>
         {/* <Layout aside> */}
-        <Link to="/components">Back to All Components</Link>
+
+        <Link className='btn btn-sm btn-white' to='/components'>Back to All Components</Link>
         {/* <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.description}</p> */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
