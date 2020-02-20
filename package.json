@@ -16,7 +16,7 @@
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.30",
     "gatsby-remark-prismjs": "^3.2.6",
-    "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-source-filesystem": "^2.1.47",
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.17",
     "postcss": "^7.0.14",
