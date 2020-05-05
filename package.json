@@ -32,7 +32,7 @@
     "react-scroll-up-button": "^1.6.4",
     "react-scrollspy": "^3.4.0",
     "react-waypoint": "^9.0.1",
-    "snyk": "^1.316.1"
+    "snyk": "^1.319.0"
   },
   "devDependencies": {
     "@emotion/core": "^10.0.9",
